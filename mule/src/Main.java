@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    private static Game mulegame;
+    private Game mulegame;
 
     public Main() {
 
@@ -22,19 +22,19 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public void startPlayerConfig() throws Exception {
+    public void startPlayerConfig(Stage astage) throws Exception {
         //TODO - this will start the player config windows
     }
 
 
     public void createGame(String difficulty,
                            int numberOfPlayers,
-                           String map, Stage stage) {
-        mulegame = new Game(difficulty, numberOfPlayers, map, stage);
+                           String map) {
+        mulegame = new Game(difficulty, numberOfPlayers, map);
     }
 
 
-    public static Game getMulegame() {
+    public Game getMulegame() {
         return mulegame;
     }
 

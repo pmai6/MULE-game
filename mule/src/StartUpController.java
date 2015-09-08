@@ -97,18 +97,20 @@ public class StartUpController {
     private void nextButtonAction() throws Exception {
         Stage stage;
         stage = (Stage) nextButton.getScene().getWindow();
+
+
         mainapp.createGame(selectedDifficulty,
-                selectedNumberPlayers, selectedMap, stage);
+                selectedNumberPlayers, selectedMap);
 
         // Just output to console to test if data was inputted correctly into
-        // Game object
+        // Game object - will remove later  TOREMOVE
         System.out.println(mainapp.getMulegame().getDifficulty()
                 + " " + mainapp.getMulegame().getNumberOfPlayers()
                 +  " "+  mainapp.getMulegame().getMap());
 
 
         // the below starts the next window
-        mainapp.startPlayerConfig();
+        mainapp.startPlayerConfig(stage);
 
 
     }

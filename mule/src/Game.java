@@ -7,15 +7,13 @@ public class Game {
 
     private int numberOfPlayers;
     private Player [] playerArray;
-    private Stage stage;
     private String difficulty;
     private String map;
 
-    public Game (String adifficulty, int anumPlayers, String amap, Stage astage){
+    public Game (String adifficulty, int anumPlayers, String amap){
         difficulty = adifficulty;
         numberOfPlayers = anumPlayers;
         playerArray = new Player[anumPlayers];
-        stage = astage;
         map = amap;
     }
 
