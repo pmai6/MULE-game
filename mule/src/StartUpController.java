@@ -40,19 +40,6 @@ public class StartUpController {
 
 
     public  StartUpController() {
-        difficultyComboData.add("Beginner");
-        difficultyComboData.add("Standard");
-        difficultyComboData.add("Tournament");
-
-        numberPlayersComboData.add(2);
-        numberPlayersComboData.add(3);
-        numberPlayersComboData.add(4);
-
-
-        mapTypeComboData.add("Standard");
-        mapTypeComboData.add("Random");
-
-
     }
 
     /**
@@ -71,6 +58,17 @@ public class StartUpController {
     @FXML
     private void initialize() {
         // Init ComboBox's
+        difficultyComboData.add("Beginner");
+        difficultyComboData.add("Standard");
+        difficultyComboData.add("Tournament");
+
+        numberPlayersComboData.add(2);
+        numberPlayersComboData.add(3);
+        numberPlayersComboData.add(4);
+
+
+        mapTypeComboData.add("Standard");
+        mapTypeComboData.add("Random");
         difficultyCombo.setItems(difficultyComboData);
         numberPlayersCombo.setItems(numberPlayersComboData);
         mapTypeCombo.setItems(mapTypeComboData);
