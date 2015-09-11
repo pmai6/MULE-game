@@ -26,6 +26,9 @@ public class Main extends Application {
         //TODO - this will start the player config windows
     }
 
+    public void startGameController(Stage astage) throws Exception {
+        //TODO - this will start the player config windows
+    }
 
     public void createGame(String difficulty,
                            int numberOfPlayers,
@@ -37,6 +40,7 @@ public class Main extends Application {
     public Game getMulegame() {
         return mulegame;
     }
+
 
     public static void main(String[] args) {
         launch(args);
