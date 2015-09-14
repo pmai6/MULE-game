@@ -1,15 +1,18 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.awt.Label;
+import java.awt.TextField;
 
 
 public class playerConfigController {
 
+    public javafx.scene.control.Label raceInfo;
     // variables to functionality to comboboxes and buttons
     @FXML
     private ComboBox<String> raceCombo;
@@ -35,6 +38,7 @@ public class playerConfigController {
     private String selectedRace;
     private String selectedColor;
     private String selectedPlayerName;
+    private String raceInfoValue;
 
 
     public  playerConfigController() {
@@ -75,6 +79,21 @@ public class playerConfigController {
     private void handleRaceComboAction() {
         selectedRace =
                 raceCombo.getSelectionModel().getSelectedItem();
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Ugaite") {
+                    raceInfo.setText("From the Nekite Galaxy. Ugaites love land. To get it they are willing to stick their necks out!");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Human") {
+                    raceInfo.setText("From the Earth Systems. Humanoids start with $600 because they are too smart! Expert Species");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Bonzoid") {
+                    raceInfo.setText("From the Armpull Galaxy. Bonzoids love climbing and are often found hanging around in the mountains");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Buzzite") {
+                    raceInfo.setText("From the Jacket System. Love to fly high above the competition");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Flapper") {
+                    raceInfo.setText("From the Boird-Drop Galaxy. All Flappers receive an extra $600 in their nest egg! Beginner Species");
+                }
     }
 
     @FXML
