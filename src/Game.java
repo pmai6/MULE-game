@@ -9,14 +9,19 @@ public class Game {
     private Player [] playerArray;
     private String difficulty;
     private String map;
+    private int n;
 
-    public Game (String adifficulty, int anumPlayers, String amap){
+    public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
         numberOfPlayers = anumPlayers;
         playerArray = new Player[anumPlayers];
+        n = number;
         map = amap;
     }
 
+    public int getN() {return n;}
+
+    public void setN(int t) {this.n = t;}
 
     public int getNumberOfPlayers() {
         return numberOfPlayers;

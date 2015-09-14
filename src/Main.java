@@ -38,8 +38,8 @@ public class Main extends Application {
 
     public void createGame(String difficulty,
                            int numberOfPlayers,
-                           String map) {
-        mulegame = new Game(difficulty, numberOfPlayers, map);
+                           String map, int n) {
+        mulegame = new Game(difficulty, numberOfPlayers, map, n);
     }
 
 

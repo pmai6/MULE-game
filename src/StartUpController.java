@@ -98,7 +98,7 @@ public class StartUpController {
 
 
         mainapp.createGame(selectedDifficulty,
-                selectedNumberPlayers, selectedMap);
+                selectedNumberPlayers, selectedMap, selectedNumberPlayers);
 
         // the below starts the next window
         mainapp.startPlayerConfig(stage);
