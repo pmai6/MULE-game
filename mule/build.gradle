@@ -1,0 +1,14 @@
+defaultTasks  'build'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+}
+jar {
+    manifest {
+                   
+    }
+}
