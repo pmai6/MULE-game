@@ -3,6 +3,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.paint.*;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -13,6 +14,7 @@ import java.awt.TextField;
 public class playerConfigController {
 
     public javafx.scene.control.Label raceInfo;
+    public javafx.scene.control.Label colorLabel;
     // variables to functionality to comboboxes and buttons
     @FXML
     private ComboBox<String> raceCombo;
@@ -80,7 +82,7 @@ public class playerConfigController {
         selectedRace =
                 raceCombo.getSelectionModel().getSelectedItem();
                 if (raceCombo.getSelectionModel().getSelectedItem() == "Ugaite") {
-                    raceInfo.setText("From the Nekite Galaxy. Ugaites love land. To get it they are willing to stick their necks out!");
+                    raceInfo.setText("From the Nekite Galaxy. Ugaite love land. To get it they are willing to stick their necks out!");
                 }
                 if (raceCombo.getSelectionModel().getSelectedItem() == "Human") {
                     raceInfo.setText("From the Earth Systems. Humanoids start with $600 because they are too smart! Expert Species");
@@ -100,6 +102,18 @@ public class playerConfigController {
     private void handleColorComboAction() {
         selectedColor =
                 colorCombo.getSelectionModel().getSelectedItem();
+                if (colorCombo.getSelectionModel().getSelectedItem() == "red") {
+                    colorLabel.setTextFill(javafx.scene.paint.Color.RED);
+                }
+                if (colorCombo.getSelectionModel().getSelectedItem() == "blue") {
+                    colorLabel.setTextFill(javafx.scene.paint.Color.BLUE);
+                }
+                if (colorCombo.getSelectionModel().getSelectedItem() == "purple") {
+                    colorLabel.setTextFill(javafx.scene.paint.Color.PURPLE);
+                }
+                if (colorCombo.getSelectionModel().getSelectedItem() == "green") {
+                    colorLabel.setTextFill(javafx.scene.paint.Color.GREEN);
+                }
     }
 
     @FXML
