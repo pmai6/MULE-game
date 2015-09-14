@@ -56,13 +56,11 @@ public class playerConfigController {
     @FXML
     private void initialize() {
         // Init ComboBox's
-        raceComboData.add("Packer");
-        raceComboData.add("Spheroid");
-        raceComboData.add("Humanoid");
-        raceComboData.add("Leggite");
+        raceComboData.add("Human");
+        raceComboData.add("Ugaite");
         raceComboData.add("Flapper");
         raceComboData.add("Bonzoid");
-        raceComboData.add("Mechtron");
+        raceComboData.add("Buzzite");
 
         colorComboData.add("purple");
         colorComboData.add("green");
