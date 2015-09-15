@@ -15,6 +15,8 @@ public class GameController {
 
     //creating Main object so can talk to Main methods
     private Main mainapp;
+    @FXML
+    private Button goToTown;
 
 
     public  GameController() {
@@ -44,7 +46,7 @@ public class GameController {
 
 
     @FXML
-    private void nextButtonAction() throws Exception {
-        Stage stage;
+    private void gotToTownButton() throws Exception {
+System.out.println("I'm in town, baby!!!");
     }
 }
