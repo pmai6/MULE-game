@@ -46,7 +46,7 @@ public class GameController {
 
 
     @FXML
-    private void gotToTownButton() throws Exception {
+    private void goToTownButton() throws Exception {
 System.out.println("I'm in town, baby!!!");
     }
 }
