@@ -35,8 +35,10 @@ public class GameController {
      */
     @FXML
     private void initialize() {
-        // Init ComboBox's
-
+       for (Player newplayer : Game.getMulegame().getPlayerArray()) {
+            System.out.println(newplayer.getPlayerName() + " " + newplayer
+                    .getPlayerColor() + " " + newplayer.getPlayerRace());
+        }
     }
 
 

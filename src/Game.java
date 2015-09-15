@@ -1,22 +1,55 @@
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * Created by travisclement on 9/7/15.
  */
 public class Game {
 
     private int numberOfPlayers;
-    private Player [] playerArray;
+    private ArrayList<Player> playerArray;
     private String difficulty;
     private String map;
     private int n;
+    private static Game mulegame;
+    private static int  playerCounter = 0;
+    private ArrayList<String> colorList = new ArrayList<>(Arrays.asList
+            ("purple","green","red","blue"));
 
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
         numberOfPlayers = anumPlayers;
-        playerArray = new Player[anumPlayers];
+        playerArray = new ArrayList<>(anumPlayers);
         n = number;
         map = amap;
+
+    }
+
+
+    public static void createGame(String difficulty,
+                           int numberOfPlayers,
+                           String map, int n) {
+        mulegame = new Game(difficulty, numberOfPlayers, map, n);
+    }
+
+    public static Game getMulegame() {
+        return mulegame;
+    }
+
+    public static int getPlayerCounter() {
+        return playerCounter;
+    }
+
+    public static void incrementPlayerCounter() {
+        Game.playerCounter++;
+    }
+
+    public void addPlayerToArray(Player player) {
+        playerArray.add(player);
+    }
+    public  ArrayList getColor() {
+        return colorList;
     }
 
     public int getN() {return n;}
@@ -39,11 +72,11 @@ public class Game {
         this.map = map;
     }
 
-    public Player[] getPlayerArray() {
+    public ArrayList<Player> getPlayerArray() {
         return playerArray;
     }
 
-    public void setPlayerArray(Player[] playerArray) {
+    public void setPlayerArray(ArrayList<Player> playerArray) {
         this.playerArray = playerArray;
     }
 

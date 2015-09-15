@@ -97,7 +97,7 @@ public class StartUpController {
         stage = (Stage) nextButton.getScene().getWindow();
 
 
-        mainapp.createGame(selectedDifficulty,
+        Game.createGame(selectedDifficulty,
                 selectedNumberPlayers, selectedMap, selectedNumberPlayers);
 
         // the below starts the next window

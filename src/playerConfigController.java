@@ -6,9 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.*;
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.awt.Label;
-import java.awt.TextField;
+import javafx.scene.control.TextField;
+import java.util.ArrayList;
 
 
 public class playerConfigController {
@@ -39,7 +38,7 @@ public class playerConfigController {
 
     private String selectedRace;
     private String selectedColor;
-    private String selectedPlayerName;
+    private String playerName;
     private String raceInfoValue;
 
 
@@ -68,10 +67,13 @@ public class playerConfigController {
         raceComboData.add("Bonzoid");
         raceComboData.add("Buzzite");
 
-        colorComboData.add("purple");
-        colorComboData.add("green");
-        colorComboData.add("red");
-        colorComboData.add("blue");
+
+        ArrayList<String> colorList;
+        colorList = Game.getMulegame().getColor();
+        for (String color : colorList) {
+            colorComboData.add(color);
+
+        }
 
         raceCombo.setItems(raceComboData);
         colorCombo.setItems(colorComboData);
@@ -116,17 +118,20 @@ public class playerConfigController {
                 }
     }
 
-    @FXML
-    private void handlePlayerNameComboAction() {
-        selectedPlayerName = playerNameBox.getText();
-    }
 
     @FXML
     private void nextButtonAction() throws Exception {
         Stage stage;
         stage = (Stage) nextButton.getScene().getWindow();
-        if (mainapp.getMulegame().getN() > 1) {
-            mainapp.getMulegame().setN(mainapp.getMulegame().getN() - 1);
+        Game.getMulegame().getColor().remove(selectedColor);
+
+        playerName =  playerNameBox.getText();
+        Player.createNewGamePlayer(playerName,
+                selectedRace, selectedColor);
+
+
+        if (Game.getMulegame().getN() > 1) {
+            Game.getMulegame().setN(Game.getMulegame().getN() - 1);
             mainapp.startPlayerConfig(stage);
         } else {
             System.out.println("This is where the game opens");

@@ -46,4 +46,11 @@ public class Player {
     public void setPlayerColor(String playerColor) {
         this.playerColor = playerColor;
     }
+
+    public static void createNewGamePlayer (String playerName,
+                                            String selectedRace,
+                                            String selectedColor) {
+        Player newplayer = new Player(playerName, selectedRace, selectedColor);
+        Game.getMulegame().addPlayerToArray(newplayer);
+    }
 }

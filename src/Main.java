@@ -6,11 +6,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    private Game mulegame;
 
-    public Main() {
-
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -40,17 +36,6 @@ public class Main extends Application {
         GameController controller = fxmlLoader.getController();
         controller.setMainApp(this);
         astage.show();
-    }
-
-    public void createGame(String difficulty,
-                           int numberOfPlayers,
-                           String map, int n) {
-        mulegame = new Game(difficulty, numberOfPlayers, map, n);
-    }
-
-
-    public Game getMulegame() {
-        return mulegame;
     }
 
 
