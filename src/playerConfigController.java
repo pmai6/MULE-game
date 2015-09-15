@@ -125,12 +125,12 @@ public class playerConfigController {
     private void nextButtonAction() throws Exception {
         Stage stage;
         stage = (Stage) nextButton.getScene().getWindow();
-        System.out.println(mainapp.getMulegame().getN());
         if (mainapp.getMulegame().getN() > 1) {
             mainapp.getMulegame().setN(mainapp.getMulegame().getN() - 1);
             mainapp.startPlayerConfig(stage);
         } else {
             System.out.println("This is where the game opens");
+            mainapp.startGameController(stage);
         }
     }
 }

@@ -33,7 +33,13 @@ public class Main extends Application {
     }
 
     public void startGameController(Stage astage) throws Exception {
-        //TODO - this will start the player config windows
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameScreen.fxml"));
+        Parent root = fxmlLoader.load();
+        astage.setScene(new Scene(root));
+        astage.setTitle("M.U.L.E Game Screen");
+        GameController controller = fxmlLoader.getController();
+        controller.setMainApp(this);
+        astage.show();
     }
 
     public void createGame(String difficulty,
