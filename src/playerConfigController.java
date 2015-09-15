@@ -126,7 +126,7 @@ public class playerConfigController {
         Stage stage;
         stage = (Stage) nextButton.getScene().getWindow();
         System.out.println(mainapp.getMulegame().getN());
-        if (mainapp.getMulegame().getN() >= 1) {
+        if (mainapp.getMulegame().getN() > 1) {
             mainapp.getMulegame().setN(mainapp.getMulegame().getN() - 1);
             mainapp.startPlayerConfig(stage);
         } else {
