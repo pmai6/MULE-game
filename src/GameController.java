@@ -47,6 +47,9 @@ public class GameController {
 
     @FXML
     private void goToTownButton() throws Exception {
-System.out.println("I'm in town, baby!!!");
+        System.out.println("I'm in town, baby!!!");
+        Stage stage;
+        stage = (Stage) goToTown.getScene().getWindow();
+        mainapp.startTownController(stage);
     }
 }
