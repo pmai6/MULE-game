@@ -6,5 +6,5 @@ public class Map {
     public Map() {
 
     }
-    public Tile[] tiles;
+    public Tile[][] tiles;
 }
