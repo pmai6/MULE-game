@@ -3,6 +3,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.*;
 import javafx.stage.Stage;
 
@@ -17,7 +19,20 @@ public class GameController {
     private Main mainapp;
     @FXML
     private Button goToTown;
-
+    @FXML
+    private AnchorPane town;
+    @FXML
+    private HBox map;
+    @FXML
+    private Button store;
+    @FXML
+    private Button landOffice;
+    @FXML
+    private Button assayOffice;
+    @FXML
+    private Button pub;
+    @FXML
+    private Button exit;
 
     public  GameController() {
     }
@@ -43,13 +58,31 @@ public class GameController {
         }
     }
 
-
+    @FXML
+    private void handleStoreAction() {
+        System.out.println("Store Opens");
+    }
 
     @FXML
+    private void handleLandOfficeAction() {
+        System.out.println("Land Office Opens");
+    }
+
+    @FXML
+    private void handleAssayOfficeAction() {
+        System.out.println("Assay Office Opens");
+    }
+    @FXML private void handlePubAction() {
+        System.out.println("Time to get Drunk");
+    }
+    @FXML
+    private void exitButtonAction() throws Exception {
+        town.setVisible(false);
+        map.setVisible(true);
+    }
+    @FXML
     private void goToTownButton() throws Exception {
-        System.out.println("I'm in town, baby!!!");
-        Stage stage;
-        stage = (Stage) goToTown.getScene().getWindow();
-        mainapp.startTownController(stage);
+        map.setVisible(false);
+      town.setVisible(true);
     }
 }
