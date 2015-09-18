@@ -37,15 +37,7 @@ public class Main extends Application {
         controller.setMainApp(this);
         astage.show();
     }
-    public void startTownController(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Town.fxml"));
-        Parent root = fxmlLoader.load();
-        stage.setScene(new Scene(root));
-        stage.setTitle("M.U.L.E Town Screen");
-        TownController controller = fxmlLoader.getController();
-        controller.setMainApp(this);
-        stage.show();
-    }
+
 
 
     public static void main(String[] args) {
