@@ -104,16 +104,16 @@ public class playerConfigController {
     private void handleColorComboAction() {
         selectedColor =
                 colorCombo.getSelectionModel().getSelectedItem();
-                if (colorCombo.getSelectionModel().getSelectedItem() == "red") {
+                if (colorCombo.getSelectionModel().getSelectedItem() == "RED") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.RED);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "blue") {
+                if (colorCombo.getSelectionModel().getSelectedItem() == "BLUE") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.BLUE);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "purple") {
+                if (colorCombo.getSelectionModel().getSelectedItem() == "PURPLE") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.PURPLE);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "green") {
+                if (colorCombo.getSelectionModel().getSelectedItem() == "GREEN") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.GREEN);
                 }
     }

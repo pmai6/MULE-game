@@ -13,7 +13,7 @@ public class Game {
     private static Game mulegame;
     private static int  playerCounter = 0;
     private ArrayList<String> colorList = new ArrayList<>(Arrays.asList
-            ("purple","green","red","blue"));
+            ("PURPLE","GREEN","RED","BLUE"));
 
     private static boolean isLandSelectionPhase;
 

@@ -497,8 +497,7 @@ public class GameController {
                                          int money, int ore, int food, String
                                          color) {
         playerOneName.setText(name);
-        setPlayerNameColor(color, playerOneName);
-
+        playerOneName.setStyle(" -fx-text-fill :" + color + ";");
         playerOneRace.setText(race);
         playerOneScore.setText(String.valueOf(score));
         playerOneMoney.setText(String.valueOf(money));
@@ -510,7 +509,8 @@ public class GameController {
                                          int money, int ore, int food, String
                                          color) {
         playerTwoName.setText(name);
-        setPlayerNameColor(color, playerTwoName);
+        playerTwoName.setStyle(" -fx-text-fill :" + color + ";");
+
         playerTwoRace.setText(race);
         playerTwoScore.setText(String.valueOf(score));
         playerTwoMoney.setText(String.valueOf(money));
@@ -523,7 +523,7 @@ public class GameController {
                                            int money, int ore, int food,
                                            String color) {
         playerThreeName.setText(name);
-        setPlayerNameColor(color, playerThreeName);
+        playerThreeName.setStyle(" -fx-text-fill :" + color + ";");
         playerThreeRace.setText(race);
         playerThreeScore.setText(String.valueOf(score));
         playerThreeMoney.setText(String.valueOf(money));
@@ -535,7 +535,7 @@ public class GameController {
                                           int money, int ore, int food,
                                           String color) {
         playerFourName.setText(name);
-        setPlayerNameColor(color, playerFourName);
+        playerFourName.setStyle(" -fx-text-fill :" + color + ";");
         playerFourRace.setText(race);
         playerFourScore.setText(String.valueOf(score));
         playerFourMoney.setText(String.valueOf(money));
@@ -544,20 +544,6 @@ public class GameController {
     }
 
 
-    public void setPlayerNameColor (String color, Label playername) {
-        if (color.equals("red")) {
-            playername.setTextFill(javafx.scene.paint.Color.RED);
-        }
-        if (color.equals("blue")) {
-            playername.setTextFill(javafx.scene.paint.Color.BLUE);
-        }
-        if (color.equals("purple")) {
-            playername.setTextFill(javafx.scene.paint.Color.PURPLE);
-        }
-        if (color.equals("green")) {
-            playername.setTextFill(javafx.scene.paint.Color.GREEN);
-        }
-    }
 
 }
 
