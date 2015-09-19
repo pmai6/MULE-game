@@ -15,7 +15,7 @@ public class Game {
     private ArrayList<String> colorList = new ArrayList<>(Arrays.asList
             ("purple","green","red","blue"));
 
-    private boolean isLandSelectionPhase;
+    private static boolean isLandSelectionPhase;
 
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
@@ -92,7 +92,7 @@ public class Game {
         return isLandSelectionPhase;
     }
 
-    public void setIsLandSelectionPhase(boolean isLandSelectionPhase) {
-        this.isLandSelectionPhase = isLandSelectionPhase;
+    public static void setIsLandSelectionPhase(boolean isLandSelect) {
+        isLandSelectionPhase = isLandSelect;
     }
 }

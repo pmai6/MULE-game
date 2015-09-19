@@ -135,7 +135,7 @@ public class playerConfigController {
             mainapp.startPlayerConfig(stage);
         } else {
             System.out.println("This is where the game opens");
-            MapManager.setUpMap();
+            GameManager.startTheGame();
             mainapp.startGameController(stage);
         }
     }
