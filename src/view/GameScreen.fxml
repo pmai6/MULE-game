@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1024.0" style="-fx-background-color: GREY;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1024.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
    <children>
       <HBox fx:id="map" layoutX="218.0" layoutY="76.0" prefHeight="335.0" prefWidth="584.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -221,7 +221,7 @@
             <Glow />
          </effect>
       </HBox>
-      <HBox fx:id="playerfour" layoutX="813.0" layoutY="312.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0">
+      <HBox fx:id="playerfour" layoutX="813.0" layoutY="312.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0">
          <children>
             <GridPane>
                <columnConstraints>
@@ -265,7 +265,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox fx:id="playerthree" layoutX="11.0" layoutY="305.0" prefHeight="202.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0">
+      <HBox fx:id="playerthree" layoutX="11.0" layoutY="305.0" prefHeight="202.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0">
          <children>
             <GridPane>
                <columnConstraints>
@@ -309,7 +309,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="813.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0" AnchorPane.topAnchor="10.0">
+      <HBox layoutX="813.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0" AnchorPane.topAnchor="10.0">
          <children>
             <GridPane>
               <columnConstraints>
@@ -353,19 +353,15 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="228.0" layoutY="553.0" prefHeight="202.0" prefWidth="576.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="220.0">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Game Information stuff" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </Label>
-         </children>
+      <HBox layoutX="228.0" layoutY="553.0" prefHeight="202.0" prefWidth="576.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="220.0">
          <effect>
-            <Glow />
+            <DropShadow />
          </effect>
+         <children>
+            <AnchorPane prefHeight="239.0" prefWidth="576.0" />
+         </children>
       </HBox>
-      <HBox layoutX="814.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GREY;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <HBox layoutX="814.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <GridPane>
                <columnConstraints>
@@ -410,28 +406,10 @@
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="222.0" layoutY="360.0" prefHeight="32.0" prefWidth="576.0">
-         <children>
-            <Label alignment="CENTER" contentDisplay="TOP" nodeOrientation="LEFT_TO_RIGHT" prefHeight="88.0" prefWidth="297.0" text="Mule" textFill="#320ae8">
-               <font>
-                  <Font name="Courier Bold" size="96.0" />
-               </font>
-            </Label>
-         </children>
          <effect>
             <Glow />
          </effect>
       </HBox>
-      <HBox layoutX="293.0" layoutY="446.0" prefHeight="100.0" prefWidth="470.0" AnchorPane.bottomAnchor="234.0" AnchorPane.leftAnchor="293.0" AnchorPane.rightAnchor="261.0">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="280.0" text="Place holder for buttons and such" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-         </children>
-         <effect>
-            <Glow />
-         </effect></HBox>
       <AnchorPane fx:id="town" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
          <children>
             <Button fx:id="assayOffice" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAssayOfficeAction" prefHeight="151.0" prefWidth="160.0" style="-fx-background-color: RED;" text="Assay Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
@@ -464,10 +442,26 @@
             <Glow />
          </effect>
       </AnchorPane>
-      <VBox layoutX="63.0" layoutY="245.0" prefHeight="200.0" prefWidth="100.0">
+      <AnchorPane layoutX="220.0" layoutY="352.0" prefHeight="217.0" prefWidth="576.0">
          <children>
-            <TextFlow prefHeight="200.0" prefWidth="200.0" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="97.0" layoutY="-8.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="88.0" prefWidth="297.0" text="Mule" textFill="#320ae8">
+               <font>
+                  <Font name="Courier Bold" size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="gamestate" alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="74.0" prefHeight="35.0" prefWidth="551.0" text="Label">
+               <font>
+                  <Font name="Courier Bold" size="33.0" />
+               </font>
+            </Label>
+            <ButtonBar layoutX="65.0" layoutY="148.0" prefHeight="40.0" prefWidth="446.0">
+              <buttons>
+                <Button minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" text="Button" />
+                  <Button minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" text="Button" />
+                  <Button minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" text="Button" />
+              </buttons>
+            </ButtonBar>
          </children>
-      </VBox>
+      </AnchorPane>
    </children>
 </AnchorPane>

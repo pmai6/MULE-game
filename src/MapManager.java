@@ -9,11 +9,9 @@ public class MapManager {
     public static void handleMapButton(Button button){
         System.out.println("Row " + GridPane.getRowIndex(button) + " Column "
                 + GridPane.getColumnIndex(button));
-
     }
 
     public static void setUpMap() {
-
 
         Tile [][] tiles = Map.getTiles();
         String [][] defaultMapLayout = Map.getDefaultMapLayout();
@@ -27,7 +25,6 @@ public class MapManager {
                 if (tileType.equals("P")) {
                     Tile newTileName = new Plain();
                     tiles[i][j] = newTileName;
-                    newTileName.setOwner("Plain");
 
                 } else if (tileType.equals("R")) {
                     Tile newTileName = new River();

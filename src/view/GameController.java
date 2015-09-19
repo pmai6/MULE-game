@@ -29,6 +29,8 @@ public class GameController {
     private Button pub;
     @FXML
     private Button exit;
+    @FXML
+    private Label gamestate;
 
     @FXML
     private HBox playerthree;
@@ -182,8 +184,10 @@ public class GameController {
     }
     @FXML
     private void goToTownButton() throws Exception {
-        map.setVisible(false);
-      town.setVisible(true);
+        //if (!Game.isLandSelectionPhase()) {
+            map.setVisible(false);
+            town.setVisible(true);
+       // }
     }
 
     @FXML
@@ -377,6 +381,10 @@ public class GameController {
 
     public void disablePlayerFour() {
         playerfour.setVisible(false);
+    }
+
+    public void setGameStateLabel(String input) {
+        gamestate.setText(input);
     }
 }
 

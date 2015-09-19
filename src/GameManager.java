@@ -8,14 +8,19 @@ import javafx.stage.Stage;
  */
 public class GameManager {
     private static GameManager gameManager = new GameManager();
-private static GameController controller;
+    private static GameController controller;
     public static void startTheGame (Stage stage) throws Exception {
 
         Game.setIsLandSelectionPhase(true);
         MapManager.setUpMap();
         //Round.startRounds();
         gameManager.startGameController(stage);
+        gameManager.setGameStateLabel();
         gameManager.disablePlayers(Game.getMulegame().getNumberOfPlayers());
+
+        for (Player element : Game.getMulegame().getPlayerArray()) {
+            System.out.println(element.getPlayerName());
+        }
     }
 
     public void disablePlayers (int numPlayers) {
@@ -36,4 +41,14 @@ private static GameController controller;
         controller = fxmlLoader.getController();
         astage.show();
     }
+
+
+    public void setGameStateLabel () {
+        if (Game.isLandSelectionPhase()) {
+            controller.setGameStateLabel("LAND SELECTION PHASE");
+        } else {
+            controller.setGameStateLabel("NORMAL GAME MODE");
+        }
+    }
+
 }

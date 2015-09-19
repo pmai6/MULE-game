@@ -88,7 +88,7 @@ public class Game {
         this.difficulty = difficulty;
     }
 
-    public boolean isLandSelectionPhase() {
+    public static boolean isLandSelectionPhase() {
         return isLandSelectionPhase;
     }
 
