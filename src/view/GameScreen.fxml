@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
@@ -9,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1024.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
    <children>
-      <HBox fx:id="map" layoutX="218.0" layoutY="76.0" prefHeight="335.0" prefWidth="584.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
+      <HBox fx:id="map" layoutX="218.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
          <children>
             <GridPane fx:id="mapGrid" alignment="CENTER" style="-fx-background-color: WHITE;">
                <columnConstraints>
@@ -38,8 +40,11 @@
          <effect>
             <Glow />
          </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </HBox>
-      <HBox fx:id="playerfour" layoutX="813.0" layoutY="312.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0">
+      <HBox fx:id="playerfour" layoutX="813.0" layoutY="312.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0">
          <children>
             <GridPane>
                <columnConstraints>
@@ -109,7 +114,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox fx:id="playerthree" layoutX="11.0" layoutY="305.0" prefHeight="202.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0">
+      <HBox fx:id="playerthree" layoutX="11.0" layoutY="305.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="202.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0">
          <children>
             <GridPane>
                <columnConstraints>
@@ -179,7 +184,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="813.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0" AnchorPane.topAnchor="10.0">
+      <HBox layoutX="813.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0" AnchorPane.topAnchor="10.0">
          <children>
             <GridPane>
               <columnConstraints>
@@ -254,10 +259,10 @@
             <DropShadow />
          </effect>
          <children>
-            <AnchorPane prefHeight="239.0" prefWidth="576.0" />
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="239.0" prefWidth="576.0" />
          </children>
       </HBox>
-      <HBox layoutX="814.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <HBox layoutX="814.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <GridPane>
                <columnConstraints>
@@ -366,7 +371,7 @@
       </AnchorPane>
       <AnchorPane layoutX="222.0" layoutY="345.0" prefHeight="217.0" prefWidth="576.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="TOP" layoutX="97.0" layoutY="-8.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="88.0" prefWidth="297.0" text="Mule" textFill="#320ae8">
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="27.0" layoutY="-8.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="104.0" prefWidth="500.0" text="M.U.L.E" textFill="#320ae8">
                <font>
                   <Font name="Courier Bold" size="96.0" />
                </font>
@@ -400,6 +405,11 @@
                   <InnerShadow />
                </effect>
             </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-7.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@baby.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

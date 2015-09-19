@@ -16,7 +16,8 @@ public class MapManager {
         System.out.println("Row " + GridPane.getRowIndex(button) + " Column "
                 + GridPane.getColumnIndex(button));
         System.out.println(button.getText());
-        button.setStyle(" -fx-base: RED;");
+        String acolor = "RED";
+        button.setStyle(" -fx-base: " + acolor +";");
     }
 
     /** sets up the main map that will be in uses during the game

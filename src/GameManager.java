@@ -68,18 +68,18 @@ public class GameManager {
         }
     }
 
-public static void initializePlayerGuiStats () {
-    updatePlayerOne();
-    updatePlayerTwo();
+    public static void initializePlayerGuiStats () {
+        updatePlayerOne();
+        updatePlayerTwo();
 
-    if (Game.getMulegame().getNumberOfPlayers() == 4) {
-        updatePlayerThree();
-        updatePlayerFour();
-    } else if (Game.getMulegame().getNumberOfPlayers() > 2) {
-        updatePlayerThree();
+        if (Game.getMulegame().getNumberOfPlayers() == 4) {
+            updatePlayerThree();
+            updatePlayerFour();
+        } else if (Game.getMulegame().getNumberOfPlayers() > 2) {
+            updatePlayerThree();
+        }
+
     }
-
-}
     public static void updatePlayerOne () {
         String name = Game.getMulegame().getPlayerArray().get(0).getPlayerName();
         String race = Game.getMulegame().getPlayerArray().get(0)
