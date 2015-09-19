@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1024.0" style="-fx-background-color: GREY;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+   <children>
+      <HBox fx:id="map" layoutX="218.0" layoutY="76.0" prefHeight="335.0" prefWidth="584.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <GridPane alignment="CENTER" gridLinesVisible="true" style="-fx-background-color: WHITE;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="65.0" prefWidth="65.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="65.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="65.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="65.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="65.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="65.0" prefHeight="70.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="mapButton00" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton00" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton02" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton02" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton03" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton03" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton10" minHeight="40.0"
+                          mnemonicParsing="false" onAction="#handleMapButton10" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton11" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton11" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton20" minHeight="40.0"
+                          mnemonicParsing="false" onAction="#handleMapButton20" GridPane.columnIndex="0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M3" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton12" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton12" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton30" minHeight="40.0"
+                          mnemonicParsing="false" onAction="#handleMapButton30" GridPane.columnIndex="0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton31" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton31" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton22" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton22" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton21" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton21" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="goToTown" minHeight="40.0" mnemonicParsing="false" onAction="#goToTownButton" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Town" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton01" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton01" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton14" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton14" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="River" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton04" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton04" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="River" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton13" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton13" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton18" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton18" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M3" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton08" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton08" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton16" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton16" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton15" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton15" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton05" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton05" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton06" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton06" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M3" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton23" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton23" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton36" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton36" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton35" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton35" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton34" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton34" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="River" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton33" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton33" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton32" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton32" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton28" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton28" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M1" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton26" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton26" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton25" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton25" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton46" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton46" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton45" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton45" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton44" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton44" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="River" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton43" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton43" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton42" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton42" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton41" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton41" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton40" minHeight="40.0"
+                          mnemonicParsing="false" onAction="#handleMapButton40" GridPane.columnIndex="0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton38" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton38" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton48" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton48" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton47" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton47" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton37" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton37" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton27" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton27" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton17" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton17" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="mapButton07" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton07" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font></Button>
+               </children>
+               <effect>
+                  <Glow />
+               </effect>
+            </GridPane>
+         </children>
+         <effect>
+            <Glow />
+         </effect>
+      </HBox>
+      <HBox layoutX="813.0" layoutY="312.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="198.0" text="Player Four" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="Courier" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="97.0" text="Score" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Money" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Ore" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Food" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox layoutX="11.0" layoutY="305.0" prefHeight="202.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0">
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="198.0" text="Player Three" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="Courier" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="97.0" text="Score" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Money" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Ore" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Food" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox layoutX="813.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="198.0" text="Player One" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="Courier" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="97.0" text="Score" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Money" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Ore" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Food" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox layoutX="228.0" layoutY="553.0" prefHeight="202.0" prefWidth="576.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="220.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Game Information stuff" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <Glow />
+         </effect>
+      </HBox>
+      <HBox layoutX="814.0" layoutY="76.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GREY;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="198.0" text="Player Two" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="Courier" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" prefHeight="16.0" prefWidth="97.0" text="Score" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Money" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Ore" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Food" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Courier Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="222.0" layoutY="360.0" prefHeight="32.0" prefWidth="576.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="TOP" nodeOrientation="LEFT_TO_RIGHT" prefHeight="88.0" prefWidth="297.0" text="Mule" textFill="#320ae8">
+               <font>
+                  <Font name="Courier Bold" size="96.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <Glow />
+         </effect>
+      </HBox>
+      <HBox layoutX="293.0" layoutY="446.0" prefHeight="100.0" prefWidth="470.0" AnchorPane.bottomAnchor="234.0" AnchorPane.leftAnchor="293.0" AnchorPane.rightAnchor="261.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="280.0" text="Place holder for buttons and such" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+         <effect>
+            <Glow />
+         </effect></HBox>
+      <AnchorPane fx:id="town" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Button fx:id="assayOffice" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAssayOfficeAction" prefHeight="151.0" prefWidth="160.0" style="-fx-background-color: RED;" text="Assay Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Agency FB" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="pub" layoutX="261.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlePubAction" prefHeight="121.0" prefWidth="138.0" style="-fx-background-color: PURPLE;" text="Pub" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Agency FB" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="exit" layoutX="435.0" layoutY="101.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="110.0" prefWidth="149.0" text="Exit Town">
+               <font>
+                  <Font name="Agency FB" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="landOffice" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleLandOfficeAction" prefHeight="100.0" prefWidth="131.0" style="-fx-background-color: ORANGE;" text="Land Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Agency FB" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="store" alignment="CENTER" layoutX="4.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleStoreAction" prefHeight="127.0" prefWidth="143.0" style="-fx-background-color: GREEN;" text="Store" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Agency FB" size="24.0" />
+               </font>
+            </Button>
+         </children>
+         <effect>
+            <Glow />
+         </effect>
+      </AnchorPane>
+      <VBox layoutX="63.0" layoutY="245.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <TextFlow prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
