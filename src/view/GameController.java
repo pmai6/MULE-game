@@ -1,17 +1,19 @@
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-
+import javafx.scene.paint.Color;
 
 public class GameController {
 
-    //creating Main object so can talk to Main methods
     private Main mainapp;
     @FXML
     private Button goToTown;
@@ -36,113 +38,73 @@ public class GameController {
     private HBox playerthree;
     @FXML
     private HBox playerfour;
+
     @FXML
-    private Button mapButton00;
-    @FXML
-    private Button mapButton01;
-    @FXML
-    private Button mapButton02;
-    @FXML
-    private Button mapButton03;
-    @FXML
-    private Button mapButton04;
-    @FXML
-    private Button mapButton05;
-    @FXML
-    private Button mapButton06;
-    @FXML
-    private Button mapButton07;
-    @FXML
-    private Button mapButton08;
-    @FXML
-    private Button mapButton10;
-    @FXML
-    private Button mapButton11;
-    @FXML
-    private Button mapButton12;
-    @FXML
-    private Button mapButton13;
-    @FXML
-    private Button mapButton14;
-    @FXML
-    private Button mapButton15;
-    @FXML
-    private Button mapButton16;
-    @FXML
-    private Button mapButton17;
-    @FXML
-    private Button mapButton18;
-    @FXML
-    private Button mapButton20;
-    @FXML
-    private Button mapButton21;
-    @FXML
-    private Button mapButton22;
-    @FXML
-    private Button mapButton23;
-    @FXML
-    private Button mapButton25;
-    @FXML
-    private Button mapButton26;
-    @FXML
-    private Button mapButton27;
-    @FXML
-    private Button mapButton28;
-    @FXML
-    private Button mapButton30;
-    @FXML
-    private Button mapButton31;
-    @FXML
-    private Button mapButton32;
-    @FXML
-    private Button mapButton33;
-    @FXML
-    private Button mapButton34;
-    @FXML
-    private Button mapButton35;
-    @FXML
-    private Button mapButton36;
-    @FXML
-    private Button mapButton37;
-    @FXML
-    private Button mapButton38;
-    @FXML
-    private Button mapButton40;
-    @FXML
-    private Button mapButton41;
-    @FXML
-    private Button mapButton42;
-    @FXML
-    private Button mapButton43;
-    @FXML
-    private Button mapButton44;
-    @FXML
-    private Button mapButton45;
-    @FXML
-    private Button mapButton46;
-    @FXML
-    private Button mapButton47;
-    @FXML
-    private Button mapButton48;
+    private GridPane mapGrid;
+
+    private Button[][] mapButtonArray;
 
 
-    private Button [][] mapButtonArray = new Button [][] {
-            {mapButton00, mapButton01, mapButton02, mapButton03, mapButton04,
-                    mapButton05, mapButton06, mapButton07, mapButton08},
-            {mapButton00, mapButton11, mapButton12, mapButton13, mapButton14,
-                    mapButton15, mapButton16, mapButton17, mapButton18},
-            {mapButton00, mapButton21, mapButton22, mapButton23, goToTown,
-                    mapButton25, mapButton26, mapButton27, mapButton28},
-            {mapButton00, mapButton31, mapButton32, mapButton33, mapButton34,
-                    mapButton35, mapButton36, mapButton37, mapButton38},
-            {mapButton00, mapButton41, mapButton42, mapButton43, mapButton44,
-                    mapButton45, mapButton46, mapButton47, mapButton48},
-    };
+    @FXML
+    private Label playerOneName;
+
+    @FXML
+    private Label playerOneRace;
+    @FXML
+    private Label playerOneScore;
+    @FXML
+    private Label playerOneMoney;
+    @FXML
+    private Label playerOneOre;
+    @FXML
+    private Label playerOneFood;
 
 
-    public  GameController() {
-    }
+    @FXML
+    private Label playerTwoName;
 
+    @FXML
+    private Label playerTwoRace;
+    @FXML
+    private Label playerTwoScore;
+    @FXML
+    private Label playerTwoMoney;
+    @FXML
+    private Label playerTwoOre;
+    @FXML
+    private Label playerTwoFood;
+
+
+    @FXML
+    private Label playerThreeName;
+    @FXML
+    private Label playerThreeRace;
+    @FXML
+    private Label playerThreeScore;
+    @FXML
+    private Label playerThreeMoney;
+    @FXML
+    private Label playerThreeOre;
+    @FXML
+    private Label playerThreeFood;
+
+
+    @FXML
+    private Label playerFourName;
+    @FXML
+    private Label playerFourRace;
+    @FXML
+    private Label playerFourScore;
+    @FXML
+    private Label playerFourMoney;
+    @FXML
+    private Label playerFourOre;
+    @FXML
+    private Label playerFourFood;
+
+    public GameController() {
+
+}
     /**
      * Is called by the main application to give a reference back to itself.
      *
@@ -158,7 +120,336 @@ public class GameController {
      */
     @FXML
     private void initialize() {
+
+        mapButtonArray = new Button[5][9];
+        String[][] defaultMapLayout = GameMap.getDefaultMapLayout();
+        for(int i=0; i<5; i++) {
+                for (int j = 0; j<9 ; j++) {
+                    mapButtonArray[i][j] = new Button();
+                mapGrid.add(mapButtonArray[i][j], j, i);
+                    String tileType = defaultMapLayout[i][j];
+
+                    mapButtonArray[i][j].minWidth(45.0);
+                    mapButtonArray[i][j].minWidth(45.0);
+                    mapButtonArray[i][j].prefHeight(60.0);
+                    mapButtonArray[i][j].prefWidth(60.0);
+
+                    if (tileType.equals("P")) {
+                        Image imageplain = new Image(getClass()
+                                .getResourceAsStream("view/brown.png"));
+
+                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
+
+                    } else if (tileType.equals("R")) {
+                        Image imageplain = new Image(getClass()
+                                .getResourceAsStream("view/river.png"));
+
+                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
+
+                    } else if (tileType.equals("M1"))  {
+                        Image imageplain = new Image(getClass()
+                                .getResourceAsStream("view/mountain1.png"));
+
+                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
+                    } else if (tileType.equals("M2")) {
+                        Image imageplain = new Image(getClass()
+                                .getResourceAsStream("view/mountain2.png"));
+
+                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
+                    } else if (tileType.equals("M3")) {
+                        Image imageplain = new Image(getClass()
+                                .getResourceAsStream("view/mountain3.png"));
+
+                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
+                    } else {
+                        Image imageplain = new Image(getClass()
+                                .getResourceAsStream("view/town.png"));
+
+                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
+                    }
+
+            }
+        }
+        mapButtonArray[0][0].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][0]);
+            }
+        });
+        mapButtonArray[0][1].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][1]);
+            }
+        });
+        mapButtonArray[0][2].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][2]);
+            }
+        });
+        mapButtonArray[0][3].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][3]);
+            }
+        });
+        mapButtonArray[0][4].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][4]);
+            }
+        });
+        mapButtonArray[0][5].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][5]);
+            }
+        });
+        mapButtonArray[0][6].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][6]);
+            }
+        });
+        mapButtonArray[0][7].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][7]);
+            }
+        });
+        mapButtonArray[0][8].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[0][8]);
+            }
+        });
+
+        mapButtonArray[1][0].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][0]);
+            }
+        });
+        mapButtonArray[1][1].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][1]);
+            }
+        });
+        mapButtonArray[1][2].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][2]);
+            }
+        });
+        mapButtonArray[1][3].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][3]);
+            }
+        });
+        mapButtonArray[1][4].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][4]);
+            }
+        });
+        mapButtonArray[1][5].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][5]);
+            }
+        });
+        mapButtonArray[1][6].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][6]);
+            }
+        });
+        mapButtonArray[1][7].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][7]);
+            }
+        });
+        mapButtonArray[1][8].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[1][8]);
+            }
+        });
+
+        mapButtonArray[2][0].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][0]);
+            }
+        });
+        mapButtonArray[2][1].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][1]);
+            }
+        });
+        mapButtonArray[2][2].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][2]);
+            }
+        });
+        mapButtonArray[2][3].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][3]);
+            }
+        });
+        mapButtonArray[2][4].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                goToTownButton();
+            }
+        });
+        mapButtonArray[2][5].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][5]);
+            }
+        });
+        mapButtonArray[2][6].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][6]);
+            }
+        });
+        mapButtonArray[2][7].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][7]);
+            }
+        });
+        mapButtonArray[2][8].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[2][8]);
+            }
+        });
+
+        mapButtonArray[3][0].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][0]);
+            }
+        });
+        mapButtonArray[3][1].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][1]);
+            }
+        });
+        mapButtonArray[3][2].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][2]);
+            }
+        });
+        mapButtonArray[3][3].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][3]);
+            }
+        });
+        mapButtonArray[3][4].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][4]);
+            }
+        });
+        mapButtonArray[3][5].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][5]);
+            }
+        });
+        mapButtonArray[3][6].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][6]);
+            }
+        });
+        mapButtonArray[3][7].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][7]);
+            }
+        });
+        mapButtonArray[3][8].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[3][8]);
+            }
+        });
+
+        mapButtonArray[4][0].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][0]);
+            }
+        });
+        mapButtonArray[4][1].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][1]);
+            }
+        });
+        mapButtonArray[4][2].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][2]);
+            }
+        });
+        mapButtonArray[4][3].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][3]);
+            }
+        });
+        mapButtonArray[4][4].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][4]);
+            }
+        });
+        mapButtonArray[4][5].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][5]);
+            }
+        });
+        mapButtonArray[4][6].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][6]);
+            }
+        });
+        mapButtonArray[4][7].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][7]);
+            }
+        });
+        mapButtonArray[4][8].setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                MapManager.handleMapButton(mapButtonArray[4][8]);
+            }
+        });
+
+
+
     }
+
+
 
     @FXML
     private void handleStoreAction() {
@@ -182,198 +473,13 @@ public class GameController {
         town.setVisible(false);
         map.setVisible(true);
     }
-    @FXML
-    private void goToTownButton() throws Exception {
+    private void goToTownButton()  {
         //if (!Game.isLandSelectionPhase()) {
-            map.setVisible(false);
-            town.setVisible(true);
-       // }
+        map.setVisible(false);
+        town.setVisible(true);
+        // }
     }
 
-    @FXML
-    private void handleMapButton00() throws Exception {
-        MapManager.handleMapButton(mapButton00);
-    }
-    @FXML
-    private void handleMapButton01() throws Exception {
-        MapManager.handleMapButton(mapButton01);
-    }
-    @FXML
-    private void handleMapButton02() throws Exception {
-        MapManager.handleMapButton(mapButton02);
-    }
-    @FXML
-    private void handleMapButton03() throws Exception {
-        MapManager.handleMapButton(mapButton03);
-    }
-    @FXML
-    private void handleMapButton04() throws Exception {
-        MapManager.handleMapButton(mapButton04);
-    }
-    @FXML
-    private void handleMapButton05() throws Exception {
-        MapManager.handleMapButton(mapButton05);
-    }
-    @FXML
-    private void handleMapButton06() throws Exception {
-        MapManager.handleMapButton(mapButton06);
-    }
-    @FXML
-    private void handleMapButton07() throws Exception {
-        MapManager.handleMapButton(mapButton07);
-    }
-    @FXML
-    private void handleMapButton08() throws Exception {
-        MapManager.handleMapButton(mapButton08);
-    }
-    @FXML
-    private void handleMapButton10() throws Exception {
-        MapManager.handleMapButton(mapButton10);
-    }
-    @FXML
-    private void handleMapButton11() throws Exception {
-        MapManager.handleMapButton(mapButton11);
-    }
-    @FXML
-    private void handleMapButton12() throws Exception {
-        MapManager.handleMapButton(mapButton12);
-    }
-    @FXML
-    private void handleMapButton13() throws Exception {
-        MapManager.handleMapButton(mapButton13);
-    }
-    @FXML
-    private void handleMapButton14() throws Exception {
-        MapManager.handleMapButton(mapButton14);
-    }
-    @FXML
-    private void handleMapButton15() throws Exception {
-        MapManager.handleMapButton(mapButton15);
-    }
-    @FXML
-    private void handleMapButton16() throws Exception {
-        MapManager.handleMapButton(mapButton16);
-    }
-    @FXML
-    private void handleMapButton17() throws Exception {
-        MapManager.handleMapButton(mapButton17);
-    }
-    @FXML
-    private void handleMapButton18() throws Exception {
-        MapManager.handleMapButton(mapButton18);
-    }
-    @FXML
-    private void handleMapButton20() throws Exception {
-        MapManager.handleMapButton(mapButton20);
-    }
-    @FXML
-    private void handleMapButton21() throws Exception {
-        MapManager.handleMapButton(mapButton21);
-    }
-    @FXML
-    private void handleMapButton22() throws Exception {
-        MapManager.handleMapButton(mapButton22);
-    }
-    @FXML
-    private void handleMapButton23() throws Exception {
-        MapManager.handleMapButton(mapButton23);
-    }
-    @FXML
-    private void handleMapButton25() throws Exception {
-        MapManager.handleMapButton(mapButton25);
-    }
-    @FXML
-    private void handleMapButton26() throws Exception {
-        MapManager.handleMapButton(mapButton26);
-    }
-    @FXML
-    private void handleMapButton27() throws Exception {
-        MapManager.handleMapButton(mapButton27);
-    }
-    @FXML
-    private void handleMapButton28() throws Exception {
-        MapManager.handleMapButton(mapButton28);
-    }
-    @FXML
-    private void handleMapButton30() throws Exception {
-        MapManager.handleMapButton(mapButton30);
-    }
-    @FXML
-    private void handleMapButton31() throws Exception {
-        MapManager.handleMapButton(mapButton31);
-    }
-    @FXML
-    private void handleMapButton32() throws Exception {
-        MapManager.handleMapButton(mapButton32);
-    }
-    @FXML
-    private void handleMapButton33() throws Exception {
-        MapManager.handleMapButton(mapButton33);
-    }
-    @FXML
-    private void handleMapButton34() throws Exception {
-        MapManager.handleMapButton(mapButton34);
-    }
-    @FXML
-    private void handleMapButton35() throws Exception {
-        MapManager.handleMapButton(mapButton35);
-    }
-    @FXML
-    private void handleMapButton36() throws Exception {
-        MapManager.handleMapButton(mapButton36);
-    }
-    @FXML
-    private void handleMapButton37() throws Exception {
-        MapManager.handleMapButton(mapButton37);
-    }
-    @FXML
-    private void handleMapButton38() throws Exception {
-        MapManager.handleMapButton(mapButton38);
-    }
-    @FXML
-    private void handleMapButton40() throws Exception {
-        MapManager.handleMapButton(mapButton40);
-    }
-    @FXML
-    private void handleMapButton41() throws Exception {
-        MapManager.handleMapButton(mapButton41);
-    }
-    @FXML
-    private void handleMapButton42() throws Exception {
-        MapManager.handleMapButton(mapButton42);
-    }
-    @FXML
-    private void handleMapButton43() throws Exception {
-        MapManager.handleMapButton(mapButton43);
-    }
-    @FXML
-    private void handleMapButton44() throws Exception {
-        MapManager.handleMapButton(mapButton44);
-    }
-    @FXML
-    private void handleMapButton45() throws Exception {
-        MapManager.handleMapButton(mapButton45);
-    }
-    @FXML
-    private void handleMapButton46() throws Exception {
-        MapManager.handleMapButton(mapButton46);
-    }
-    @FXML
-    private void handleMapButton47() throws Exception {
-        MapManager.handleMapButton(mapButton47);
-    }
-    @FXML
-    private void handleMapButton48() throws Exception {
-        MapManager.handleMapButton(mapButton48);
-    }
-
-    public Button[][] getMapButtonArray() {
-        return mapButtonArray;
-    }
-
-    public void setMapButtonArray(Button[][] mapButtonArray) {
-        this.mapButtonArray = mapButtonArray;
-    }
 
     public void disablePlayerThree() {
         playerthree.setVisible(false);
@@ -386,5 +492,75 @@ public class GameController {
     public void setGameStateLabel(String input) {
         gamestate.setText(input);
     }
+
+    public void changePlayerOneGuiStats (String name, String race, int score,
+                                         int money, int ore, int food, String
+                                         color) {
+        playerOneName.setText(name);
+        setPlayerNameColor(color, playerOneName);
+
+        playerOneRace.setText(race);
+        playerOneScore.setText(String.valueOf(score));
+        playerOneMoney.setText(String.valueOf(money));
+        playerOneOre.setText(String.valueOf(ore));
+        playerOneFood.setText(String.valueOf(food));
+    }
+
+    public void changePlayerTwoGuiStats (String name, String race, int score,
+                                         int money, int ore, int food, String
+                                         color) {
+        playerTwoName.setText(name);
+        setPlayerNameColor(color, playerTwoName);
+        playerTwoRace.setText(race);
+        playerTwoScore.setText(String.valueOf(score));
+        playerTwoMoney.setText(String.valueOf(money));
+        playerTwoOre.setText(String.valueOf(ore));
+        playerTwoFood.setText(String.valueOf(food));
+
+    }
+
+    public void changePlayerThreeGuiStats (String name, String race, int score,
+                                           int money, int ore, int food,
+                                           String color) {
+        playerThreeName.setText(name);
+        setPlayerNameColor(color, playerThreeName);
+        playerThreeRace.setText(race);
+        playerThreeScore.setText(String.valueOf(score));
+        playerThreeMoney.setText(String.valueOf(money));
+        playerThreeOre.setText(String.valueOf(ore));
+        playerThreeFood.setText(String.valueOf(food));
+    }
+
+    public void changePlayerFourGuiStats (String name, String race, int score,
+                                          int money, int ore, int food,
+                                          String color) {
+        playerFourName.setText(name);
+        setPlayerNameColor(color, playerFourName);
+        playerFourRace.setText(race);
+        playerFourScore.setText(String.valueOf(score));
+        playerFourMoney.setText(String.valueOf(money));
+        playerFourOre.setText(String.valueOf(ore));
+        playerFourFood.setText(String.valueOf(food));
+    }
+
+
+    public void setPlayerNameColor (String color, Label playername) {
+        if (color.equals("red")) {
+            playername.setTextFill(javafx.scene.paint.Color.RED);
+        }
+        if (color.equals("blue")) {
+            playername.setTextFill(javafx.scene.paint.Color.BLUE);
+        }
+        if (color.equals("purple")) {
+            playername.setTextFill(javafx.scene.paint.Color.PURPLE);
+        }
+        if (color.equals("green")) {
+            playername.setTextFill(javafx.scene.paint.Color.GREEN);
+        }
+    }
+
 }
+
+
+
 

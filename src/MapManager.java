@@ -1,4 +1,6 @@
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -6,15 +8,26 @@ import javafx.scene.layout.GridPane;
  */
 public class MapManager {
 
-    public static void handleMapButton(Button button){
+    /** this will be the major method to handle what happens when a button is
+     * pushed
+     * @param button
+     */
+    public static void handleMapButton(Button button) {
         System.out.println("Row " + GridPane.getRowIndex(button) + " Column "
                 + GridPane.getColumnIndex(button));
+        System.out.println(button.getText());
+        button.setStyle(" -fx-base: RED;");
     }
 
+    /** sets up the main map that will be in uses during the game
+     * This is here basicall just so random maps could be implemented at a
+     * latter date as opposed to hard coding the tiles to the Tile array
+     *
+     */
     public static void setUpMap() {
 
-        Tile [][] tiles = Map.getTiles();
-        String [][] defaultMapLayout = Map.getDefaultMapLayout();
+        Tile[][] tiles = GameMap.getTiles();
+        String[][] defaultMapLayout = GameMap.getDefaultMapLayout();
 
         for (int i = 0; i < 5; i++) {
 
@@ -29,7 +42,6 @@ public class MapManager {
                 } else if (tileType.equals("R")) {
                     Tile newTileName = new River();
                     tiles[i][j] = newTileName;
-
 
                 } else if (tileType.equals("M1"))  {
                     Tile newTileName = new Mountain1();
@@ -48,19 +60,6 @@ public class MapManager {
                     tiles[i][j] = newTileName;
                     newTileName.setOwner("Town");
                 }
-
-            }
-        }
-        printMap(tiles);
-    }
-
-    // This is just here to make sure stuff is working
-    public static void printMap(Tile [][] tiles) {
-        for (int i = 0; i < 5; i++) {
-            System.out.println();
-            for (int j = 0; j < 9; j++) {
-
-                System.out.print(tiles[i][j].getClass() + " ");
 
             }
         }
