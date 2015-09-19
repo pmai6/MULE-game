@@ -10,7 +10,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                ("/view/StartUp.fxml"));
         Parent root = fxmlLoader.load();
         primaryStage.setTitle("M.U.L.E Main Screen");
         primaryStage.setScene(new Scene(root));
@@ -19,7 +20,8 @@ public class Main extends Application {
         primaryStage.show();
     }
     public void startPlayerConfig(Stage astage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("configScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                ("/view/configScreen.fxml"));
         Parent root = fxmlLoader.load();
         astage.setScene(new Scene(root));
         astage.setTitle("M.U.L.E Player Config Screen");
@@ -29,7 +31,8 @@ public class Main extends Application {
     }
 
     public void startGameController(Stage astage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                ("/view/GameScreen.fxml"));
         Parent root = fxmlLoader.load();
         astage.setScene(new Scene(root));
         astage.setTitle("M.U.L.E Game Screen");
