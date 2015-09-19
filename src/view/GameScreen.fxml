@@ -259,7 +259,7 @@
             <DropShadow />
          </effect>
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="239.0" prefWidth="576.0" />
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="184.0" prefWidth="576.0" />
          </children>
       </HBox>
       <HBox layoutX="814.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
@@ -371,17 +371,17 @@
       </AnchorPane>
       <AnchorPane layoutX="222.0" layoutY="345.0" prefHeight="217.0" prefWidth="576.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="TOP" layoutX="27.0" layoutY="-8.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="104.0" prefWidth="500.0" text="M.U.L.E" textFill="#320ae8">
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="27.0" layoutY="-8.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="62.0" prefWidth="500.0" text="M.U.L.E" textFill="#320ae8">
                <font>
-                  <Font name="Courier Bold" size="96.0" />
+                  <Font name="Courier Bold" size="76.0" />
                </font>
             </Label>
-            <Label fx:id="gamestate" alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="74.0" prefHeight="35.0" prefWidth="551.0" text="Label">
+            <Label fx:id="gamestate" alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="68.0" prefHeight="35.0" prefWidth="551.0" text="Label">
                <font>
                   <Font name="Courier Bold" size="33.0" />
                </font>
             </Label>
-          <Button layoutX="160.0" layoutY="159.0" minWidth="40.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="247.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Pass Turn" textFill="WHITE">
+          <Button layoutX="165.0" layoutY="103.0" minWidth="40.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="247.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Pass Turn" textFill="WHITE">
                <font>
                   <Font name="Courier Bold" size="24.0" />
                </font>
@@ -389,7 +389,7 @@
                   <InnerShadow />
                </effect>
             </Button>
-            <Button layoutX="448.0" layoutY="177.0" minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Save" textFill="WHITE">
+            <Button layoutX="448.0" layoutY="116.0" minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Courier Bold" size="13.0" />
                </font>
@@ -397,7 +397,7 @@
                   <InnerShadow />
                </effect>
             </Button>
-            <Button layoutX="520.0" layoutY="177.0" minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Quit" textFill="WHITE">
+            <Button layoutX="520.0" layoutY="116.0" minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Quit" textFill="WHITE">
                <font>
                   <Font name="Courier Bold" size="13.0" />
                </font>
@@ -405,7 +405,7 @@
                   <InnerShadow />
                </effect>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-7.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="127.0" fitWidth="150.0" layoutX="-63.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@baby.png" />
                </image>
