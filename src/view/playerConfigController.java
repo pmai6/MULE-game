@@ -135,8 +135,8 @@ public class playerConfigController {
             mainapp.startPlayerConfig(stage);
         } else {
             System.out.println("This is where the game opens");
-            GameManager.startTheGame();
-            mainapp.startGameController(stage);
+            GameManager.startTheGame(stage);
+            //GameManager.startGameController(stage);
         }
     }
 }

@@ -43,8 +43,7 @@
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
-                  <Button fx:id="mapButton10" minHeight="40.0"
-                          mnemonicParsing="false" onAction="#handleMapButton10" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="mapButton10" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton10" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
@@ -52,8 +51,7 @@
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
-                  <Button fx:id="mapButton20" minHeight="40.0"
-                          mnemonicParsing="false" onAction="#handleMapButton20" GridPane.columnIndex="0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M3" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="mapButton20" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton20" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="M3" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
@@ -61,8 +59,7 @@
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
-                  <Button fx:id="mapButton30" minHeight="40.0"
-                          mnemonicParsing="false" onAction="#handleMapButton30" GridPane.columnIndex="0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="mapButton30" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton30" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
@@ -182,8 +179,7 @@
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
-                  <Button fx:id="mapButton40" minHeight="40.0"
-                          mnemonicParsing="false" onAction="#handleMapButton40" GridPane.columnIndex="0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="mapButton40" minHeight="40.0" mnemonicParsing="false" onAction="#handleMapButton40" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: WHITE; -fx-background-radius: 0;" text="Plain" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font name="Courier Bold" size="13.0" />
                      </font></Button>
@@ -225,7 +221,7 @@
             <Glow />
          </effect>
       </HBox>
-      <HBox layoutX="813.0" layoutY="312.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0">
+      <HBox fx:id="playerfour" layoutX="813.0" layoutY="312.0" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0">
          <children>
             <GridPane>
                <columnConstraints>
@@ -269,7 +265,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="11.0" layoutY="305.0" prefHeight="202.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0">
+      <HBox fx:id="playerthree" layoutX="11.0" layoutY="305.0" prefHeight="202.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="825.0">
          <children>
             <GridPane>
                <columnConstraints>

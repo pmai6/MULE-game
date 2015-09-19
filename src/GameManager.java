@@ -1,25 +1,39 @@
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  * Created by travisclement on 9/18/15.
  */
 public class GameManager {
     private static GameManager gameManager = new GameManager();
-
-    public static void startTheGame () {
+private static GameController controller;
+    public static void startTheGame (Stage stage) throws Exception {
 
         Game.setIsLandSelectionPhase(true);
         MapManager.setUpMap();
         //Round.startRounds();
-        gameManager.disablePlayers(3);
+        gameManager.startGameController(stage);
+        gameManager.disablePlayers(Game.getMulegame().getNumberOfPlayers());
     }
 
     public void disablePlayers (int numPlayers) {
-
-/*
+        if (numPlayers == 2) {
+            controller.disablePlayerThree();
+            controller.disablePlayerFour();
+        }else if (numPlayers == 3)
+        {
+            controller.disablePlayerFour();
+        }
+    }
+    public void startGameController(Stage astage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
                 ("/view/GameScreen.fxml"));
         Parent root = fxmlLoader.load();
-        GameController controller = fxmlLoader.getController();
-        controller.disablePlayerThree();*/
+        astage.setScene(new Scene(root));
+        astage.setTitle("M.U.L.E Game Screen");
+        controller = fxmlLoader.getController();
+        astage.show();
     }
-
 }

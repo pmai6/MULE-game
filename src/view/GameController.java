@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 
@@ -28,6 +29,11 @@ public class GameController {
     private Button pub;
     @FXML
     private Button exit;
+
+    @FXML
+    private HBox playerthree;
+    @FXML
+    private HBox playerfour;
     @FXML
     private Button mapButton00;
     @FXML
@@ -364,4 +370,13 @@ public class GameController {
     public void setMapButtonArray(Button[][] mapButtonArray) {
         this.mapButtonArray = mapButtonArray;
     }
+
+    public void disablePlayerThree() {
+        playerthree.setVisible(false);
+    }
+
+    public void disablePlayerFour() {
+        playerfour.setVisible(false);
+    }
 }
+
