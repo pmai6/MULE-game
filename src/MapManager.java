@@ -27,7 +27,7 @@ public class MapManager {
     public static void setUpMap() {
 
         Tile[][] tiles = GameMap.getTiles();
-        String[][] defaultMapLayout = GameMap.getDefaultMapLayout();
+        String[][] defaultMapLayout = GameMap.getMapLayout();
 
         for (int i = 0; i < 5; i++) {
 

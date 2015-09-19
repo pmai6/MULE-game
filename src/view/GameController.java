@@ -122,7 +122,7 @@ public class GameController {
     private void initialize() {
 
         mapButtonArray = new Button[5][9];
-        String[][] defaultMapLayout = GameMap.getDefaultMapLayout();
+        String[][] defaultMapLayout = GameMap.getMapLayout();
         for(int i=0; i<5; i++) {
                 for (int j = 0; j<9 ; j++) {
                     mapButtonArray[i][j] = new Button();
