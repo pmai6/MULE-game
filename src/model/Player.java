@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by travisclement on 9/8/15.
  */
@@ -13,6 +15,7 @@ public class Player {
     private int food;
     private int ore;
     private int energy;
+    private ArrayList<Tile> tiles;
 
 
     public Player () {}
@@ -25,6 +28,7 @@ public class Player {
         score = 0;
         money = getStartMoney(playerRace);
         setStartFoodOreEnergy();
+        tiles = new ArrayList<Tile>();
 
     }
 
@@ -120,5 +124,13 @@ public class Player {
 
     public void setOre(int ore) {
         this.ore = ore;
+    }
+
+    public ArrayList<Tile> getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(ArrayList<Tile> tiles) {
+        this.tiles = tiles;
     }
 }

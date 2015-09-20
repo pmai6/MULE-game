@@ -12,6 +12,7 @@ public class PlayerManager {
      */
     public static boolean boughtsomething (Player player, int purchaseCose) {
         return false;
+        //TODO
     }
 
 
@@ -23,5 +24,6 @@ public class PlayerManager {
      */
     public boolean soldSomething (Player player, int amountOfSale) {
         return false;
+        //TODO
     }
 }

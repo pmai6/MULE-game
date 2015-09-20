@@ -24,9 +24,7 @@ public class Round {
      * player has finished their turn.
      *  coming from MapManager.
      */
-
-
-    public static void playerFinishedTurn() {//TODO}
+    public static void playerFinishedTurn() { //TODO}
 
     }
 
@@ -36,8 +34,12 @@ public class Round {
      *  coming Game Manager
      *  Will need to keep track of number of presses so can decide if land
      *  selection is over.
+     *  create some sort of counter to keep track of how many times this is
+     *  pressed in a round - if same as number of players in round then land
+     *  selection phase is over.
      */
-    public static boolean playerPassedTurn() {//TODO}
+    public static boolean playerPassedTurn() { //TODO}
+        System.out.println("I finished my turn");
 return false;
     }
 

@@ -21,10 +21,13 @@ public class GameManager {
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(Game.getMulegame().getNumberOfPlayers());
 
+        initializePlayerGuiStats();
+
+        //used for testing purposes only TOREMOVE
         for (Player element : Game.getMulegame().getPlayerArray()) {
             System.out.println(element.getPlayerName());
         }
-        initializePlayerGuiStats();
+
     }
 
     /** method do deal with the the Pass Turn button the main game window screen

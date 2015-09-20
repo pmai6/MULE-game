@@ -17,6 +17,7 @@ public class Game {
 
     private static boolean isLandSelectionPhase;
 
+
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
         numberOfPlayers = anumPlayers;

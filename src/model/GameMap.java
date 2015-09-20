@@ -3,6 +3,7 @@ holds the array of all of the tiles on the map
 */
 
 public class GameMap {
+
     private static  Tile[][] tiles = new Tile[5][9];;
 
    private static String[][] defaultMapLayout = new String[][]{
@@ -17,7 +18,6 @@ public class GameMap {
     public GameMap() {
 
     }
-
 
     public static String[][] getDefaultMapLayout() {
         return defaultMapLayout;

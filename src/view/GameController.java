@@ -486,16 +486,14 @@ public class GameController {
     }
     @FXML
     private void passTurnButton()  {
-       /* if (Round.playerPassedTurn()) {
-            passTurn.setVisible(false);
-            startTurn.setVisible(true);
-         }*/
+       Round.playerPassedTurn();
+
     }
-    @FXML
+   /* @FXML
     private void startTurnButton()  {
         startTurn.setDisable(true);
         passTurn.setVisible(true);
-    }
+    }*/
 
     public void disablePlayerThree() {
         playerthree.setVisible(false);
