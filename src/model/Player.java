@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by travisclement on 9/8/15.
@@ -15,7 +16,7 @@ public class Player {
     private int food;
     private int ore;
     private int energy;
-    private ArrayList<Tile> tiles;
+    private List<Tile> tiles;
 
 
     public Player () {}
@@ -126,11 +127,11 @@ public class Player {
         this.ore = ore;
     }
 
-    public ArrayList<Tile> getTiles() {
+    public List<Tile> getTiles() {
         return tiles;
     }
 
-    public void setTiles(ArrayList<Tile> tiles) {
+    public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
     }
 }
