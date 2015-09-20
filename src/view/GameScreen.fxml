@@ -381,7 +381,7 @@
                   <Font name="Courier Bold" size="33.0" />
                </font>
             </Label>
-          <Button layoutX="165.0" layoutY="103.0" minWidth="40.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="247.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Pass Turn" textFill="WHITE">
+          <Button fx:id="PassTurn" layoutX="165.0" layoutY="103.0" minWidth="40.0" mnemonicParsing="false" onAction="#passTurnButton" prefHeight="44.0" prefWidth="247.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Pass Turn" textFill="WHITE">
                <font>
                   <Font name="Courier Bold" size="24.0" />
                </font>

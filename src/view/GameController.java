@@ -18,6 +18,10 @@ public class GameController {
     @FXML
     private Button goToTown;
     @FXML
+    private Button passTurn;
+    @FXML
+    private Button startTurn;
+    @FXML
     private AnchorPane town;
     @FXML
     private HBox map;
@@ -473,13 +477,25 @@ public class GameController {
         town.setVisible(false);
         map.setVisible(true);
     }
+    @FXML
     private void goToTownButton()  {
         //if (!Game.isLandSelectionPhase()) {
         map.setVisible(false);
         town.setVisible(true);
         // }
     }
-
+    @FXML
+    private void passTurnButton()  {
+       /* if (Round.playerPassedTurn()) {
+            passTurn.setVisible(false);
+            startTurn.setVisible(true);
+         }*/
+    }
+    @FXML
+    private void startTurnButton()  {
+        startTurn.setDisable(true);
+        passTurn.setVisible(true);
+    }
 
     public void disablePlayerThree() {
         playerthree.setVisible(false);

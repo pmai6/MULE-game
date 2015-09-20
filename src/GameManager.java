@@ -27,6 +27,16 @@ public class GameManager {
         initializePlayerGuiStats();
     }
 
+    /** method do deal with the the Pass Turn button the main game window screen
+     * Should tell the round or turn class that the player has passed so the
+     * Round class can move through the round
+     * @params button takes button object
+     */
+    private static void handlePassButton (Button button) {
+        //TODO
+    }
+
+
 
     /**Disables the player areas in the main GUI screen so there
      * score and info do not show up

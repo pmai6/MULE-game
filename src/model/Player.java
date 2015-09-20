@@ -14,6 +14,8 @@ public class Player {
     private int ore;
     private int energy;
 
+
+    public Player () {}
     public Player(String aplayerName,
                   String aplayerRace, String aplayerColor) {
 
