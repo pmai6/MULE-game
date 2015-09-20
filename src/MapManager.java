@@ -68,7 +68,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
 
 
     /** Method to change the color of the button that was pushed on the map
-     * takes in player and Button to determine which colw and which buton to
+     * takes in player and Button to determine which color and which button to
      * change
      * @param player
      * @param button
