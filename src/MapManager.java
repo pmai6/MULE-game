@@ -85,7 +85,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
      * set to 300 for now will need to update after land selection phase
      * @return int cost of tile
      */
-    private int costOfTile() {
+    public static int costOfTile() {
         //TODO good enough for M4 but needs to be more accurate for later rounds
         return 300;
     }

@@ -161,4 +161,8 @@ public class Player {
     public void setTiles(ArrayList<Tile> tiles) {
         this.tiles = tiles;
     }
+
+    public void addtile (Tile tile) {
+        tiles.add(tile);
+    }
 }

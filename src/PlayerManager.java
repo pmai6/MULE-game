@@ -8,8 +8,8 @@ public class PlayerManager {
      * @param property
      */
     public static void buyProperty (Player player, Tile property) {
-        player.getMoney() = player.getMoney() - MapManager.costOfTile();
-        player.getTiles().add(property);
+        player.setMoney(player.getMoney() - MapManager.costOfTile());
+        player.addtile(property);
 
     }
 

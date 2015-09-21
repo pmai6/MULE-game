@@ -5,7 +5,7 @@ public interface Tile {
 
     public Tile getLocation(Tile[][] tiles);
 
-    public String getType();
+    //public String getType();
 
     public String getOwner();
 
