@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.List;
 /**
  * Created by travisclement on 9/8/15.
  */
@@ -154,7 +154,7 @@ public class Player {
     }
 
 
-    public ArrayList<Tile> getTiles() {
+
     public List<Tile> getTiles() {
         return tiles;
     }
