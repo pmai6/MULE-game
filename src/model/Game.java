@@ -1,3 +1,4 @@
+
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -5,7 +6,7 @@ import java.util.Arrays;
 
 public class Game {
 
-    private int numberOfPlayers;
+    private static int numberOfPlayers;
     private ArrayList<Player> playerArray;
     private String difficulty;
     private String map;
@@ -57,7 +58,7 @@ public class Game {
 
     public void setN(int t) {this.n = t;}
 
-    public int getNumberOfPlayers() {
+    public static int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 

@@ -1,8 +1,10 @@
+
 import java.util.ArrayList;
 
 /**
  * Created by travisclement on 9/8/15.
  */
+
 public class Player {
 
     private String playerName;

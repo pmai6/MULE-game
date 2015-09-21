@@ -1,3 +1,4 @@
+
 public class Mountain2 implements Tile {
 
     private String player;
@@ -17,3 +18,4 @@ public class Mountain2 implements Tile {
         return 300;
     }
 }
+

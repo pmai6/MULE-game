@@ -1,7 +1,4 @@
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -18,7 +15,7 @@ public class MapManager {
                 + GridPane.getColumnIndex(button));
         if (Game.getMulegame().isLandSelectionPhase()) {
 
-            Player player = Round.getCurrentPlayer();
+            Player player = RoundManager.getCurrentPlayer();
             Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
                     ][GridPane.getColumnIndex(button)];
             if (!(buyTile(player, tile, button))) {
