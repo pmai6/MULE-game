@@ -27,6 +27,7 @@ public class GameManager {
         for (Player element : Game.getMulegame().getPlayerArray()) {
             System.out.println(element.getPlayerName());
         }
+        updateGamePlayerRound();
 
     }
 
@@ -79,6 +80,11 @@ public class GameManager {
         } else {
             controller.setGameStateLabel("NORMAL GAME MODE");
         }
+    }
+
+    private static void updateGamePlayerRound() {
+        controller.setCurrentPlayer("test player");
+        controller.setRoundNumber(1);
     }
 
     public static void initializePlayerGuiStats() {

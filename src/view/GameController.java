@@ -106,6 +106,11 @@ public class GameController {
     @FXML
     private Label playerFourFood;
 
+    @FXML
+    private Label currentPlayer;
+    @FXML
+    private Label roundNumber;
+
     public GameController() {
 
 }
@@ -557,6 +562,13 @@ public class GameController {
         playerFourFood.setText(String.valueOf(food));
     }
 
+    public void setCurrentPlayer (String player) {
+        currentPlayer.setText(player);
+    }
+
+    public void setRoundNumber (int round) {
+        roundNumber.setText(String.valueOf(round));
+    }
 
 
 }
