@@ -16,6 +16,8 @@ public class Round {
      */
     public static Player getCurrentPlayer() {
         //TODO
+        // This needs to be an actual player
+        // This is called by the MapManager handleMapButton method
         return Game.getMulegame().getPlayerArray().get(0);
     }
 
