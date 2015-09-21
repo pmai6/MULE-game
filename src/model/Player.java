@@ -15,6 +15,9 @@ public class Player {
     private int food;
     private int ore;
     private int energy;
+    private int smithore;
+    private int crystite;
+    private int mule;
     private ArrayList<Tile> tiles;
 
 
@@ -125,6 +128,31 @@ public class Player {
     public void setOre(int ore) {
         this.ore = ore;
     }
+
+    public int getSmithore() {
+        return smithore;
+    }
+
+    public void setSmithore(int smithore) {
+        this.smithore = smithore;
+    }
+
+    public int getCrystite() {
+        return crystite;
+    }
+
+    public void setCrystite(int crystite) {
+        this.crystite = crystite;
+    }
+
+    public int getMule() {
+        return mule;
+    }
+
+    public void setMule(int mule) {
+        this.mule = mule;
+    }
+
 
     public ArrayList<Tile> getTiles() {
         return tiles;
