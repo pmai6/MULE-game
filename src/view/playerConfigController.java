@@ -7,7 +7,7 @@ import javafx.scene.paint.*;
 import javafx.stage.Stage;
 
 import javafx.scene.control.TextField;
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class playerConfigController {
@@ -68,7 +68,7 @@ public class playerConfigController {
         raceComboData.add("Buzzite");
 
 
-        ArrayList<String> colorList;
+        List<String> colorList;
         colorList = Game.getMulegame().getColor();
         for (String color : colorList) {
             colorComboData.add(color);
