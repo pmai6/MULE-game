@@ -18,7 +18,7 @@ public class Player {
     private int smithore;
     private int crystite;
     private int mule;
-    private ArrayList<Tile> tiles;
+    private List<Tile> tiles;
 
 
     public Player () {}
@@ -155,10 +155,11 @@ public class Player {
 
 
     public ArrayList<Tile> getTiles() {
+    public List<Tile> getTiles() {
         return tiles;
     }
 
-    public void setTiles(ArrayList<Tile> tiles) {
+    public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
     }
 
