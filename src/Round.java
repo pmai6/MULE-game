@@ -15,8 +15,8 @@ public class Round {
      * @return you know the player
      */
     public static Player getCurrentPlayer() {
-        Player player = new Player();
-        return player;
+        //TODO
+        return Game.getMulegame().getPlayerArray().get(0);
     }
 
 

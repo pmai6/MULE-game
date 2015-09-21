@@ -19,13 +19,12 @@ public class MapManager {
         if (Game.getMulegame().isLandSelectionPhase()) {
 
             Player player = Round.getCurrentPlayer();
+
             Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
                     ][GridPane.getColumnIndex(button)];
-            if (!(buyTile(player, tile, button))) {
-                System.out.println(button.getText());
-                String acolor = "RED";
-                button.setStyle(" -fx-base: " + acolor +";");
-            }
+
+            buyTile(player, tile, button);
+
         }
 
     }
@@ -45,9 +44,20 @@ public class MapManager {
      * @param tile
      * @return true if tile was purchased
      */
-    private static boolean buyTile (Player player, Tile tile, Button button) {
-        //TODO
-        return false;
+    private static void buyTile (Player player, Tile tile, Button button) {
+        if (canTileBeBought(player,tile)) {
+
+            tile.setIsOwned(true);
+            tile.setOwner(player);
+
+            PlayerManager.buyProperty(player, tile);
+            changeButtonColor(player, button);
+
+            GameManager.initializePlayerGuiStats();
+
+            Round.playerFinishedTurn();
+        }
+         // maybe have window show up later
     }
 
 
@@ -60,7 +70,11 @@ public class MapManager {
      * return boolean return true if it can be
      */
 private static boolean canTileBeBought (Player player, Tile tile) {
-    //TODO
+
+    if (!(tile.isOwned()) && (player.getMoney() - MapManager.costOfTile() >=
+            0)) {
+        return true;
+    }
     return false;
 }
 
@@ -73,11 +87,11 @@ private static boolean canTileBeBought (Player player, Tile tile) {
      * @param player
      * @param button
      */
-    private void changeButtonColor (Player player, Button button) {
+    private static void changeButtonColor (Player player, Button button) {
         //TODO
-
+        String thecolor = player.getPlayerColor();
         //how to change color
-        //button.setStyle(" -fx-base: RED;");
+        button.setStyle(" -fx-base: " + thecolor + ";");
     }
 
 
@@ -86,7 +100,11 @@ private static boolean canTileBeBought (Player player, Tile tile) {
      * @return int cost of tile
      */
     public static int costOfTile() {
-        //TODO good enough for M4 but needs to be more accurate for later rounds
+        //TODO need to deal with later rounds in land selection phase
+        // and need to deal with when the real game starts.
+        if (Game.isLandSelectionPhase()) {
+            return 0;
+        }
         return 300;
     }
 
@@ -130,7 +148,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
                 } else {
                     Tile newTileName = new Plain();
                     tiles[i][j] = newTileName;
-                    newTileName.setOwner("Town");
+                    newTileName.setOwner(null);
                 }
 
             }
