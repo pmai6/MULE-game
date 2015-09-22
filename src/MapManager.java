@@ -102,7 +102,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
     public static int costOfTile() {
         //TODO need to deal with later rounds in land selection phase
         // and need to deal with when the real game starts.
-        if (Game.isLandSelectionPhase()) {
+        if (Game.isLandSelectionPhase() && Round.getRoundNum() <= 2) {
             return 0;
         }
         return 300;

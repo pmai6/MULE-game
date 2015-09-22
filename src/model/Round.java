@@ -17,8 +17,31 @@ public class Round {
         return numPasses;
     }
 
-    public void createTurns() {
+    public static void incrementNumPasses () {
+        numPasses++;
+    }
 
+public static int turnNum;
+
+    public static int roundNum = 1;
+    public static void createTurns() {
+
+    }
+
+    public static int getTurnNum() {
+        return turnNum;
+    }
+
+    public static void setTurnNum(int turnNum) {
+        Round.turnNum = turnNum;
+    }
+
+    public static int getRoundNum() {
+        return roundNum;
+    }
+
+    public static void setRoundNum(int roundNum) {
+        Round.roundNum = roundNum;
     }
     //public roundTurns;
 

@@ -31,14 +31,7 @@ public class GameManager {
 
     }
 
-    /** method do deal with the the Pass Turn button the main game window screen
-     * Should tell the round or turn class that the player has passed so the
-     * RoundManager class can move through the round
-     * @params button takes button object
-     */
-    private static void handlePassButton (Button button) {
-        //TODO
-    }
+
 
 
 
@@ -74,7 +67,7 @@ public class GameManager {
      * state
      *
      */
-    public void setGameStateLabel() {
+    public static void setGameStateLabel() {
         if (Game.isLandSelectionPhase()) {
             controller.setGameStateLabel("LAND SELECTION PHASE");
         } else {
@@ -82,10 +75,10 @@ public class GameManager {
         }
     }
 
-    private static void updateGamePlayerRound() {
+    public static void updateGamePlayerRound() {
         controller.setCurrentPlayer(RoundManager.getCurrentPlayer()
                 .getPlayerName());
-        controller.setRoundNumber(1);
+        controller.setRoundNumber(Round.getRoundNum());
     }
 
     public static void initializePlayerGuiStats() {

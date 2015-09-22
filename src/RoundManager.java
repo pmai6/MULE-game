@@ -38,12 +38,21 @@ public class RoundManager {
 
         if(passed == true) {
             Round.incrementNumPasses();
+            isLandSelectionOver();
         }
+
         RoundManager.incrementTurnNumber();
+        if (Round.getTurnNum() < Game.getNumberOfPlayers()){
+            GameManager.updateGamePlayerRound();
+        }
+
         if(Round.getTurnNum() == Game.getNumberOfPlayers()) { //incrmeent round if all players have gone
             RoundManager.incrementRoundNumber();
             Round.turnNum = 0; //reset turn counter
             Round.numPasses = 0;//reset number of passes
+            GameManager.updateGamePlayerRound();
+            isLandSelectionOver();
+
         }
 
     }
@@ -51,11 +60,13 @@ public class RoundManager {
     /** somehow keep track of all the playerPassed Turn and set land slection
      * over if all players have passed.
      */
-    private static boolean isLandSelectionOver () {
+    private static void isLandSelectionOver () {
         if(Round.getNumPasses() == Game.getNumberOfPlayers()) {
-            return true;
+            Game.setIsLandSelectionPhase(false);
+            //Round.turnNum = 0; //reset turn counter
+
+            Round.setRoundNum(0);
+            GameManager.setGameStateLabel();
         }
-        else
-            return false;
     }
 }
