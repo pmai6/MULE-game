@@ -6,7 +6,6 @@
 public class Turn {
 
     Player player; //which player's turn
-    Round round; //owning round
 
     public Turn() {
 

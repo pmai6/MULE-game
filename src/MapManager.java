@@ -55,7 +55,8 @@ public class MapManager {
 
             GameManager.initializePlayerGuiStats();
 
-            RoundManager.playerFinishedTurn();
+            //just hardcoded in true so code would compile
+            RoundManager.playerFinishedTurn(true);
         }
          // maybe have window show up later
     }

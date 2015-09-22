@@ -8,21 +8,23 @@ import java.util.ArrayList;;
 
 public class Round {
 
-    public ArrayList<Turn> roundTurns;
+    public static ArrayList<Turn> roundTurns;
+    public static int roundNum;
+    public static int turnNum;
     public static int numPasses;
-    public Round() {
-        numPasses = 0;
-    }
+
     public static int getNumPasses() {
         return numPasses;
     }
 
-    public void createTurns() {
-
+    //initialize proper number of turns based on number of players
+    public static void createTurns() {
+        roundTurns = new ArrayList<Turn>(Game.getNumberOfPlayers());
+        roundNum = 0;
+        turnNum = 0;
     }
-    //public roundTurns;
 
-    public boolean isRoundOver() {
+    public static boolean isRoundOver() {
         //round is over if all turns are done
         Turn lastTurn = roundTurns.get(roundTurns.size()-1);
         if( lastTurn.isTurnOver() ) {
@@ -31,8 +33,31 @@ public class Round {
         return false;
     }
 
+    //returns the current turn number
+    public static int getTurnNum() {
+        return turnNum;
+    }
 
+    //returns the current turn object
+    public static Turn getCurrentTurn() {
+        return roundTurns.get(turnNum);
+    }
 
+    public static int getRoundNum() {
+        return roundNum;
+    }
+
+    public static void setRoundNum(int num) {
+        roundNum = num;
+    }
+
+    public static void setTurnNum(int num) {
+        turnNum = num;
+    }
+
+    public static void setNumPasses(int num) {
+        numPasses = num;
+    }
 }
 
 
