@@ -1,20 +1,19 @@
-
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.List;
 public class Game {
 
     private static int numberOfPlayers;
-    private ArrayList<Player> playerArray;
+    private List<Player> playerArray;
     private String difficulty;
     private String map;
     private int n;
     private static Game mulegame;
     private static int  playerCounter = 0;
-    private ArrayList<String> colorList = new ArrayList<>(Arrays.asList
-            ("PURPLE","GREEN","RED","BLUE"));
+    private List<String> colorList = new ArrayList<>(Arrays.asList
+            ("Purple","Green","Red","Blue"));
 
     private static boolean isLandSelectionPhase;
 
@@ -50,7 +49,7 @@ public class Game {
     public void addPlayerToArray(Player player) {
         playerArray.add(player);
     }
-    public  ArrayList getColor() {
+    public  List getColor() {
         return colorList;
     }
 
@@ -74,11 +73,11 @@ public class Game {
         this.map = map;
     }
 
-    public ArrayList<Player> getPlayerArray() {
+    public List<Player> getPlayerArray() {
         return playerArray;
     }
 
-    public void setPlayerArray(ArrayList<Player> playerArray) {
+    public void setPlayerArray(List<Player> playerArray) {
         this.playerArray = playerArray;
     }
 

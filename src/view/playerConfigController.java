@@ -7,7 +7,7 @@ import javafx.scene.paint.*;
 import javafx.stage.Stage;
 
 import javafx.scene.control.TextField;
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class playerConfigController {
@@ -68,7 +68,7 @@ public class playerConfigController {
         raceComboData.add("Buzzite");
 
 
-        ArrayList<String> colorList;
+        List<String> colorList;
         colorList = Game.getMulegame().getColor();
         for (String color : colorList) {
             colorComboData.add(color);
@@ -104,16 +104,19 @@ public class playerConfigController {
     private void handleColorComboAction() {
         selectedColor =
                 colorCombo.getSelectionModel().getSelectedItem();
-                if (colorCombo.getSelectionModel().getSelectedItem() == "RED") {
+                if (colorCombo.getSelectionModel().getSelectedItem() == "Red") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.RED);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "BLUE") {
+                if (colorCombo.getSelectionModel().getSelectedItem() ==
+                        "Blue") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.BLUE);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "PURPLE") {
+                if (colorCombo.getSelectionModel().getSelectedItem() ==
+                        "Purple") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.PURPLE);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "GREEN") {
+                if (colorCombo.getSelectionModel().getSelectedItem() ==
+                        "Green") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.GREEN);
                 }
     }

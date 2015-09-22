@@ -1,6 +1,6 @@
 
 import java.util.ArrayList;
-
+import java.util.List;
 /**
  * Created by travisclement on 9/8/15.
  */
@@ -17,7 +17,10 @@ public class Player {
     private int food;
     private int ore;
     private int energy;
-    private ArrayList<Tile> tiles;
+    private int smithore;
+    private int crystite;
+    private int mule;
+    private List<Tile> tiles;
 
 
     public Player () {}
@@ -128,11 +131,41 @@ public class Player {
         this.ore = ore;
     }
 
-    public ArrayList<Tile> getTiles() {
+    public int getSmithore() {
+        return smithore;
+    }
+
+    public void setSmithore(int smithore) {
+        this.smithore = smithore;
+    }
+
+    public int getCrystite() {
+        return crystite;
+    }
+
+    public void setCrystite(int crystite) {
+        this.crystite = crystite;
+    }
+
+    public int getMule() {
+        return mule;
+    }
+
+    public void setMule(int mule) {
+        this.mule = mule;
+    }
+
+
+
+    public List<Tile> getTiles() {
         return tiles;
     }
 
-    public void setTiles(ArrayList<Tile> tiles) {
+    public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
+    }
+
+    public void addtile (Tile tile) {
+        tiles.add(tile);
     }
 }

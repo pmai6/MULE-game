@@ -22,6 +22,7 @@ public class Turn {
 
     public boolean isTurnOver() {
         //some conditions
+
         return false;
     }
 }

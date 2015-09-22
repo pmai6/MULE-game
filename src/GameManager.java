@@ -27,6 +27,7 @@ public class GameManager {
         for (Player element : Game.getMulegame().getPlayerArray()) {
             System.out.println(element.getPlayerName());
         }
+        updateGamePlayerRound();
 
     }
 
@@ -81,7 +82,12 @@ public class GameManager {
         }
     }
 
-    public static void initializePlayerGuiStats () {
+    private static void updateGamePlayerRound() {
+        controller.setCurrentPlayer("test player");
+        controller.setRoundNumber(1);
+    }
+
+    public static void initializePlayerGuiStats() {
         updatePlayerOne();
         updatePlayerTwo();
 
@@ -93,7 +99,7 @@ public class GameManager {
         }
 
     }
-    public static void updatePlayerOne () {
+    public static void updatePlayerOne() {
         String name = Game.getMulegame().getPlayerArray().get(0).getPlayerName();
         String race = Game.getMulegame().getPlayerArray().get(0)
                 .getPlayerRace();
@@ -107,7 +113,7 @@ public class GameManager {
         controller.changePlayerOneGuiStats(name, race, score, money, ore,
                 food, color);
     }
-    public static void updatePlayerTwo () {
+    public static void updatePlayerTwo() {
         String name = Game.getMulegame().getPlayerArray().get(1)
                 .getPlayerName();
         String race = Game.getMulegame().getPlayerArray().get(1)
@@ -122,7 +128,7 @@ public class GameManager {
         controller.changePlayerTwoGuiStats(name, race, score, money, ore,
                 food, color);
     }
-    public static void updatePlayerThree () {
+    public static void updatePlayerThree() {
         String name = Game.getMulegame().getPlayerArray().get(2)
                 .getPlayerName();
         String race = Game.getMulegame().getPlayerArray().get(2)
@@ -137,7 +143,7 @@ public class GameManager {
                 food, color);
     }
 
-    public static void updatePlayerFour () {
+    public static void updatePlayerFour() {
         String name = Game.getMulegame().getPlayerArray().get(3)
                 .getPlayerName();
         String race = Game.getMulegame().getPlayerArray().get(3)

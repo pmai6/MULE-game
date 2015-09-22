@@ -2,10 +2,17 @@
 //represents a single tile object
 public interface Tile {
 
-    public void setOwner(String player);
+    public void setOwner(Player player);
+
     public Tile getLocation(Tile[][] tiles);
 
-    public String getOwner();
+    //public String getType();
+
+    public Player getOwner();
 
     public int getCost();
+
+    public boolean isOwned();
+
+    public void setIsOwned(boolean isOwned);
 }

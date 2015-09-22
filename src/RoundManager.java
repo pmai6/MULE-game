@@ -16,8 +16,10 @@ public class RoundManager {
      * @return you know the player
      */
     public static Player getCurrentPlayer() {
-        Player player = new Player();
-        return player;
+        //TODO
+        // This needs to be an actual player
+        // This is called by the MapManager handleMapButton method
+        return Game.getMulegame().getPlayerArray().get(0);
     }
 
 
@@ -40,8 +42,12 @@ public class RoundManager {
      */
     public static boolean playerPassedTurn() {
         System.out.println("I finished my turn");
-        Round.incrementNumPasses();
+        RoundManager.incrementNumPasses();
         return false;
+    }
+
+    public static void incrementNumPasses() {
+
     }
 
 
