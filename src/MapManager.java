@@ -35,7 +35,7 @@ public class MapManager {
      * array.
      * then adds the tile to the array the player keeps of the tiles it owns
      * deducts the money from the players money - use PlayerManager method
-     * boughtsomething  to handle the deduction from the players account
+     * buypropert  to handle the deduction from the players account
      * the PlayerManager can talk to Gamemanager to update the GUI screen
      * Update the button to reflect the players color
      * Button param will only be used to pass through tto the
@@ -104,7 +104,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
     public static int costOfTile() {
         //TODO need to deal with later rounds in land selection phase
         // and need to deal with when the real game starts.
-        if (Game.isLandSelectionPhase()) {
+        if (Game.isLandSelectionPhase() && (Round.getTurnNum() <= 2)) {
             return 0;
         }
         return 300;
