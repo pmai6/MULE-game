@@ -31,14 +31,7 @@ public class GameManager {
 
     }
 
-    /** method do deal with the the Pass Turn button the main game window screen
-     * Should tell the round or turn class that the player has passed so the
-     * RoundManager class can move through the round
-     * @params button takes button object
-     */
-    private static void handlePassButton (Button button) {
-        //TODO
-    }
+
 
 
 

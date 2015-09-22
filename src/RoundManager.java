@@ -5,7 +5,8 @@
 public class RoundManager {
 
     public static void startRounds() {
-        //create turn objects for round
+// no idea what this does
+        //should probably create turn objects here
         Round.createTurns();
     }
 
@@ -19,6 +20,15 @@ public class RoundManager {
         // This is called by the MapManager handleMapButton method
         return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
     }
+
+    private static void incrementTurnNumber() {
+        Round.turnNum++;
+    }
+
+    private static void incrementRoundNumber() {
+        Round.roundNum++;
+    }
+
 
     /** other classes will call this to let the RoundManager manager know that a
      * player has finished their turn.

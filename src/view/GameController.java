@@ -491,6 +491,7 @@ public class GameController {
     private void passTurnButton()  {
         RoundManager.playerFinishedTurn(true);
 
+
     }
    /* @FXML
     private void startTurnButton()  {
