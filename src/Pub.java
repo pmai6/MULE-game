@@ -27,6 +27,5 @@ public class Pub {
             if (roundNum == 12) { moneyBonus = roundBonus[3] * rand.nextInt(timeBonus); }
         }
 
-
     }
 }
