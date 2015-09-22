@@ -56,8 +56,7 @@ public class RoundManager {
     private static void isLandSelectionOver () {
         if (Round.getNumPasses() == Game.getNumberOfPlayers()) {
             Game.setIsLandSelectionPhase(false);
-
-            Round.setRoundNum(0);
+            Round.setRoundNum(1);
             GameManager.setGameStateLabel();
         }
     }
