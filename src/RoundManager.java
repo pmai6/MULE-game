@@ -5,8 +5,7 @@
 public class RoundManager {
 
     public static void startRounds() {
-// no idea what this does
-        //should probably create turn objects here
+        //create turn objects for round
         Round.createTurns();
     }
 
@@ -21,15 +20,6 @@ public class RoundManager {
         return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
     }
 
-    private static void incrementTurnNumber() {
-        Round.turnNum++;
-    }
-
-    private static void incrementRoundNumber() {
-        Round.roundNum++;
-    }
-
-
     /** other classes will call this to let the RoundManager manager know that a
      * player has finished their turn.
      *  coming from MapManager.
@@ -37,13 +27,13 @@ public class RoundManager {
     public static void playerFinishedTurn(boolean passed) { //TODO//
 
         if(passed == true) {
-            Round.incrementNumPasses();
+            RoundManager.incrementNumPasses();
         }
         RoundManager.incrementTurnNumber();
         if(Round.getTurnNum() == Game.getNumberOfPlayers()) { //incrmeent round if all players have gone
             RoundManager.incrementRoundNumber();
-            Round.turnNum = 0; //reset turn counter
-            Round.numPasses = 0;//reset number of passes
+            Round.setTurnNum(0); //reset turn counter
+            Round.setNumPasses(0);//reset number of passes
         }
 
     }
@@ -57,5 +47,23 @@ public class RoundManager {
         }
         else
             return false;
+    }
+
+    private static void incrementTurnNumber() {
+        int turnNum = Round.getTurnNum();
+        turnNum++;
+        Round.setTurnNum(turnNum);
+    }
+
+    private static void incrementRoundNumber() {
+        int roundNum = Round.getRoundNum();
+        roundNum++;
+        Round.setRoundNum(roundNum);
+    }
+
+    private static void incrementNumPasses() {
+        int numPasses = Round.getNumPasses();
+        numPasses++;
+        Round.setNumPasses(numPasses);
     }
 }
