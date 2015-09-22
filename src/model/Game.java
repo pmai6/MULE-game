@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 public class Game {
 
-    private int numberOfPlayers;
+    private static int numberOfPlayers;
     private List<Player> playerArray;
     private String difficulty;
     private String map;
@@ -57,7 +57,7 @@ public class Game {
 
     public void setN(int t) {this.n = t;}
 
-    public int getNumberOfPlayers() {
+    public static int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 

@@ -18,7 +18,7 @@ public class MapManager {
                 + GridPane.getColumnIndex(button));
         if (Game.getMulegame().isLandSelectionPhase()) {
 
-            Player player = Round.getCurrentPlayer();
+            Player player = RoundManager.getCurrentPlayer();
 
             Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
                     ][GridPane.getColumnIndex(button)];
@@ -55,7 +55,7 @@ public class MapManager {
 
             GameManager.initializePlayerGuiStats();
 
-            Round.playerFinishedTurn();
+            RoundManager.playerFinishedTurn();
         }
          // maybe have window show up later
     }
