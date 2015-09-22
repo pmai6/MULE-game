@@ -10,8 +10,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-import javafx.scene.paint.Color;
-
 public class GameController {
 
     private Main mainapp;
@@ -491,7 +489,7 @@ public class GameController {
     }
     @FXML
     private void passTurnButton()  {
-       Round.playerPassedTurn();
+       
 
     }
    /* @FXML

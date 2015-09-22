@@ -16,7 +16,7 @@ public class GameManager {
 
         Game.setIsLandSelectionPhase(true);
         MapManager.setUpMap();
-        //Round.startRounds();
+        RoundManager.startRounds();
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(Game.getMulegame().getNumberOfPlayers());
@@ -33,7 +33,7 @@ public class GameManager {
 
     /** method do deal with the the Pass Turn button the main game window screen
      * Should tell the round or turn class that the player has passed so the
-     * Round class can move through the round
+     * RoundManager class can move through the round
      * @params button takes button object
      */
     private static void handlePassButton (Button button) {
@@ -83,7 +83,8 @@ public class GameManager {
     }
 
     private static void updateGamePlayerRound() {
-        controller.setCurrentPlayer("test player");
+        controller.setCurrentPlayer(RoundManager.getCurrentPlayer()
+                .getPlayerName());
         controller.setRoundNumber(1);
     }
 
