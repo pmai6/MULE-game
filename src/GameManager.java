@@ -83,7 +83,7 @@ public class GameManager {
     }
 
     private static void updateGamePlayerRound() {
-        controller.setCurrentPlayer("test player");
+        controller.setCurrentPlayer(RoundManager.getCurrentPlayer());
         controller.setRoundNumber(1);
     }
 
