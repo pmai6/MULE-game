@@ -21,13 +21,6 @@ public class RoundManager {
         return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
     }
 
-    private static void incrementTurnNumber() {
-        Round.turnNum++;
-    }
-
-    private static void incrementRoundNumber() {
-        Round.roundNum++;
-    }
 
 
     /** other classes will call this to let the RoundManager manager know that a
@@ -70,7 +63,6 @@ public class RoundManager {
     }
 
 
-
     private static void incrementTurnNumber() {
         int turnNum = Round.getTurnNum();
         turnNum++;
@@ -82,6 +74,7 @@ public class RoundManager {
         roundNum++;
         Round.setRoundNum(roundNum);
     }
+
 
     private static void incrementNumPasses() {
         int numPasses = Round.getNumPasses();
