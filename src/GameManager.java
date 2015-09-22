@@ -74,7 +74,7 @@ public class GameManager {
      * state
      *
      */
-    public void setGameStateLabel() {
+    public static void setGameStateLabel() {
         if (Game.isLandSelectionPhase()) {
             controller.setGameStateLabel("LAND SELECTION PHASE");
         } else {
@@ -82,10 +82,10 @@ public class GameManager {
         }
     }
 
-    private static void updateGamePlayerRound() {
+    public static void updateGamePlayerRound() {
         controller.setCurrentPlayer(RoundManager.getCurrentPlayer()
                 .getPlayerName());
-        controller.setRoundNumber(1);
+        controller.setRoundNumber(Round.getRoundNum());
     }
 
     public static void initializePlayerGuiStats() {

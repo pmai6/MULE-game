@@ -20,7 +20,7 @@ public class Round {
     //initialize proper number of turns based on number of players
     public static void createTurns() {
         roundTurns = new ArrayList<Turn>(Game.getNumberOfPlayers());
-        roundNum = 0;
+        roundNum = 1;
         turnNum = 0;
     }
 
