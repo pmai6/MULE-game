@@ -1,7 +1,10 @@
+package mule.model;
 
 /*
 holds the array of all of the tiles on the map
 */
+
+import mule.model.Tile;
 
 public class GameMap {
 

@@ -1,6 +1,9 @@
+package mule;
 /**
  * Created by redcream12 on 9/18/15.
  */
+import mule.model.Player;
+
 import java.util.Random;
 
 public class Pub {

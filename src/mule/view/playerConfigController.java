@@ -1,3 +1,4 @@
+package mule.view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -7,6 +8,11 @@ import javafx.scene.paint.*;
 import javafx.stage.Stage;
 
 import javafx.scene.control.TextField;
+import mule.GameManager;
+import mule.Main;
+import mule.model.Game;
+import mule.model.Player;
+
 import java.util.List;
 
 

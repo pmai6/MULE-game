@@ -1,3 +1,9 @@
+package mule;
+
+import mule.model.Game;
+import mule.model.Player;
+import mule.model.Round;
+
 /**
  * This class need to keep track of rounds and notify the Game class or
  * manager that Land selection has finished

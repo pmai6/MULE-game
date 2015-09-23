@@ -1,3 +1,4 @@
+package mule;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -5,6 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import mule.model.Game;
+import mule.model.Player;
+import mule.model.Round;
+import mule.view.GameController;
 
 /**
  * Created by travisclement on 9/18/15.
@@ -55,7 +60,7 @@ public class GameManager {
      */
     public void startGameController(Stage astage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-                "/view/GameScreen.fxml"));
+                "view/GameScreen.fxml"));
         Parent root = fxmlLoader.load();
         astage.setScene(new Scene(root));
         astage.setTitle("M.U.L.E Game Screen");

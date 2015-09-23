@@ -1,4 +1,4 @@
-
+package mule.model;
 //represents a single tile object
 public interface Tile {
 

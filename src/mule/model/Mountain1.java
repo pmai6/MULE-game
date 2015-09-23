@@ -1,9 +1,9 @@
-
-public class Mountain3 implements Tile {
+package mule.model;
+public class Mountain1 implements Tile {
 
     private Player player;
     private boolean isOwned;
-    public Mountain3() {
+    public Mountain1() {
 
     }
     public void setOwner(Player player) {

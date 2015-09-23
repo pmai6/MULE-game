@@ -1,15 +1,15 @@
-
-public class Mountain1 implements Tile {
+package mule.model;
+public class River implements Tile {
 
     private Player player;
     private boolean isOwned;
-    public Mountain1() {
+    public River() {
 
     }
     public void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile[][] tiles) { return tiles[2][4]; }
+    public Tile getLocation(Tile[][] tiles) { return tiles[4][3]; }
 
     public Player getOwner() {
         return player;

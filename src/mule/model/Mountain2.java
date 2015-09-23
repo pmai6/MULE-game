@@ -1,3 +1,4 @@
+package mule.model;
 public class Mountain2 implements Tile {
 
     private Player player;

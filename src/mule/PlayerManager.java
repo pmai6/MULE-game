@@ -1,3 +1,8 @@
+package mule;
+
+import mule.model.Player;
+import mule.model.Tile;
+
 /**
  * Class to manage player objects
  */

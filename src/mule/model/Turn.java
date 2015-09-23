@@ -1,4 +1,4 @@
-
+package mule.model;
 /**
  * Created by ryyanj on 9/20/15.
  */

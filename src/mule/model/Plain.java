@@ -1,4 +1,4 @@
-
+package mule.model;
 public class Plain implements Tile {
 private Player player;
 	private boolean isOwned;

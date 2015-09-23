@@ -1,3 +1,4 @@
+package mule.view;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,7 +10,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-
+import mule.Main;
+import mule.RoundManager;
+import mule.model.GameMap;
+import mule.MapManager;
 public class GameController {
 
     private Main mainapp;
@@ -143,34 +147,34 @@ public class GameController {
 
                     if (tileType.equals("P")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("view/brown.png"));
+                                .getResourceAsStream("brown.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
 
                     } else if (tileType.equals("R")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("view/river.png"));
+                                .getResourceAsStream("river.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
 
                     } else if (tileType.equals("M1"))  {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("view/mountain1.png"));
+                                .getResourceAsStream("mountain1.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     } else if (tileType.equals("M2")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("view/mountain2.png"));
+                                .getResourceAsStream("mountain2.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     } else if (tileType.equals("M3")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("view/mountain3.png"));
+                                .getResourceAsStream("mountain3.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     } else {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("view/town.png"));
+                                .getResourceAsStream("town.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     }
