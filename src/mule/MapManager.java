@@ -161,6 +161,4 @@ private static boolean canTileBeBought (Player player, Tile tile) {
             }
         }
     }
-
-
 }

@@ -47,13 +47,20 @@ public class PlayerManager {
 
 
     /**
-     * stub method - reduce from the account of the player
+     * void method - add to the account of the player
      * @param player - player object
      * @param amountOfSale
-     * @return boolean or void - not sure yet
      */
-    public boolean soldSomething (Player player, double amountOfSale) {
-        return false;
+    public void sellSomething (Player player, double amountOfSale) {
         //TODO
+    }
+
+    /**
+     * stub method - player's turn ends when gambling
+     * @param player - player who currently gamble
+     */
+    public static void gambleInPub (Player player) {
+        //Pub.gamble(player, some sort of timer, mule.model.Round.getRoundNum());
+        mule.model.Round.getCurrentTurn().isTurnOver(true);
     }
 }
