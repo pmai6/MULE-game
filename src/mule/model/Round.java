@@ -9,10 +9,10 @@ package mule.model;
 
 public class Round {
 
-    public static ArrayList<Turn> roundTurns;
-    public static int roundNum;
-    public static int turnNum;
-    public static int numPasses;
+    private static ArrayList<Turn> roundTurns;
+    private static int roundNum;
+    private static int turnNum;
+    private static int numPasses;
 
     public static int getNumPasses() {
         return numPasses;
