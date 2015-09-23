@@ -9,11 +9,14 @@ import javafx.scene.layout.GridPane;
  */
 public class MapManager {
 
+    private static Button button;
+
     /** this will be the major method to handle what happens when a button is
      * pushed
      * @param button
      */
     public static void handleMapButton(Button button) {
+        MapManager.button = button;
         System.out.println("Row " + GridPane.getRowIndex(button) + " Column "
                 + GridPane.getColumnIndex(button));
         if (Game.getMulegame().isLandSelectionPhase()) {

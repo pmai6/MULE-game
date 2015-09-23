@@ -31,7 +31,9 @@ public class RoundManager {
 
         if(passed == true) {
             RoundManager.incrementNumPasses();
-            isLandSelectionOver();
+            if (Game.isLandSelectionPhase()) {
+                isLandSelectionOver();
+            }
 
         }
         RoundManager.incrementTurnNumber();
@@ -45,7 +47,9 @@ public class RoundManager {
             Round.setTurnNum(0); //reset turn counter
             Round.setNumPasses(0);//reset number of passes
             GameManager.updateGamePlayerRound();
-            isLandSelectionOver();
+            if (Game.isLandSelectionPhase()) {
+                isLandSelectionOver();
+            }
         }
 
     }
@@ -56,7 +60,7 @@ public class RoundManager {
     private static void isLandSelectionOver () {
         if (Round.getNumPasses() == Game.getNumberOfPlayers()) {
             Game.setIsLandSelectionPhase(false);
-            Round.setRoundNum(1);
+            Round.setRoundNum(0);
             GameManager.setGameStateLabel();
         }
     }
