@@ -61,6 +61,6 @@ public class PlayerManager {
      */
     public static void gambleInPub (Player player) {
         //Pub.gamble(player, some sort of timer, mule.model.Round.getRoundNum());
-        mule.model.Round.getCurrentTurn().isTurnOver(true);
+        mule.model.Round.getCurrentTurn().endTurn();
     }
 }

@@ -20,9 +20,12 @@ public class Turn {
         return this.player;
     }
 
-    public boolean isTurnOver(boolean yesOrNo) {
+    public boolean isTurnOver() {
         //some conditions
-        isOver = yesOrNo;
         return isOver;
+    }
+
+    public void endTurn() {
+        isOver = true;
     }
 }
