@@ -61,7 +61,6 @@ public class PlayerManager {
      */
     public static void gambleInPub (Player player) {
         //Pub.gamble(player, some sort of timer, mule.model.Round.getRoundNum());
-        //mule.model.Round.getCurrentTurn().endTurn();
 
         //this method is all that needs to be called to finish a turn
         //the parameter tells you whether the turn is ending b/c a player

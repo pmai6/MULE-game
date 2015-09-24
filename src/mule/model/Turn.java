@@ -6,7 +6,6 @@ package mule.model;
 public class Turn {
 
     Player player; //which player's turn
-    boolean isOver;
 
     public Turn() {
 
@@ -22,10 +21,7 @@ public class Turn {
 
     public boolean isTurnOver() {
         //some conditions
-        return isOver;
+        return false;
     }
 
-    public void endTurn() {
-        isOver = true;
-    }
 }
