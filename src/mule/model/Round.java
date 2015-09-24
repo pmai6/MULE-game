@@ -25,15 +25,6 @@ public class Round {
         turnNum = 0;
     }
 
-    public static boolean isRoundOver() {
-        //round is over if all turns are done
-        Turn lastTurn = roundTurns.get(roundTurns.size()-1);
-        if( lastTurn.isTurnOver() ) {
-            return true;
-        }
-        return false;
-    }
-
     //returns the current turn number
     public static int getTurnNum() {
         return turnNum;
