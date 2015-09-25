@@ -475,8 +475,9 @@ public class GameController {
         System.out.println("Assay Office Opens");
     }
     @FXML private void handlePubAction() {
-        System.out.println("Time to get Drunk");
+        System.out.println("Time to get Drunk & Gamble on top of the rainbow");
     }
+
 
 
     @FXML
@@ -489,6 +490,13 @@ public class GameController {
         //if (!Game.isLandSelectionPhase()) {
         map.setVisible(false);
         town.setVisible(true);
+        // }
+    }
+    @FXML
+    private void goToPubButton()  {
+        //if (!Game.isLandSelectionPhase()) {
+        map.setVisible(false);
+        pub.setVisible(true);
         // }
     }
     @FXML
