@@ -10,10 +10,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import mule.Main;
 import mule.RoundManager;
 import mule.model.GameMap;
 import mule.MapManager;
+
 public class GameController {
 
     private Main mainapp;
@@ -112,6 +114,8 @@ public class GameController {
     private Label currentPlayer;
     @FXML
     private Label roundNumber;
+    @FXML
+    private Label timerLabel = new Label();
 
     public GameController() {
 
@@ -131,7 +135,11 @@ public class GameController {
      */
     @FXML
     private void initialize() {
-
+        //this is how to instantiate a new timer
+        timer timer = new timer(50);
+        setTimerLabel(timerLabel, timer);
+        timer.startTimer();
+        //^^^^^
         mapButtonArray = new Button[5][9];
         String[][] defaultMapLayout = GameMap.getMapLayout();
         for(int i=0; i<5; i++) {
@@ -461,7 +469,11 @@ public class GameController {
     }
 
 
-
+    @FXML
+    public void setTimerLabel(Label timer, timer Timer) {
+        timer.textProperty().bind(Timer.getTimeSeconds().asString());
+        timer.setTextFill(Color.RED);
+    }
     @FXML
     private void handleStoreAction() {
         System.out.println("Store Opens");
