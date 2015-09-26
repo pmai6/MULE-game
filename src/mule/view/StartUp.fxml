@@ -56,7 +56,7 @@
                 <Glow />
             </effect>
         </Label>
-        <Label alignment="CENTER" prefHeight="167.0" prefWidth="600.0" text="M.U.L.E" textAlignment="CENTER" textFill="#2026d7" textOverrun="CLIP" GridPane.columnSpan="2147483647">
+        <Label alignment="CENTER" onMouseClicked="#skipScreens" prefHeight="167.0" prefWidth="600.0" text="M.U.L.E" textAlignment="CENTER" textFill="#2026d7" textOverrun="CLIP" GridPane.columnSpan="2147483647">
             <font>
                 <Font name="Courier Bold" size="92.0" />
             </font>

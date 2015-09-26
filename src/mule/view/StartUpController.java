@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import mule.GameManager;
 import mule.Main;
 import mule.model.Game;
+import mule.model.Player;
 
 
 public class StartUpController {
@@ -108,5 +110,24 @@ public class StartUpController {
         mainapp.startPlayerConfig(stage);
 
 
+    }
+
+    @FXML
+    private void skipScreens () throws Exception {
+
+        Stage stage;
+        stage = (Stage) nextButton.getScene().getWindow();
+
+        Game.createGame("Beginner", 4, "Standard", 4);
+        Player.createNewGamePlayer("Drew",
+                "Human", "Purple");
+        Player.createNewGamePlayer("Ryyan",
+                "Ugaite", "Green");
+        Player.createNewGamePlayer("Travis",
+                "Flapper", "Red");
+        Player.createNewGamePlayer("Zuri",
+                "Bonzoid", "Blue");
+
+        GameManager.startTheGame(stage);
     }
 }
