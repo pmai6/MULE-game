@@ -59,7 +59,10 @@ public class MapManager {
             PlayerManager.buyProperty(player, tile);
             changeButtonColor(player, button);
 
-            GameManager.initializePlayerGuiStats();
+            //GameManager.initializePlayerGuiStats();
+/*player.setFood(10000000);
+            player.setOre(999999);
+            player.setScore(777777);*/
 
             RoundManager.playerFinishedTurn(false);
         }

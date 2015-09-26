@@ -1,24 +1,28 @@
 package mule.model;
 import java.util.ArrayList;
 import java.util.List;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 /**
  * Created by travisclement on 9/8/15.
  */
 
 public class Player {
 
-    private String playerName;
+    private StringProperty playerName;
 
-    private String playerRace;
+    private StringProperty playerRace;
 
-    private String playerColor;
-    private int score;
-    private int money;
-    private int food;
-    private int ore;
-    private int energy;
-    private int smithore;
-    private int crystite;
+    private StringProperty playerColor;
+    private IntegerProperty score;
+    private IntegerProperty money;
+    private IntegerProperty food;
+    private IntegerProperty ore;
+    private IntegerProperty energy;
+
     private int mule;
     private List<Tile> tiles;
 
@@ -27,11 +31,11 @@ public class Player {
     public Player(String aplayerName,
                   String aplayerRace, String aplayerColor) {
 
-        playerName = aplayerName;
-        playerRace = aplayerRace;
-        playerColor = aplayerColor;
-        score = 0;
-        money = getStartMoney(playerRace);
+        this.playerName = new SimpleStringProperty(aplayerName);
+        this.playerRace = new SimpleStringProperty(aplayerRace);
+        this.playerColor = new SimpleStringProperty(aplayerColor);
+        this.score = new SimpleIntegerProperty(0);
+        this.money = new SimpleIntegerProperty(getStartMoney(aplayerRace));
         setStartFoodOreEnergy();
         tiles = new ArrayList<Tile>();
 
@@ -39,9 +43,9 @@ public class Player {
 
     private void setStartFoodOreEnergy() {
 
-        food = 8;
-        energy =
-        ore = 0;
+        this.food = new SimpleIntegerProperty(8);
+        this.energy = new SimpleIntegerProperty(0);
+        this.ore = new SimpleIntegerProperty(0);
 
 
     }
@@ -61,90 +65,89 @@ public class Player {
 
     // Getters and setters
     public String getPlayerName() {
-        return playerName;
+        return playerName.get();
     }
 
     public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+        this.playerName.set(playerName);
     }
 
     public String getPlayerRace() {
-        return playerRace;
+        return playerRace.get();
     }
 
     public void setPlayerRace(String playerRace) {
-        this.playerRace = playerRace;
+        this.playerRace.setValue(playerRace);
     }
 
     public String getPlayerColor() {
-        return playerColor;
+        return playerColor.get();
     }
 
     public void setPlayerColor(String playerColor) {
-        this.playerColor = playerColor;
+        this.playerColor.set(playerColor);
     }
 
-    public static void createNewGamePlayer (String playerName,
-                                            String selectedRace,
-                                            String selectedColor) {
-        Player newplayer = new Player(playerName, selectedRace, selectedColor);
+    public static void createNewGamePlayer (String playerName2,
+                                            String selectedRace2,
+                                            String selectedColor2) {
+        Player newplayer = new Player(playerName2, selectedRace2,
+                selectedColor2);
         Game.getMulegame().addPlayerToArray(newplayer);
     }
 
     public int getScore() {
-        return score;
+        return score.getValue();
     }
 
     public void setScore(int score) {
-        this.score = score;
+        this.score.set(score);
+    }
+
+    public IntegerProperty getScoreProperty() {
+        return score;
     }
 
     public int getMoney() {
+        return money.get();
+    }
+
+    public IntegerProperty getMoneyProperty() {
         return money;
     }
 
+
     public void setMoney(int money) {
-        this.money = money;
+        this.money.set(money);
     }
 
     public int getEnergy() {
-        return energy;
+        return energy.get();
     }
 
     public void setEnergy(int energy) {
-        this.energy = energy;
+        this.energy.set(energy);
     }
 
     public int getFood() {
-        return food;
+        return food.get();
     }
 
     public void setFood(int food) {
-        this.food = food;
+        this.food.set(food);
     }
-
+    public IntegerProperty getFoodProperty() {
+        return food;
+    }
     public int getOre() {
-        return ore;
+        return ore.get();
     }
 
     public void setOre(int ore) {
-        this.ore = ore;
+        this.ore.set(ore);
     }
-
-    public int getSmithore() {
-        return smithore;
-    }
-
-    public void setSmithore(int smithore) {
-        this.smithore = smithore;
-    }
-
-    public int getCrystite() {
-        return crystite;
-    }
-
-    public void setCrystite(int crystite) {
-        this.crystite = crystite;
+    public IntegerProperty getOreProperty() {
+        return ore;
     }
 
     public int getMule() {
