@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1024.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mule.view.GameController">
    <children>
-      <HBox fx:id="map" layoutX="218.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" visible="false" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
+      <HBox fx:id="map" layoutX="218.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
          <children>
             <GridPane fx:id="mapGrid" alignment="CENTER" style="-fx-background-color: WHITE;">
                <columnConstraints>
@@ -432,7 +432,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Pub" layoutX="232.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="551.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="Pub" layoutX="232.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="551.0" style="-fx-background-color: white;" visible="false">
          <children>
             <AnchorPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
                <children>
