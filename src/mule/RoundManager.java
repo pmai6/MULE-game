@@ -29,7 +29,6 @@ public class RoundManager {
         if(Game.isLandSelectionPhase())
             return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
         else {
-            Collections.sort(Game.getMulegame().getSortedPlayerArray());
             return Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum());
         }
     }
@@ -42,7 +41,7 @@ public class RoundManager {
      */
     public static void playerFinishedTurn(boolean passed) { //TODO//
 
-        if(passed == true) {
+        if(passed) {
             RoundManager.incrementNumPasses();
             if (Game.isLandSelectionPhase()) {
                 isLandSelectionOver();
