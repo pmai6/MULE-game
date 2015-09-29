@@ -41,6 +41,9 @@ public class RoundManager {
                 isLandSelectionOver();
             }
 
+            if (!Game.isLandSelectionPhase()) {
+                //GameManager.startTimer(5);
+            }
         }
         RoundManager.incrementTurnNumber();
 

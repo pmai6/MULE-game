@@ -10,6 +10,7 @@ import mule.model.Game;
 import mule.model.Player;
 import mule.model.Round;
 import mule.view.GameController;
+import mule.view.timer;
 
 /**
  * Created by travisclement on 9/18/15.
@@ -18,7 +19,6 @@ public class GameManager {
     private static GameManager gameManager = new GameManager();
     private static GameController controller;
     public static void startTheGame(Stage stage) throws Exception {
-
         Game.setIsLandSelectionPhase(true);
         MapManager.setUpMap();
         RoundManager.startRounds();
@@ -156,5 +156,9 @@ public class GameManager {
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
                 food, color);
     }
-
+    public static void startTimer(int startTimer) {
+        timer timer = new timer(startTimer);
+        GameController.setTimerLabel(timer);
+        timer.startTimer();
+    }
 }
