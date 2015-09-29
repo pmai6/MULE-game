@@ -963,6 +963,7 @@ public class GameController {
         playerOneFood.setText(String.valueOf(food));
     }
 
+
     public void changePlayerTwoGuiStats (String name, String race, int score,
                                          int money, int ore, int food, String
                                          color) {
