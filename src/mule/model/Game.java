@@ -3,11 +3,13 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 public class Game {
 
     private static int numberOfPlayers;
     private List<Player> playerArray;
+    private List<Player> sortedPlayerArray;
     private String difficulty;
     private String map;
     private int n;
@@ -23,6 +25,7 @@ public class Game {
         difficulty = adifficulty;
         numberOfPlayers = anumPlayers;
         playerArray = new ArrayList<>(anumPlayers);
+        sortedPlayerArray = new ArrayList<>(anumPlayers);
         n = number;
         map = amap;
 
@@ -49,6 +52,7 @@ public class Game {
 
     public void addPlayerToArray(Player player) {
         playerArray.add(player);
+        sortedPlayerArray.add(player);
     }
     public  List getColor() {
         return colorList;
@@ -80,6 +84,11 @@ public class Game {
 
     public void setPlayerArray(List<Player> playerArray) {
         this.playerArray = playerArray;
+    }
+
+    public List<Player> getSortedPlayerArray() {
+        Collections.sort(sortedPlayerArray);
+        return sortedPlayerArray;
     }
 
     public String getDifficulty() {

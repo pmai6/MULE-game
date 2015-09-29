@@ -1,5 +1,6 @@
 package mule.model;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javafx.beans.property.IntegerProperty;
@@ -10,7 +11,7 @@ import javafx.beans.property.StringProperty;
  * Created by travisclement on 9/8/15.
  */
 
-public class Player {
+public class Player implements Comparable {
 
     private StringProperty playerName;
 
@@ -25,6 +26,7 @@ public class Player {
 
     private int mule;
     private List<Tile> tiles;
+    //add list of mules;
 
 
     public Player () {}
@@ -170,5 +172,11 @@ public class Player {
 
     public void addtile (Tile tile) {
         tiles.add(tile);
+    }
+
+    public int compareTo(Object comparePlayer) {
+        int compareScore = ((Player) comparePlayer).getMoney();
+        //ascending order
+        return this.getMoney() - compareScore;
     }
 }
