@@ -906,7 +906,11 @@ public class GameController {
         Pub.setVisible(true);
     }
 
-
+    @FXML
+    private void gambleButton()  {
+        PlayerManager player = new PlayerManager();
+        player.gambleInPub();
+    }
 
     @FXML
     private void exitButtonAction() throws Exception {

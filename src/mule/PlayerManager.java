@@ -2,11 +2,19 @@ package mule;
 
 import mule.model.Player;
 import mule.model.Tile;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  * Class to manage player objects
  */
 public class PlayerManager {
+    private int startTime;
+    private mule.view.timer time = new mule.view.timer(startTime);
+    private IntegerProperty timeLeft = time.getTimeLeft();
+
     /** Stub method
      * Method to deduct the an amount of money a player spent on land
      * @param player
@@ -56,11 +64,33 @@ public class PlayerManager {
     }
 
     /**
-     * stub method - player's turn ends when gambling
-     * @param player - player who currently gamble
+     * stub method - player starts his turn
+     * @param player - player who has current turn
+     * @param startTimer - time in player's turn which is determined by his score
      */
-    public static void gambleInPub (Player player) {
-        //Pub.gamble(player, some sort of timer, mule.model.Round.getRoundNum());
+    public void startTurn(Player player, int startTimer) {
+        mule.model.Round.getCurrentTurn().setPlayer(player);
+        startTime = startTimer;
+        time.startTimer();
+    }
+
+//    /**
+//     * stub method - player's score is calculated
+//     */
+//    public int getScore() {
+//        RoundManager.getCurrentPlayer().getFood();
+//
+//    }
+
+    public IntegerProperty getTimeLeftProperty() { return timeLeft; }
+
+    public int getTimeLeft() { return timeLeft.get(); }
+
+    /**
+     * stub method - player's turn ends when gambling
+     */
+    public void gambleInPub () {
+        Pub.gamble(RoundManager.getCurrentPlayer(), timeLeft.get(), mule.model.Round.getRoundNum());
 
         //this method is all that needs to be called to finish a turn
         //the parameter tells you whether the turn is ending b/c a player

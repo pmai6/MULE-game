@@ -96,6 +96,7 @@ public class Player {
         Game.getMulegame().addPlayerToArray(newplayer);
     }
 
+
     public int getScore() {
         return score.getValue();
     }
