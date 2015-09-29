@@ -122,7 +122,7 @@ public class GameController {
     private Label roundNumber;
     @FXML
     private Label timerLabel;
-    private timer Timer = new timer(5);
+    private timer Timer = new timer(10);
 
     public GameController() {
 
