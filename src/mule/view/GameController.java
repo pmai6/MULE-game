@@ -30,6 +30,10 @@ public class GameController {
     @FXML
     private AnchorPane town;
     @FXML
+    private AnchorPane Pub;
+    @FXML
+    private Button gambleButton;
+    @FXML
     private HBox map;
     @FXML
     private Button store;
@@ -894,31 +898,31 @@ public class GameController {
     private void handleAssayOfficeAction() {
         System.out.println("Assay Office Opens");
     }
+
+
     @FXML private void handlePubAction() {
-        System.out.println("Time to get Drunk & Gamble on top of the rainbow");
+        town.setVisible(false);
+        map.setVisible(false);
+        Pub.setVisible(true);
     }
 
 
 
     @FXML
     private void exitButtonAction() throws Exception {
+        Pub.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);
     }
     @FXML
     private void goToTownButton()  {
         //if (!Game.isLandSelectionPhase()) {
+        Pub.setVisible(false);
         map.setVisible(false);
         town.setVisible(true);
         // }
     }
-    @FXML
-    private void goToPubButton()  {
-        //if (!Game.isLandSelectionPhase()) {
-        map.setVisible(false);
-        pub.setVisible(true);
-        // }
-    }
+
     @FXML
     private void passTurnButton()  {
         RoundManager.playerFinishedTurn(true);
