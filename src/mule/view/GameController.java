@@ -117,7 +117,8 @@ public class GameController {
     @FXML
     private Label roundNumber;
     @FXML
-    private Label timerLabel = new Label();
+    private Label timerLabel;
+    private timer Timer = new timer(5);
 
     public GameController() {
 
@@ -137,11 +138,6 @@ public class GameController {
      */
     @FXML
     private void initialize() {
-        //this is how to instantiate a new timer
-        timer timer = new timer(50);
-        setTimerLabel(timerLabel, timer);
-        timer.startTimer();
-        //^^^^^
         mapButtonArray = new Button[5][9];
         String[][] defaultMapLayout = GameMap.getMapLayout();
         for(int i=0; i<5; i++) {
@@ -466,301 +462,425 @@ public class GameController {
             }
         });
 
-/// GET MONEY listeners
-        Game.getMulegame().getPlayerArray().get(0).getMoneyProperty().addListener
+        Game.getMulegame().getPlayerArray().get(0).getMoneyProperty()
+            .addListener
                 (new
-                         ChangeListener() {
-                             @Override
-                             public void changed(ObservableValue o, Object oldVal,
-                                                 Object newVal) {
-                                 playerOneMoney.setText(String.valueOf(Game
-                                         .getMulegame().getPlayerArray().get
-                                                 (0).getMoney()));
-                             }
-                         });
-
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerOneMoney.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (0).getMoney()));
+                         }
+                     });
         Game.getMulegame().getPlayerArray().get(1).getMoneyProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerTwoMoney.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (1).getMoney()));
-                                     }
-                                 });
-
-        Game.getMulegame().getPlayerArray().get(2).getMoneyProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerThreeMoney.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (2).getMoney()));
-                                     }
-                                 });
-
-        Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerFourMoney.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (3).getMoney()));
-                                     }
-                                 });
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerTwoMoney.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (1).getMoney()));
+                         }
+                     });
 
 
- //get score listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getScoreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerOneScore.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (0).getScore()));
-                                     }
-                                 });
-
-        Game.getMulegame().getPlayerArray().get(1).getScoreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerTwoScore.setText(String.valueOf
-                                                 (Game
-                                                 .getMulegame().getPlayerArray().get
-                                                         (1).getScore()));
-                                     }
-                                 });
-
-        Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerThreeScore.setText(String.valueOf
-                                                 (Game
-                                                 .getMulegame().getPlayerArray().get
-                                                         (2).getScore()));
-                                     }
-                                 });
-
-        Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerFourScore.setText(String.valueOf
-                                                 (Game
-                                                 .getMulegame().getPlayerArray().get
-                                                         (3).getScore()));
-                                     }
-                                 });
 
         //get score listeners
 
         Game.getMulegame().getPlayerArray().get(0).getScoreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerOneScore.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (0).getScore()));
-                                     }
-                                 });
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerOneScore.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (0).getScore()));
+                         }
+                     });
 
         Game.getMulegame().getPlayerArray().get(1).getScoreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerTwoScore.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (1).getScore()));
-                                     }
-                                 });
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerTwoScore.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (1).getScore()));
+                         }
+                     });
 
-        Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerThreeScore.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (2).getScore()));
-                                     }
-                                 });
 
-        Game.getMulegame().getPlayerArray().get(3).getScoreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerFourScore.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (3).getScore()));
-                                     }
-                                 });
+
+        //get score listeners
+
+        Game.getMulegame().getPlayerArray().get(0).getScoreProperty()
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerOneScore.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (0).getScore()));
+                         }
+                     });
+
+        Game.getMulegame().getPlayerArray().get(1).getScoreProperty()
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerTwoScore.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (1).getScore()));
+                         }
+                     });
+
 
         //get Ore listeners
 
         Game.getMulegame().getPlayerArray().get(0).getOreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerOneOre.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (0).getOre()));
-                                     }
-                                 });
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerOneOre.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (0).getOre()));
+                         }
+                     });
 
         Game.getMulegame().getPlayerArray().get(1).getOreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerTwoOre.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (1).getOre()));
-                                     }
-                                 });
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerTwoOre.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (1).getOre()));
+                         }
+                     });
 
-        Game.getMulegame().getPlayerArray().get(2).getOreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerThreeOre.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (2).getOre()));
-                                     }
-                                 });
 
-        Game.getMulegame().getPlayerArray().get(3).getOreProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerFourOre.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (3).getOre()));
-                                     }
-                                 });
 
         //get Food listeners
 
         Game.getMulegame().getPlayerArray().get(0).getFoodProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerOneFood.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (0).getFood()));
-                                     }
-                                 });
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerOneFood.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (0).getFood()));
+                         }
+                     });
 
         Game.getMulegame().getPlayerArray().get(1).getFoodProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerTwoFood.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (1).getFood()));
-                                     }
-                                 });
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerTwoFood.setText(String.valueOf
+                                 (Game
+                                     .getMulegame().getPlayerArray().get
+                                         (1).getFood()));
+                         }
+                     });
 
-        Game.getMulegame().getPlayerArray().get(2).getFoodProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerThreeFood.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (2).getFood()));
-                                     }
-                                 });
+        if (Game.getNumberOfPlayers() == 4) {
 
-        Game.getMulegame().getPlayerArray().get(3).getFoodProperty()
-                .addListener
-                        (new
-                                 ChangeListener() {
-                                     @Override
-                                     public void changed(ObservableValue o, Object oldVal,
-                                                         Object newVal) {
-                                         playerFourFood.setText(String.valueOf
-                                                 (Game
-                                                         .getMulegame().getPlayerArray().get
-                                                                 (3).getFood()));
-                                     }
-                                 });
 
+            Game.getMulegame().getPlayerArray().get(2).getMoneyProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeMoney.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getMoney()));
+                             }
+                         });
+
+            Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerFourMoney.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (3).getMoney()));
+                             }
+                         });
+
+
+            //get score listeners
+
+
+            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeScore.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getScore()));
+                             }
+                         });
+
+            Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerFourScore.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (3).getScore()));
+                             }
+                         });
+
+            //get score listeners
+
+
+            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeScore.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getScore()));
+                             }
+                         });
+
+            Game.getMulegame().getPlayerArray().get(3).getScoreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerFourScore.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (3).getScore()));
+                             }
+                         });
+
+            //get Ore listeners
+
+
+            Game.getMulegame().getPlayerArray().get(2).getOreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeOre.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getOre()));
+                             }
+                         });
+
+            Game.getMulegame().getPlayerArray().get(3).getOreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerFourOre.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (3).getOre()));
+                             }
+                         });
+
+            //get Food listeners
+
+
+            Game.getMulegame().getPlayerArray().get(2).getFoodProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeFood.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getFood()));
+                             }
+                         });
+
+            Game.getMulegame().getPlayerArray().get(3).getFoodProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerFourFood.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (3).getFood()));
+                             }
+                         });
+        }
+
+        if (Game.getNumberOfPlayers() == 3) {
+
+
+            Game.getMulegame().getPlayerArray().get(2).getMoneyProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeMoney.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getMoney()));
+                             }
+                         });
+
+
+
+
+            //get score listeners
+
+
+
+            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeScore.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getScore()));
+                             }
+                         });
+
+
+
+            //get score listeners
+
+
+            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeScore.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getScore()));
+                             }
+                         });
+
+
+
+            //get Ore listeners
+
+
+
+            Game.getMulegame().getPlayerArray().get(2).getOreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeOre.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getOre()));
+                             }
+                         });
+
+
+
+            //get Food listeners
+
+
+
+            Game.getMulegame().getPlayerArray().get(2).getFoodProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeFood.setText(String.valueOf
+                                     (Game
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getFood()));
+                             }
+                         });
+        }
+        }
+
+    public void setTimer() {
+        setTimerLabel(Timer, timerLabel);
+        Timer.startTimer();
     }
-
-
     @FXML
-    public void setTimerLabel(Label timer, timer Timer) {
-        timer.textProperty().bind(Timer.getTimeSeconds().asString());
-        timer.setTextFill(Color.RED);
+    public void setTimerLabel(timer Timer, Label timerLabel) {
+        timerLabel.textProperty().bind(Timer.getTimeSeconds().asString());
+        timerLabel.setTextFill(Color.RED);
     }
     @FXML
     private void handleStoreAction() {
