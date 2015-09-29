@@ -3,6 +3,7 @@ package mule;
 import mule.model.Game;
 import mule.model.Player;
 import mule.model.Round;
+import java.util.*;
 
 /**
  * This class need to keep track of rounds and notify the Game class or
@@ -24,7 +25,13 @@ public class RoundManager {
     public static Player getCurrentPlayer() {
         // This needs to be an actual player
         // This is called by the MapManager handleMapButton method
-        return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
+
+        if(Game.isLandSelectionPhase())
+            return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
+        else {
+            Collections.sort(Game.getMulegame().getSortedPlayerArray());
+            return Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum());
+        }
     }
 
 
@@ -49,6 +56,7 @@ public class RoundManager {
         }
 
         if(Round.getTurnNum() == Game.getNumberOfPlayers()) { //incrmeent round if all players have gone
+
             RoundManager.incrementRoundNumber();
             Round.setTurnNum(0); //reset turn counter
             Round.setNumPasses(0);//reset number of passes
