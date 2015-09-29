@@ -117,7 +117,8 @@ public class GameController {
     @FXML
     private Label roundNumber;
     @FXML
-    private Label timerLabel = new Label();
+    private Label timerLabel;
+    private timer Timer = new timer(5);
 
     public GameController() {
 
@@ -137,11 +138,6 @@ public class GameController {
      */
     @FXML
     private void initialize() {
-        //this is how to instantiate a new timer
-        timer timer = new timer(50);
-        setTimerLabel(timerLabel, timer);
-        timer.startTimer();
-        //^^^^^
         mapButtonArray = new Button[5][9];
         String[][] defaultMapLayout = GameMap.getMapLayout();
         for(int i=0; i<5; i++) {
@@ -877,11 +873,14 @@ public class GameController {
         }
         }
 
-
+    public void setTimer() {
+        setTimerLabel(Timer, timerLabel);
+        Timer.startTimer();
+    }
     @FXML
-    public void setTimerLabel(Label timer, timer Timer) {
-        timer.textProperty().bind(Timer.getTimeSeconds().asString());
-        timer.setTextFill(Color.RED);
+    public void setTimerLabel(timer Timer, Label timerLabel) {
+        timerLabel.textProperty().bind(Timer.getTimeSeconds().asString());
+        timerLabel.setTextFill(Color.RED);
     }
     @FXML
     private void handleStoreAction() {
