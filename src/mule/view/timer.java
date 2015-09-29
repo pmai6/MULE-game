@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import mule.RoundManager;
 
 public class timer {
 
@@ -30,6 +31,7 @@ public class timer {
                 new KeyFrame(Duration.seconds(startTime + 1),
                         new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
+        timeline.setOnFinished(e-> RoundManager.playerFinishedTurn(true));
     }
     public IntegerProperty getTimeLeft() {
         return this.timeSeconds;

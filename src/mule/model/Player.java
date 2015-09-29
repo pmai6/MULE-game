@@ -98,6 +98,7 @@ public class Player implements Comparable {
         Game.getMulegame().addPlayerToArray(newplayer);
     }
 
+
     public int getScore() {
         return score.getValue();
     }

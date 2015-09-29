@@ -3,7 +3,11 @@ package mule;
 import mule.model.Game;
 import mule.model.Player;
 import mule.model.Round;
+
 import java.util.*;
+import mule.view.GameController;
+import mule.view.timer;
+
 
 /**
  * This class need to keep track of rounds and notify the Game class or
@@ -45,6 +49,9 @@ public class RoundManager {
             RoundManager.incrementNumPasses();
             if (Game.isLandSelectionPhase()) {
                 isLandSelectionOver();
+            }
+            if (!Game.isLandSelectionPhase()) {
+                GameManager.setTimer();
             }
 
         }

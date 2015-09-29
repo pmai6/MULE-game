@@ -7,6 +7,7 @@ import mule.model.Player;
 import java.util.Random;
 
 public class Pub {
+    private int gamblingMoney = 0;
 
     /**Player gambles in pub and receive appropriate money
      * @param player player who gambles
@@ -36,6 +37,5 @@ public class Pub {
         }
 
         player.setMoney(player.getMoney() + moneyBonus);
-
     }
 }

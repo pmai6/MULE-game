@@ -30,6 +30,10 @@ public class GameController {
     @FXML
     private AnchorPane town;
     @FXML
+    private AnchorPane Pub;
+    @FXML
+    private Button gambleButton;
+    @FXML
     private HBox map;
     @FXML
     private Button store;
@@ -117,7 +121,8 @@ public class GameController {
     @FXML
     private Label roundNumber;
     @FXML
-    private Label timerLabel = new Label();
+    private Label timerLabel;
+    private timer Timer = new timer(5);
 
     public GameController() {
 
@@ -137,11 +142,6 @@ public class GameController {
      */
     @FXML
     private void initialize() {
-        //this is how to instantiate a new timer
-        timer timer = new timer(50);
-        setTimerLabel(timerLabel, timer);
-        timer.startTimer();
-        //^^^^^
         mapButtonArray = new Button[5][9];
         String[][] defaultMapLayout = GameMap.getMapLayout();
         for(int i=0; i<5; i++) {
@@ -877,11 +877,14 @@ public class GameController {
         }
         }
 
-
+    public void setTimer() {
+        setTimerLabel(Timer, timerLabel);
+        Timer.startTimer();
+    }
     @FXML
-    public void setTimerLabel(Label timer, timer Timer) {
-        timer.textProperty().bind(Timer.getTimeSeconds().asString());
-        timer.setTextFill(Color.RED);
+    public void setTimerLabel(timer Timer, Label timerLabel) {
+        timerLabel.textProperty().bind(Timer.getTimeSeconds().asString());
+        timerLabel.setTextFill(Color.RED);
     }
     @FXML
     private void handleStoreAction() {
@@ -895,31 +898,35 @@ public class GameController {
     private void handleAssayOfficeAction() {
         System.out.println("Assay Office Opens");
     }
+
+
     @FXML private void handlePubAction() {
-        System.out.println("Time to get Drunk & Gamble on top of the rainbow");
+        town.setVisible(false);
+        map.setVisible(false);
+        Pub.setVisible(true);
     }
 
-
+    @FXML
+    private void gambleButton()  {
+        PlayerManager player = new PlayerManager();
+        player.gambleInPub();
+    }
 
     @FXML
     private void exitButtonAction() throws Exception {
+        Pub.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);
     }
     @FXML
     private void goToTownButton()  {
         //if (!Game.isLandSelectionPhase()) {
+        Pub.setVisible(false);
         map.setVisible(false);
         town.setVisible(true);
         // }
     }
-    @FXML
-    private void goToPubButton()  {
-        //if (!Game.isLandSelectionPhase()) {
-        map.setVisible(false);
-        pub.setVisible(true);
-        // }
-    }
+
     @FXML
     private void passTurnButton()  {
         RoundManager.playerFinishedTurn(true);

@@ -156,5 +156,7 @@ public class GameManager {
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
                 food, color);
     }
-
+    public static void setTimer() {
+        controller.setTimer();
+    }
 }
