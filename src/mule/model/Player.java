@@ -36,9 +36,10 @@ public class Player implements Comparable {
         this.playerName = new SimpleStringProperty(aplayerName);
         this.playerRace = new SimpleStringProperty(aplayerRace);
         this.playerColor = new SimpleStringProperty(aplayerColor);
-        this.score = new SimpleIntegerProperty(0);
         this.money = new SimpleIntegerProperty(getStartMoney(aplayerRace));
+        //this.score = new SimpleIntegerProperty(0);
         setStartFoodOreEnergy();
+
         tiles = new ArrayList<Tile>();
 
     }
@@ -48,6 +49,8 @@ public class Player implements Comparable {
         this.food = new SimpleIntegerProperty(8);
         this.energy = new SimpleIntegerProperty(0);
         this.ore = new SimpleIntegerProperty(0);
+        int startScore = this.food.getValue() * 30 + this.money.getValue();
+        this.score = new SimpleIntegerProperty(startScore);
 
 
     }
@@ -161,7 +164,12 @@ public class Player implements Comparable {
         this.mule = mule;
     }
 
-
+    public int getDollarValueOfGoods() {
+        int dollarValOfFood = 30 * this.getFood();
+        int dollarValOfEnergy = 25 * this.getEnergy();
+        int dollarValOfOre = 50 * this.getOre();
+        return dollarValOfFood + dollarValOfEnergy + dollarValOfOre;
+    }
 
     public List<Tile> getTiles() {
         return tiles;
@@ -176,8 +184,8 @@ public class Player implements Comparable {
     }
 
     public int compareTo(Object comparePlayer) {
-        int compareScore = ((Player) comparePlayer).getMoney();
+        int compareScore = ((Player) comparePlayer).getScore();
         //ascending order
-        return this.getMoney() - compareScore;
+        return this.getScore() - compareScore;
     }
 }
