@@ -25,13 +25,15 @@ public class GameController {
     @FXML
     private Button goToTown;
     @FXML
+    private Button goToPub;
+    @FXML
     private Button passTurn;
     @FXML
     private Button startTurn;
     @FXML
     private AnchorPane town;
     @FXML
-    private AnchorPane Pub;
+    private AnchorPane pubmain;
     @FXML
     private Button gambleButton;
     @FXML
@@ -901,10 +903,17 @@ public class GameController {
     }
 
 
-    @FXML private void handlePubAction() {
-        town.setVisible(false);
+    @FXML
+    private void goToPubButton() {
         map.setVisible(false);
-        Pub.setVisible(true);
+        pubmain.setVisible(true);
+    }
+
+    @FXML
+    private void exitPubButtonAction() throws Exception {
+        pubmain.setVisible(false);
+        town.setVisible(false);
+        map.setVisible(true);
     }
 
     @FXML
@@ -915,14 +924,12 @@ public class GameController {
 
     @FXML
     private void exitButtonAction() throws Exception {
-        Pub.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);
     }
     @FXML
     private void goToTownButton()  {
         //if (!Game.isLandSelectionPhase()) {
-        Pub.setVisible(false);
         map.setVisible(false);
         town.setVisible(true);
         // }
