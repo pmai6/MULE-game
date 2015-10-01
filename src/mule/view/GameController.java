@@ -47,7 +47,6 @@ public class GameController {
     private Button exit;
     @FXML
     private Label gamestate;
-
     @FXML
     private HBox playerthree;
     @FXML
