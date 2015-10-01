@@ -18,7 +18,7 @@ public class Store {
         this.crystite = crystite;
         this.mule = mule;
     }
-    public void showItems() {  // Display Store's menu
+    public void showItems() {  // Display Store's menu//test
 
     }
     private void setStartStoreQuantity() {
