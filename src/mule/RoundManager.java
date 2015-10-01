@@ -33,7 +33,7 @@ public class RoundManager {
         if(Game.isLandSelectionPhase())
             return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
         else {
-            Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum()).calculateScore();
+            setPlayerScores();
             return Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum());
         }
     }
@@ -104,5 +104,11 @@ public class RoundManager {
         int numPasses = Round.getNumPasses();
         numPasses++;
         Round.setNumPasses(numPasses);
+    }
+
+    private static void setPlayerScores() {
+        for(int playerInd = 0; playerInd < Game.getNumberOfPlayers(); playerInd++) {
+            Game.getMulegame().getPlayerArray().get(playerInd).calculateScore();
+        }
     }
 }
