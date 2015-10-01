@@ -106,7 +106,12 @@ public class Player implements Comparable {
         return score.getValue();
     }
 
-    public void setScore(int score) {
+    public void calculateScore() {
+        int landAmount = this.getTiles().size();
+        int foodAmount = this.getFood() * 30;
+        int energyAmount = this.getEnergy() * 25;
+        int oreAmount = this.getOre() * 50;
+        int score = this.getMoney() + landAmount + foodAmount + energyAmount + oreAmount;
         this.score.set(score);
     }
 
