@@ -31,17 +31,14 @@ public class Player implements Comparable {
 
 
     public Player () {}
-    public Player(String aplayerName,
-                  String aplayerRace, String aplayerColor) {
-
+    public Player(String aplayerName, String aplayerRace, String aplayerColor) {
         this.playerName = new SimpleStringProperty(aplayerName);
         this.playerRace = new SimpleStringProperty(aplayerRace);
         this.playerColor = new SimpleStringProperty(aplayerColor);
-        this.score = new SimpleIntegerProperty(0);
         this.money = new SimpleIntegerProperty(getStartMoney(aplayerRace));
+        this.score = new SimpleIntegerProperty(0);
         setStartFoodOreEnergy();
         tiles = new ArrayList<Tile>();
-
     }
 
     private void setStartFoodOreEnergy() {
@@ -49,8 +46,6 @@ public class Player implements Comparable {
         this.food = new SimpleIntegerProperty(8);
         this.energy = new SimpleIntegerProperty(0);
         this.ore = new SimpleIntegerProperty(0);
-
-
     }
 
     private int getStartMoney(String race) {
@@ -64,7 +59,6 @@ public class Player implements Comparable {
             return 1000;
         }
     }
-
 
     // Getters and setters
     public String getPlayerName() {
@@ -94,8 +88,7 @@ public class Player implements Comparable {
     public static void createNewGamePlayer (String playerName2,
                                             String selectedRace2,
                                             String selectedColor2) {
-        Player newplayer = new Player(playerName2, selectedRace2,
-                selectedColor2);
+        Player newplayer = new Player(playerName2, selectedRace2, selectedColor2);
         Game.getMulegame().addPlayerToArray(newplayer);
     }
 
@@ -104,8 +97,17 @@ public class Player implements Comparable {
         return score.getValue();
     }
 
-    public void setScore(int score) {
+    public void calculateScore() {
+        int landAmount = this.getTiles().size() * 500;
+        int score = this.getMoney() + landAmount + this.getDollarValueOfGoods() ;
         this.score.set(score);
+    }
+
+    private int getDollarValueOfGoods() {
+        int dollarValOfFood = 30 * this.getFood();
+        int dollarValOfEnergy = 25 * this.getEnergy();
+        int dollarValOfOre = 50 * this.getOre();
+        return dollarValOfFood + dollarValOfEnergy + dollarValOfOre;
     }
 
     public IntegerProperty getScoreProperty() {
@@ -162,8 +164,6 @@ public class Player implements Comparable {
         this.mule = mule;
     }
 
-
-
     public List<Tile> getTiles() {
         return tiles;
     }
@@ -177,8 +177,47 @@ public class Player implements Comparable {
     }
 
     public int compareTo(Object comparePlayer) {
-        int compareScore = ((Player) comparePlayer).getMoney();
+        int compareScore = ((Player) comparePlayer).getScore();
         //ascending order
-        return this.getMoney() - compareScore;
+        return this.getScore() - compareScore;
+    }
+    public static int calcPlayerTime(Player player) {
+        int time = 50;
+        int round = Round.getRoundNum();
+        int food = player.getFood();
+        if (round >= 1 || round <= 4) {
+            if (food >= 3) {
+                time = 50;
+            }
+            if (food < 3 && food > 0) {
+                time = 30;
+            }
+            if (food == 0) {
+                time = 5;
+            }
+        }
+        if (round > 4 || round <= 8) {
+            if (food >= 4) {
+                time = 50;
+            }
+            if (food < 4 && food > 0) {
+                time = 30;
+            }
+            if (food == 0) {
+                time = 5;
+            }
+        }
+        if (round > 8 || round <= 12) {
+            if (food >= 5) {
+                time = 50;
+            }
+            if (food < 5 && food > 0) {
+                time = 30;
+            }
+            if (food == 0) {
+                time = 5;
+            }
+        }
+        return time;
     }
 }

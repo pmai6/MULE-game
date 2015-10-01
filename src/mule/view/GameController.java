@@ -17,12 +17,15 @@ import mule.*;
 import mule.model.Game;
 import mule.model.GameMap;
 import mule.model.Round;
+import mule.model.Player;
 
 public class GameController {
 
     private Main mainapp;
     @FXML
     private Button goToTown;
+    @FXML
+    private Button goToPub;
     @FXML
     private Button passTurn;
     @FXML
@@ -122,7 +125,7 @@ public class GameController {
     private Label roundNumber;
     @FXML
     private Label timerLabel;
-    private timer Timer = new timer(10);
+    private timer Timer = new timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
 
     public GameController() {
 
@@ -900,10 +903,17 @@ public class GameController {
     }
 
 
-    @FXML private void handlePubAction() {
-        town.setVisible(false);
+    @FXML
+    private void goToPubButton() {
         map.setVisible(false);
         Pub.setVisible(true);
+    }
+
+    @FXML
+    private void exitPubButtonAction() throws Exception {
+        Pub.setVisible(false);
+        town.setVisible(false);
+        map.setVisible(true);
     }
 
     @FXML
@@ -914,14 +924,12 @@ public class GameController {
 
     @FXML
     private void exitButtonAction() throws Exception {
-        Pub.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);
     }
     @FXML
     private void goToTownButton()  {
         //if (!Game.isLandSelectionPhase()) {
-        Pub.setVisible(false);
         map.setVisible(false);
         town.setVisible(true);
         // }
