@@ -43,8 +43,8 @@ public class RoundManager {
      * player has finished their turn.
      *  coming from MapManager.
      */
-    public static void playerFinishedTurn(boolean passed) { //TODO//
-
+    public static void playerFinishedTurn(boolean passed) {
+        RoundManager.getCurrentPlayer().calculateScore();
         if(passed) {
             RoundManager.incrementNumPasses();
             if (Game.isLandSelectionPhase()) {
