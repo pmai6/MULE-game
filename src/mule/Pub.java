@@ -25,17 +25,17 @@ public class Pub {
         else if (turnTimeLeft < 26 && turnTimeLeft > 11) { timeBonus = roundBonus[1]; }
         else if (turnTimeLeft < 13 && turnTimeLeft >= 0) { timeBonus = roundBonus[0]; }
 
-        while (moneyBonus <= 250) { // player cannot earn more than 250 in one gamebling
-            // round 1 - 3
-            if (roundNum > 0 && roundNum < 4) { moneyBonus = roundBonus[0] * rand.nextInt(timeBonus); }
-            // round 4 - 7
-            if (roundNum < 5 && roundNum < 8) { moneyBonus = roundBonus[1] * rand.nextInt(timeBonus); }
-            // round 8 - 11
-            if (roundNum < 9 && roundNum < 12) { moneyBonus = roundBonus[2] * rand.nextInt(timeBonus); }
-            // round 12
-            if (roundNum == 12) { moneyBonus = roundBonus[3] * rand.nextInt(timeBonus); }
-        }
 
-        player.setMoney(player.getMoney() + moneyBonus);
+        // round 1 - 3
+        if (roundNum > 0 && roundNum < 4) { moneyBonus = roundBonus[0] + rand.nextInt(timeBonus); }
+        // round 4 - 7
+        if (roundNum < 5 && roundNum < 8) { moneyBonus = roundBonus[1] + rand.nextInt(timeBonus); }
+        // round 8 - 11
+        if (roundNum < 9 && roundNum < 12) { moneyBonus = roundBonus[2] + rand.nextInt(timeBonus); }
+        // round 12
+        if (roundNum == 12) { moneyBonus = roundBonus[3] + rand.nextInt(timeBonus); }
+        
+        if (moneyBonus <= 250) { player.setMoney(player.getMoney() + moneyBonus); } // player cannot earn more than 250 a gambling
+        else { System.out.println("You earn more than the amount allowed. Sorry, no clover!!"); }
     }
 }
