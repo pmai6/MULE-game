@@ -30,18 +30,14 @@ public class Player implements Comparable {
 
 
     public Player () {}
-    public Player(String aplayerName,
-                  String aplayerRace, String aplayerColor) {
-
+    public Player(String aplayerName, String aplayerRace, String aplayerColor) {
         this.playerName = new SimpleStringProperty(aplayerName);
         this.playerRace = new SimpleStringProperty(aplayerRace);
         this.playerColor = new SimpleStringProperty(aplayerColor);
         this.money = new SimpleIntegerProperty(getStartMoney(aplayerRace));
         //this.score = new SimpleIntegerProperty(0);
         setStartFoodOreEnergy();
-
         tiles = new ArrayList<Tile>();
-
     }
 
     private void setStartFoodOreEnergy() {
@@ -51,8 +47,6 @@ public class Player implements Comparable {
         this.ore = new SimpleIntegerProperty(0);
         int startScore = this.food.getValue() * 30 + this.money.getValue();
         this.score = new SimpleIntegerProperty(startScore);
-
-
     }
 
     private int getStartMoney(String race) {
@@ -66,7 +60,6 @@ public class Player implements Comparable {
             return 1000;
         }
     }
-
 
     // Getters and setters
     public String getPlayerName() {
@@ -96,8 +89,7 @@ public class Player implements Comparable {
     public static void createNewGamePlayer (String playerName2,
                                             String selectedRace2,
                                             String selectedColor2) {
-        Player newplayer = new Player(playerName2, selectedRace2,
-                selectedColor2);
+        Player newplayer = new Player(playerName2, selectedRace2, selectedColor2);
         Game.getMulegame().addPlayerToArray(newplayer);
     }
 
@@ -107,12 +99,16 @@ public class Player implements Comparable {
     }
 
     public void calculateScore() {
-        int landAmount = this.getTiles().size();
-        int foodAmount = this.getFood() * 30;
-        int energyAmount = this.getEnergy() * 25;
-        int oreAmount = this.getOre() * 50;
-        int score = this.getMoney() + landAmount + foodAmount + energyAmount + oreAmount;
+        int landAmount = this.getTiles().size() * 500;
+        int score = this.getMoney() + landAmount + this.getDollarValueOfGoods() ;
         this.score.set(score);
+    }
+
+    public int getDollarValueOfGoods() {
+        int dollarValOfFood = 30 * this.getFood();
+        int dollarValOfEnergy = 25 * this.getEnergy();
+        int dollarValOfOre = 50 * this.getOre();
+        return dollarValOfFood + dollarValOfEnergy + dollarValOfOre;
     }
 
     public IntegerProperty getScoreProperty() {
@@ -167,13 +163,6 @@ public class Player implements Comparable {
 
     public void setMule(int mule) {
         this.mule = mule;
-    }
-
-    public int getDollarValueOfGoods() {
-        int dollarValOfFood = 30 * this.getFood();
-        int dollarValOfEnergy = 25 * this.getEnergy();
-        int dollarValOfOre = 50 * this.getOre();
-        return dollarValOfFood + dollarValOfEnergy + dollarValOfOre;
     }
 
     public List<Tile> getTiles() {
