@@ -8,7 +8,7 @@ import mule.model.Tile;
 
 public class GameMap {
 
-    private static  Tile[][] tiles = new Tile[5][9];;
+    private static  Tile[][] tiles = new Tile[5][9];
 
    private static String[][] defaultMapLayout = new String[][]{
             {"P", "P", "M1", "P", "R", "P", "M3", "P", "P"},
