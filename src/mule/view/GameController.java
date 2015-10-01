@@ -17,6 +17,7 @@ import mule.*;
 import mule.model.Game;
 import mule.model.GameMap;
 import mule.model.Round;
+import mule.model.Player;
 
 public class GameController {
 
@@ -122,7 +123,7 @@ public class GameController {
     private Label roundNumber;
     @FXML
     private Label timerLabel;
-    private timer Timer = new timer(10);
+    private timer Timer = new timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
 
     public GameController() {
 
