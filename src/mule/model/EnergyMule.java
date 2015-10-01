@@ -1,23 +1,31 @@
 package mule.model;
-public class Mountain1 implements Tile {
+
+/**
+ * Created by ryyanj on 10/1/15.
+ */
+public class EnergyMule implements Mule {
 
     private Player player;
     private boolean isOwned;
     private static  Tile[][] tiles;
-    public Mountain1() {
+
+    public EnergyMule() {
 
     }
+
     public void setOwner(Player player) {
         this.player = player;
     }
     public Tile getLocation(Tile[][] tiles) { return tiles[2][4]; }
+
+    public void setLocation(Tile[][] tiles) {this.tiles = tiles; }
 
     public Player getOwner() {
         return player;
     }
 
     public int getCost() {
-        return 300;
+        return 150;
     }
 
     public boolean isOwned() {
