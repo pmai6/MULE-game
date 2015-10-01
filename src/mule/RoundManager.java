@@ -33,6 +33,7 @@ public class RoundManager {
         if(Game.isLandSelectionPhase())
             return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
         else {
+            Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum()).calculateScore();
             return Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum());
         }
     }
@@ -44,7 +45,7 @@ public class RoundManager {
      *  coming from MapManager.
      */
     public static void playerFinishedTurn(boolean passed) {
-        RoundManager.getCurrentPlayer().calculateScore();
+
         if(passed) {
             RoundManager.incrementNumPasses();
             if (Game.isLandSelectionPhase()) {
