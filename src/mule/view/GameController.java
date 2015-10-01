@@ -33,7 +33,7 @@ public class GameController {
     @FXML
     private AnchorPane town;
     @FXML
-    private AnchorPane pubmain;
+    private AnchorPane Pub;
     @FXML
     private Button gambleButton;
     @FXML
@@ -906,12 +906,12 @@ public class GameController {
     @FXML
     private void goToPubButton() {
         map.setVisible(false);
-        pubmain.setVisible(true);
+        Pub.setVisible(true);
     }
 
     @FXML
     private void exitPubButtonAction() throws Exception {
-        pubmain.setVisible(false);
+        Pub.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);
     }
