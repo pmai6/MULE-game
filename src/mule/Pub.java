@@ -29,9 +29,9 @@ public class Pub {
         // round 1 - 3
         if (roundNum > 0 && roundNum < 4) { moneyBonus = roundBonus[0] + rand.nextInt(timeBonus); }
         // round 4 - 7
-        if (roundNum < 5 && roundNum < 8) { moneyBonus = roundBonus[1] + rand.nextInt(timeBonus); }
+        if (roundNum >= 4 && roundNum < 8) { moneyBonus = roundBonus[1] + rand.nextInt(timeBonus); }
         // round 8 - 11
-        if (roundNum < 9 && roundNum < 12) { moneyBonus = roundBonus[2] + rand.nextInt(timeBonus); }
+        if (roundNum >= 8 && roundNum < 12) { moneyBonus = roundBonus[2] + rand.nextInt(timeBonus); }
         // round 12
         if (roundNum == 12) { moneyBonus = roundBonus[3] + rand.nextInt(timeBonus); }
         
