@@ -1,15 +1,24 @@
-package mule;
+package mule.model;
 /**
  * Created by redcream12 on 9/18/15.
  */
 public class Store {
-    private int food;
-    private int ore;
-    private int energy;
-    private int smithore;
-    private int crystite;
-    private int mule;
+    private static int food;
+    private static int ore;
+    private static int energy;
+    private static int smithore;
+    private static int crystite;
+    private static int mule;
 
+    public static void setBeginInventory() {
+        food = 16;
+        ore = 0;
+        energy = 16;
+        smithore = 0;
+        crystite = 0;
+        mule = 25;
+        //Store store = new Store(16, 0, 16, 0, 0, 25);
+    }
     public Store(int food, int ore, int energy, int smithore, int crystite, int mule) {
         this.food = food;
         this.ore = ore;
@@ -18,41 +27,34 @@ public class Store {
         this.crystite = crystite;
         this.mule = mule;
     }
-    public void showItems() {  // Display Store's menu//test
+    public void showItems() {  // Display Store's menu
 
     }
-    private void setStartStoreQuantity() {
-        food = 16;
-        energy = 16;
-        smithore = 0;
-        crystite = 0;
-        mule = 25;
-    }
 
-    public int getFood() { return food; }
-    public int getFoodPrice() { return 30; }
-    public void setFood(int food) { this.food = food; }
+    public static int getFood() { return food; }
+    public static int getFoodPrice() { return 30; }
+    public static void setFood(int newFood) { food = newFood; }
 
-    public int getEnergy() { return energy; }
-    public int getEnergyPrice() { return 25; }
-    public void setEnergy(int energy) { this.energy = energy; }
+    public static int getEnergy() { return energy; }
+    public static int getEnergyPrice() { return 25; }
+    public static void setEnergy(int newEnergy) { energy = newEnergy; }
 
-    public int getOre() { return ore; }
-    public int orePrice() { return 0; }
-    public void setOre(int ore) { this.ore = ore; }
+    public static int getOre() { return ore; }
+    public static int orePrice() { return 0; }
+    public static void setOre(int newOre) { ore = newOre; }
 
-    public int getSmithore() { return smithore; }
-    public int getSmithorePrice() { return 50; }
-    public void setSmithore(int smithore) { this.smithore = smithore; }
+    public static int getSmithore() { return smithore; }
+    public static int getSmithorePrice() { return 50; }
+    public static void setSmithore(int newSmithore) { smithore = newSmithore; }
 
-    public int getCrystite() { return crystite; }
-    public int getCrystitePrice() { return 100; }
-    public void setCrystite(int crystite) { this.crystite = crystite; }
+    public static int getCrystite() { return crystite; }
+    public static int getCrystitePrice() { return 100; }
+    public static void setCrystite(int newCrystite) { crystite = newCrystite; }
 
-    public int getMule() { return mule; }
-    public int getMulePrice() { return 100; }
-    public void setMule(int mule) {
-        this.mule = mule;
+    public static int getMule() { return mule; }
+    public static int getMulePrice() { return 100; }
+    public static void setMule(int newMule) {
+        mule = newMule;
     }
 
 }
