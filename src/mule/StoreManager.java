@@ -12,34 +12,36 @@ public class StoreManager {
 
     public void buyFood(int quantityFood) {
         //waiting for zuri to implement Store class
-//        int foodPrice = Store.getFoodPrice();
-//        int currentPlayerMoney = RoundManager.getCurrentPlayer().getMoney();
-//        int playerFoodAmount = RoundManager.getCurrentPlayer().getFood();
-//        int storeFoodAmount = Store.getFoodQuantity();
-//        int totalFoodCost = foodPrice * quantityFood;
-//        if(currentPlayerMoney >= totalFoodCost) {
-//            RoundManager.getCurrentPlayer().setFood(playerFoodAmount + quantityFood);
-//            RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
-//            Store.setFoodQuantity(storeFoodAmount - quantityFood);
-//        }
-//        else
-//            System.out.println("insufficient funds");
+        int foodPrice = Store.getFoodPrice() ;
+        int currentPlayerMoney = RoundManager.getCurrentPlayer().getMoney();
+        int playerFoodAmount = RoundManager.getCurrentPlayer().getFood();
+        int storeFoodAmount = Store.getFoodQty();
+        int totalFoodCost = foodPrice * quantityFood;
+        //if players has enough money to buy and store has enough food to ell
+        if(currentPlayerMoney >= totalFoodCost && storeFoodAmount <= quantityFood) {
+            RoundManager.getCurrentPlayer().setFood(playerFoodAmount + quantityFood);
+            RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
+            Store.setFoodQty(storeFoodAmount - quantityFood);
+        }
+        else
+            System.out.println("insufficient funds");
     }
 
     public void sellFood(int quantityFood) {
         //waiting for zuri to implement Store class
-//        int foodPrice = Store.getFoodPrice();
-//        int currentPlayerMoney = RoundManager.getCurrentPlayer().getMoney();
-//        int playerFoodAmount = RoundManager.getCurrentPlayer().getFood();
-//        int storeFoodAmount = Store.getFoodQuantity();
-//        int totalFoodCost = foodPrice * quantityFood;
-//        if(playerFoodAmount <= quantityFood) {
-//            RoundManager.getCurrentPlayer().setFood(playerFoodAmount - quantityFood);
-//            RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney + totalFoodCost);
-//            Store.setFoodQuantity(storeFoodAmount - quantityFood);
-//        }
-//        else
-//            System.out.println("insufficient food amount");
+        int foodPrice = Store.getFoodPrice();
+        int currentPlayerMoney = RoundManager.getCurrentPlayer().getMoney();
+        int playerFoodAmount = RoundManager.getCurrentPlayer().getFood();
+        int storeFoodAmount = Store.getFoodQty();
+        int totalFoodCost = foodPrice * storeFoodAmount;
+        //if store player has enough food to sell
+        if(playerFoodAmount <= quantityFood) {
+            RoundManager.getCurrentPlayer().setFood(playerFoodAmount - quantityFood);
+            RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney + totalFoodCost);
+            Store.setFoodQty(storeFoodAmount + quantityFood);
+        }
+        else
+            System.out.println("insufficient food amount");
 
     }
 
