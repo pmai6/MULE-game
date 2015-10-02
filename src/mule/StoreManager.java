@@ -1,6 +1,6 @@
 package mule;
 
-import mule.Store;
+import mule.model.Store;
 import mule.model.Player;
 import mule.model.Round;
 
