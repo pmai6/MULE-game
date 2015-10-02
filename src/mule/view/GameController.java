@@ -27,6 +27,8 @@ public class GameController {
     @FXML
     private Button goToPub;
     @FXML
+    private Button goToStore;
+    @FXML
     private Button passTurn;
     @FXML
     private Button startTurn;
@@ -34,6 +36,8 @@ public class GameController {
     private AnchorPane town;
     @FXML
     private AnchorPane Pub;
+    @FXML
+    private AnchorPane Store;
     @FXML
     private Button gambleButton;
     @FXML
@@ -902,6 +906,20 @@ public class GameController {
         System.out.println("Assay Office Opens");
     }
 
+
+    @FXML
+    private void goToStoreubButton() {
+        town.setVisible(false);
+        map.setVisible(false);
+        Store.setVisible(true);
+    }
+
+    @FXML
+    private void exitStoreButtonAction() throws Exception {
+        Store.setVisible(false);
+        town.setVisible(false);
+        map.setVisible(true);
+    }
 
     @FXML
     private void goToPubButton() {
