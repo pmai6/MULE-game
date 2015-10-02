@@ -1,10 +1,15 @@
 package mule.model;
-public class Mountain1 implements Tile {
+
+/**
+ * Created by ryyanj on 10/1/15.
+ */
+public class FoodMule implements Mule {
 
     private Player player;
     private boolean isOwned;
     private static  Tile[][] tiles;
-    public Mountain1() {
+
+    public FoodMule() {
 
     }
     public void setOwner(Player player) {
@@ -12,12 +17,14 @@ public class Mountain1 implements Tile {
     }
     public Tile getLocation(Tile[][] tiles) { return tiles[2][4]; }
 
+    public void setLocation(Tile[][] tiles) {this.tiles = tiles; }
+
     public Player getOwner() {
         return player;
     }
 
     public int getCost() {
-        return 300;
+        return 125;
     }
 
     public boolean isOwned() {

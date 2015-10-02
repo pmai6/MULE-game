@@ -26,6 +26,7 @@ public class Player implements Comparable {
 
     private int mule;
     private List<Tile> tiles;
+    private List<Mule> mules;
     //add list of mules;
 
 
