@@ -39,8 +39,7 @@ public class Round {
         return roundNum;
     }
 
-    public static void setRoundNum(int num) {
-        roundNum = num;
+    public static void setRoundNum(int num) { roundNum = num;
     }
 
     public static void setTurnNum(int num) {

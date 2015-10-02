@@ -1,14 +1,14 @@
-package mule;
+package mule.model;
 /**
  * Created by redcream12 on 9/18/15.
  */
 public class Store {
-    private int food;
-    private int ore;
-    private int energy;
-    private int smithore;
-    private int crystite;
-    private int mule;
+    private static int food;
+    private static int ore;
+    private static int energy;
+    private static int smithore;
+    private static int crystite;
+    private static int mule;
 
     public Store(int food, int ore, int energy, int smithore, int crystite, int mule) {
         this.food = food;
@@ -29,30 +29,30 @@ public class Store {
         mule = 25;
     }
 
-    public int getFood() { return food; }
-    public int getFoodPrice() { return 30; }
-    public void setFood(int food) { this.food = food; }
+    public static int getFoodQty() { return food; }
+    public static int getFoodPrice() { return 30; }
+    public static void setFoodQty(int foodQty) { food = foodQty; }
 
-    public int getEnergy() { return energy; }
-    public int getEnergyPrice() { return 25; }
-    public void setEnergy(int energy) { this.energy = energy; }
+    public static int getEnergyQty() { return energy; }
+    public static int getEnergyPrice() { return 25; }
+    public static void setEnergyQty(int energyQty) { energy = energyQty; }
 
-    public int getOre() { return ore; }
-    public int orePrice() { return 0; }
-    public void setOre(int ore) { this.ore = ore; }
+    public static int getOreQty() { return ore; }
+    public static int orePrice() { return 0; }
+    public static void setOreQty(int oreQty) { ore = oreQty; }
 
-    public int getSmithore() { return smithore; }
-    public int getSmithorePrice() { return 50; }
-    public void setSmithore(int smithore) { this.smithore = smithore; }
+    public static int getSmithoreQty() { return smithore; }
+    public static int getSmithorePrice() { return 50; }
+    public static void setSmithoreQty(int smithoreQty) { smithore = smithoreQty; }
 
-    public int getCrystite() { return crystite; }
-    public int getCrystitePrice() { return 100; }
-    public void setCrystite(int crystite) { this.crystite = crystite; }
+    public static int getCrystiteQty() { return crystite; }
+    public static int getCrystitePrice() { return 100; }
+    public static void setCrystiteQty(int crystiteQty) { crystite = crystiteQty; }
 
-    public int getMule() { return mule; }
-    public int getMulePrice() { return 100; }
-    public void setMule(int mule) {
-        this.mule = mule;
+    public static int getMuleQty() { return mule; }
+    public static int getMulePrice() { return 100; }
+    public static void setMuleQty(int muleQty) {
+        mule = muleQty;
     }
 
 }

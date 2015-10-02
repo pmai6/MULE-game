@@ -11,7 +11,7 @@ public class StoreManager {
 
 
     public void buyFood(int quantityFood) {
-        //waiting for zuri to implement Store class
+
         int foodPrice = Store.getFoodPrice() ;
         int currentPlayerMoney = RoundManager.getCurrentPlayer().getMoney();
         int playerFoodAmount = RoundManager.getCurrentPlayer().getFood();
@@ -28,7 +28,7 @@ public class StoreManager {
     }
 
     public void sellFood(int quantityFood) {
-        //waiting for zuri to implement Store class
+
         int foodPrice = Store.getFoodPrice();
         int currentPlayerMoney = RoundManager.getCurrentPlayer().getMoney();
         int playerFoodAmount = RoundManager.getCurrentPlayer().getFood();
