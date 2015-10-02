@@ -52,11 +52,10 @@ public class RoundManager {
 
         if (Game.isLandSelectionPhase()) {
             isLandSelectionOver();
-        } else {
+        }
+        if (!Game.isLandSelectionPhase()) {
             GameManager.setTimer();
         }
-
-
         RoundManager.incrementTurnNumber();
 
         if (Round.getTurnNum() < Game.getNumberOfPlayers()){
