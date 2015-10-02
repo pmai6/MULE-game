@@ -905,6 +905,7 @@ public class GameController {
 
     @FXML
     private void goToPubButton() {
+        town.setVisible(false);
         map.setVisible(false);
         Pub.setVisible(true);
     }
@@ -917,9 +918,10 @@ public class GameController {
     }
 
     @FXML
-    private void gambleButton()  {
+    private void gambleButton() throws Exception {
         PlayerManager player = new PlayerManager();
         player.gambleInPub();
+        exitPubButtonAction();
     }
 
     @FXML
