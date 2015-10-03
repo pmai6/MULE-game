@@ -38,7 +38,7 @@ public class Store {
     public static void setEnergyQty(int energyQty) { energy = energyQty; }
 
     public static int getOreQty() { return ore; }
-    public static int orePrice() { return 0; }
+    public static int getorePrice() { return 0; }
     public static void setOreQty(int oreQty) { ore = oreQty; }
 
     public static int getSmithoreQty() { return smithore; }

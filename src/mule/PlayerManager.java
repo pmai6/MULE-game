@@ -1,6 +1,9 @@
 package mule;
 
 import mule.model.Player;
+import mule.model.Store;
+import mule.RoundManager;
+import mule.StoreManager;
 import mule.model.Tile;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -26,41 +29,58 @@ public class PlayerManager {
 
     }
 
-//    /** Stub method
-//     * Method to deduct the an amount of money a player spent
-//     * @param player
-//     * @param item
-//     * @param quantity
-//     * @return true if able to do the method
-//     */
-//    public static void boughtsomething (Player player, String item, int quantity) {
-//        if (item.equalsIgnoreCase("food")) {
-//            player.getFood() = player.getFood() + (Store.getFood() * quantity);
-//            player.getMoney() = player.getMoney() - (Store.getFood() * quantity);
-//            Store.getFood() = Store.getFood() - (Store.getFood() * quantity);
-//        } else if (item.equalsIgnoreCase("energy")) {
-//            player.getEnergy() = player.getEnergy() + (Store.getEnergy() * quantity);
-//            player.getMoney() = player.getMoney() - (Store.getEnergy() * quantity);
-//            Store.getEnergy() = Store.getEnergy() - (Store.getEnergy() * quantity);
-//        } else if (item.equalsIgnoreCase("smithore")) {
-//            player.getSmithore() = player.getSmithore() + (Store.getSmithore() * quantity);
-//            player.getMoney() = player.getMoney() - (Store.getSmithore() * quantity);
-//            Store.getSmithore() = Store.getSmithore() - (Store.getSmithore() * quantity);
-//        } else if (item.equals("crystite")) {
-//            player.getCrystite() = player.getFood() + (Store.getCrystite() * quantity);
-//            player.getMoney() = player.getMoney() - (Store.getCrystite() * quantity);
-//            Store.getCrystite() = Store.getCrystite() - (Store.getCrystite() * quantity);
-//        }
-//    }
+    /** Stub method
+     * Method to deduct the an amount of money a player spent
+     * @param player
+     * @param item
+     * @param quantity
+     */
+    public static void buyResources (Player player, String item, int quantity) {
+        if (item.equalsIgnoreCase("food")) {
+            player.setFood(player.getFood() + quantity);
+            player.setMoney(player.getMoney() - (Store.getFoodPrice() * quantity));
+            //Store.setFoodQty(Store.getFoodQty() - quantity);
+        } else if (item.equalsIgnoreCase("energy")) {
+            player.setEnergy(player.getEnergy() + quantity);
+            player.setMoney(player.getMoney() - (Store.getEnergyPrice() * quantity));
+           //Store.setFoodQty(Store.getEnergyQty() - quantity);
+        } else if (item.equalsIgnoreCase("smithore")) {
+            player.setSmithore(player.getSmithore() + quantity);
+            player.setMoney(player.getMoney() - (Store.getSmithorePrice() * quantity));
+            Store.setSmithoreQty(Store.getSmithoreQty() - quantity);
+        } else if (item.equals("crystite")) {
+            player.setCrystite(player.getCrystite() + quantity);
+            player.setMoney(player.getMoney() - (Store.getCrystitePrice() * quantity));
+            //Store.setCrystiteQty(Store.getCrystiteQty() - quantity);
+        }
+    }
 
 
     /**
-     * void method - add to the account of the player
-     * @param player - player object
-     * @param amountOfSale
+     * void method - add money to the account of the player
+     * @param player - current player
+     * @param item - item sold
+     * @param quantity - amount sold
      */
-    public void sellSomething (Player player, double amountOfSale) {
-        //TODO
+    public static void sellResources (Player player, String item ,int quantity) {
+        //
+        if (item.equalsIgnoreCase("food")) {
+            player.setFood(player.getFood() - quantity);
+            player.setMoney(player.getMoney() + (Store.getFoodPrice() * quantity));
+            //Store.setFoodQty(Store.getFoodQty() + quantity);
+        } else if (item.equalsIgnoreCase("energy")) {
+            player.setEnergy(player.getEnergy() - quantity);
+            player.setMoney(player.getMoney() + (Store.getEnergyPrice() * quantity));
+            //Store.setFoodQty(Store.getEnergyQty() + quantity);
+        } else if (item.equalsIgnoreCase("smithore")) {
+            player.setSmithore(player.getSmithore() - quantity);
+            player.setMoney(player.getMoney() + (Store.getSmithoreQty() * quantity));
+            //Store.setSmithoreQty(Store.getSmithoreQty() + quantity);
+        } else if (item.equals("crystite")) {
+            player.setCrystite(player.getCrystite() - quantity);
+            player.setMoney(player.getMoney() + (Store.getCrystitePrice() * quantity));
+            //Store.setCrystiteQty(Store.getCrystiteQty() + quantity);
+        }
     }
 
     /**
@@ -74,16 +94,9 @@ public class PlayerManager {
         time.startTimer();
     }
 
-//    /**
-//     * stub method - player's score is calculated
-//     */
-//    public int getScore() {
-//        RoundManager.getCurrentPlayer().getFood();
-//
-//    }
 
-    public IntegerProperty getTimeLeftProperty() { return timeLeft; }
-
+    public IntegerProperty getTimeLeftProperty() { return timeLeft; } // get time remaining in the
+                                                                      // player's turn
     public int getTimeLeft() { return timeLeft.get(); }
 
     /**
@@ -91,7 +104,6 @@ public class PlayerManager {
      */
     public void gambleInPub () {
         Pub.gamble(RoundManager.getCurrentPlayer(), timeLeft.get(), mule.model.Round.getRoundNum());
-
         //this method is all that needs to be called to finish a turn
         //the parameter tells you whether the turn is ending b/c a player
         //passed or because of something other than that

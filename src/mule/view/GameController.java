@@ -45,6 +45,16 @@ public class GameController {
     @FXML
     private Button store;
     @FXML
+    private Button food;
+    @FXML
+    private Button ore;
+    @FXML
+    private Button smithore;
+    @FXML
+    private Button mule;
+    @FXML
+    private Button energys;
+    @FXML
     private Button landOffice;
     @FXML
     private Button assayOffice;

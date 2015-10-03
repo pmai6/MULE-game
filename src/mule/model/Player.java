@@ -22,6 +22,8 @@ public class Player implements Comparable {
     private IntegerProperty money;
     private IntegerProperty food;
     private IntegerProperty ore;
+    private IntegerProperty smithore;
+    private IntegerProperty crystite;
     private IntegerProperty energy;
 
     private int mule;
@@ -64,7 +66,6 @@ public class Player implements Comparable {
     public String getPlayerName() {
         return playerName.get();
     }
-
     public void setPlayerName(String playerName) {
         this.playerName.set(playerName);
     }
@@ -72,7 +73,6 @@ public class Player implements Comparable {
     public String getPlayerRace() {
         return playerRace.get();
     }
-
     public void setPlayerRace(String playerRace) {
         this.playerRace.setValue(playerRace);
     }
@@ -80,7 +80,6 @@ public class Player implements Comparable {
     public String getPlayerColor() {
         return playerColor.get();
     }
-
     public void setPlayerColor(String playerColor) {
         this.playerColor.set(playerColor);
     }
@@ -96,6 +95,10 @@ public class Player implements Comparable {
     public int getScore() {
         return score.getValue();
     }
+    public IntegerProperty getScoreProperty() {
+        return score;
+    }
+
 
     public void calculateScore() {
         int landAmount = this.getTiles().size() * 500;
@@ -110,19 +113,12 @@ public class Player implements Comparable {
         return dollarValOfFood + dollarValOfEnergy + dollarValOfOre;
     }
 
-    public IntegerProperty getScoreProperty() {
-        return score;
-    }
-
     public int getMoney() {
         return money.get();
     }
-
     public IntegerProperty getMoneyProperty() {
         return money;
     }
-
-
     public void setMoney(int money) {
         this.money.set(money);
     }
@@ -130,7 +126,9 @@ public class Player implements Comparable {
     public int getEnergy() {
         return energy.get();
     }
-
+    public IntegerProperty getEnergyProperty() {
+        return money;
+    }
     public void setEnergy(int energy) {
         this.energy.set(energy);
     }
@@ -138,17 +136,24 @@ public class Player implements Comparable {
     public int getFood() {
         return food.get();
     }
-
     public void setFood(int food) {
         this.food.set(food);
     }
     public IntegerProperty getFoodProperty() {
         return food;
     }
+
+    public int getSmithore() {
+        return smithore.get();
+    }
+    public void setSmithore(int ore) { this.smithore.set(ore); }
+    public IntegerProperty getSmithoreProperty() {
+        return smithore;
+    }
+
     public int getOre() {
         return ore.get();
     }
-
     public void setOre(int ore) {
         this.ore.set(ore);
     }
@@ -156,10 +161,15 @@ public class Player implements Comparable {
         return ore;
     }
 
+    public int getCrystite() { return crystite.get(); }
+    public void setCrystite(int crysTite) { this.crystite.set(crysTite); }
+    public IntegerProperty getCrystiteProperty() {
+        return crystite;
+    }
+
     public int getMule() {
         return mule;
     }
-
     public void setMule(int mule) {
         this.mule = mule;
     }
@@ -167,11 +177,9 @@ public class Player implements Comparable {
     public List<Tile> getTiles() {
         return tiles;
     }
-
     public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
     }
-
     public void addtile (Tile tile) {
         tiles.add(tile);
     }
@@ -186,37 +194,19 @@ public class Player implements Comparable {
         int round = Round.getRoundNum();
         int food = player.getFood();
         if (round >= 1 || round <= 4) {
-            if (food >= 3) {
-                time = 50;
-            }
-            if (food < 3 && food > 0) {
-                time = 30;
-            }
-            if (food == 0) {
-                time = 5;
-            }
+            if (food >= 3) { time = 50; }
+            if (food < 3 && food > 0) { time = 30; }
+            if (food == 0) { time = 5; }
         }
         if (round > 4 || round <= 8) {
-            if (food >= 4) {
-                time = 50;
-            }
-            if (food < 4 && food > 0) {
-                time = 30;
-            }
-            if (food == 0) {
-                time = 5;
-            }
+            if (food >= 4) { time = 50; }
+            if (food < 4 && food > 0) { time = 30; }
+            if (food == 0) { time = 5; }
         }
         if (round > 8 || round <= 12) {
-            if (food >= 5) {
-                time = 50;
-            }
-            if (food < 5 && food > 0) {
-                time = 30;
-            }
-            if (food == 0) {
-                time = 5;
-            }
+            if (food >= 5) { time = 50; }
+            if (food < 5 && food > 0) { time = 30; }
+            if (food == 0) { time = 5; }
         }
         return time;
     }
