@@ -7,7 +7,7 @@ public class EnergyMule implements Mule {
 
     private Player player;
     private boolean isOwned;
-    private static  Tile[][] tiles;
+    private static  Tile tile;
 
     public EnergyMule() {
 
@@ -16,9 +16,9 @@ public class EnergyMule implements Mule {
     public void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile[][] tiles) { return tiles[2][4]; }
+    public Tile getLocation(Tile tile) { return tile; }
 
-    public void setLocation(Tile[][] tiles) {this.tiles = tiles; }
+    public void setLocation(Tile tile) {this.tile = tile; }
 
     public Player getOwner() {
         return player;

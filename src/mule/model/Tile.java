@@ -2,17 +2,20 @@ package mule.model;
 //represents a single tile object
 public interface Tile {
 
-    public void setOwner(Player player);
+    void setOwner(Player player);
 
-    public Tile getLocation(Tile[][] tiles);
+    Tile getLocation(Tile[][] tiles);
 
     //public String getType();
 
-    public Player getOwner();
+    Player getOwner();
 
-    public int getCost();
+    int getCost();
 
-    public boolean isOwned();
+    boolean isOwned();
 
-    public void setIsOwned(boolean isOwned);
+    void setIsOwned(boolean isOwned);
+
+    public void setMule(Mule mule);
+
 }

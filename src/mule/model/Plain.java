@@ -2,7 +2,7 @@ package mule.model;
 public class Plain implements Tile {
 private Player player;
 	private boolean isOwned;
-
+	private Mule mule;
 
 
 	public void setOwner(Player player) {
@@ -27,5 +27,11 @@ private Player player;
 		this.isOwned = isOwned;
 	}
 
+	public void setMule(Mule mule) {
+		this.mule = mule;
+	}
+	public Mule getMule() {
+		return mule;
+	}
 
 }

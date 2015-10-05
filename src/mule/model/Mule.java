@@ -5,18 +5,18 @@ package mule.model;
  */
 public interface Mule {
 
-    public void setOwner(Player player);
+    void setOwner(Player player);
 
-    public void setLocation(Tile[][] tiles);
+    void setLocation(Tile tile);
 
-    public Tile getLocation(Tile[][] tiles);
+    Tile getLocation(Tile tiles);
 
-    public Player getOwner();
+    Player getOwner();
 
-    public int getCost();
+    int getCost();
 
-    public boolean isOwned();
+    boolean isOwned();
 
-    public void setIsOwned(boolean isOwned);
+    void setIsOwned(boolean isOwned);
 
 }
