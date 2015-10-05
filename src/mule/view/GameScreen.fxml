@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
@@ -351,7 +352,7 @@
                   <Font name="Agency FB" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="store" alignment="CENTER" layoutX="4.0" layoutY="208.0" mnemonicParsing="false" onAction="#goToStoreubButton" prefHeight="127.0" prefWidth="143.0" style="-fx-background-color: GREEN;" text="Store" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="store" alignment="CENTER" layoutX="4.0" layoutY="208.0" mnemonicParsing="false" onAction="#goToStorebButton" prefHeight="127.0" prefWidth="143.0" style="-fx-background-color: GREEN;" text="Store" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Agency FB" size="24.0" />
                </font>
@@ -454,8 +455,14 @@
                   <Image url="@store.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="30.0" layoutY="46.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: chocolate;" text="Buy" textFill="#e8e6e6" />
-            <Button layoutX="492.0" layoutY="46.0" mnemonicParsing="false" onAction="#exitStoreButtonAction" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: chocolate;" text="Exit" textFill="#f5f4f4" />
+            <Button layoutX="467.0" layoutY="46.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: chocolate;" text="Back to Map" textFill="#f5f4f4" />
+            <Button layoutX="29.0" layoutY="46.0" mnemonicParsing="false" onAction="#exitStoreButtonAction" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: chocolate;" text="Exit Store" textFill="#f5f4f4" />
+            <ChoiceBox fx:id="purchaseFood" layoutX="14.0" layoutY="125.0" onMouseClicked="#handlePurchaseFoodAction" prefHeight="26.0" prefWidth="34.0" />
+            <ChoiceBox layoutX="153.0" layoutY="125.0" prefHeight="26.0" prefWidth="36.0" />
+            <ChoiceBox layoutX="437.0" layoutY="125.0" prefHeight="26.0" prefWidth="36.0" />
+            <ChoiceBox fx:id="purchaseCrystite" layoutX="300.0" layoutY="125.0" prefHeight="26.0" prefWidth="34.0" />
+            <ChoiceBox fx:id="purchaseEnergy" layoutX="153.0" layoutY="259.0" prefHeight="26.0" prefWidth="36.0" />
+            <ChoiceBox fx:id="purchaseSmithore" layoutX="423.0" layoutY="272.0" prefHeight="26.0" prefWidth="34.0" />
          </children>
       </AnchorPane>
    </children>

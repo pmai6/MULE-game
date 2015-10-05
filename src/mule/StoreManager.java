@@ -13,7 +13,7 @@ public class StoreManager {
      * Method to deduct store's inventory
      * @param quantityFood - deduct amount
      */
-    public void exportFood(int quantityFood) {
+    public static void exportFood(int quantityFood) {
         int foodPrice = Store.getFoodPrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         //int playerFoodAmount = RoundManager.getCurrentPlayer().getFood();
@@ -33,7 +33,7 @@ public class StoreManager {
      * Method to add store's inventory
      * @param quantityFood - deduct amount
      */
-    public void importFood(int quantityFood) {
+    public static void importFood(int quantityFood) {
         //int foodPrice = Store.getFoodPrice();
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerFoodAmount = currentPlayer.getFood();
@@ -51,7 +51,7 @@ public class StoreManager {
 
     }
 
-    public void exportEnergy(int quantityEnergy) {
+    public static void exportEnergy(int quantityEnergy) {
         int energyPrice = Store.getEnergyPrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         //int playerEnergyAmount = RoundManager.getCurrentPlayer().getEnergy();
@@ -67,7 +67,7 @@ public class StoreManager {
         else
             System.out.println("insufficient funds");
     }
-    public void importEnergy(int quantityEnergy) {
+    public static void importEnergy(int quantityEnergy) {
         //int energyPrice = Store.getEnergyPrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerEnergyAmount = currentPlayer.getEnergy();
@@ -84,7 +84,7 @@ public class StoreManager {
             System.out.println("insufficient funds");
     }
 
-    public void exportSmithore(int quantitySmithore) {
+    public static void exportSmithore(int quantitySmithore) {
         int smithorePrice = Store.getSmithorePrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         //int playerSmithoreAmount = currentPlayer.getSmithore();
@@ -100,7 +100,7 @@ public class StoreManager {
         else
             System.out.println("insufficient funds");
     }
-    public void importSmithore(int quantitySmithore) {
+    public static void importSmithore(int quantitySmithore) {
         //int smithorePrice = Store.getSmithorePrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerSmithoreAmount = currentPlayer.getSmithore();
@@ -117,7 +117,7 @@ public class StoreManager {
             System.out.println("insufficient funds");
     }
 
-    public void exportCrystite(int quantityCrystite) {
+    public static void exportCrystite(int quantityCrystite) {
         int crystitePrice = Store.getCrystitePrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         //int playerCrystiteAmount = currentPlayer.getCrystite();
@@ -133,7 +133,7 @@ public class StoreManager {
         else
             System.out.println("insufficient funds");
     }
-    public void importCrystite(int quantityCrystite) {
+    public static void importCrystite(int quantityCrystite) {
         int crystitePrice = Store.getCrystitePrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerCrystiteAmount = currentPlayer.getCrystite();
@@ -150,7 +150,7 @@ public class StoreManager {
             System.out.println("insufficient funds");
     }
 
-    public void exportOre(int quantityOre) {
+    public static void exportOre(int quantityOre) {
         int orePrice = Store.getorePrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         //int playerCrystiteAmount = currentPlayer.getCrystite();
@@ -166,7 +166,7 @@ public class StoreManager {
         else
             System.out.println("insufficient funds");
     }
-    public void importOre(int quantityOre) {
+    public static void importOre(int quantityOre) {
         int orePrice = Store.getorePrice() ;
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerOreAmount = currentPlayer.getOre();
