@@ -20,8 +20,7 @@ public class MapManager {
      */
     public static void handleMapButton(Button button) {
         MapManager.button = button;
-        System.out.println("Row " + GridPane.getRowIndex(button) + " Column "
-                + GridPane.getColumnIndex(button));
+
         if (Game.getMulegame().isLandSelectionPhase()) {
 
             Player player = RoundManager.getCurrentPlayer();

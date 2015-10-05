@@ -3,6 +3,8 @@ public class River implements Tile {
 
     private Player player;
     private boolean isOwned;
+    private Mule mule;
+
     public River() {
 
     }
@@ -26,4 +28,13 @@ public class River implements Tile {
     public void setIsOwned(boolean isOwned) {
         this.isOwned = isOwned;
     }
+
+    public void setMule(Mule mule) {
+        this.mule = mule;
+    }
+
+    public Mule getMule() {
+        return mule;
+    }
 }
+

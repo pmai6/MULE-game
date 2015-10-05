@@ -15,4 +15,7 @@ public interface Tile {
     boolean isOwned();
 
     void setIsOwned(boolean isOwned);
+
+    public void setMule(Mule mule);
+
 }
