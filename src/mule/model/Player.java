@@ -29,6 +29,7 @@ public class Player implements Comparable {
     private int mule;
     private List<Tile> tiles;
     private List<Mule> mules;
+    private List<Mule> unplacedMules;
     //add list of mules;
 
 
@@ -41,6 +42,7 @@ public class Player implements Comparable {
         this.score = new SimpleIntegerProperty(0);
         setStartFoodOreEnergy();
         tiles = new ArrayList<Tile>();
+        unplacedMules = new ArrayList<Mule>();
     }
 
     private void setStartFoodOreEnergy() {
@@ -174,6 +176,11 @@ public class Player implements Comparable {
         this.mule = mule;
     }
 
+    public void addMule (Mule mule) {
+        unplacedMules.add(mule);
+    }
+
+
     public List<Tile> getTiles() {
         return tiles;
     }
@@ -183,6 +190,8 @@ public class Player implements Comparable {
     public void addtile (Tile tile) {
         tiles.add(tile);
     }
+
+
 
     public int compareTo(Object comparePlayer) {
         int compareScore = ((Player) comparePlayer).getScore();

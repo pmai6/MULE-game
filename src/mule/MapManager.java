@@ -59,10 +59,6 @@ public class MapManager {
             PlayerManager.buyProperty(player, tile);
             changeButtonColor(player, button);
 
-            //GameManager.initializePlayerGuiStats();
-/*player.setFood(10000000);
-            player.setOre(999999);
-            player.setScore(777777);*/
 
             RoundManager.playerFinishedTurn(false);
         }
@@ -88,6 +84,15 @@ private static boolean canTileBeBought (Player player, Tile tile) {
 }
 
 
+    /** method to placeMule on Tile in the main map
+     *
+     * @param player current player
+     * @param tile  Tile that was clicked on
+     * @param button - button, so image can be changed
+     */
+    private static void placeMule (Player player, Tile tile, Button button) {
+
+    }
 
 
     /** Method to change the color of the button that was pushed on the map
