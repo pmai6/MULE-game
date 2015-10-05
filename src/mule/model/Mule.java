@@ -7,9 +7,9 @@ public interface Mule {
 
     public void setOwner(Player player);
 
-    public void setLocation(Tile[][] tiles);
+    public void setLocation(Tile tile);
 
-    public Tile getLocation(Tile[][] tiles);
+    public Tile getLocation(Tile tiles);
 
     public Player getOwner();
 
