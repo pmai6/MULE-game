@@ -448,7 +448,7 @@
             <Image url="@baby%20unicorn.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="Store" layoutX="215.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" visible="false">
+      <AnchorPane fx:id="Store" layoutX="215.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
             <ImageView fitHeight="400.0" fitWidth="600.0">
                <image>
@@ -457,12 +457,12 @@
             </ImageView>
             <Button layoutX="467.0" layoutY="46.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: chocolate;" text="Back to Map" textFill="#f5f4f4" />
             <Button layoutX="29.0" layoutY="46.0" mnemonicParsing="false" onAction="#exitStoreButtonAction" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: chocolate;" text="Exit Store" textFill="#f5f4f4" />
-            <ChoiceBox fx:id="purchaseFood" layoutX="14.0" layoutY="125.0" onMouseClicked="#handlePurchaseFoodAction" prefHeight="26.0" prefWidth="34.0" />
-            <ChoiceBox layoutX="153.0" layoutY="125.0" prefHeight="26.0" prefWidth="36.0" />
-            <ChoiceBox layoutX="437.0" layoutY="125.0" prefHeight="26.0" prefWidth="36.0" />
-            <ChoiceBox fx:id="purchaseCrystite" layoutX="300.0" layoutY="125.0" prefHeight="26.0" prefWidth="34.0" />
-            <ChoiceBox fx:id="purchaseEnergy" layoutX="153.0" layoutY="259.0" prefHeight="26.0" prefWidth="36.0" />
-            <ChoiceBox fx:id="purchaseSmithore" layoutX="423.0" layoutY="272.0" prefHeight="26.0" prefWidth="34.0" />
+            <TextField fx:id="purchaseQtyBox" layoutX="108.0" layoutY="313.0" prefHeight="26.0" prefWidth="54.0" />
+            <Label layoutX="29.0" layoutY="318.0" text="Quantity" textFill="#fff3e7" />
+            <ComboBox fx:id="transactionSellCombo" layoutX="66.0" layoutY="275.0" onAction="#handleTransactionAction" prefHeight="26.0" prefWidth="94.0" />
+            <ComboBox fx:id="transactionBuyCombo" layoutX="66.0" layoutY="235.0" onAction="#handleTransactionAction" prefHeight="26.0" prefWidth="94.0" />
+            <Label layoutX="29.0" layoutY="240.0" text="Buy" textFill="#fff3e7" />
+            <Label layoutX="29.0" layoutY="280.0" text="Sell" textFill="#fff3e7" />
          </children>
       </AnchorPane>
    </children>

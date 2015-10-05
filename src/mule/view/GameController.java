@@ -3,6 +3,7 @@ package mule.view;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -45,14 +46,7 @@ public class GameController {
     private HBox map;
     @FXML
     private Button store;
-    @FXML
-    private ChoiceBox<String> purchaseFood;
-    @FXML
-    private ChoiceBox<String> purchaseCrystite;
-    @FXML
-    private ChoiceBox<String> purchaseEnergy;
-    @FXML
-    private ChoiceBox<String> purchaseSmithore;
+
     @FXML
     private Button food;
     @FXML
@@ -78,6 +72,14 @@ public class GameController {
     private HBox playerthree;
     @FXML
     private HBox playerfour;
+
+    @FXML
+    private TextField purchaseQtyBox;
+    @FXML
+    private ComboBox<String> transactionBuyCombo;
+    @FXML
+    private ComboBox<String> transactionSellCombo;
+
 
     @FXML
     private GridPane mapGrid;
@@ -150,7 +152,9 @@ public class GameController {
     private Label timerLabel;
     private timer Timer = new timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
 
-    private String selectedPurchase;
+    private String selectedBuyTransaction;
+    private String selectedSellTransaction;
+    private String purchaseQty;
 
     public GameController() {
 
@@ -939,46 +943,72 @@ public class GameController {
         Store.setVisible(true);
     }
 
+//    @FXML
+//    private void handlePurchaseFoodAction() {
+//        purchaseFood.setItems(FXCollections.observableArrayList("Buy", "Sell"));
+//        if (purchaseFood.getSelectionModel().getSelectedItem() == "Buy") {
+//            StoreManager.exportFood(4);
+//        }
+//        if (purchaseFood.getSelectionModel().getSelectedItem() == "Sell") {
+//            StoreManager.importFood(4);
+//        }
+//    }
+//    @FXML
+//    private void handlePurchaseSmithoreAction() {
+//        purchaseSmithore.setItems(FXCollections.observableArrayList("Buy", "Sell"));
+//        if (purchaseSmithore.getSelectionModel().getSelectedItem() == "Buy") {
+//            StoreManager.exportSmithore(4);
+//        }
+//        if (purchaseSmithore.getSelectionModel().getSelectedItem() == "Sell") {
+//            StoreManager.importSmithore(4);
+//        }
+//    }
+
     @FXML
-    private void handlePurchaseFoodAction() {
-        purchaseFood.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-        if (purchaseFood.getSelectionModel().getSelectedItem() == "Buy") {
-            StoreManager.exportFood(4);
+    private void handleTransactionAction() {
+        purchaseQty = purchaseQtyBox.getText();
+        ObservableList<String> transactionComboData = FXCollections.observableArrayList();
+        transactionComboData.add("Food");
+        transactionComboData.add("Smithore");
+        transactionComboData.add("Energy");
+        transactionComboData.add("Crystite");
+
+        transactionBuyCombo.setItems(transactionComboData);
+        transactionSellCombo.setItems(transactionComboData);
+        selectedSellTransaction = transactionSellCombo.getSelectionModel().getSelectedItem();
+        selectedBuyTransaction = transactionBuyCombo.getSelectionModel().getSelectedItem();
+
+        if (selectedBuyTransaction == "Food") {
+            StoreManager.exportFood(Integer.parseInt(purchaseQty));
+        } else if (selectedBuyTransaction == "Smithore") {
+            StoreManager.exportSmithore(Integer.parseInt(purchaseQty));
+        } else if (selectedBuyTransaction == "Energy") {
+            StoreManager.exportEnergy(Integer.parseInt(purchaseQty));
+        } else if (selectedBuyTransaction == "Crystite") {
+            StoreManager.exportCrystite(Integer.parseInt(purchaseQty));
         }
-        if (purchaseFood.getSelectionModel().getSelectedItem() == "Sell") {
-            StoreManager.importFood(4);
+        if (selectedSellTransaction == "Food") {
+            StoreManager.importFood(Integer.parseInt(purchaseQty));
+        } else if (selectedSellTransaction == "Smithore") {
+            StoreManager.importSmithore(Integer.parseInt(purchaseQty));
+        } else if (selectedSellTransaction == "Energy") {
+            StoreManager.importEnergy(Integer.parseInt(purchaseQty));
+        } else if (selectedSellTransaction == "Crystite") {
+            StoreManager.importCrystite(Integer.parseInt(purchaseQty));
         }
+
     }
-    @FXML
-    private void handlePurchaseSmithoreAction() {
-        purchaseSmithore.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-        if (purchaseSmithore.getSelectionModel().getSelectedItem() == "Buy") {
-            StoreManager.exportSmithore(4);
-        }
-        if (purchaseSmithore.getSelectionModel().getSelectedItem() == "Sell") {
-            StoreManager.importSmithore(4);
-        }
-    }
-    @FXML
-    private void handlePurchaseCrystiteAction() {
-        purchaseCrystite.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-        if (purchaseCrystite.getSelectionModel().getSelectedItem() == "Buy") {
-            StoreManager.exportCrystite(4);
-        }
-        if (purchaseCrystite.getSelectionModel().getSelectedItem() == "Sell") {
-            StoreManager.importCrystite(4);
-        }
-    }
-    @FXML
-    private void handlePurchaseEnergyAction() {
-        purchaseEnergy.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Buy") {
-            StoreManager.exportEnergy(4);
-        }
-        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Sell") {
-            StoreManager.importEnergy(4);
-        }
-    }
+
+//    @FXML
+//    private void handlePurchaseEnergyAction() {
+//        purchaseEnergy.setItems(FXCollections.observableArrayList("Buy", "Sell"));
+//        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Buy") {
+//            StoreManager.exportEnergy(4);
+//        }
+//        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Sell") {
+//            StoreManager.importEnergy(4);
+//        }
+//    }
     
     @FXML
     private void exitStoreButtonAction() throws Exception {
