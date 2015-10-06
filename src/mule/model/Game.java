@@ -16,7 +16,7 @@ public class Game {
     private static Game mulegame;
     private static int  playerCounter = 0;
     private List<String> colorList = new ArrayList<>(Arrays.asList
-            ("Purple","Green","Red","Blue"));
+            ("Purple","Green","Red","Blue","Orange","Yellow" ));
 
     private static boolean isLandSelectionPhase;
 private static boolean isMuleBought = false;
