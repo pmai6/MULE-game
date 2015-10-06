@@ -34,11 +34,12 @@ public class Pub {
         if (roundNum >= 8 && roundNum < 12) { moneyBonus = roundBonus[2] + rand.nextInt(timeBonus); }
         // round 12
         if (roundNum == 12) { moneyBonus = roundBonus[3] + rand.nextInt(timeBonus); }
-        
+
         if (moneyBonus <= 250) { player.setMoney(player.getMoney() + moneyBonus); } // player cannot earn more than 250 a gambling
         else {
             player.setMoney(player.getMoney() + (moneyBonus - 250));
             System.out.println("You earn more than the amount allowed. Sorry, no clover!!");
         }
+
     }
 }

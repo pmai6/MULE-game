@@ -94,8 +94,11 @@ private static boolean isMuleBought = false;
         this.playerArray = playerArray;
     }
 
-    public List<Player> getSortedPlayerArray() {
+    public void createSortedPlayerArray() {
         Collections.sort(sortedPlayerArray);
+    }
+
+    public List<Player> getSortedPlayerArray() {
         return sortedPlayerArray;
     }
 
