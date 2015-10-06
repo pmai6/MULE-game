@@ -255,135 +255,135 @@ public class GameController {
         mapButtonArray[0][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][0]);
+                gameManager.handleMapButton(mapButtonArray[0][0]);
             }
         });
         mapButtonArray[0][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][1]);
+                gameManager.handleMapButton(mapButtonArray[0][1]);
             }
         });
         mapButtonArray[0][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][2]);
+                gameManager.handleMapButton(mapButtonArray[0][2]);
             }
         });
         mapButtonArray[0][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][3]);
+                gameManager.handleMapButton(mapButtonArray[0][3]);
             }
         });
         mapButtonArray[0][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][4]);
+                gameManager.handleMapButton(mapButtonArray[0][4]);
             }
         });
         mapButtonArray[0][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][5]);
+                gameManager.handleMapButton(mapButtonArray[0][5]);
             }
         });
         mapButtonArray[0][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][6]);
+                gameManager.handleMapButton(mapButtonArray[0][6]);
             }
         });
         mapButtonArray[0][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][7]);
+                gameManager.handleMapButton(mapButtonArray[0][7]);
             }
         });
         mapButtonArray[0][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][8]);
+                gameManager.handleMapButton(mapButtonArray[0][8]);
             }
         });
 
         mapButtonArray[1][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][0]);
+                gameManager.handleMapButton(mapButtonArray[1][0]);
             }
         });
         mapButtonArray[1][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][1]);
+                gameManager.handleMapButton(mapButtonArray[1][1]);
             }
         });
         mapButtonArray[1][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][2]);
+                gameManager.handleMapButton(mapButtonArray[1][2]);
             }
         });
         mapButtonArray[1][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][3]);
+                gameManager.handleMapButton(mapButtonArray[1][3]);
             }
         });
         mapButtonArray[1][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][4]);
+                gameManager.handleMapButton(mapButtonArray[1][4]);
             }
         });
         mapButtonArray[1][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][5]);
+                gameManager.handleMapButton(mapButtonArray[1][5]);
             }
         });
         mapButtonArray[1][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][6]);
+                gameManager.handleMapButton(mapButtonArray[1][6]);
             }
         });
         mapButtonArray[1][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][7]);
+                gameManager.handleMapButton(mapButtonArray[1][7]);
             }
         });
         mapButtonArray[1][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][8]);
+                gameManager.handleMapButton(mapButtonArray[1][8]);
             }
         });
 
         mapButtonArray[2][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][0]);
+                gameManager.handleMapButton(mapButtonArray[2][0]);
             }
         });
         mapButtonArray[2][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][1]);
+                gameManager.handleMapButton(mapButtonArray[2][1]);
             }
         });
         mapButtonArray[2][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][2]);
+                gameManager.handleMapButton(mapButtonArray[2][2]);
             }
         });
         mapButtonArray[2][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][3]);
+                gameManager.handleMapButton(mapButtonArray[2][3]);
             }
         });
         mapButtonArray[2][4].setOnAction(new EventHandler<ActionEvent>() {
@@ -395,135 +395,135 @@ public class GameController {
         mapButtonArray[2][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][5]);
+                gameManager.handleMapButton(mapButtonArray[2][5]);
             }
         });
         mapButtonArray[2][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][6]);
+                gameManager.handleMapButton(mapButtonArray[2][6]);
             }
         });
         mapButtonArray[2][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][7]);
+                gameManager.handleMapButton(mapButtonArray[2][7]);
             }
         });
         mapButtonArray[2][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][8]);
+                gameManager.handleMapButton(mapButtonArray[2][8]);
             }
         });
 
         mapButtonArray[3][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][0]);
+                gameManager.handleMapButton(mapButtonArray[3][0]);
             }
         });
         mapButtonArray[3][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][1]);
+                gameManager.handleMapButton(mapButtonArray[3][1]);
             }
         });
         mapButtonArray[3][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][2]);
+                gameManager.handleMapButton(mapButtonArray[3][2]);
             }
         });
         mapButtonArray[3][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][3]);
+                gameManager.handleMapButton(mapButtonArray[3][3]);
             }
         });
         mapButtonArray[3][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][4]);
+                gameManager.handleMapButton(mapButtonArray[3][4]);
             }
         });
         mapButtonArray[3][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][5]);
+                gameManager.handleMapButton(mapButtonArray[3][5]);
             }
         });
         mapButtonArray[3][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][6]);
+                gameManager.handleMapButton(mapButtonArray[3][6]);
             }
         });
         mapButtonArray[3][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][7]);
+                gameManager.handleMapButton(mapButtonArray[3][7]);
             }
         });
         mapButtonArray[3][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][8]);
+                gameManager.handleMapButton(mapButtonArray[3][8]);
             }
         });
 
         mapButtonArray[4][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][0]);
+                gameManager.handleMapButton(mapButtonArray[4][0]);
             }
         });
         mapButtonArray[4][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][1]);
+                gameManager.handleMapButton(mapButtonArray[4][1]);
             }
         });
         mapButtonArray[4][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][2]);
+                gameManager.handleMapButton(mapButtonArray[4][2]);
             }
         });
         mapButtonArray[4][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][3]);
+                gameManager.handleMapButton(mapButtonArray[4][3]);
             }
         });
         mapButtonArray[4][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][4]);
+                gameManager.handleMapButton(mapButtonArray[4][4]);
             }
         });
         mapButtonArray[4][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][5]);
+                gameManager.handleMapButton(mapButtonArray[4][5]);
             }
         });
         mapButtonArray[4][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][6]);
+                gameManager.handleMapButton(mapButtonArray[4][6]);
             }
         });
         mapButtonArray[4][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][7]);
+                gameManager.handleMapButton(mapButtonArray[4][7]);
             }
         });
         mapButtonArray[4][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][8]);
+                gameManager.handleMapButton(mapButtonArray[4][8]);
             }
         });
 

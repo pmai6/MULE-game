@@ -5,11 +5,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import mule.model.Game;
-import mule.model.Player;
-import mule.model.Round;
-import mule.model.Tile;
+import mule.model.*;
 import mule.view.GameController;
 
 import java.util.Collections;
@@ -41,7 +39,7 @@ public static GameManager getGameManager() {
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
 
-        initializePlayerGuiStats();
+        gameManager.initializePlayerGuiStats();
 
         //used for testing purposes only TOREMOVE
         for (Player element : mulegame.getPlayerArray()) {
@@ -50,10 +48,6 @@ public static GameManager getGameManager() {
         updateGamePlayerRound();
 
     }
-
-
-
-
 
     /**Disables the player areas in the main GUI screen so there
      * score and info do not show up
@@ -104,10 +98,9 @@ public static GameManager getGameManager() {
         gameManager.setGameStateLabel();
     }
 
-    public static void initializePlayerGuiStats() {
+    public  void initializePlayerGuiStats() {
         updatePlayerOne();
         updatePlayerTwo();
-
         if (mulegame.getNumberOfPlayers() == 4) {
             updatePlayerThree();
             updatePlayerFour();
@@ -116,11 +109,10 @@ public static GameManager getGameManager() {
         }
 
     }
-    public static void updatePlayerOne() {
+    private  void updatePlayerOne() {
         String name = mulegame.getPlayerArray().get(0).getPlayerName();
         String race = mulegame.getPlayerArray().get(0)
                 .getPlayerRace();
-
         String color = mulegame.getPlayerArray().get(0)
                 .getPlayerColor();
         int score = mulegame.getPlayerArray().get(0).getScore();
@@ -130,7 +122,7 @@ public static GameManager getGameManager() {
         controller.changePlayerOneGuiStats(name, race, score, money, ore,
                 food, color);
     }
-    public static void updatePlayerTwo() {
+    private   void updatePlayerTwo() {
         String name = mulegame.getPlayerArray().get(1)
                 .getPlayerName();
         String race = mulegame.getPlayerArray().get(1)
@@ -145,7 +137,7 @@ public static GameManager getGameManager() {
         controller.changePlayerTwoGuiStats(name, race, score, money, ore,
                 food, color);
     }
-    public static void updatePlayerThree() {
+    private static void updatePlayerThree() {
         String name = mulegame.getPlayerArray().get(2)
                 .getPlayerName();
         String race = mulegame.getPlayerArray().get(2)
@@ -160,7 +152,7 @@ public static GameManager getGameManager() {
                 food, color);
     }
 
-    public static void updatePlayerFour() {
+    private  void updatePlayerFour() {
         String name = mulegame.getPlayerArray().get(3)
                 .getPlayerName();
         String race = mulegame.getPlayerArray().get(3)
@@ -219,5 +211,18 @@ public static GameManager getGameManager() {
 
     public List<Player> getSortedPlayerArray() {
         return mulegame.getSortedPlayerArray();
+    }
+
+    public  int getNumberOfPlayers() {
+        return mulegame.getNumberOfPlayers();
+    }
+
+    public void setNumberOfPlayers(int numberOfPlayers) {
+        mulegame.setNumberOfPlayers(numberOfPlayers);
+    }
+
+    public void handleMapButton(Button button) {
+        MapManager.handleMapButton(button);
+
     }
 }

@@ -124,7 +124,6 @@ private static boolean canTileBeBought (Player player, Tile tile) {
      * @param button
      */
     private static void changeButtonColor (Player player, Button button) {
-        //TODO
         String thecolor = player.getPlayerColor();
         //how to change color
         button.setStyle(" -fx-base: " + thecolor + ";");
