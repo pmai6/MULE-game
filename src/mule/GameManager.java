@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import mule.model.Game;
 import mule.model.Player;
 import mule.model.Round;
+import mule.model.Tile;
 import mule.view.GameController;
 
 /**
@@ -75,6 +76,8 @@ public class GameManager {
     public static void setGameStateLabel() {
         if (Game.isLandSelectionPhase()) {
             controller.setGameStateLabel("LAND SELECTION PHASE");
+        } else if (Game.isMuleBought()) {
+            controller.setGameStateLabel("PLACE YOUR MULE");
         } else {
             controller.setGameStateLabel("NORMAL GAME MODE");
         }
@@ -84,6 +87,7 @@ public class GameManager {
         controller.setCurrentPlayer(RoundManager.getCurrentPlayer()
                 .getPlayerName());
         controller.setRoundNumber(Round.getRoundNum());
+        GameManager.setGameStateLabel();
     }
 
     public static void initializePlayerGuiStats() {
@@ -158,5 +162,17 @@ public class GameManager {
     }
     public static void setTimer() {
         controller.setTimer();
+    }
+
+    public static void muleAlert() {
+        controller.badMulePlacement();
+    }
+
+    public static void notEnoughMoney() {
+        controller.youGotNoMoney();
+    }
+
+    public static void addMuleToButton(Button button,Tile tile) {
+        controller.addMuleToButton(button, tile);
     }
 }

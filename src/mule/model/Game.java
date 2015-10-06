@@ -19,7 +19,7 @@ public class Game {
             ("Purple","Green","Red","Blue"));
 
     private static boolean isLandSelectionPhase;
-
+private static boolean isMuleBought = false;
 
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
@@ -48,6 +48,14 @@ public class Game {
 
     public static void incrementPlayerCounter() {
         Game.playerCounter++;
+    }
+
+    public static boolean isMuleBought() {
+        return isMuleBought;
+    }
+
+    public static void setIsMuleBought(boolean isMuleBought) {
+        Game.isMuleBought = isMuleBought;
     }
 
     public void addPlayerToArray(Player player) {

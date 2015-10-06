@@ -1,10 +1,15 @@
 package mule.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Mountain1 implements Tile {
 
     private Player player;
     private boolean isOwned;
     private static  Tile[][] tiles;
-    private Mule mule;
+    private List<Mule> mules = new ArrayList<>();
+
     public Mountain1() {
 
     }
@@ -28,12 +33,14 @@ public class Mountain1 implements Tile {
     public void setIsOwned(boolean isOwned) {
         this.isOwned = isOwned;
     }
-    public void setMule(Mule mule) {
-        this.mule = mule;
+
+    public List<Mule> getMule() {
+        return mules;
     }
 
-    public Mule getMule() {
-        return mule;
+    public void addMule (Mule mule) {
+        mules.add(mule);
     }
+
 
 }

@@ -1,5 +1,6 @@
 package mule;
 
+import mule.model.Mule;
 import mule.model.Player;
 import mule.model.Store;
 import mule.RoundManager;
@@ -55,7 +56,16 @@ public class PlayerManager {
         }
     }
 
+    public static void buyMule (Player player, Mule mule) {
+        if (player.getMoney() - mule.getCost() >= 0) {
+            player.setMoney(player.getMoney() - mule.getCost());
+            player.setUnplacedMule(mule);
+        } else {
+            GameManager.notEnoughMoney();
+        }
 
+
+    }
     /**
      * void method - add money to the account of the player
      * @param player - current player

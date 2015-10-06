@@ -1,9 +1,13 @@
 package mule.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class River implements Tile {
 
     private Player player;
     private boolean isOwned;
-    private Mule mule;
+    private List<Mule> mules = new ArrayList<>();
 
     public River() {
 
@@ -29,12 +33,13 @@ public class River implements Tile {
         this.isOwned = isOwned;
     }
 
-    public void setMule(Mule mule) {
-        this.mule = mule;
+    public List<Mule> getMule() {
+        return mules;
     }
 
-    public Mule getMule() {
-        return mule;
+    public void addMule (Mule mule) {
+        mules.add(mule);
     }
+
 }
 

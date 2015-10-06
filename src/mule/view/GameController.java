@@ -7,6 +7,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -15,11 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import mule.*;
-import mule.model.Game;
-import mule.model.GameMap;
-import mule.model.Round;
-import mule.model.Player;
+import mule.model.*;
 
 public class GameController {
 
@@ -46,7 +47,14 @@ public class GameController {
     private HBox map;
     @FXML
     private Button store;
-
+    @FXML
+    private ChoiceBox<String> purchaseFood;
+    @FXML
+    private ChoiceBox<String> purchaseCrystite;
+    @FXML
+    private ChoiceBox<String> purchaseEnergy;
+    @FXML
+    private ChoiceBox<String> purchaseSmithore;
     @FXML
     private Button food;
     @FXML
@@ -74,17 +82,22 @@ public class GameController {
     private HBox playerfour;
 
     @FXML
-    private TextField purchaseQtyBox;
-    @FXML
-    private ComboBox<String> transactionBuyCombo;
-    @FXML
-    private ComboBox<String> transactionSellCombo;
-
-
-    @FXML
     private GridPane mapGrid;
 
     private Button[][] mapButtonArray;
+
+
+    private String selectedMuleType;
+    @FXML
+    private ComboBox<String> transactionBuyCombo;
+    @FXML
+    private Button buyMule;
+    @FXML
+    private Button sellMule;
+
+
+    private ObservableList<String> muleComboData =
+            FXCollections.observableArrayList();
 
 
     @FXML
@@ -1009,7 +1022,7 @@ public class GameController {
 //            StoreManager.importEnergy(4);
 //        }
 //    }
-    
+
     @FXML
     private void exitStoreButtonAction() throws Exception {
         Store.setVisible(false);
@@ -1040,6 +1053,7 @@ public class GameController {
 
     @FXML
     private void exitButtonAction() throws Exception {
+        Store.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);
     }
@@ -1134,6 +1148,67 @@ public class GameController {
         roundNumber.setText(String.valueOf(round));
     }
 
+
+    @FXML
+    private void handleMuleCombo() {
+        selectedMuleType =
+                muleCombo.getSelectionModel().getSelectedItem();
+    }
+
+    public void handleBuyMule() throws Exception {
+        StoreManager.buyMule(selectedMuleType);
+        exitButtonAction();
+
+
+        Image   imageplain = new Image(getClass()
+                .getResourceAsStream("baby.png"));
+
+        map.setCursor(new ImageCursor(imageplain));
+    }
+
+
+
+    public void badMulePlacement() {
+        map.setCursor(Cursor.DEFAULT);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("You lost your mule!");
+        alert.showAndWait();
+    }
+
+
+    public void youGotNoMoney() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("You don't have enough money");
+
+        alert.showAndWait();
+    }
+
+public void addMuleToButton (Button button, Tile tile) {
+    Image imageplain;
+           if (tile instanceof Plain) {
+               imageplain = new Image(getClass()
+                       .getResourceAsStream("brownMule.png"));
+            } else if (tile instanceof Mountain1) {
+               imageplain = new Image(getClass()
+                       .getResourceAsStream("mountain1Mule.png"));
+            } else if (tile instanceof Mountain2) {
+               imageplain = new Image(getClass()
+                       .getResourceAsStream("mountain2Mule.png"));
+            } else if (tile instanceof Mountain3) {
+               imageplain = new Image(getClass()
+                       .getResourceAsStream("mountain3Mule.png"));
+            } else {
+               imageplain = new Image(getClass()
+                       .getResourceAsStream("riverMule.png"));
+            }
+
+    button.setGraphic(new ImageView(imageplain));
+    map.setCursor(Cursor.DEFAULT);
+}
 
 }
 

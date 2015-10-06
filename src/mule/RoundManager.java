@@ -55,6 +55,7 @@ public class RoundManager {
         }
         if (!Game.isLandSelectionPhase()) {
             GameManager.setTimer();
+            Game.setIsMuleBought(false);
         }
         RoundManager.incrementTurnNumber();
 
