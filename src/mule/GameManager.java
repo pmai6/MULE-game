@@ -36,7 +36,7 @@ public static GameManager getGameManager() {
 
         mulegame.setIsLandSelectionPhase(true);
         MapManager.setUpMap();
-        RoundManager.startRounds();
+        RoundManager.startRounds(gameManager);
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
@@ -87,21 +87,21 @@ public static GameManager getGameManager() {
      * state
      *
      */
-    public static  void setGameStateLabel() {
-        if (GameManager.getMulegame().isLandSelectionPhase()) {
+    public   void setGameStateLabel() {
+        if (gameManager.getMulegame().isLandSelectionPhase()) {
             controller.setGameStateLabel("LAND SELECTION PHASE");
-        } else if (GameManager.getMulegame().isMuleBought()) {
+        } else if (gameManager.getMulegame().isMuleBought()) {
             controller.setGameStateLabel("PLACE YOUR MULE");
         } else {
             controller.setGameStateLabel("NORMAL GAME MODE");
         }
     }
 
-    public static void updateGamePlayerRound() {
+    public  void updateGamePlayerRound() {
         controller.setCurrentPlayer(RoundManager.getCurrentPlayer()
                 .getPlayerName());
         controller.setRoundNumber(Round.getRoundNum());
-        GameManager.setGameStateLabel();
+        gameManager.setGameStateLabel();
     }
 
     public static void initializePlayerGuiStats() {
@@ -174,19 +174,19 @@ public static GameManager getGameManager() {
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
                 food, color);
     }
-    public  static void setTimer() {
+    public   void setTimer() {
         controller.setTimer();
     }
 
-    public static void muleAlert() {
+    public  void muleAlert() {
         controller.badMulePlacement();
     }
 
-    public static  void notEnoughMoney() {
+    public   void notEnoughMoney() {
         controller.youGotNoMoney();
     }
 
-    public static void addMuleToButton(Button button,Tile tile) {
+    public  void addMuleToButton(Button button,Tile tile) {
         controller.addMuleToButton(button, tile);
     }
 
@@ -199,7 +199,7 @@ public static GameManager getGameManager() {
     }
 
 
-    public static Game getMulegame() {
+    public  Game getMulegame() {
         return mulegame;
 }
 

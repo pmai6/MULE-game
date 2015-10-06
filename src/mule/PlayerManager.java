@@ -15,6 +15,8 @@ import javafx.beans.property.StringProperty;
  * Class to manage player objects
  */
 public class PlayerManager {
+    private static GameManager gameManager = GameManager.getGameManager();
+
     private int startTime;
     private mule.view.timer time = new mule.view.timer(startTime);
     private IntegerProperty timeLeft = time.getTimeLeft();
@@ -23,7 +25,7 @@ public class PlayerManager {
                                             String selectedRace2,
                                             String selectedColor2) {
         Player newplayer = new Player(playerName2, selectedRace2, selectedColor2);
-        GameManager.getMulegame().addPlayerToArray(newplayer);
+        gameManager.getMulegame().addPlayerToArray(newplayer);
     }
 
 
@@ -69,7 +71,7 @@ public class PlayerManager {
             player.setMoney(player.getMoney() - mule.getCost());
             player.setUnplacedMule(mule);
         } else {
-            GameManager.notEnoughMoney();
+            gameManager.notEnoughMoney();
         }
 
 

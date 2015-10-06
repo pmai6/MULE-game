@@ -13,6 +13,7 @@ import mule.view.*;
  * Created by travisclement on 9/18/15.
  */
 public class MapManager {
+    private static GameManager gameManager = GameManager.getGameManager();
 
     private static Button button;
 
@@ -26,11 +27,11 @@ public class MapManager {
         Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
                 ][GridPane.getColumnIndex(button)];
 
-        if (GameManager.getMulegame().isLandSelectionPhase()) {
+        if (gameManager.getMulegame().isLandSelectionPhase()) {
 
             buyTile(player, tile, button);
 
-        } else if (GameManager.getMulegame().isMuleBought()) {
+        } else if (gameManager.getMulegame().isMuleBought()) {
             placeMule(player,tile, button);
         }
 
@@ -97,9 +98,9 @@ private static boolean canTileBeBought (Player player, Tile tile) {
             tile.addMule(mule);
 
             player.setUnplacedMule(null);
-            GameManager.getMulegame().setIsMuleBought(false);
-            GameManager.setGameStateLabel();
-            GameManager.addMuleToButton(button, tile);
+            gameManager.getMulegame().setIsMuleBought(false);
+            gameManager.setGameStateLabel();
+            gameManager.addMuleToButton(button, tile);
             for (Tile tiles : player.getTiles()) {
                 for (Mule mules : tiles.getMule()) {
                     System.out.println(mules);
@@ -107,9 +108,9 @@ private static boolean canTileBeBought (Player player, Tile tile) {
         }
         } else {
             player.setUnplacedMule(null);
-            GameManager.getMulegame().setIsMuleBought(false);
-            GameManager.setGameStateLabel();
-            GameManager.muleAlert();
+            gameManager.getMulegame().setIsMuleBought(false);
+            gameManager.setGameStateLabel();
+            gameManager.muleAlert();
 
         }
 
@@ -137,7 +138,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
     public static int costOfTile() {
         //TODO need to deal with later rounds in land selection phase
         // and need to deal with when the real game starts.
-        if (GameManager.getMulegame().isLandSelectionPhase() && Round
+        if (gameManager.getMulegame().isLandSelectionPhase() && Round
                 .getRoundNum() <= 2) {
 
             return 0;

@@ -81,7 +81,7 @@ private GameManager gameManager;
 
 
         List<String> colorList;
-        colorList = GameManager.getMulegame().getColor();
+        colorList = gameManager.getMulegame().getColor();
         for (String color : colorList) {
             colorComboData.add(color);
 
@@ -162,7 +162,7 @@ private GameManager gameManager;
 
 
         if (gameManager.getMulegame().getN() > 1) {
-            gameManager.getMulegame().setN(GameManager.getMulegame().getN() - 1);
+            gameManager.getMulegame().setN(gameManager.getMulegame().getN() - 1);
             mainapp.startPlayerConfig(stage);
         } else {
             System.out.println("This is where the game opens");
