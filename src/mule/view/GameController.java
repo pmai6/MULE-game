@@ -47,6 +47,7 @@ public class GameController {
     private HBox map;
     @FXML
     private Button store;
+
     @FXML
     private ChoiceBox<String> purchaseFood;
     @FXML
@@ -82,22 +83,17 @@ public class GameController {
     private HBox playerfour;
 
     @FXML
-    private GridPane mapGrid;
-
-    private Button[][] mapButtonArray;
-
-
-    private String selectedMuleType;
+    private TextField purchaseQtyBox;
     @FXML
     private ComboBox<String> transactionBuyCombo;
     @FXML
-    private Button buyMule;
+    private ComboBox<String> transactionSellCombo;
+
+
     @FXML
-    private Button sellMule;
+    private GridPane mapGrid;
 
-
-    private ObservableList<String> muleComboData =
-            FXCollections.observableArrayList();
+    private Button[][] mapButtonArray;
 
 
     @FXML
@@ -1148,6 +1144,7 @@ public class GameController {
         roundNumber.setText(String.valueOf(round));
     }
 
+/*
 
     @FXML
     private void handleMuleCombo() {
@@ -1166,6 +1163,7 @@ public class GameController {
         map.setCursor(new ImageCursor(imageplain));
     }
 
+*/
 
 
     public void badMulePlacement() {
