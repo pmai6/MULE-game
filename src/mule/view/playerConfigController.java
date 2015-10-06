@@ -72,6 +72,9 @@ public class playerConfigController {
         raceComboData.add("Flapper");
         raceComboData.add("Bonzoid");
         raceComboData.add("Buzzite");
+        raceComboData.add("Foilers");
+        raceComboData.add("Trillers");
+        raceComboData.add("Yellers");
 
 
         List<String> colorList;
@@ -104,6 +107,15 @@ public class playerConfigController {
                 if (raceCombo.getSelectionModel().getSelectedItem() == "Flapper") {
                     raceInfo.setText("From the Boird-Drop Galaxy. All Flappers receive an extra $600 in their nest egg! Beginner Species");
                 }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Foilers") {
+                    raceInfo.setText("(DLC content) Feel Free to Foil your enemies with this new character!");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Trillers") {
+                    raceInfo.setText("(DLC content) Keepin it trill. Try and tolerate these terrifying terrors");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Yellers") {
+                    raceInfo.setText("(DLC content) They're yellow. Thats about it");
+                }
     }
 
     @FXML
@@ -125,6 +137,13 @@ public class playerConfigController {
                         "Green") {
                     colorLabel.setTextFill(javafx.scene.paint.Color.GREEN);
                 }
+                if (colorCombo.getSelectionModel().getSelectedItem() == "Orange") {
+                    colorLabel.setTextFill(javafx.scene.paint.Color.ORANGE);
+                }
+                if (colorCombo.getSelectionModel().getSelectedItem() == "Yellow") {
+                    colorLabel.setTextFill(javafx.scene.paint.Color.YELLOW);
+                }
+
     }
 
 
