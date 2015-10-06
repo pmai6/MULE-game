@@ -168,7 +168,8 @@ public class GameController {
     private String purchaseQty;
 
     // Arrays for Combo - pull down boxes
-    private ObservableList<String> transactionComboData = FXCollections.observableArrayList();
+    private ObservableList<String> transactionBuyComboData = FXCollections.observableArrayList();
+    private ObservableList<String> transactionSellComboData = FXCollections.observableArrayList();
 
     public GameController() {
 
@@ -188,18 +189,24 @@ public class GameController {
      */
     @FXML
     private void initialize() {
-        transactionComboData.add(" ");
-        transactionComboData.add("Food");
-        transactionComboData.add("Smithore");
-        transactionComboData.add("Energy");
-        transactionComboData.add("Crystite");
-        transactionComboData.add("Food Mule");
-        transactionComboData.add("Energy Mule");
-        transactionComboData.add("Crystite Mule");
-        transactionComboData.add("Smithore Mule");
+        transactionBuyComboData.add(" ");
+        transactionBuyComboData.add("Food");
+        transactionBuyComboData.add("Smithore");
+        transactionBuyComboData.add("Energy");
+        transactionBuyComboData.add("Crystite");
+        transactionBuyComboData.add("Food Mule");
+        transactionBuyComboData.add("Energy Mule");
+        transactionBuyComboData.add("Crystite Mule");
+        transactionBuyComboData.add("Smithore Mule");
 
-        transactionBuyCombo.setItems(transactionComboData);
-        transactionSellCombo.setItems(transactionComboData);
+        transactionSellComboData.add(" ");
+        transactionSellComboData.add("Food");
+        transactionSellComboData.add("Smithore");
+        transactionSellComboData.add("Energy");
+        transactionSellComboData.add("Crystite");
+
+        transactionBuyCombo.setItems(transactionBuyComboData);
+        transactionSellCombo.setItems(transactionSellComboData);
 
         mapButtonArray = new Button[5][9];
         String[][] defaultMapLayout = GameMap.getMapLayout();
@@ -620,7 +627,7 @@ public class GameController {
 
         //get Ore listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getOreProperty()
+        Game.getMulegame().getPlayerArray().get(0).getSmithoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -630,11 +637,11 @@ public class GameController {
                              playerOneOre.setText(String.valueOf
                                  (Game
                                      .getMulegame().getPlayerArray().get
-                                         (0).getOre()));
+                                         (0).getSmithore()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getOreProperty()
+        Game.getMulegame().getPlayerArray().get(1).getSmithoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -644,7 +651,7 @@ public class GameController {
                              playerTwoOre.setText(String.valueOf
                                  (Game
                                      .getMulegame().getPlayerArray().get
-                                         (1).getOre()));
+                                         (1).getSmithore()));
                          }
                      });
 
@@ -777,7 +784,7 @@ public class GameController {
             //get Ore listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getOreProperty()
+            Game.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -787,11 +794,11 @@ public class GameController {
                                  playerThreeOre.setText(String.valueOf
                                      (Game
                                          .getMulegame().getPlayerArray().get
-                                             (2).getOre()));
+                                             (2).getSmithore()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getOreProperty()
+            Game.getMulegame().getPlayerArray().get(3).getSmithoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -801,7 +808,7 @@ public class GameController {
                                  playerFourOre.setText(String.valueOf
                                      (Game
                                          .getMulegame().getPlayerArray().get
-                                             (3).getOre()));
+                                             (3).getSmithore()));
                              }
                          });
 
@@ -900,7 +907,7 @@ public class GameController {
 
 
 
-            Game.getMulegame().getPlayerArray().get(2).getOreProperty()
+            Game.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -910,7 +917,7 @@ public class GameController {
                                  playerThreeOre.setText(String.valueOf
                                      (Game
                                          .getMulegame().getPlayerArray().get
-                                             (2).getOre()));
+                                             (2).getSmithore()));
                              }
                          });
 
@@ -980,13 +987,13 @@ public class GameController {
         purchaseQty = purchaseQtyBox.getText();
         selectedSellTransaction = transactionSellCombo.getSelectionModel().getSelectedItem();
         selectedBuyTransaction = transactionBuyCombo.getSelectionModel().getSelectedItem();
-        if (selectedBuyTransaction == "Food") {
+        if (selectedBuyTransaction.equalsIgnoreCase("Food")) {
             StoreManager.exportFood(Integer.parseInt(purchaseQty));
-        } else if (selectedBuyTransaction == "Smithore") {
+        } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore")) {
             StoreManager.exportSmithore(Integer.parseInt(purchaseQty));
-        } else if (selectedBuyTransaction == "Energy") {
+        } else if (selectedBuyTransaction.equalsIgnoreCase("Energy")) {
             StoreManager.exportEnergy(Integer.parseInt(purchaseQty));
-        } else if (selectedBuyTransaction == "Crystite") {
+        } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite")) {
             StoreManager.exportCrystite(Integer.parseInt(purchaseQty));
         } else if (selectedBuyTransaction.equalsIgnoreCase("Food Mule")) {
             StoreManager.buyMule(selectedBuyTransaction);
@@ -998,31 +1005,20 @@ public class GameController {
             StoreManager.buyMule(selectedBuyTransaction);
     }
 
-        if (selectedSellTransaction == "Food") {
+        if (selectedSellTransaction.equalsIgnoreCase("Food")) {
             StoreManager.importFood(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction == "Smithore") {
+        } else if (selectedSellTransaction.equalsIgnoreCase("Smithore")) {
             StoreManager.importSmithore(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction == "Energy") {
+        } else if (selectedSellTransaction.equalsIgnoreCase("Energy")) {
             StoreManager.importEnergy(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction == "Crystite") {
+        } else if (selectedSellTransaction.equalsIgnoreCase("Crystite")) {
             StoreManager.importCrystite(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction == "Food Mule") {
+        } else if (selectedSellTransaction.equalsIgnoreCase("Food Mule")) {
             StoreManager.buyMule(selectedSellTransaction);
         }
 
     }
 
-
-//    @FXML
-//    private void handlePurchaseEnergyAction() {
-//        purchaseEnergy.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-//        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Buy") {
-//            StoreManager.exportEnergy(4);
-//        }
-//        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Sell") {
-//            StoreManager.importEnergy(4);
-//        }
-//    }
 
 
     @FXML

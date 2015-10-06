@@ -21,7 +21,7 @@ public class Player implements Comparable {
     private IntegerProperty score;
     private IntegerProperty money;
     private IntegerProperty food;
-    private IntegerProperty ore;
+    //private IntegerProperty ore;
     private IntegerProperty smithore;
     private IntegerProperty crystite;
     private IntegerProperty energy;
@@ -46,7 +46,8 @@ public class Player implements Comparable {
 
         this.food = new SimpleIntegerProperty(8);
         this.energy = new SimpleIntegerProperty(0);
-        this.ore = new SimpleIntegerProperty(0);
+        this.smithore = new SimpleIntegerProperty(0);
+        this.crystite = new SimpleIntegerProperty(0);
     }
 
     private int getStartMoney(String race) {
@@ -108,7 +109,7 @@ public class Player implements Comparable {
     private int getDollarValueOfGoods() {
         int dollarValOfFood = 30 * this.getFood();
         int dollarValOfEnergy = 25 * this.getEnergy();
-        int dollarValOfOre = 50 * this.getOre();
+        int dollarValOfOre = 50 * this.getSmithore();
         return dollarValOfFood + dollarValOfEnergy + dollarValOfOre;
     }
 
@@ -126,7 +127,7 @@ public class Player implements Comparable {
         return energy.get();
     }
     public IntegerProperty getEnergyProperty() {
-        return money;
+        return energy;
     }
     public void setEnergy(int energy) {
         this.energy.set(energy);
@@ -150,15 +151,15 @@ public class Player implements Comparable {
         return smithore;
     }
 
-    public int getOre() {
-        return ore.get();
-    }
-    public void setOre(int ore) {
-        this.ore.set(ore);
-    }
-    public IntegerProperty getOreProperty() {
-        return ore;
-    }
+//    public int getOre() {
+//        return ore.get();
+//    }
+//    public void setOre(int ore) {
+//        this.ore.set(ore);
+//    }
+//    public IntegerProperty getOreProperty() {
+//        return ore;
+//    }
 
     public int getCrystite() { return crystite.get(); }
     public void setCrystite(int crysTite) { this.crystite.set(crysTite); }

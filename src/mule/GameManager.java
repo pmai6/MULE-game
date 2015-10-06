@@ -111,7 +111,7 @@ public class GameManager {
                 .getPlayerColor();
         int score = Game.getMulegame().getPlayerArray().get(0).getScore();
         int money = Game.getMulegame().getPlayerArray().get(0).getMoney();
-        int ore = Game.getMulegame().getPlayerArray().get(0).getOre();
+        int ore = Game.getMulegame().getPlayerArray().get(0).getSmithore();
         int food = Game.getMulegame().getPlayerArray().get(0).getFood();
         controller.changePlayerOneGuiStats(name, race, score, money, ore,
                 food, color);
@@ -126,7 +126,7 @@ public class GameManager {
                 .getPlayerColor();
         int score = Game.getMulegame().getPlayerArray().get(1).getScore();
         int money = Game.getMulegame().getPlayerArray().get(1).getMoney();
-        int ore = Game.getMulegame().getPlayerArray().get(1).getOre();
+        int ore = Game.getMulegame().getPlayerArray().get(1).getSmithore();
         int food = Game.getMulegame().getPlayerArray().get(1).getFood();
         controller.changePlayerTwoGuiStats(name, race, score, money, ore,
                 food, color);
@@ -140,7 +140,7 @@ public class GameManager {
                 .getPlayerColor();
         int score = Game.getMulegame().getPlayerArray().get(2).getScore();
         int money = Game.getMulegame().getPlayerArray().get(2).getMoney();
-        int ore = Game.getMulegame().getPlayerArray().get(2).getOre();
+        int ore = Game.getMulegame().getPlayerArray().get(2).getSmithore();
         int food = Game.getMulegame().getPlayerArray().get(2).getFood();
         controller.changePlayerThreeGuiStats(name, race, score, money, ore,
                 food, color);
@@ -155,7 +155,7 @@ public class GameManager {
                 .getPlayerColor();
         int score = Game.getMulegame().getPlayerArray().get(3).getScore();
         int money = Game.getMulegame().getPlayerArray().get(3).getMoney();
-        int ore = Game.getMulegame().getPlayerArray().get(3).getOre();
+        int ore = Game.getMulegame().getPlayerArray().get(3).getSmithore();
         int food = Game.getMulegame().getPlayerArray().get(3).getFood();
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
                 food, color);

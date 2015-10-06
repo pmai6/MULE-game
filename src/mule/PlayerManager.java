@@ -40,19 +40,15 @@ public class PlayerManager {
         if (item.equalsIgnoreCase("food")) {
             player.setFood(player.getFood() + quantity);
             player.setMoney(player.getMoney() - (Store.getFoodPrice() * quantity));
-            //Store.setFoodQty(Store.getFoodQty() - quantity);
         } else if (item.equalsIgnoreCase("energy")) {
             player.setEnergy(player.getEnergy() + quantity);
             player.setMoney(player.getMoney() - (Store.getEnergyPrice() * quantity));
-           //Store.setFoodQty(Store.getEnergyQty() - quantity);
         } else if (item.equalsIgnoreCase("smithore")) {
             player.setSmithore(player.getSmithore() + quantity);
             player.setMoney(player.getMoney() - (Store.getSmithorePrice() * quantity));
-            Store.setSmithoreQty(Store.getSmithoreQty() - quantity);
         } else if (item.equals("crystite")) {
             player.setCrystite(player.getCrystite() + quantity);
             player.setMoney(player.getMoney() - (Store.getCrystitePrice() * quantity));
-            //Store.setCrystiteQty(Store.getCrystiteQty() - quantity);
         }
     }
 
@@ -77,19 +73,15 @@ public class PlayerManager {
         if (item.equalsIgnoreCase("food")) {
             player.setFood(player.getFood() - quantity);
             player.setMoney(player.getMoney() + (Store.getFoodPrice() * quantity));
-            //Store.setFoodQty(Store.getFoodQty() + quantity);
         } else if (item.equalsIgnoreCase("energy")) {
             player.setEnergy(player.getEnergy() - quantity);
             player.setMoney(player.getMoney() + (Store.getEnergyPrice() * quantity));
-            //Store.setFoodQty(Store.getEnergyQty() + quantity);
         } else if (item.equalsIgnoreCase("smithore")) {
             player.setSmithore(player.getSmithore() - quantity);
             player.setMoney(player.getMoney() + (Store.getSmithoreQty() * quantity));
-            //Store.setSmithoreQty(Store.getSmithoreQty() + quantity);
         } else if (item.equals("crystite")) {
             player.setCrystite(player.getCrystite() - quantity);
             player.setMoney(player.getMoney() + (Store.getCrystitePrice() * quantity));
-            //Store.setCrystiteQty(Store.getCrystiteQty() + quantity);
         }
     }
 
