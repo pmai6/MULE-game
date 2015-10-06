@@ -638,7 +638,7 @@ public class GameController {
 
         //get Ore listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getSmithoreProperty()
+        gameManager.getMulegame().getPlayerArray().get(0).getSmithoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -652,7 +652,7 @@ public class GameController {
                          }
                      });
 
-        gameManager.getMulegame().getPlayerArray().get(1).getOreProperty()
+        gameManager.getMulegame().getPlayerArray().get(1).getSmithoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -1016,17 +1016,19 @@ public class GameController {
             StoreManager.buyMule(selectedBuyTransaction);
     }
 
-        if (selectedSellTransaction.equalsIgnoreCase("Food")) {
-            StoreManager.importFood(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction.equalsIgnoreCase("Smithore")) {
-            StoreManager.importSmithore(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction.equalsIgnoreCase("Energy")) {
-            StoreManager.importEnergy(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction.equalsIgnoreCase("Crystite")) {
-            StoreManager.importCrystite(Integer.parseInt(purchaseQty));
-        } else if (selectedSellTransaction.equalsIgnoreCase("Food Mule")) {
-            StoreManager.buyMule(selectedSellTransaction);
-        }
+        //Null point exception, need to check what's going on with the sell method
+
+//        if (selectedSellTransaction.equalsIgnoreCase("Food")) {
+//            StoreManager.importFood(Integer.parseInt(purchaseQty));
+//        } else if (selectedSellTransaction.equalsIgnoreCase("Smithore")) {
+//            StoreManager.importSmithore(Integer.parseInt(purchaseQty));
+//        } else if (selectedSellTransaction.equalsIgnoreCase("Energy")) {
+//            StoreManager.importEnergy(Integer.parseInt(purchaseQty));
+//        } else if (selectedSellTransaction.equalsIgnoreCase("Crystite")) {
+//            StoreManager.importCrystite(Integer.parseInt(purchaseQty));
+//        } else if (selectedSellTransaction.equalsIgnoreCase("Food Mule")) {
+//            StoreManager.buyMule(selectedSellTransaction);
+//        }
 
     }
 
