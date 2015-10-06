@@ -8,12 +8,13 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import mule.GameManager;
 import mule.Main;
+import mule.PlayerManager;
 import mule.model.Game;
 import mule.model.Player;
 
 
 public class StartUpController {
-
+    private GameManager gameManager;
     // variables to functionality to comboboxes and buttons
     @FXML
     private ComboBox<String> difficultyCombo;
@@ -63,6 +64,8 @@ public class StartUpController {
      */
     @FXML
     private void initialize() {
+
+        gameManager = GameManager.getGameManager();
         // Init ComboBox's
         difficultyComboData.add("Beginner");
         difficultyComboData.add("Standard");
@@ -103,7 +106,7 @@ public class StartUpController {
         stage = (Stage) nextButton.getScene().getWindow();
 
 
-        Game.createGame(selectedDifficulty,
+        gameManager.createGame(selectedDifficulty,
                 selectedNumberPlayers, selectedMap, selectedNumberPlayers);
 
         // the below starts the next window
@@ -118,16 +121,16 @@ public class StartUpController {
         Stage stage;
         stage = (Stage) nextButton.getScene().getWindow();
 
-        Game.createGame("Beginner", 4, "Standard", 4);
-        Player.createNewGamePlayer("Drew",
+        gameManager.createGame("Beginner", 4, "Standard", 4);
+        PlayerManager.createNewGamePlayer("Drew",
                 "Human", "Purple");
-        Player.createNewGamePlayer("Ryyan",
+        PlayerManager.createNewGamePlayer("Ryyan",
                 "Ugaite", "Green");
-        Player.createNewGamePlayer("Travis",
+        PlayerManager.createNewGamePlayer("Travis",
                 "Flapper", "Red");
-        Player.createNewGamePlayer("Zuri",
+        PlayerManager.createNewGamePlayer("Zuri",
                 "Bonzoid", "Blue");
 
-        GameManager.startTheGame(stage);
+        gameManager.startTheGame(stage);
     }
 }

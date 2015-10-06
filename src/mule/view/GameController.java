@@ -525,7 +525,7 @@ public class GameController {
             }
         });
 
-        Game.getMulegame().getPlayerArray().get(0).getMoneyProperty()
+        GameManager.getMulegame().getPlayerArray().get(0).getMoneyProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -533,12 +533,12 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneMoney.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getMoney()));
                          }
                      });
-        Game.getMulegame().getPlayerArray().get(1).getMoneyProperty()
+        GameManager.getMulegame().getPlayerArray().get(1).getMoneyProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -546,7 +546,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoMoney.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getMoney()));
                          }
@@ -557,7 +557,7 @@ public class GameController {
 
         //get score listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getScoreProperty()
+        GameManager.getMulegame().getPlayerArray().get(0).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -565,13 +565,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneScore.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getScore()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getScoreProperty()
+        GameManager.getMulegame().getPlayerArray().get(1).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -579,7 +579,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoScore.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getScore()));
                          }
@@ -589,7 +589,7 @@ public class GameController {
 
         //get score listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getScoreProperty()
+        GameManager.getMulegame().getPlayerArray().get(0).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -597,13 +597,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneScore.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getScore()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getScoreProperty()
+        GameManager.getMulegame().getPlayerArray().get(1).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -611,7 +611,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoScore.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getScore()));
                          }
@@ -620,7 +620,7 @@ public class GameController {
 
         //get Ore listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getOreProperty()
+        GameManager.getMulegame().getPlayerArray().get(0).getOreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -628,13 +628,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneOre.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getOre()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getOreProperty()
+        GameManager.getMulegame().getPlayerArray().get(1).getOreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -642,7 +642,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoOre.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getOre()));
                          }
@@ -652,7 +652,7 @@ public class GameController {
 
         //get Food listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getFoodProperty()
+        GameManager.getMulegame().getPlayerArray().get(0).getFoodProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -660,13 +660,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneFood.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getFood()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getFoodProperty()
+        GameManager.getMulegame().getPlayerArray().get(1).getFoodProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -674,16 +674,16 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoFood.setText(String.valueOf
-                                 (Game
+                                 (GameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getFood()));
                          }
                      });
 
-        if (Game.getNumberOfPlayers() == 4) {
+        if (GameManager.getMulegame().getNumberOfPlayers() == 4) {
 
 
-            Game.getMulegame().getPlayerArray().get(2).getMoneyProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -691,13 +691,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeMoney.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getMoney()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
+            GameManager.getMulegame().getPlayerArray().get(3).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -705,7 +705,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourMoney.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getMoney()));
                              }
@@ -715,7 +715,7 @@ public class GameController {
             //get score listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -723,13 +723,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
+            GameManager.getMulegame().getPlayerArray().get(3).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -737,7 +737,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourScore.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getScore()));
                              }
@@ -746,7 +746,7 @@ public class GameController {
             //get score listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -754,13 +754,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getScoreProperty()
+            GameManager.getMulegame().getPlayerArray().get(3).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -768,7 +768,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourScore.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getScore()));
                              }
@@ -777,7 +777,7 @@ public class GameController {
             //get Ore listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getOreProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getOreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -785,13 +785,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeOre.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getOre()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getOreProperty()
+            GameManager.getMulegame().getPlayerArray().get(3).getOreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -799,7 +799,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourOre.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getOre()));
                              }
@@ -808,7 +808,7 @@ public class GameController {
             //get Food listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getFoodProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getFoodProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -816,13 +816,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeFood.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getFood()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getFoodProperty()
+            GameManager.getMulegame().getPlayerArray().get(3).getFoodProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -830,17 +830,17 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourFood.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getFood()));
                              }
                          });
         }
 
-        if (Game.getNumberOfPlayers() == 3) {
+        if (GameManager.getMulegame().getNumberOfPlayers() == 3) {
 
 
-            Game.getMulegame().getPlayerArray().get(2).getMoneyProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -848,7 +848,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeMoney.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getMoney()));
                              }
@@ -861,7 +861,7 @@ public class GameController {
 
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -869,7 +869,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
@@ -880,7 +880,7 @@ public class GameController {
             //get score listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -888,7 +888,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
@@ -900,7 +900,7 @@ public class GameController {
 
 
 
-            Game.getMulegame().getPlayerArray().get(2).getOreProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getOreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -908,7 +908,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeOre.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getOre()));
                              }
@@ -920,7 +920,7 @@ public class GameController {
 
 
 
-            Game.getMulegame().getPlayerArray().get(2).getFoodProperty()
+            GameManager.getMulegame().getPlayerArray().get(2).getFoodProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -928,7 +928,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeFood.setText(String.valueOf
-                                     (Game
+                                     (GameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getFood()));
                              }

@@ -19,7 +19,15 @@ public class PlayerManager {
     private mule.view.timer time = new mule.view.timer(startTime);
     private IntegerProperty timeLeft = time.getTimeLeft();
 
-    /** Stub method
+    public static void createNewGamePlayer(String playerName2,
+                                            String selectedRace2,
+                                            String selectedColor2) {
+        Player newplayer = new Player(playerName2, selectedRace2, selectedColor2);
+        GameManager.getMulegame().addPlayerToArray(newplayer);
+    }
+
+
+    /**
      * Method to deduct the an amount of money a player spent on land
      * @param player
      * @param property

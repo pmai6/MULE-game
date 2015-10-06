@@ -188,7 +188,7 @@ public class StoreManager {
     public static void buyMule(String muleName) {
         Player player = RoundManager.getCurrentPlayer();
         Mule mule = null;
-        Game.setIsMuleBought(true);
+        GameManager.getMulegame().setIsMuleBought(true);
         if (muleName.equals("Food Mule")) {
             mule = new FoodMule();
         } else if (muleName.equals("Energy Mule")) {

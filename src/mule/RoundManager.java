@@ -30,10 +30,12 @@ public class RoundManager {
         // This needs to be an actual player
         // This is called by the MapManager handleMapButton method
 
-        if(Game.isLandSelectionPhase())
-            return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
+        if(GameManager.getMulegame().isLandSelectionPhase())
+            return GameManager.getMulegame().getPlayerArray().get(Round
+                    .getTurnNum());
         else {
-            return Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum());
+            return GameManager.getMulegame().getSortedPlayerArray().get(Round
+                    .getTurnNum());
         }
     }
 
@@ -48,27 +50,28 @@ public class RoundManager {
             RoundManager.incrementNumPasses();
         }
 
-        if (Game.isLandSelectionPhase()) {
+        if (GameManager.getMulegame().isLandSelectionPhase()) {
             isLandSelectionOver();
         }
-        if (!Game.isLandSelectionPhase()) {
+        if (!GameManager.getMulegame().isLandSelectionPhase()) {
             GameManager.setTimer();
-            Game.setIsMuleBought(false);
+            GameManager.getMulegame().setIsMuleBought(false);
         }
         RoundManager.incrementTurnNumber();
 
-        if (Round.getTurnNum() < Game.getNumberOfPlayers()){
+        if (Round.getTurnNum() < GameManager.getMulegame().getNumberOfPlayers()){
             GameManager.updateGamePlayerRound();
         }
 
-        if(Round.getTurnNum() == Game.getNumberOfPlayers()) { //incrmeent round if all players have gone
+        if(Round.getTurnNum() == GameManager.getMulegame().getNumberOfPlayers()) { //incrmeent round if all players have gone
             setPlayerScores();
             RoundManager.incrementRoundNumber();
-            Game.getMulegame().createSortedPlayerArray();
+
+            GameManager.getMulegame().createSortedPlayerArray();
             Round.setTurnNum(0); //reset turn counter
             Round.setNumPasses(0);//reset number of passes
             GameManager.updateGamePlayerRound();
-            if (Game.isLandSelectionPhase()) {
+            if (GameManager.getMulegame().isLandSelectionPhase()) {
                 isLandSelectionOver();
             }
         }
@@ -79,11 +82,11 @@ public class RoundManager {
      * over if all players have passed.
      */
     private static void isLandSelectionOver () {
-        if (Round.getNumPasses() == Game.getNumberOfPlayers()) {
-            Game.setIsLandSelectionPhase(false);
+        if (Round.getNumPasses() == GameManager.getMulegame().getNumberOfPlayers()) {
+            GameManager.getMulegame().setIsLandSelectionPhase(false);
             Round.setRoundNum(0);
             setPlayerScores();
-            Game.getMulegame().createSortedPlayerArray();
+            GameManager.getMulegame().createSortedPlayerArray();
             GameManager.setGameStateLabel();
         }
     }
@@ -109,8 +112,8 @@ public class RoundManager {
     }
 
     private static void setPlayerScores() {
-        for(int playerInd = 0; playerInd < Game.getNumberOfPlayers(); playerInd++) {
-            Game.getMulegame().getPlayerArray().get(playerInd).calculateScore();
+        for(int playerInd = 0; playerInd < GameManager.getMulegame().getNumberOfPlayers(); playerInd++) {
+            GameManager.getMulegame().getPlayerArray().get(playerInd).calculateScore();
         }
     }
 }

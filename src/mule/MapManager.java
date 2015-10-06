@@ -26,11 +26,11 @@ public class MapManager {
         Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
                 ][GridPane.getColumnIndex(button)];
 
-        if (Game.getMulegame().isLandSelectionPhase()) {
+        if (GameManager.getMulegame().isLandSelectionPhase()) {
 
             buyTile(player, tile, button);
 
-        } else if (Game.getMulegame().isMuleBought()) {
+        } else if (GameManager.getMulegame().isMuleBought()) {
             placeMule(player,tile, button);
         }
 
@@ -95,8 +95,9 @@ private static boolean canTileBeBought (Player player, Tile tile) {
         Mule mule = player.getUnplacedMule();
         if (tile.getOwner() != null && tile.getOwner().equals(player)) {
             tile.addMule(mule);
+
             player.setUnplacedMule(null);
-            Game.setIsMuleBought(false);
+            GameManager.getMulegame().setIsMuleBought(false);
             GameManager.setGameStateLabel();
             GameManager.addMuleToButton(button, tile);
             for (Tile tiles : player.getTiles()) {
@@ -106,7 +107,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
         }
         } else {
             player.setUnplacedMule(null);
-            Game.setIsMuleBought(false);
+            GameManager.getMulegame().setIsMuleBought(false);
             GameManager.setGameStateLabel();
             GameManager.muleAlert();
 
@@ -136,7 +137,8 @@ private static boolean canTileBeBought (Player player, Tile tile) {
     public static int costOfTile() {
         //TODO need to deal with later rounds in land selection phase
         // and need to deal with when the real game starts.
-        if (Game.isLandSelectionPhase() && Round.getRoundNum() <= 2) {
+        if (GameManager.getMulegame().isLandSelectionPhase() && Round
+                .getRoundNum() <= 2) {
 
             return 0;
         }
