@@ -23,7 +23,7 @@ import mule.*;
 import mule.model.*;
 
 public class GameController {
-
+    private GameManager gameManager;
     private Main mainapp;
     @FXML
     private Button goToTown;
@@ -161,7 +161,7 @@ public class GameController {
     private Label roundNumber;
     @FXML
     private Label timerLabel;
-    private timer Timer = new timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
+    private timer Timer = new timer(10);
 
     private String selectedBuyTransaction;
     private String selectedSellTransaction;
@@ -189,6 +189,17 @@ public class GameController {
      */
     @FXML
     private void initialize() {
+        transactionBuyComboData.add(" ");
+        transactionBuyComboData.add("Food");
+        transactionBuyComboData.add("Smithore");
+        transactionBuyComboData.add("Energy");
+        transactionBuyComboData.add("Crystite");
+        transactionBuyComboData.add("Food Mule");
+        transactionBuyComboData.add("Energy Mule");
+        transactionBuyComboData.add("Crystite Mule");
+        transactionBuyComboData.add("Smithore Mule");
+
+        gameManager = GameManager.getGameManager();
         transactionBuyComboData.add(" ");
         transactionBuyComboData.add("Food");
         transactionBuyComboData.add("Smithore");
@@ -260,135 +271,135 @@ public class GameController {
         mapButtonArray[0][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][0]);
+                gameManager.handleMapButton(mapButtonArray[0][0]);
             }
         });
         mapButtonArray[0][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][1]);
+                gameManager.handleMapButton(mapButtonArray[0][1]);
             }
         });
         mapButtonArray[0][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][2]);
+                gameManager.handleMapButton(mapButtonArray[0][2]);
             }
         });
         mapButtonArray[0][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][3]);
+                gameManager.handleMapButton(mapButtonArray[0][3]);
             }
         });
         mapButtonArray[0][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][4]);
+                gameManager.handleMapButton(mapButtonArray[0][4]);
             }
         });
         mapButtonArray[0][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][5]);
+                gameManager.handleMapButton(mapButtonArray[0][5]);
             }
         });
         mapButtonArray[0][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][6]);
+                gameManager.handleMapButton(mapButtonArray[0][6]);
             }
         });
         mapButtonArray[0][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][7]);
+                gameManager.handleMapButton(mapButtonArray[0][7]);
             }
         });
         mapButtonArray[0][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[0][8]);
+                gameManager.handleMapButton(mapButtonArray[0][8]);
             }
         });
 
         mapButtonArray[1][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][0]);
+                gameManager.handleMapButton(mapButtonArray[1][0]);
             }
         });
         mapButtonArray[1][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][1]);
+                gameManager.handleMapButton(mapButtonArray[1][1]);
             }
         });
         mapButtonArray[1][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][2]);
+                gameManager.handleMapButton(mapButtonArray[1][2]);
             }
         });
         mapButtonArray[1][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][3]);
+                gameManager.handleMapButton(mapButtonArray[1][3]);
             }
         });
         mapButtonArray[1][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][4]);
+                gameManager.handleMapButton(mapButtonArray[1][4]);
             }
         });
         mapButtonArray[1][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][5]);
+                gameManager.handleMapButton(mapButtonArray[1][5]);
             }
         });
         mapButtonArray[1][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][6]);
+                gameManager.handleMapButton(mapButtonArray[1][6]);
             }
         });
         mapButtonArray[1][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][7]);
+                gameManager.handleMapButton(mapButtonArray[1][7]);
             }
         });
         mapButtonArray[1][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[1][8]);
+                gameManager.handleMapButton(mapButtonArray[1][8]);
             }
         });
 
         mapButtonArray[2][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][0]);
+                gameManager.handleMapButton(mapButtonArray[2][0]);
             }
         });
         mapButtonArray[2][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][1]);
+                gameManager.handleMapButton(mapButtonArray[2][1]);
             }
         });
         mapButtonArray[2][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][2]);
+                gameManager.handleMapButton(mapButtonArray[2][2]);
             }
         });
         mapButtonArray[2][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][3]);
+                gameManager.handleMapButton(mapButtonArray[2][3]);
             }
         });
         mapButtonArray[2][4].setOnAction(new EventHandler<ActionEvent>() {
@@ -400,139 +411,139 @@ public class GameController {
         mapButtonArray[2][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][5]);
+                gameManager.handleMapButton(mapButtonArray[2][5]);
             }
         });
         mapButtonArray[2][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][6]);
+                gameManager.handleMapButton(mapButtonArray[2][6]);
             }
         });
         mapButtonArray[2][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][7]);
+                gameManager.handleMapButton(mapButtonArray[2][7]);
             }
         });
         mapButtonArray[2][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[2][8]);
+                gameManager.handleMapButton(mapButtonArray[2][8]);
             }
         });
 
         mapButtonArray[3][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][0]);
+                gameManager.handleMapButton(mapButtonArray[3][0]);
             }
         });
         mapButtonArray[3][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][1]);
+                gameManager.handleMapButton(mapButtonArray[3][1]);
             }
         });
         mapButtonArray[3][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][2]);
+                gameManager.handleMapButton(mapButtonArray[3][2]);
             }
         });
         mapButtonArray[3][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][3]);
+                gameManager.handleMapButton(mapButtonArray[3][3]);
             }
         });
         mapButtonArray[3][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][4]);
+                gameManager.handleMapButton(mapButtonArray[3][4]);
             }
         });
         mapButtonArray[3][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][5]);
+                gameManager.handleMapButton(mapButtonArray[3][5]);
             }
         });
         mapButtonArray[3][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][6]);
+                gameManager.handleMapButton(mapButtonArray[3][6]);
             }
         });
         mapButtonArray[3][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][7]);
+                gameManager.handleMapButton(mapButtonArray[3][7]);
             }
         });
         mapButtonArray[3][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[3][8]);
+                gameManager.handleMapButton(mapButtonArray[3][8]);
             }
         });
 
         mapButtonArray[4][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][0]);
+                gameManager.handleMapButton(mapButtonArray[4][0]);
             }
         });
         mapButtonArray[4][1].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][1]);
+                gameManager.handleMapButton(mapButtonArray[4][1]);
             }
         });
         mapButtonArray[4][2].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][2]);
+                gameManager.handleMapButton(mapButtonArray[4][2]);
             }
         });
         mapButtonArray[4][3].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][3]);
+                gameManager.handleMapButton(mapButtonArray[4][3]);
             }
         });
         mapButtonArray[4][4].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][4]);
+                gameManager.handleMapButton(mapButtonArray[4][4]);
             }
         });
         mapButtonArray[4][5].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][5]);
+                gameManager.handleMapButton(mapButtonArray[4][5]);
             }
         });
         mapButtonArray[4][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][6]);
+                gameManager.handleMapButton(mapButtonArray[4][6]);
             }
         });
         mapButtonArray[4][7].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][7]);
+                gameManager.handleMapButton(mapButtonArray[4][7]);
             }
         });
         mapButtonArray[4][8].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                MapManager.handleMapButton(mapButtonArray[4][8]);
+                gameManager.handleMapButton(mapButtonArray[4][8]);
             }
         });
 
-        Game.getMulegame().getPlayerArray().get(0).getMoneyProperty()
+        gameManager.getMulegame().getPlayerArray().get(0).getMoneyProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -540,12 +551,12 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneMoney.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getMoney()));
                          }
                      });
-        Game.getMulegame().getPlayerArray().get(1).getMoneyProperty()
+        gameManager.getMulegame().getPlayerArray().get(1).getMoneyProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -553,7 +564,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoMoney.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getMoney()));
                          }
@@ -564,7 +575,7 @@ public class GameController {
 
         //get score listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getScoreProperty()
+        gameManager.getMulegame().getPlayerArray().get(0).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -572,13 +583,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneScore.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getScore()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getScoreProperty()
+        gameManager.getMulegame().getPlayerArray().get(1).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -586,7 +597,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoScore.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getScore()));
                          }
@@ -596,7 +607,7 @@ public class GameController {
 
         //get score listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getScoreProperty()
+        gameManager.getMulegame().getPlayerArray().get(0).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -604,13 +615,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneScore.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getScore()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getScoreProperty()
+        gameManager.getMulegame().getPlayerArray().get(1).getScoreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -618,7 +629,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoScore.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getScore()));
                          }
@@ -635,13 +646,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneOre.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getSmithore()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getSmithoreProperty()
+        gameManager.getMulegame().getPlayerArray().get(1).getOreProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -649,7 +660,7 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoOre.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getSmithore()));
                          }
@@ -659,7 +670,7 @@ public class GameController {
 
         //get Food listeners
 
-        Game.getMulegame().getPlayerArray().get(0).getFoodProperty()
+        gameManager.getMulegame().getPlayerArray().get(0).getFoodProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -667,13 +678,13 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerOneFood.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (0).getFood()));
                          }
                      });
 
-        Game.getMulegame().getPlayerArray().get(1).getFoodProperty()
+        gameManager.getMulegame().getPlayerArray().get(1).getFoodProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -681,16 +692,16 @@ public class GameController {
                          public void changed(ObservableValue o, Object oldVal,
                                              Object newVal) {
                              playerTwoFood.setText(String.valueOf
-                                 (Game
+                                 (gameManager
                                      .getMulegame().getPlayerArray().get
                                          (1).getFood()));
                          }
                      });
 
-        if (Game.getNumberOfPlayers() == 4) {
+        if (gameManager.getMulegame().getNumberOfPlayers() == 4) {
 
 
-            Game.getMulegame().getPlayerArray().get(2).getMoneyProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -698,13 +709,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeMoney.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getMoney()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
+            gameManager.getMulegame().getPlayerArray().get(3).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -712,7 +723,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourMoney.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getMoney()));
                              }
@@ -722,7 +733,7 @@ public class GameController {
             //get score listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -730,13 +741,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getMoneyProperty()
+            gameManager.getMulegame().getPlayerArray().get(3).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -744,7 +755,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourScore.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getScore()));
                              }
@@ -753,7 +764,7 @@ public class GameController {
             //get score listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -761,13 +772,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getScoreProperty()
+            gameManager.getMulegame().getPlayerArray().get(3).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -775,7 +786,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourScore.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getScore()));
                              }
@@ -783,8 +794,8 @@ public class GameController {
 
             //get Ore listeners
 
-
-            Game.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
+            
+            gameManager.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -792,13 +803,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeOre.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getSmithore()));
                              }
                          });
-
-            Game.getMulegame().getPlayerArray().get(3).getSmithoreProperty()
+            
+            gameManager.getMulegame().getPlayerArray().get(3).getSmithoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -806,7 +817,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourOre.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getSmithore()));
                              }
@@ -815,7 +826,7 @@ public class GameController {
             //get Food listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getFoodProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getFoodProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -823,13 +834,13 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeFood.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getFood()));
                              }
                          });
 
-            Game.getMulegame().getPlayerArray().get(3).getFoodProperty()
+            gameManager.getMulegame().getPlayerArray().get(3).getFoodProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -837,17 +848,17 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerFourFood.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (3).getFood()));
                              }
                          });
         }
 
-        if (Game.getNumberOfPlayers() == 3) {
+        if (gameManager.getMulegame().getNumberOfPlayers() == 3) {
 
 
-            Game.getMulegame().getPlayerArray().get(2).getMoneyProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getMoneyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -855,7 +866,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeMoney.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getMoney()));
                              }
@@ -868,7 +879,7 @@ public class GameController {
 
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -876,7 +887,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
@@ -887,7 +898,7 @@ public class GameController {
             //get score listeners
 
 
-            Game.getMulegame().getPlayerArray().get(2).getScoreProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getScoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -895,7 +906,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeScore.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getScore()));
                              }
@@ -907,7 +918,7 @@ public class GameController {
 
 
 
-            Game.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -915,7 +926,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeOre.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getSmithore()));
                              }
@@ -927,7 +938,7 @@ public class GameController {
 
 
 
-            Game.getMulegame().getPlayerArray().get(2).getFoodProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getFoodProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -935,7 +946,7 @@ public class GameController {
                              public void changed(ObservableValue o, Object oldVal,
                                                  Object newVal) {
                                  playerThreeFood.setText(String.valueOf
-                                     (Game
+                                     (gameManager
                                          .getMulegame().getPlayerArray().get
                                              (2).getFood()));
                              }

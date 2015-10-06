@@ -14,11 +14,13 @@ import mule.view.timer;
  * manager that Land selection has finished
  */
 public class RoundManager {
-
-    public static void startRounds() {
+    private static RoundManager roundManager = new RoundManager();
+    private static GameManager gameManager;
+    public static void startRounds(GameManager agameManager) {
 // no idea what this does
         //should probably create turn objects here
         Round.createTurns();
+        gameManager = agameManager;
     }
 
     /**
@@ -30,11 +32,12 @@ public class RoundManager {
         // This needs to be an actual player
         // This is called by the MapManager handleMapButton method
 
-        if(Game.isLandSelectionPhase())
-            return Game.getMulegame().getPlayerArray().get(Round.getTurnNum());
+        if(gameManager.isLandSelectionPhase())
+            return gameManager.getMulegame().getPlayerArray().get(Round
+                    .getTurnNum());
         else {
-            setPlayerScores();
-            return Game.getMulegame().getSortedPlayerArray().get(Round.getTurnNum());
+            return gameManager.getMulegame().getSortedPlayerArray().get(Round
+                    .getTurnNum());
         }
     }
 
@@ -45,31 +48,32 @@ public class RoundManager {
      *  coming from MapManager.
      */
     public static void playerFinishedTurn(boolean passed) {
-
         if(passed) {
-            RoundManager.incrementNumPasses();
+            roundManager.incrementNumPasses();
         }
 
-        if (Game.isLandSelectionPhase()) {
+        if (gameManager.isLandSelectionPhase()) {
             isLandSelectionOver();
         }
-        if (!Game.isLandSelectionPhase()) {
-            GameManager.setTimer();
-            Game.setIsMuleBought(false);
+        if (!gameManager.isLandSelectionPhase()) {
+            gameManager.setTimer();
+            gameManager.setIsMuleBought(false);
         }
-        RoundManager.incrementTurnNumber();
+        roundManager.incrementTurnNumber();
 
-        if (Round.getTurnNum() < Game.getNumberOfPlayers()){
-            GameManager.updateGamePlayerRound();
+        if (Round.getTurnNum() < gameManager.getNumberOfPlayers()){
+            gameManager.updateGamePlayerRound();
         }
 
-        if(Round.getTurnNum() == Game.getNumberOfPlayers()) { //incrmeent round if all players have gone
+        if(Round.getTurnNum() == gameManager.getNumberOfPlayers()) { //incrmeent round if all players have gone
+            roundManager.setPlayerScores();
+            roundManager.incrementRoundNumber();
 
-            RoundManager.incrementRoundNumber();
+            gameManager.getMulegame().createSortedPlayerArray();
             Round.setTurnNum(0); //reset turn counter
             Round.setNumPasses(0);//reset number of passes
-            GameManager.updateGamePlayerRound();
-            if (Game.isLandSelectionPhase()) {
+            gameManager.updateGamePlayerRound();
+            if (gameManager.isLandSelectionPhase()) {
                 isLandSelectionOver();
             }
         }
@@ -80,36 +84,38 @@ public class RoundManager {
      * over if all players have passed.
      */
     private static void isLandSelectionOver () {
-        if (Round.getNumPasses() == Game.getNumberOfPlayers()) {
-            Game.setIsLandSelectionPhase(false);
+        if (Round.getNumPasses() == gameManager.getNumberOfPlayers()) {
+            gameManager.setIsLandSelectionPhase(false);
             Round.setRoundNum(0);
-            GameManager.setGameStateLabel();
+            roundManager.setPlayerScores();
+            gameManager.createSortedPlayerArray();
+            gameManager.setGameStateLabel();
         }
     }
 
 
-    private static void incrementTurnNumber() {
+    private  void incrementTurnNumber() {
         int turnNum = Round.getTurnNum();
         turnNum++;
         Round.setTurnNum(turnNum);
     }
 
-    private static void incrementRoundNumber() {
+    private  void incrementRoundNumber() {
         int roundNum = Round.getRoundNum();
         roundNum++;
         Round.setRoundNum(roundNum);
     }
 
 
-    private static void incrementNumPasses() {
+    private  void incrementNumPasses() {
         int numPasses = Round.getNumPasses();
         numPasses++;
         Round.setNumPasses(numPasses);
     }
 
-    private static void setPlayerScores() {
-        for(int playerInd = 0; playerInd < Game.getNumberOfPlayers(); playerInd++) {
-            Game.getMulegame().getPlayerArray().get(playerInd).calculateScore();
+    private  void setPlayerScores() {
+        for(int playerInd = 0; playerInd < gameManager.getNumberOfPlayers(); playerInd++) {
+            gameManager.getMulegame().getPlayerArray().get(playerInd).calculateScore();
         }
     }
 }

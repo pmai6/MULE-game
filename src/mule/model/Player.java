@@ -7,6 +7,8 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import mule.GameManager;
+
 /**
  * Created by travisclement on 9/8/15.
  */
@@ -84,12 +86,6 @@ public class Player implements Comparable {
         this.playerColor.set(playerColor);
     }
 
-    public static void createNewGamePlayer (String playerName2,
-                                            String selectedRace2,
-                                            String selectedColor2) {
-        Player newplayer = new Player(playerName2, selectedRace2, selectedColor2);
-        Game.getMulegame().addPlayerToArray(newplayer);
-    }
 
 
     public int getScore() {

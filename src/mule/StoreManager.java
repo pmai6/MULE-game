@@ -6,7 +6,7 @@ import mule.model.*;
  * Created by travisclement on 9/30/15.
  */
 public class StoreManager {
-
+    private static GameManager gameManager = GameManager.getGameManager();
     /** Stub method
      * Method to deduct store's inventory
      * @param quantityFood - deduct amount
@@ -145,7 +145,7 @@ public class StoreManager {
     public static void buyMule(String muleName) {
         Player player = RoundManager.getCurrentPlayer();
         Mule mule = null;
-        Game.setIsMuleBought(true);
+        gameManager.getMulegame().setIsMuleBought(true);
         if (muleName.equals("Food Mule")) {
             mule = new FoodMule();
         } else if (muleName.equals("Energy Mule")) {
@@ -155,7 +155,7 @@ public class StoreManager {
         } else if (muleName.equals("Crystite Mule")) {
             mule = new CrystiteMule();
         }
-        GameManager.setGameStateLabel();
+        gameManager.setGameStateLabel();
         PlayerManager.buyMule(player,mule);
     }
 }

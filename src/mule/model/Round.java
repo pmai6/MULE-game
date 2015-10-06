@@ -4,6 +4,8 @@ package mule.model;
  * Created by ryyanj on 9/20/15.
  */
 
+        import mule.GameManager;
+
         import java.lang.reflect.Array;
         import java.util.ArrayList;;
 
@@ -13,6 +15,7 @@ public class Round {
     private static int roundNum;
     private static int turnNum;
     private static int numPasses;
+    private static GameManager gameManager = GameManager.getGameManager();
 
     public static int getNumPasses() {
         return numPasses;
@@ -20,7 +23,7 @@ public class Round {
 
     //initialize proper number of turns based on number of players
     public static void createTurns() {
-        roundTurns = new ArrayList<Turn>(Game.getNumberOfPlayers());
+        roundTurns = new ArrayList<Turn>(gameManager.getMulegame().getNumberOfPlayers());
         roundNum = 1;
         turnNum = 0;
     }

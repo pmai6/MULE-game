@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import mule.GameManager;
 import mule.Main;
+import mule.PlayerManager;
 import mule.model.Game;
 import mule.model.Player;
 
@@ -17,7 +18,7 @@ import java.util.List;
 
 
 public class playerConfigController {
-
+private GameManager gameManager;
     public javafx.scene.control.Label raceInfo;
     public javafx.scene.control.Label colorLabel;
     // variables to functionality to comboboxes and buttons
@@ -66,6 +67,8 @@ public class playerConfigController {
      */
     @FXML
     private void initialize() {
+        gameManager = GameManager.getGameManager();
+
         // Init ComboBox's
         raceComboData.add("Human");
         raceComboData.add("Ugaite");
@@ -78,7 +81,7 @@ public class playerConfigController {
 
 
         List<String> colorList;
-        colorList = Game.getMulegame().getColor();
+        colorList = gameManager.getMulegame().getColor();
         for (String color : colorList) {
             colorComboData.add(color);
 
@@ -151,19 +154,19 @@ public class playerConfigController {
     private void nextButtonAction() throws Exception {
         Stage stage;
         stage = (Stage) nextButton.getScene().getWindow();
-        Game.getMulegame().getColor().remove(selectedColor);
+        gameManager.getMulegame().removeColor(selectedColor);
 
         playerName =  playerNameBox.getText();
-        Player.createNewGamePlayer(playerName,
+        PlayerManager.createNewGamePlayer(playerName,
                 selectedRace, selectedColor);
 
 
-        if (Game.getMulegame().getN() > 1) {
-            Game.getMulegame().setN(Game.getMulegame().getN() - 1);
+        if (gameManager.getMulegame().getN() > 1) {
+            gameManager.getMulegame().setN(gameManager.getMulegame().getN() - 1);
             mainapp.startPlayerConfig(stage);
         } else {
             System.out.println("This is where the game opens");
-            GameManager.startTheGame(stage);
+            gameManager.startTheGame(stage);
             //GameManager.startGameController(stage);
         }
     }

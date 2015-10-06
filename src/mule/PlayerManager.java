@@ -15,11 +15,21 @@ import javafx.beans.property.StringProperty;
  * Class to manage player objects
  */
 public class PlayerManager {
+    private static GameManager gameManager = GameManager.getGameManager();
+
     private int startTime;
     private mule.view.timer time = new mule.view.timer(startTime);
     private IntegerProperty timeLeft = time.getTimeLeft();
 
-    /** Stub method
+    public static void createNewGamePlayer(String playerName2,
+                                            String selectedRace2,
+                                            String selectedColor2) {
+        Player newplayer = new Player(playerName2, selectedRace2, selectedColor2);
+        gameManager.getMulegame().addPlayerToArray(newplayer);
+    }
+
+
+    /**
      * Method to deduct the an amount of money a player spent on land
      * @param player
      * @param property
@@ -57,7 +67,7 @@ public class PlayerManager {
             player.setMoney(player.getMoney() - mule.getCost());
             player.setUnplacedMule(mule);
         } else {
-            GameManager.notEnoughMoney();
+            gameManager.notEnoughMoney();
         }
 
 
@@ -110,5 +120,6 @@ public class PlayerManager {
         //the parameter tells you whether the turn is ending b/c a player
         //passed or because of something other than that
         RoundManager.playerFinishedTurn(false);
+
     }
 }

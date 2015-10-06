@@ -4,9 +4,11 @@ package mule.model;
 holds the array of all of the tiles on the map
 */
 
+import mule.GameManager;
 import mule.model.Tile;
 
 public class GameMap {
+    private static GameManager gameManager = GameManager.getGameManager();
 
     private static  Tile[][] tiles = new Tile[5][9];
 
@@ -46,7 +48,7 @@ public class GameMap {
     }
 
     public static String[][] getMapLayout() {
-        if (Game.getMulegame().getMap().equals("Standard")) {
+        if (gameManager.getMulegame().getMap().equals("Standard")) {
             return getDefaultMapLayout();
         } else {
             return getRandomMapLayout();

@@ -7,19 +7,18 @@ import java.util.Collections;
 import java.util.List;
 public class Game {
 
-    private static int numberOfPlayers;
+    private  int numberOfPlayers;
     private List<Player> playerArray;
     private List<Player> sortedPlayerArray;
     private String difficulty;
     private String map;
     private int n;
-    private static Game mulegame;
-    private static int  playerCounter = 0;
+    private  int  playerCounter = 0;
     private List<String> colorList = new ArrayList<>(Arrays.asList
             ("Purple","Green","Red","Blue","Orange","Yellow" ));
 
-    private static boolean isLandSelectionPhase;
-private static boolean isMuleBought = false;
+    private  boolean isLandSelectionPhase;
+private  boolean isMuleBought = false;
 
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
@@ -32,30 +31,20 @@ private static boolean isMuleBought = false;
     }
 
 
-    public static void createGame(String difficulty,
-                           int numberOfPlayers,
-                           String map, int n) {
-        mulegame = new Game(difficulty, numberOfPlayers, map, n);
-    }
-
-    public static Game getMulegame() {
-        return mulegame;
-    }
-
-    public static int getPlayerCounter() {
+    public  int getPlayerCounter() {
         return playerCounter;
     }
 
-    public static void incrementPlayerCounter() {
-        Game.playerCounter++;
+    public  void incrementPlayerCounter() {
+        playerCounter++;
     }
 
-    public static boolean isMuleBought() {
+    public  boolean isMuleBought() {
         return isMuleBought;
     }
 
-    public static void setIsMuleBought(boolean isMuleBought) {
-        Game.isMuleBought = isMuleBought;
+    public  void setIsMuleBought(boolean isMuleBought) {
+        this.isMuleBought = isMuleBought;
     }
 
     public void addPlayerToArray(Player player) {
@@ -66,11 +55,14 @@ private static boolean isMuleBought = false;
         return colorList;
     }
 
+    public void removeColor(String color) {
+        colorList.remove(color);
+    }
     public int getN() {return n;}
 
     public void setN(int t) {this.n = t;}
 
-    public static int getNumberOfPlayers() {
+    public  int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
@@ -94,8 +86,11 @@ private static boolean isMuleBought = false;
         this.playerArray = playerArray;
     }
 
-    public List<Player> getSortedPlayerArray() {
+    public void createSortedPlayerArray() {
         Collections.sort(sortedPlayerArray);
+    }
+
+    public List<Player> getSortedPlayerArray() {
         return sortedPlayerArray;
     }
 
@@ -107,11 +102,11 @@ private static boolean isMuleBought = false;
         this.difficulty = difficulty;
     }
 
-    public static boolean isLandSelectionPhase() {
+    public  boolean isLandSelectionPhase() {
         return isLandSelectionPhase;
     }
 
-    public static void setIsLandSelectionPhase(boolean isLandSelect) {
+    public  void setIsLandSelectionPhase(boolean isLandSelect) {
         isLandSelectionPhase = isLandSelect;
     }
 }
