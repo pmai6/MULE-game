@@ -43,12 +43,11 @@ public class StoreManager {
         if(playerFoodAmount <= quantityFood) {
 //            RoundManager.getCurrentPlayer().setFood(playerFoodAmount - quantityFood);
 //            RoundManager.getCurrentPlayer().setMoney(currentPlayer.getMoney() + totalFoodCost);
-            PlayerManager.sellResources(currentPlayer, "food", quantityFood);
-            Store.setFoodQty(storeFoodAmount + quantityFood);
+            System.out.println("insufficient food amount");
         }
         else
-            System.out.println("insufficient food amount");
-
+            PlayerManager.sellResources(currentPlayer, "food", quantityFood);
+            Store.setFoodQty(storeFoodAmount + quantityFood);
     }
 
     public static void exportEnergy(int quantityEnergy) {
@@ -76,12 +75,13 @@ public class StoreManager {
         //if players has enough money to buy and store has enough food to ell
         if(playerEnergyAmount <= quantityEnergy) {
             // RoundManager.getCurrentPlayer().setFood(playerFoodAmount + quantityFood);
-            PlayerManager.sellResources(currentPlayer, "energy", quantityEnergy);
-            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
-            Store.setEnergyQty(storeEnergyAmount + quantityEnergy);
+            System.out.println("insufficient funds");
         }
         else
             System.out.println("insufficient funds");
+            PlayerManager.sellResources(currentPlayer, "energy", quantityEnergy);
+            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
+            Store.setEnergyQty(storeEnergyAmount + quantityEnergy);
     }
 
     public static void exportSmithore(int quantitySmithore) {
@@ -109,12 +109,13 @@ public class StoreManager {
         //if players has enough money to buy and store has enough food to ell
         if(playerSmithoreAmount <= quantitySmithore) {
             // RoundManager.getCurrentPlayer().setFood(playerFoodAmount + quantityFood);
-            PlayerManager.sellResources(currentPlayer,"smithore", quantitySmithore);
-            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
-            Store.setSmithoreQty(storeSmithoreAmount + quantitySmithore);
+            System.out.println("insufficient funds");
         }
         else
             System.out.println("insufficient funds");
+            PlayerManager.sellResources(currentPlayer,"smithore", quantitySmithore);
+            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
+            Store.setSmithoreQty(storeSmithoreAmount + quantitySmithore);
     }
 
     public static void exportCrystite(int quantityCrystite) {
@@ -142,12 +143,13 @@ public class StoreManager {
         //if players has enough money to buy and store has enough food to ell
         if(playerCrystiteAmount <= quantityCrystite) {
             // RoundManager.getCurrentPlayer().setFood(playerFoodAmount + quantityFood);
-            PlayerManager.sellResources(currentPlayer,"crystite", quantityCrystite);
-            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
-            Store.setCrystiteQty(storeCrystiteAmount + quantityCrystite);
+            System.out.println("insufficient funds");
         }
         else
-            System.out.println("insufficient funds");
+            PlayerManager.sellResources(currentPlayer, "crystite", quantityCrystite);
+            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
+            Store.setCrystiteQty(storeCrystiteAmount + quantityCrystite);
+
     }
 
     public static void exportOre(int quantityOre) {
@@ -175,11 +177,12 @@ public class StoreManager {
         //if players has enough money to buy and store has enough food to ell
         if(playerOreAmount <= quantityOre) {
             // RoundManager.getCurrentPlayer().setFood(playerFoodAmount + quantityFood);
-            PlayerManager.sellResources(currentPlayer,"ore", quantityOre);
-            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
-            Store.setCrystiteQty(storeOreAmount + quantityOre);
+            System.out.println("insufficient funds");
         }
         else
+            PlayerManager.sellResources(currentPlayer, "ore", quantityOre);
+            //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
+            Store.setCrystiteQty(storeOreAmount + quantityOre);
             System.out.println("insufficient funds");
     }
 }

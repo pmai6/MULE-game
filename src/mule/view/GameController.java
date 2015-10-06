@@ -35,6 +35,8 @@ public class GameController {
     @FXML
     private Button startTurn;
     @FXML
+    private Button submitPurchase;
+    @FXML
     private AnchorPane town;
     @FXML
     private AnchorPane Pub;
@@ -156,6 +158,9 @@ public class GameController {
     private String selectedSellTransaction;
     private String purchaseQty;
 
+    // Arrays for Combo - pull down boxes
+    private ObservableList<String> transactionComboData = FXCollections.observableArrayList();
+
     public GameController() {
 
 }
@@ -174,6 +179,17 @@ public class GameController {
      */
     @FXML
     private void initialize() {
+        transactionComboData.add(" ");
+        transactionComboData.add("Food");
+        transactionComboData.add("Smithore");
+        transactionComboData.add("Energy");
+        transactionComboData.add("Crystite");
+        transactionComboData.add("Food Mule");
+        transactionComboData.add("Energy Mule");
+
+        transactionBuyCombo.setItems(transactionComboData);
+        transactionSellCombo.setItems(transactionComboData);
+
         mapButtonArray = new Button[5][9];
         String[][] defaultMapLayout = GameMap.getMapLayout();
         for(int i=0; i<5; i++) {
@@ -943,41 +959,16 @@ public class GameController {
         Store.setVisible(true);
     }
 
-//    @FXML
-//    private void handlePurchaseFoodAction() {
-//        purchaseFood.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-//        if (purchaseFood.getSelectionModel().getSelectedItem() == "Buy") {
-//            StoreManager.exportFood(4);
-//        }
-//        if (purchaseFood.getSelectionModel().getSelectedItem() == "Sell") {
-//            StoreManager.importFood(4);
-//        }
-//    }
-//    @FXML
-//    private void handlePurchaseSmithoreAction() {
-//        purchaseSmithore.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-//        if (purchaseSmithore.getSelectionModel().getSelectedItem() == "Buy") {
-//            StoreManager.exportSmithore(4);
-//        }
-//        if (purchaseSmithore.getSelectionModel().getSelectedItem() == "Sell") {
-//            StoreManager.importSmithore(4);
-//        }
-//    }
-
+    //Empty method but necessary for combo box to work - DO NOT ERASE
     @FXML
     private void handleTransactionAction() {
-        purchaseQty = purchaseQtyBox.getText();
-        ObservableList<String> transactionComboData = FXCollections.observableArrayList();
-        transactionComboData.add("Food");
-        transactionComboData.add("Smithore");
-        transactionComboData.add("Energy");
-        transactionComboData.add("Crystite");
 
-        transactionBuyCombo.setItems(transactionComboData);
-        transactionSellCombo.setItems(transactionComboData);
+    }
+    @FXML
+    private void submitPurchaseAction() throws Exception {
+        purchaseQty = purchaseQtyBox.getText();
         selectedSellTransaction = transactionSellCombo.getSelectionModel().getSelectedItem();
         selectedBuyTransaction = transactionBuyCombo.getSelectionModel().getSelectedItem();
-
         if (selectedBuyTransaction == "Food") {
             StoreManager.exportFood(Integer.parseInt(purchaseQty));
         } else if (selectedBuyTransaction == "Smithore") {
@@ -996,19 +987,8 @@ public class GameController {
         } else if (selectedSellTransaction == "Crystite") {
             StoreManager.importCrystite(Integer.parseInt(purchaseQty));
         }
-
     }
 
-//    @FXML
-//    private void handlePurchaseEnergyAction() {
-//        purchaseEnergy.setItems(FXCollections.observableArrayList("Buy", "Sell"));
-//        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Buy") {
-//            StoreManager.exportEnergy(4);
-//        }
-//        if (purchaseEnergy.getSelectionModel().getSelectedItem() == "Sell") {
-//            StoreManager.importEnergy(4);
-//        }
-//    }
     
     @FXML
     private void exitStoreButtonAction() throws Exception {
