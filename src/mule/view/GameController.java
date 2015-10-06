@@ -1044,11 +1044,12 @@ public class GameController {
     private void gambleButton() throws Exception {
         PlayerManager player = new PlayerManager();
         player.gambleInPub();
-        exitPubButtonAction();
+        exitButtonAction();
     }
 
     @FXML
     private void exitButtonAction() throws Exception {
+        Pub.setVisible(false);
         Store.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);

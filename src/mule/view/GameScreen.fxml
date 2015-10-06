@@ -448,7 +448,7 @@
             <Image url="@baby%20unicorn.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="Store" layoutX="215.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane fx:id="Store" layoutX="215.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" visible="false">
          <children>
             <ImageView fitHeight="400.0" fitWidth="600.0">
                <image>
