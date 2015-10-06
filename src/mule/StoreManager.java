@@ -189,13 +189,13 @@ public class StoreManager {
         Player player = RoundManager.getCurrentPlayer();
         Mule mule = null;
         Game.setIsMuleBought(true);
-        if (muleName.equals("Food")) {
+        if (muleName.equals("Food Mule")) {
             mule = new FoodMule();
-        } else if (muleName.equals("Energy")) {
+        } else if (muleName.equals("Energy Mule")) {
             mule = new EnergyMule();
-        } else if (muleName.equals("Smithore")) {
+        } else if (muleName.equals("Smithore Mule")) {
             mule = new SmithoreMule();
-        } else if (muleName.equals("Crystite")) {
+        } else if (muleName.equals("Crystite Mule")) {
             mule = new CrystiteMule();
         }
         GameManager.setGameStateLabel();

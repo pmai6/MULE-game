@@ -195,6 +195,8 @@ public class GameController {
         transactionComboData.add("Crystite");
         transactionComboData.add("Food Mule");
         transactionComboData.add("Energy Mule");
+        transactionComboData.add("Crystite Mule");
+        transactionComboData.add("Smithore Mule");
 
         transactionBuyCombo.setItems(transactionComboData);
         transactionSellCombo.setItems(transactionComboData);
@@ -986,7 +988,16 @@ public class GameController {
             StoreManager.exportEnergy(Integer.parseInt(purchaseQty));
         } else if (selectedBuyTransaction == "Crystite") {
             StoreManager.exportCrystite(Integer.parseInt(purchaseQty));
-        }
+        } else if (selectedBuyTransaction.equalsIgnoreCase("Food Mule")) {
+            StoreManager.buyMule(selectedBuyTransaction);
+        } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore Mule")) {
+            StoreManager.buyMule(selectedBuyTransaction);
+        } else if (selectedBuyTransaction.equalsIgnoreCase("Energy Mule")) {
+            StoreManager.buyMule(selectedBuyTransaction);
+        } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite Mule")) {
+            StoreManager.buyMule(selectedBuyTransaction);
+    }
+
         if (selectedSellTransaction == "Food") {
             StoreManager.importFood(Integer.parseInt(purchaseQty));
         } else if (selectedSellTransaction == "Smithore") {
@@ -995,7 +1006,10 @@ public class GameController {
             StoreManager.importEnergy(Integer.parseInt(purchaseQty));
         } else if (selectedSellTransaction == "Crystite") {
             StoreManager.importCrystite(Integer.parseInt(purchaseQty));
+        } else if (selectedSellTransaction == "Food Mule") {
+            StoreManager.buyMule(selectedSellTransaction);
         }
+
     }
 
 
