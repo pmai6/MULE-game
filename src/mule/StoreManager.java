@@ -1,8 +1,6 @@
 package mule;
 
-import mule.model.Store;
-import mule.model.Player;
-import mule.model.Round;
+import mule.model.*;
 
 /**
  * Created by travisclement on 9/30/15.
@@ -184,5 +182,23 @@ public class StoreManager {
             //RoundManager.getCurrentPlayer().setMoney(currentPlayerMoney - totalFoodCost);
             Store.setCrystiteQty(storeOreAmount + quantityOre);
             System.out.println("insufficient funds");
+    }
+
+
+    public static void buyMule(String muleName) {
+        Player player = RoundManager.getCurrentPlayer();
+        Mule mule = null;
+        Game.setIsMuleBought(true);
+        if (muleName.equals("Food")) {
+            mule = new FoodMule();
+        } else if (muleName.equals("Energy")) {
+            mule = new EnergyMule();
+        } else if (muleName.equals("Smithore")) {
+            mule = new SmithoreMule();
+        } else if (muleName.equals("Crystite")) {
+            mule = new CrystiteMule();
+        }
+        GameManager.setGameStateLabel();
+        PlayerManager.buyMule(player,mule);
     }
 }

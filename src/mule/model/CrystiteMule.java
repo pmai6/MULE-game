@@ -12,6 +12,7 @@ public class CrystiteMule implements Mule {
     public CrystiteMule() {
 
     }
+
     public void setOwner(Player player) {
         this.player = player;
     }

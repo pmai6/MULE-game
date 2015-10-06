@@ -7,6 +7,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import mule.model.*;
 import mule.model.GameMap;
+import mule.view.*;
+
 /**
  * Created by travisclement on 9/18/15.
  */
@@ -20,16 +22,16 @@ public class MapManager {
      */
     public static void handleMapButton(Button button) {
         MapManager.button = button;
+        Player player = RoundManager.getCurrentPlayer();
+        Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
+                ][GridPane.getColumnIndex(button)];
 
         if (Game.getMulegame().isLandSelectionPhase()) {
 
-            Player player = RoundManager.getCurrentPlayer();
-
-            Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
-                    ][GridPane.getColumnIndex(button)];
-
             buyTile(player, tile, button);
 
+        } else if (Game.getMulegame().isMuleBought()) {
+            placeMule(player,tile, button);
         }
 
     }
@@ -90,6 +92,25 @@ private static boolean canTileBeBought (Player player, Tile tile) {
      * @param button - button, so image can be changed
      */
     private static void placeMule (Player player, Tile tile, Button button) {
+        Mule mule = player.getUnplacedMule();
+        if (tile.getOwner() != null && tile.getOwner().equals(player)) {
+            tile.addMule(mule);
+            player.setUnplacedMule(null);
+            Game.setIsMuleBought(false);
+            GameManager.setGameStateLabel();
+            GameManager.addMuleToButton(button, tile);
+            for (Tile tiles : player.getTiles()) {
+                for (Mule mules : tiles.getMule()) {
+                    System.out.println(mules);
+                }
+        }
+        } else {
+            player.setUnplacedMule(null);
+            Game.setIsMuleBought(false);
+            GameManager.setGameStateLabel();
+            GameManager.muleAlert();
+
+        }
 
     }
 

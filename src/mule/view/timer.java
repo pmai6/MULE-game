@@ -31,7 +31,7 @@ public class timer {
                 new KeyFrame(Duration.seconds(startTime + 1),
                         new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
-        timeline.setOnFinished(e-> RoundManager.playerFinishedTurn(true));
+        timeline.setOnFinished(e-> RoundManager.playerFinishedTurn(false));
     }
     public IntegerProperty getTimeLeft() {
         return this.timeSeconds;
