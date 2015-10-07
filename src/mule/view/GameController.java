@@ -21,7 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import mule.*;
 import mule.model.*;
-
+import mule.model.Store;
 public class GameController {
     private GameManager gameManager;
     private Main mainapp;
@@ -96,6 +96,18 @@ public class GameController {
     private GridPane mapGrid;
 
     private Button[][] mapButtonArray;
+
+
+    @FXML
+    private Label foodLabel;
+    @FXML
+    private Label smithOreLabel;
+    @FXML
+    private Label crystiteLabel;
+    @FXML
+    private Label energyLabel;
+    @FXML
+    private Label muleLabel;
 
 
     @FXML
@@ -794,7 +806,7 @@ public class GameController {
 
             //get Ore listeners
 
-            
+
             gameManager.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
                 .addListener
                     (new
@@ -808,7 +820,7 @@ public class GameController {
                                              (2).getSmithore()));
                              }
                          });
-            
+
             gameManager.getMulegame().getPlayerArray().get(3).getSmithoreProperty()
                 .addListener
                     (new
@@ -983,6 +995,7 @@ public class GameController {
 
     @FXML
     private void goToStorebButton() {
+        gameManager.updateStoreData();
         town.setVisible(false);
         map.setVisible(false);
         Store.setVisible(true);
@@ -1018,17 +1031,17 @@ public class GameController {
 
         //Null point exception, need to check what's going on with the sell method
 
-//        if (selectedSellTransaction.equalsIgnoreCase("Food")) {
-//            StoreManager.importFood(Integer.parseInt(purchaseQty));
-//        } else if (selectedSellTransaction.equalsIgnoreCase("Smithore")) {
-//            StoreManager.importSmithore(Integer.parseInt(purchaseQty));
-//        } else if (selectedSellTransaction.equalsIgnoreCase("Energy")) {
-//            StoreManager.importEnergy(Integer.parseInt(purchaseQty));
-//        } else if (selectedSellTransaction.equalsIgnoreCase("Crystite")) {
-//            StoreManager.importCrystite(Integer.parseInt(purchaseQty));
-//        } else if (selectedSellTransaction.equalsIgnoreCase("Food Mule")) {
-//            StoreManager.buyMule(selectedSellTransaction);
-//        }
+        if (selectedSellTransaction.equalsIgnoreCase("Food")) {
+           StoreManager.importFood(Integer.parseInt(purchaseQty));
+       } else if (selectedSellTransaction.equalsIgnoreCase("Smithore")) {
+           StoreManager.importSmithore(Integer.parseInt(purchaseQty));
+       } else if (selectedSellTransaction.equalsIgnoreCase("Energy")) {
+           StoreManager.importEnergy(Integer.parseInt(purchaseQty));
+       } else if (selectedSellTransaction.equalsIgnoreCase("Crystite")) {
+          StoreManager.importCrystite(Integer.parseInt(purchaseQty));
+       } else if (selectedSellTransaction.equalsIgnoreCase("Food Mule")) {
+            StoreManager.buyMule(selectedSellTransaction);
+        }
 
     }
 
@@ -1158,6 +1171,16 @@ public class GameController {
 
     public void setRoundNumber (int round) {
         roundNumber.setText(String.valueOf(round));
+    }
+
+
+    public void updateStoreData (int food, int energy, int smithore, int
+            crystite, int mule) {
+        foodLabel.setText(new Integer(food).toString());
+        energyLabel.setText(new Integer(energy).toString());
+        smithOreLabel.setText(new Integer(smithore).toString());
+        crystiteLabel.setText(new Integer(crystite).toString());
+        muleLabel.setText(new Integer(mule).toString());
     }
 
 /*

@@ -464,6 +464,11 @@
             <Label layoutX="29.0" layoutY="232.0" text="Buy" textFill="#fff3e7" />
             <Label layoutX="30.0" layoutY="267.0" text="Sell" textFill="#fff3e7" />
             <Button fx:id="submitPurchase" layoutX="24.0" layoutY="324.0" mnemonicParsing="false" onAction="#submitPurchaseAction" prefHeight="26.0" prefWidth="143.0" style="-fx-background-color: chocolate;" text="Submit" textFill="#f5f4f4" />
+            <Label fx:id="foodLabel" layoutX="79.0" layoutY="200.0" text="Label" />
+            <Label fx:id="muleLabel" layoutX="218.0" layoutY="200.0" text="Label" />
+            <Label fx:id="crystiteLabel" layoutX="361.0" layoutY="200.0" text="Label" />
+            <Label fx:id="smithOreLabel" layoutX="504.0" layoutY="200.0" text="Label" />
+            <Label fx:id="energyLabel" layoutX="212.0" layoutY="327.0" prefHeight="24.0" prefWidth="34.0" text="Label" />
          </children>
       </AnchorPane>
    </children>

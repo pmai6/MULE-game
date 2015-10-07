@@ -65,6 +65,8 @@ public class PlayerManager {
     public static void buyMule (Player player, Mule mule) {
         if (player.getMoney() - mule.getCost() >= 0) {
             player.setMoney(player.getMoney() - mule.getCost());
+            Store.setMuleQty(Store.getMuleQty() - 1);
+            GameManager.getGameManager().updateStoreData();
             player.setUnplacedMule(mule);
         } else {
             gameManager.notEnoughMoney();

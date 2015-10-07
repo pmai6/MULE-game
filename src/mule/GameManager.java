@@ -98,6 +98,17 @@ public static GameManager getGameManager() {
         gameManager.setGameStateLabel();
     }
 
+
+    public void updateStoreData () {
+       int food = Store.getFoodQty();
+        int energy = Store.getEnergyQty();
+        int smithore = Store.getSmithoreQty();
+        int crystite = Store.getCrystiteQty();
+        int mule = Store.getMuleQty();
+
+        controller.updateStoreData(food, energy,smithore, crystite, mule);
+    }
+
     public  void initializePlayerGuiStats() {
         updatePlayerOne();
         updatePlayerTwo();
