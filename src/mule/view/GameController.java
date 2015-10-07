@@ -1011,40 +1011,44 @@ public class GameController {
         purchaseQty = purchaseQtyBox.getText();
         selectedSellTransaction = transactionSellCombo.getSelectionModel().getSelectedItem();
         selectedBuyTransaction = transactionBuyCombo.getSelectionModel().getSelectedItem();
-        if (selectedBuyTransaction.equalsIgnoreCase("Food")) {
-            StoreManager.exportFood(Integer.parseInt(purchaseQty));
-        } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore")) {
-            StoreManager.exportSmithore(Integer.parseInt(purchaseQty));
-        } else if (selectedBuyTransaction.equalsIgnoreCase("Energy")) {
-            StoreManager.exportEnergy(Integer.parseInt(purchaseQty));
-        } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite")) {
-            StoreManager.exportCrystite(Integer.parseInt(purchaseQty));
-        } else if (selectedBuyTransaction.equalsIgnoreCase("Food Mule")) {
-            StoreManager.buyMule(selectedBuyTransaction);
-        } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore Mule")) {
-            StoreManager.buyMule(selectedBuyTransaction);
-        } else if (selectedBuyTransaction.equalsIgnoreCase("Energy Mule")) {
-            StoreManager.buyMule(selectedBuyTransaction);
-        } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite Mule")) {
-            StoreManager.buyMule(selectedBuyTransaction);
-    }
-
+        if (selectedBuyTransaction != null) {
+            if (selectedBuyTransaction.equalsIgnoreCase("Food")) {
+                StoreManager.exportFood(Integer.parseInt(purchaseQty));
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore")) {
+                StoreManager.exportSmithore(Integer.parseInt(purchaseQty));
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Energy")) {
+                StoreManager.exportEnergy(Integer.parseInt(purchaseQty));
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite")) {
+                StoreManager.exportCrystite(Integer.parseInt(purchaseQty));
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Food Mule")) {
+                StoreManager.buyMule(selectedBuyTransaction);
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore Mule")) {
+                StoreManager.buyMule(selectedBuyTransaction);
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Energy Mule")) {
+                StoreManager.buyMule(selectedBuyTransaction);
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite Mule")) {
+                StoreManager.buyMule(selectedBuyTransaction);
+            }
+        }
         //Null point exception, need to check what's going on with the sell method
 
-        if (selectedSellTransaction.equalsIgnoreCase("Food")) {
-           StoreManager.importFood(Integer.parseInt(purchaseQty));
-       } else if (selectedSellTransaction.equalsIgnoreCase("Smithore")) {
-           StoreManager.importSmithore(Integer.parseInt(purchaseQty));
-       } else if (selectedSellTransaction.equalsIgnoreCase("Energy")) {
-           StoreManager.importEnergy(Integer.parseInt(purchaseQty));
-       } else if (selectedSellTransaction.equalsIgnoreCase("Crystite")) {
-          StoreManager.importCrystite(Integer.parseInt(purchaseQty));
-       } else if (selectedSellTransaction.equalsIgnoreCase("Food Mule")) {
-            StoreManager.buyMule(selectedSellTransaction);
+        if (selectedSellTransaction != null) {
+            if (selectedSellTransaction.equalsIgnoreCase("Food")) {
+                StoreManager.importFood(Integer.parseInt(purchaseQty));
+            } else if (selectedSellTransaction.equalsIgnoreCase("Smithore")) {
+                StoreManager.importSmithore(Integer.parseInt(purchaseQty));
+            } else if (selectedSellTransaction.equalsIgnoreCase("Energy")) {
+                StoreManager.importEnergy(Integer.parseInt(purchaseQty));
+            } else if (selectedSellTransaction.equalsIgnoreCase("Crystite")) {
+                StoreManager.importCrystite(Integer.parseInt(purchaseQty));
+            } else if (selectedSellTransaction.equalsIgnoreCase("Food Mule")) {
+                StoreManager.buyMule(selectedSellTransaction);
+            }
         }
 
+        transactionSellCombo.valueProperty().set(null);
+        transactionBuyCombo.valueProperty().set(null);
     }
-
 
 
     @FXML
