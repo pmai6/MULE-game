@@ -1187,26 +1187,18 @@ public class GameController {
         muleLabel.setText(new Integer(mule).toString());
     }
 
-/*
-
-    @FXML
-    private void handleMuleCombo() {
-        selectedMuleType =
-                muleCombo.getSelectionModel().getSelectedItem();
-    }
-
-    public void handleBuyMule() throws Exception {
-        StoreManager.buyMule(selectedMuleType);
-        exitButtonAction();
 
 
+
+    public void placingMule() throws Exception{
         Image   imageplain = new Image(getClass()
                 .getResourceAsStream("baby.png"));
 
         map.setCursor(new ImageCursor(imageplain));
+        exitButtonAction();
     }
 
-*/
+
 
 
     public void badMulePlacement() {
