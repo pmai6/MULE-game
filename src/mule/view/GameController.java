@@ -252,7 +252,7 @@ public class GameController {
 
                     } else if (tileType.equals("R")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("river.png"));
+                                .getResourceAsStream("river.gif"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
 
@@ -1236,7 +1236,7 @@ public void addMuleToButton (Button button, Tile tile) {
                        .getResourceAsStream("mountain3Mule.png"));
             } else {
                imageplain = new Image(getClass()
-                       .getResourceAsStream("riverMule.png"));
+                       .getResourceAsStream("riverMule.gif"));
             }
 
     button.setGraphic(new ImageView(imageplain));
