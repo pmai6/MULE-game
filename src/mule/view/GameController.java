@@ -173,7 +173,7 @@ public class GameController {
     private Label roundNumber;
     @FXML
     private Label timerLabel;
-    private timer Timer = new timer(10);
+    private timer Timer = new timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
 
     private String selectedBuyTransaction;
     private String selectedSellTransaction;
