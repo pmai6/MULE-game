@@ -9,7 +9,11 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import mule.model.*;
 import mule.view.GameController;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
 
@@ -47,7 +51,16 @@ public static GameManager getGameManager() {
         }
         updateGamePlayerRound();
 
+
+        InputStream in = new FileInputStream
+                ("src/mule/8-bit-circus-music.wav");
+        // create an audiostream from the inputstream
+        AudioStream audioStream = new AudioStream(in);
+
+        // play the audio clip with the audioplayer class
+        AudioPlayer.player.start(audioStream);
     }
+
 
 public void placeMule() throws Exception {
 
