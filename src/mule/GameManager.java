@@ -49,8 +49,13 @@ public static GameManager getGameManager() {
 
     }
 
+public void placeMule() throws Exception {
 
-    public void goToMap () throws Exception {
+controller.placingMule();
+}
+
+
+    public void goToMap() throws Exception {
         controller.exitButtonAction();
     }
     /**Disables the player areas in the main GUI screen so there
