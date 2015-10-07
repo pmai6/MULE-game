@@ -162,7 +162,7 @@ public class StoreManager {
 //    }
 
 
-    public static void buyMule(String muleName) {
+    public static void buyMule(String muleName) throws Exception{
         Player player = RoundManager.getCurrentPlayer();
         if (Store.getMuleQty() >= 1 && player.getUnplacedMule() == null) {
             Mule mule = null;
@@ -177,6 +177,7 @@ public class StoreManager {
                 mule = new CrystiteMule();
             }
             gameManager.setGameStateLabel();
+
             PlayerManager.buyMule(player, mule);
         } else {
             System.out.println("no more mules");

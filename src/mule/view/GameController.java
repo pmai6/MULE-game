@@ -1080,7 +1080,7 @@ public class GameController {
     }
 
     @FXML
-    private void exitButtonAction() throws Exception {
+    public void exitButtonAction() throws Exception {
         Pub.setVisible(false);
         Store.setVisible(false);
         town.setVisible(false);

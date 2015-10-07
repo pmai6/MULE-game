@@ -49,6 +49,10 @@ public static GameManager getGameManager() {
 
     }
 
+
+    public void goToMap () throws Exception {
+        controller.exitButtonAction();
+    }
     /**Disables the player areas in the main GUI screen so there
      * score and info do not show up
      * @param numPlayers
@@ -106,7 +110,7 @@ public static GameManager getGameManager() {
         int crystite = Store.getCrystiteQty();
         int mule = Store.getMuleQty();
 
-        controller.updateStoreData(food, energy,smithore, crystite, mule);
+        controller.updateStoreData(food, energy, smithore, crystite, mule);
     }
 
     public  void initializePlayerGuiStats() {
