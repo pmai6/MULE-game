@@ -1240,9 +1240,12 @@ public void addMuleToButton (Button button, Tile tile) {
             }
 
     button.setGraphic(new ImageView(imageplain));
-    map.setCursor(Cursor.DEFAULT);
+    setCursorDefault();
 }
 
+    public void setCursorDefault (){
+    map.setCursor(Cursor.DEFAULT);
+}
 }
 
 

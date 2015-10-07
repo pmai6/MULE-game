@@ -58,6 +58,7 @@ public class RoundManager {
         if (!gameManager.isLandSelectionPhase()) {
             gameManager.setTimer();
             gameManager.setIsMuleBought(false);
+            gameManager.setCursorDefault();
         }
         roundManager.incrementTurnNumber();
 

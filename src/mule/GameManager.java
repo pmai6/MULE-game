@@ -13,6 +13,8 @@ import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
@@ -255,7 +257,26 @@ controller.placingMule();
     }
 
     public void handleMapButton(Button button) {
+        try {
+            InputStream in = new FileInputStream
+                    ("src/mule/button-select.wav");
+            // create an audiostream from the inputstream
+            AudioStream audioStream = new AudioStream(in);
+
+            // play the audio clip with the audioplayer class
+            AudioPlayer.player.start(audioStream);
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("no such file");
+        } catch (IOException e) {
+            System.err.println("Caught IOException: " + e.getMessage());
+        }
+
         MapManager.handleMapButton(button);
 
+    }
+
+    public void setCursorDefault() {
+        controller.setCursorDefault();
     }
 }
