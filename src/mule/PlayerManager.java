@@ -68,7 +68,7 @@ public class PlayerManager {
             Store.setMuleQty(Store.getMuleQty() - 1);
             GameManager.getGameManager().updateStoreData();
             player.setUnplacedMule(mule);
-            gameManager.goToMap();
+            gameManager.placeMule();
         } else {
             gameManager.notEnoughMoney();
         }
