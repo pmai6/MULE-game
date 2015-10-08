@@ -96,7 +96,7 @@ controller.placingMule();
                 "view/GameScreen.fxml"));
         Parent root = fxmlLoader.load();
         astage.setScene(new Scene(root));
-        astage.setTitle("M.U.L.E Game Screen");
+        astage.setTitle("U.N.I.C.O.R.N Game Screen");
         controller = fxmlLoader.getController();
         astage.show();
     }

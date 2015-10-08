@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mule.view.StartUpController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mule.view.StartUpController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.0" minWidth="10.0" prefWidth="393.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="207.0" />
@@ -56,9 +56,9 @@
                 <Glow />
             </effect>
         </Label>
-        <Label alignment="CENTER" onMouseClicked="#skipScreens" prefHeight="167.0" prefWidth="600.0" text="M.U.L.E" textAlignment="CENTER" textFill="#2026d7" textOverrun="CLIP" GridPane.columnSpan="2147483647">
+        <Label alignment="CENTER" onMouseClicked="#skipScreens" prefHeight="87.0" prefWidth="656.0" text="U.N.I.C.O.R.N" textAlignment="CENTER" textFill="#2026d7" textOverrun="CLIP" GridPane.columnSpan="2147483647">
             <font>
-                <Font name="Courier Bold" size="92.0" />
+                <Font name="Courier Bold" size="80.0" />
             </font>
         </Label>
         <Button fx:id="nextButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#nextButtonAction" prefHeight="49.0" prefWidth="119.0" text="Next" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">

@@ -15,7 +15,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "view/StartUp.fxml"));
         Parent root = fxmlLoader.load();
-        primaryStage.setTitle("M.U.L.E Main Screen");
+        primaryStage.setTitle("U.N.I.C.O.R.N PMain Screen");
         primaryStage.setScene(new Scene(root));
         StartUpController controller = fxmlLoader.getController();
         controller.setMainApp(this);
@@ -32,7 +32,7 @@ public class Main extends Application {
                 "view/configScreen.fxml"));
         Parent root = fxmlLoader.load();
         astage.setScene(new Scene(root));
-        astage.setTitle("M.U.L.E Player Config Screen");
+        astage.setTitle("U.N.I.C.O.R.N Player Config Screen");
         playerConfigController controller = fxmlLoader.getController();
         controller.setMainApp(this);
         astage.show();
