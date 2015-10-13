@@ -48,10 +48,11 @@ public class River implements Tile {
         List<Mule> mules = this.getMule();
         Iterator<Mule> muleIterator = mules.iterator();
         while(muleIterator.hasNext()) {
-            if(muleIterator.next() instanceof FoodMule) {
+            Mule currentMule = muleIterator.next();
+            if(currentMule instanceof FoodMule) {
                 PlayerManager.addPlayerFood(this.getOwner(),4);
             }
-            else if(muleIterator.next() instanceof EnergyMule) {
+            else if(currentMule instanceof EnergyMule) {
                 PlayerManager.addPlayerEnergy(this.getOwner(), 2);
             }
         }

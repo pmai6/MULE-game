@@ -48,13 +48,14 @@ private Player player;
 		List<Mule> mules = this.getMule();
 		Iterator<Mule> muleIterator = mules.iterator();
 		while(muleIterator.hasNext()) {
-			if(muleIterator.next() instanceof FoodMule) {
+			Mule currentMule = muleIterator.next();
+			if(currentMule instanceof FoodMule) {
 				PlayerManager.addPlayerFood(this.getOwner(), 2);
 			}
-			else if(muleIterator.next() instanceof EnergyMule) {
+			else if(currentMule instanceof EnergyMule) {
 				PlayerManager.addPlayerEnergy(this.getOwner(),3);
 			}
-			else if(muleIterator.next() instanceof SmithoreMule) {
+			else if(currentMule instanceof SmithoreMule) {
 				PlayerManager.addPlayerSmithore(this.getOwner(),1);
 			}
 
