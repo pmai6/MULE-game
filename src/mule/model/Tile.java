@@ -24,6 +24,9 @@ public interface Tile {
     public List<Mule> getMule();
 
     public void addMule (Mule mule);
+
+    public void calculateProduction();
+
     }
 
 
