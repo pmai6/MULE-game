@@ -1,11 +1,8 @@
 package mule;
 
-import mule.model.Mule;
-import mule.model.Player;
-import mule.model.Store;
+import mule.model.*;
 import mule.RoundManager;
 import mule.StoreManager;
-import mule.model.Tile;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -125,4 +122,23 @@ public class PlayerManager {
         RoundManager.playerFinishedTurn(false);
 
     }
+
+    public static void addPlayerFood(Player player, int amount) {
+        int currentFoodQty = player.getFood();
+        int newFoodQty = currentFoodQty + amount;
+        player.setFood(newFoodQty);
+    }
+
+    public static void addPlayerEnergy(Player player, int amount) {
+        int currentEnergyQty = player.getEnergy();
+        int newEnergyQty = currentEnergyQty + amount;
+        player.setEnergy(newEnergyQty);
+    }
+
+    public static void addPlayerSmithore(Player player, int amount) {
+        int currentSmithoreQty = player.getSmithore();
+        int newSmithoreQty = currentSmithoreQty + amount;
+        player.setSmithore(newSmithoreQty);
+    }
+
 }

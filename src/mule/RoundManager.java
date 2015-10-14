@@ -5,6 +5,8 @@ import mule.model.Player;
 import mule.model.Round;
 
 import java.util.*;
+
+import mule.model.Tile;
 import mule.view.GameController;
 import mule.view.timer;
 
@@ -51,7 +53,7 @@ public class RoundManager {
         if(passed) {
             roundManager.incrementNumPasses();
         }
-
+        roundManager.calculatePlayerProduction();
         if (gameManager.isLandSelectionPhase()) {
             isLandSelectionOver();
         }
@@ -119,4 +121,13 @@ public class RoundManager {
             gameManager.getMulegame().getPlayerArray().get(playerInd).calculateScore();
         }
     }
+
+    private void calculatePlayerProduction() {
+        List<Tile> tiles = RoundManager.getCurrentPlayer().getTiles();
+        Iterator<Tile> tileIterator = tiles.iterator();
+        while(tileIterator.hasNext()) {
+            tileIterator.next().calculateProduction();
+        }
+    }
+
 }

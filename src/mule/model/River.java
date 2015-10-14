@@ -1,6 +1,9 @@
 package mule.model;
 
+import mule.PlayerManager;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class River implements Tile {
@@ -41,5 +44,19 @@ public class River implements Tile {
         mules.add(mule);
     }
 
+    public void calculateProduction() {
+        List<Mule> mules = this.getMule();
+        Iterator<Mule> muleIterator = mules.iterator();
+        while(muleIterator.hasNext()) {
+            Mule currentMule = muleIterator.next();
+            if(currentMule instanceof FoodMule) {
+                PlayerManager.addPlayerFood(this.getOwner(),4);
+            }
+            else if(currentMule instanceof EnergyMule) {
+                PlayerManager.addPlayerEnergy(this.getOwner(), 2);
+            }
+        }
+
+    }
 }
 
