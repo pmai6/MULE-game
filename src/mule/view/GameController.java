@@ -107,7 +107,13 @@ public class GameController {
     @FXML
     private Label energyLabel;
     @FXML
-    private Label muleLabel;
+    private Label foodMuleLabel;
+    @FXML
+    private Label energyMuleLabel;
+    @FXML
+    private Label crystiteMuleLabel;
+    @FXML
+    private Label oreMuleLabel;
 
 
     @FXML
@@ -1179,12 +1185,15 @@ public class GameController {
 
 
     public void updateStoreData (int food, int energy, int smithore, int
-            crystite, int mule) {
+            crystite, int foodMule, int energyMule, int crystiteMule, int oreMule) {
         foodLabel.setText(new Integer(food).toString());
         energyLabel.setText(new Integer(energy).toString());
         smithOreLabel.setText(new Integer(smithore).toString());
         crystiteLabel.setText(new Integer(crystite).toString());
-        muleLabel.setText(new Integer(mule).toString());
+        foodMuleLabel.setText(new Integer(foodMule).toString());
+        energyMuleLabel.setText(new Integer(energyMule).toString());
+        crystiteMuleLabel.setText(new Integer(crystiteMule).toString());
+        oreMuleLabel.setText(new Integer(oreMule).toString());
     }
 
 

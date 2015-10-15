@@ -128,9 +128,13 @@ controller.placingMule();
         int energy = Store.getEnergyQty();
         int smithore = Store.getSmithoreQty();
         int crystite = Store.getCrystiteQty();
-        int mule = Store.getMuleQty();
+        int foodMule = Store.getFoodMuleQty();
+        int energyMule = Store.getEnergyMuleQty();
+        int crystiteMule = Store.getCrystiteMuleQty();
+        int smithoreMule = Store.getSmithoreMuleQty();
 
-        controller.updateStoreData(food, energy, smithore, crystite, mule);
+        controller.updateStoreData(food, energy, smithore, crystite, foodMule,
+                energyMule,crystiteMule, smithoreMule);
     }
 
     public  void initializePlayerGuiStats() {
