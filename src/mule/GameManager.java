@@ -205,7 +205,7 @@ controller.placingMule();
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
                 food, color);
     }
-    public   void setTimer() {
+    public  void setTimer() {
         controller.setTimer();
     }
 
@@ -213,8 +213,12 @@ controller.placingMule();
         controller.badMulePlacement();
     }
 
-    public   void notEnoughMoney() {
+    public  void notEnoughMoney() {
         controller.youGotNoMoney();
+    }
+
+    public  void notEnoughItem() {
+        controller.youGotNoResources();
     }
 
     public  void addMuleToButton(Button button,Tile tile) {

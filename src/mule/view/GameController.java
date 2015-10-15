@@ -1196,7 +1196,14 @@ public class GameController {
         oreMuleLabel.setText(new Integer(oreMule).toString());
     }
 
+    public void youGotNoResources() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("You don't have enough item");
 
+        alert.showAndWait();
+    }
 
 
     public void placingMule() throws Exception{

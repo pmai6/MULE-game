@@ -40,7 +40,7 @@ public class StoreManager {
         int playerFoodAmount = currentPlayer.getFood();
         int storeFoodAmount = Store.getFoodQty();
         if (playerFoodAmount <= quantityFood) {
-            System.out.println("insufficient food amount");
+            gameManager.notEnoughItem();
         } else {
             PlayerManager.sellResources(currentPlayer, "food", quantityFood);
             Store.setFoodQty(storeFoodAmount + quantityFood);
@@ -69,7 +69,7 @@ public class StoreManager {
         int playerEnergyAmount = currentPlayer.getEnergy();
         int storeEnergyAmount = Store.getEnergyQty();
         if (playerEnergyAmount <= quantityEnergy) {
-            System.out.println("insufficient funds");
+            gameManager.notEnoughItem();
         } else {
             PlayerManager.sellResources(currentPlayer, "energy", quantityEnergy);
             Store.setEnergyQty(storeEnergyAmount + quantityEnergy);
@@ -98,7 +98,7 @@ public class StoreManager {
         int playerSmithoreAmount = currentPlayer.getSmithore();
         int storeSmithoreAmount = Store.getSmithoreQty();
         if (playerSmithoreAmount <= quantitySmithore) {
-            System.out.println("insufficient funds");
+            gameManager.notEnoughItem();
         } else {
             PlayerManager.sellResources(currentPlayer, "smithore", quantitySmithore);
             Store.setSmithoreQty(storeSmithoreAmount + quantitySmithore);
@@ -127,7 +127,7 @@ public class StoreManager {
         int playerCrystiteAmount = currentPlayer.getCrystite();
         int storeCrystiteAmount = Store.getEnergyQty();
         if (playerCrystiteAmount <= quantityCrystite) {
-            System.out.println("insufficient funds");
+            gameManager.notEnoughItem();
         } else {
             PlayerManager.sellResources(currentPlayer, "crystite", quantityCrystite);
             Store.setCrystiteQty(storeCrystiteAmount + quantityCrystite);
