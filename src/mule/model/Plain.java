@@ -1,6 +1,7 @@
 package mule.model;
 
 import mule.PlayerManager;
+import mule.RoundManager;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -49,15 +50,16 @@ private Player player;
 		Iterator<Mule> muleIterator = mules.iterator();
 		while(muleIterator.hasNext()) {
 			Mule currentMule = muleIterator.next();
-			if(currentMule instanceof FoodMule) {
-				PlayerManager.addPlayerFood(this.getOwner(), 2);
-			}
-			else if(currentMule instanceof EnergyMule) {
-				PlayerManager.addPlayerEnergy(this.getOwner(),3);
-			}
-			else if(currentMule instanceof SmithoreMule) {
-				PlayerManager.addPlayerSmithore(this.getOwner(),1);
-			}
+			Player currentPlayer = RoundManager.getCurrentPlayer();
+				if(currentMule instanceof FoodMule) {
+					PlayerManager.addPlayerFood(this.getOwner(), 2);
+				}
+				else if(currentMule instanceof EnergyMule) {
+					PlayerManager.addPlayerEnergy(this.getOwner(), 3);
+				}
+				else if(currentMule instanceof SmithoreMule) {
+					PlayerManager.addPlayerSmithore(this.getOwner(),1);
+				}
 
 		}
 

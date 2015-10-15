@@ -50,15 +50,13 @@ public class Mountain3 implements Tile {
         Iterator<Mule> muleIterator = mules.iterator();
         while(muleIterator.hasNext()) {
             Mule currentMule = muleIterator.next();
-            if(currentMule instanceof FoodMule) {
-                PlayerManager.addPlayerFood(this.getOwner(), 1);
-            }
-            else if(currentMule instanceof EnergyMule) {
-                PlayerManager.addPlayerEnergy(this.getOwner(),1);
-            }
-            else if(currentMule instanceof SmithoreMule) {
-                PlayerManager.addPlayerSmithore(this.getOwner(),4);
-            }
+                if (currentMule instanceof FoodMule) {
+                    PlayerManager.addPlayerFood(this.getOwner(), 1);
+                } else if (currentMule instanceof EnergyMule) {
+                    PlayerManager.addPlayerEnergy(this.getOwner(), 1);
+                } else if (currentMule instanceof SmithoreMule) {
+                    PlayerManager.addPlayerSmithore(this.getOwner(), 4);
+                }
         }
 
     }
