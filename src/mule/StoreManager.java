@@ -29,8 +29,9 @@ public class StoreManager {
             PlayerManager.buyResources(currentPlayer, "food", quantityFood);
             Store.setFoodQty(storeFoodAmount - quantityFood);
             GameManager.getGameManager().updateStoreData();
-        } else
+        } else {
             System.out.println("insufficient funds");
+        }
     }
 
     /**
@@ -45,7 +46,10 @@ public class StoreManager {
         int storeFoodAmount = Store.getFoodQty();
         if (playerFoodAmount <= quantityFood) {
             System.out.println("insufficient food amount");
+<<<<<<< Updated upstream
             //notEnoughItems();
+=======
+>>>>>>> Stashed changes
         } else {
             PlayerManager.sellResources(currentPlayer, "food", quantityFood);
             Store.setFoodQty(storeFoodAmount + quantityFood);
@@ -64,9 +68,13 @@ public class StoreManager {
             Store.setEnergyQty(storeEnergyAmount - quantityEnergy);
             GameManager.getGameManager().updateStoreData();
 
-        } else
+        } else {
             System.out.println("insufficient funds");
+<<<<<<< Updated upstream
         //    notEnoughMoney();
+=======
+        }
+>>>>>>> Stashed changes
     }
 
     public static void importEnergy(int quantityEnergy) {
@@ -75,13 +83,19 @@ public class StoreManager {
         int storeEnergyAmount = Store.getEnergyQty();
         if (playerEnergyAmount <= quantityEnergy) {
             System.out.println("insufficient funds");
+<<<<<<< Updated upstream
          //   notEnoughItems();
+=======
+>>>>>>> Stashed changes
         } else {
             PlayerManager.sellResources(currentPlayer, "energy", quantityEnergy);
             Store.setEnergyQty(storeEnergyAmount + quantityEnergy);
             GameManager.getGameManager().updateStoreData();
         }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
 
     public static void exportSmithore(int quantitySmithore) {
@@ -106,7 +120,10 @@ public class StoreManager {
         int storeSmithoreAmount = Store.getSmithoreQty();
         if (playerSmithoreAmount <= quantitySmithore) {
             System.out.println("insufficient funds");
+<<<<<<< Updated upstream
          //   notEnoughItems();
+=======
+>>>>>>> Stashed changes
         } else {
             PlayerManager.sellResources(currentPlayer, "smithore", quantitySmithore);
             Store.setSmithoreQty(storeSmithoreAmount + quantitySmithore);
@@ -125,9 +142,13 @@ public class StoreManager {
             Store.setCrystiteQty(storeCrystiteAmount - quantityCrystite);
             GameManager.getGameManager().updateStoreData();
 
-        } else
+        } else {
             System.out.println("insufficient funds");
+<<<<<<< Updated upstream
         //    notEnoughMoney();
+=======
+        }
+>>>>>>> Stashed changes
     }
 
     public static void importCrystite(int quantityCrystite) {
@@ -136,14 +157,21 @@ public class StoreManager {
         int storeCrystiteAmount = Store.getEnergyQty();
         if (playerCrystiteAmount <= quantityCrystite) {
             System.out.println("insufficient funds");
+<<<<<<< Updated upstream
          //   notEnoughItems();
 
+=======
+>>>>>>> Stashed changes
         } else {
             PlayerManager.sellResources(currentPlayer, "crystite", quantityCrystite);
             Store.setCrystiteQty(storeCrystiteAmount + quantityCrystite);
             GameManager.getGameManager().updateStoreData();
+<<<<<<< Updated upstream
         }
+=======
+>>>>>>> Stashed changes
 
+        }
     }
 
 
