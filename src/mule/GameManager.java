@@ -128,6 +128,7 @@ controller.placingMule();
         int energy = Store.getEnergyQty();
         int smithore = Store.getSmithoreQty();
         int crystite = Store.getCrystiteQty();
+<<<<<<< Updated upstream
         int energyMule = Store.getEnergyMuleQty();
         int foodMule = Store.getFoodMuleQty();
         int oreMule = Store.getSmithoreMuleQty();
@@ -135,6 +136,16 @@ controller.placingMule();
 
         controller.updateStoreData(food, energy, smithore, crystite, energyMule,
                 foodMule,oreMule,crystiteMule);
+=======
+        int foodMule = Store.getFoodMuleQty();
+        int energyMule = Store.getEnergyMuleQty();
+        int smithoreMule = Store.getSmithoreMuleQty();
+        int crystiteMule = Store.getCrystiteMuleQty();
+
+
+        controller.updateStoreData(food, energy, smithore, crystite, foodMule,
+                energyMule,smithoreMule,crystiteMule);
+>>>>>>> Stashed changes
     }
 
     public  void initializePlayerGuiStats() {
