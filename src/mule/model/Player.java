@@ -24,12 +24,16 @@ public class Player implements Comparable {
     private IntegerProperty score;
     private IntegerProperty money;
     private IntegerProperty food;
-    //private IntegerProperty ore;
     private IntegerProperty smithore;
     private IntegerProperty crystite;
     private IntegerProperty energy;
 
     private int mule;
+
+    private int foodMule;
+    private int energyMule;
+    private int crystiteMule;
+    private int oreMule;
     private List<Tile> tiles;
     private Mule unplacedMule;
 
@@ -48,7 +52,7 @@ public class Player implements Comparable {
     private void setStartFoodOreEnergy() {
 
         this.food = new SimpleIntegerProperty(8);
-        this.energy = new SimpleIntegerProperty(0);
+        this.energy = new SimpleIntegerProperty(4);
         this.smithore = new SimpleIntegerProperty(0);
         this.crystite = new SimpleIntegerProperty(0);
     }
@@ -148,15 +152,7 @@ public class Player implements Comparable {
         return smithore;
     }
 
-//    public int getOre() {
-//        return ore.get();
-//    }
-//    public void setOre(int ore) {
-//        this.ore.set(ore);
-//    }
-//    public IntegerProperty getOreProperty() {
-//        return ore;
-//    }
+
 
     public int getCrystite() { return crystite.get(); }
     public void setCrystite(int crysTite) { this.crystite.set(crysTite); }
@@ -165,10 +161,39 @@ public class Player implements Comparable {
     }
 
     public int getMule() {
+        this.mule = getFoodMule()+getCrystiteMule()+getenergyMule()+getOreMuleMule();
         return mule;
     }
     public void setMule(int mule) {
         this.mule = mule;
+    }
+
+    public int getFoodMule() {
+        return foodMule;
+    }
+    public void setFoodMule(int foodMuleQty) {
+        foodMule = foodMuleQty;
+    }
+
+    public int getenergyMule() {
+        return energyMule;
+    }
+    public void setEnergyMule(int energyMuleQty) {
+        energyMule = energyMuleQty;
+    }
+
+    public int getCrystiteMule() {
+        return crystiteMule;
+    }
+    public void setCrystiteMule(int crystiteMuleQty) {
+        crystiteMule = crystiteMuleQty;
+    }
+
+    public int getOreMuleMule() {
+        return oreMule;
+    }
+    public void setOreMuleMule(int oreMuleQty) {
+        oreMule = oreMuleQty;
     }
 
 

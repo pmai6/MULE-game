@@ -65,7 +65,15 @@ public class PlayerManager {
     public static void buyMule (Player player, Mule mule) throws Exception{
         if (player.getMoney() - mule.getCost() >= 0) {
             player.setMoney(player.getMoney() - mule.getCost());
-            Store.setMuleQty(Store.getMuleQty() - 1);
+            if (mule.getCost() == 125) {
+                Store.setFoodMuleQty(Store.getFoodMuleQty() - 1);
+            } else if (mule.getCost() == 150) {
+                Store.setEnergyMuleQty(Store.getEnergyMuleQty() - 1);
+            } else if (mule.getCost() == 175) {
+                Store.setSmithoreMuleQty(Store.getSmithoreMuleQty() - 1);
+            } else {
+                Store.setCrystiteMuleQty(Store.getCrystiteMuleQty() - 1);
+            }
             GameManager.getGameManager().updateStoreData();
             player.setUnplacedMule(mule);
             gameManager.placeMule();
@@ -136,6 +144,7 @@ public class PlayerManager {
         int currentEnergyQty = player.getEnergy();
         int newEnergyQty = currentEnergyQty + amount;
         player.setEnergy(newEnergyQty);
+        System.out.println("adding energy for " + player.getPlayerName() + " energy is " + player.getEnergy());
     }
 
     public static void addPlayerSmithore(Player player, int amount) {
