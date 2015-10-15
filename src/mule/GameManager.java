@@ -158,8 +158,9 @@ controller.placingMule();
         int money = mulegame.getPlayerArray().get(0).getMoney();
         int ore = mulegame.getPlayerArray().get(0).getSmithore();
         int food = mulegame.getPlayerArray().get(0).getFood();
+        int energy = mulegame.getPlayerArray().get(0).getEnergy();
         controller.changePlayerOneGuiStats(name, race, score, money, ore,
-                food, color);
+                food, color, energy);
     }
     private   void updatePlayerTwo() {
         String name = mulegame.getPlayerArray().get(1)
@@ -173,8 +174,9 @@ controller.placingMule();
         int money = mulegame.getPlayerArray().get(1).getMoney();
         int ore = mulegame.getPlayerArray().get(1).getSmithore();
         int food = mulegame.getPlayerArray().get(1).getFood();
+        int energy = mulegame.getPlayerArray().get(1).getEnergy();
         controller.changePlayerTwoGuiStats(name, race, score, money, ore,
-                food, color);
+                food, color, energy);
     }
     private static void updatePlayerThree() {
         String name = mulegame.getPlayerArray().get(2)
@@ -187,8 +189,9 @@ controller.placingMule();
         int money = mulegame.getPlayerArray().get(2).getMoney();
         int ore = mulegame.getPlayerArray().get(2).getSmithore();
         int food = mulegame.getPlayerArray().get(2).getFood();
+        int energy = mulegame.getPlayerArray().get(2).getEnergy();
         controller.changePlayerThreeGuiStats(name, race, score, money, ore,
-                food, color);
+                food, color, energy);
     }
 
     private  void updatePlayerFour() {
@@ -202,8 +205,9 @@ controller.placingMule();
         int money = mulegame.getPlayerArray().get(3).getMoney();
         int ore = mulegame.getPlayerArray().get(3).getSmithore();
         int food = mulegame.getPlayerArray().get(3).getFood();
+        int energy = mulegame.getPlayerArray().get(2).getEnergy();
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
-                food, color);
+                food, color, energy);
     }
     public  void setTimer() {
         controller.setTimer();

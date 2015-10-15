@@ -129,7 +129,8 @@ public class GameController {
     private Label playerOneOre;
     @FXML
     private Label playerOneFood;
-
+    @FXML
+    private Label playerOneEnergy;
 
     @FXML
     private Label playerTwoName;
@@ -144,7 +145,8 @@ public class GameController {
     private Label playerTwoOre;
     @FXML
     private Label playerTwoFood;
-
+    @FXML
+    private Label playerTwoEnergy;
 
     @FXML
     private Label playerThreeName;
@@ -158,7 +160,8 @@ public class GameController {
     private Label playerThreeOre;
     @FXML
     private Label playerThreeFood;
-
+    @FXML
+    private Label playerThreeEnergy;
 
     @FXML
     private Label playerFourName;
@@ -172,6 +175,8 @@ public class GameController {
     private Label playerFourOre;
     @FXML
     private Label playerFourFood;
+    @FXML
+    private Label playerFourEnergy;
 
     @FXML
     private Label currentPlayer;
@@ -716,6 +721,35 @@ public class GameController {
                          }
                      });
 
+        //get Food listeners
+
+        gameManager.getMulegame().getPlayerArray().get(0).getFoodProperty()
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerOneEnergy.setText(String.valueOf
+                                 (gameManager
+                                     .getMulegame().getPlayerArray().get
+                                         (0).getEnergy()));
+                         }
+                     });
+
+        gameManager.getMulegame().getPlayerArray().get(1).getFoodProperty()
+            .addListener
+                (new
+                     ChangeListener() {
+                         @Override
+                         public void changed(ObservableValue o, Object oldVal,
+                                             Object newVal) {
+                             playerTwoEnergy.setText(String.valueOf
+                                 (gameManager
+                                     .getMulegame().getPlayerArray().get
+                                         (1).getEnergy()));
+                         }
+                     });
         if (gameManager.getMulegame().getNumberOfPlayers() == 4) {
 
 
@@ -871,6 +905,36 @@ public class GameController {
                                              (3).getFood()));
                              }
                          });
+
+
+
+            gameManager.getMulegame().getPlayerArray().get(2).getFoodProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeEnergy.setText(String.valueOf
+                                     (gameManager
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getEnergy()));
+                             }
+                         });
+
+            gameManager.getMulegame().getPlayerArray().get(3).getFoodProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerFourEnergy.setText(String.valueOf
+                                     (gameManager
+                                         .getMulegame().getPlayerArray().get
+                                             (3).getEnergy()));
+                             }
+                         });
         }
 
         if (gameManager.getMulegame().getNumberOfPlayers() == 3) {
@@ -969,6 +1033,22 @@ public class GameController {
                                              (2).getFood()));
                              }
                          });
+
+            gameManager.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
+                .addListener
+                    (new
+                         ChangeListener() {
+                             @Override
+                             public void changed(ObservableValue o, Object oldVal,
+                                                 Object newVal) {
+                                 playerThreeEnergy.setText(String.valueOf
+                                     (gameManager
+                                         .getMulegame().getPlayerArray().get
+                                             (2).getEnergy()));
+                             }
+                         });
+
+
         }
         }
 
@@ -1126,7 +1206,7 @@ public class GameController {
 
     public void changePlayerOneGuiStats (String name, String race, int score,
                                          int money, int ore, int food, String
-                                         color) {
+                                         color,int energy) {
         playerOneName.setText(name);
         playerOneName.setStyle(" -fx-text-fill :" + color + ";");
         playerOneRace.setText(race);
@@ -1134,12 +1214,13 @@ public class GameController {
         playerOneMoney.setText(String.valueOf(money));
         playerOneOre.setText(String.valueOf(ore));
         playerOneFood.setText(String.valueOf(food));
+        playerOneEnergy.setText(String.valueOf(energy));
     }
 
 
     public void changePlayerTwoGuiStats (String name, String race, int score,
                                          int money, int ore, int food, String
-                                         color) {
+                                         color,int energy) {
         playerTwoName.setText(name);
         playerTwoName.setStyle(" -fx-text-fill :" + color + ";");
 
@@ -1148,12 +1229,13 @@ public class GameController {
         playerTwoMoney.setText(String.valueOf(money));
         playerTwoOre.setText(String.valueOf(ore));
         playerTwoFood.setText(String.valueOf(food));
+        playerTwoEnergy.setText(String.valueOf(energy));
 
     }
 
     public void changePlayerThreeGuiStats (String name, String race, int score,
                                            int money, int ore, int food,
-                                           String color) {
+                                           String color, int energy) {
         playerThreeName.setText(name);
         playerThreeName.setStyle(" -fx-text-fill :" + color + ";");
         playerThreeRace.setText(race);
@@ -1161,11 +1243,12 @@ public class GameController {
         playerThreeMoney.setText(String.valueOf(money));
         playerThreeOre.setText(String.valueOf(ore));
         playerThreeFood.setText(String.valueOf(food));
+        playerThreeEnergy.setText(String.valueOf(energy));
     }
 
     public void changePlayerFourGuiStats (String name, String race, int score,
                                           int money, int ore, int food,
-                                          String color) {
+                                          String color, int energy) {
         playerFourName.setText(name);
         playerFourName.setStyle(" -fx-text-fill :" + color + ";");
         playerFourRace.setText(race);
@@ -1173,6 +1256,7 @@ public class GameController {
         playerFourMoney.setText(String.valueOf(money));
         playerFourOre.setText(String.valueOf(ore));
         playerFourFood.setText(String.valueOf(food));
+        playerFourEnergy.setText(String.valueOf(energy));
     }
 
     public void setCurrentPlayer (String player) {

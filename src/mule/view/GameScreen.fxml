@@ -59,6 +59,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <Label fx:id="playerFourName" lineSpacing="2.0" prefHeight="16.0" prefWidth="198.0" text="Player Four" GridPane.columnSpan="2147483647">
@@ -111,6 +112,16 @@
                         <Font name="Courier Bold" size="21.0" />
                      </font>
                   </Label>
+                  <Label lineSpacing="2.0" text="Energy" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerFourEnergy" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -123,6 +134,7 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -181,6 +193,16 @@
                         <Font name="Courier Bold" size="21.0" />
                      </font>
                   </Label>
+                  <Label lineSpacing="2.0" text="Energy" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerThreeEnergy" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -199,6 +221,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label fx:id="playerOneName" lineSpacing="2.0" prefHeight="16.0" prefWidth="198.0" text="Player One" GridPane.columnSpan="2147483647">
@@ -251,6 +274,16 @@
                         <Font name="Courier Bold" size="21.0" />
                      </font>
                   </Label>
+                  <Label lineSpacing="2.0" text="Energy" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerOneEnergy" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -263,6 +296,7 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -319,6 +353,16 @@
                   <Label fx:id="playerTwoRace" alignment="BOTTOM_CENTER" lineSpacing="2.0" prefHeight="16.0" prefWidth="203.0" text="Race" GridPane.columnSpan="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="Courier Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label lineSpacing="2.0" text="Energy" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerTwoEnergy" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
