@@ -28,11 +28,6 @@ public class Player implements Comparable {
     private IntegerProperty energy;
 
     private int mule;
-
-    private int foodMule;
-    private int energyMule;
-    private int crystiteMule;
-    private int oreMule;
     private List<Tile> tiles;
     private Mule unplacedMule;
 
@@ -160,39 +155,10 @@ public class Player implements Comparable {
     }
 
     public int getMule() {
-        this.mule = getFoodMule()+getCrystiteMule()+getenergyMule()+getOreMuleMule();
         return mule;
     }
     public void setMule(int mule) {
         this.mule = mule;
-    }
-
-    public int getFoodMule() {
-        return foodMule;
-    }
-    public void setFoodMule(int foodMuleQty) {
-        foodMule = foodMuleQty;
-    }
-
-    public int getenergyMule() {
-        return energyMule;
-    }
-    public void setEnergyMule(int energyMuleQty) {
-        energyMule = energyMuleQty;
-    }
-
-    public int getCrystiteMule() {
-        return crystiteMule;
-    }
-    public void setCrystiteMule(int crystiteMuleQty) {
-        crystiteMule = crystiteMuleQty;
-    }
-
-    public int getOreMuleMule() {
-        return oreMule;
-    }
-    public void setOreMuleMule(int oreMuleQty) {
-        oreMule = oreMuleQty;
     }
 
 
