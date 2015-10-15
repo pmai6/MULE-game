@@ -8,7 +8,6 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 public class Store {
     private static int food = 16;
-   // private static int ore;
     private static int energy = 16;
     private static int smithore = 0;
     private static int crystite = 0;
@@ -16,10 +15,18 @@ public class Store {
     private static int energyMule = 6;
     private static int crystiteMule = 6;
     private static int oreMule = 6;
+<<<<<<< Updated upstream
 
 
     public Store(int food, int ore, int energy, int smithore, int crystite, int foodMule,
                     int energyMule, int crystiteMule, int oreMule) {
+=======
+    private static int mule;
+
+
+    public Store(int food, int ore, int energy, int smithore, int crystite, int foodMule,
+                 int energyMule, int crystiteMule, int oreMule) {
+>>>>>>> Stashed changes
         this.food = food;
         this.energy = energy;
         this.smithore = smithore;
@@ -55,17 +62,25 @@ public class Store {
     public static void setCrystiteQty(int crystiteQty) { crystite = crystiteQty; }
 
     public static int getMuleQty() {
+<<<<<<< Updated upstream
         return oreMule + foodMule + crystiteMule + energyMule;
     }
     public static void setMuleQty(int muleQty) {
         int mule = muleQty;
     }
+=======
+        mule = oreMule + foodMule + crystiteMule + energyMule;
+        return mule;
+    }
+    public static void setMuleQty(int muleQty) { mule = muleQty; }
+>>>>>>> Stashed changes
 
 
     public static int getFoodMuleQty() { return foodMule; }
     public static int getFoodMulePrice() { return 100; }
     public static void setFoodMuleQty(int foodMuleQty) {
         foodMule = foodMuleQty;
+<<<<<<< Updated upstream
     }
 
     public static int getEnergyMuleQty() { return energyMule; }
@@ -74,6 +89,16 @@ public class Store {
         energyMule = energyMuleQty;
     }
 
+=======
+    }
+
+    public static int getEnergyMuleQty() { return energyMule; }
+    public static int getEnergyMulePrice() { return 100; }
+    public static void setEnergyMuleQty(int energyMuleQty) {
+        energyMule = energyMuleQty;
+    }
+
+>>>>>>> Stashed changes
     public static int getCrystiteMuleQty() { return crystiteMule; }
     public static int getCrystiteMulePrice() { return 100; }
     public static void setCrystiteMuleQty(int crystiteMuleQty) {
@@ -84,4 +109,8 @@ public class Store {
     public static int getSmithoreMulePrice() { return 100; }
     public static void setSmithoreMuleQty(int oreMuleQty) { oreMule = oreMuleQty; }
 
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
