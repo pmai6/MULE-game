@@ -150,22 +150,11 @@ public class Player implements Comparable {
         return smithore;
     }
 
-//    public int getOre() {
-//        return ore.get();
-//    }
-//    public void setOre(int ore) {
-//        this.ore.set(ore);
-//    }
-//    public IntegerProperty getOreProperty() {
-//        return ore;
-//    }
-
     public int getCrystite() { return crystite.get(); }
     public void setCrystite(int crysTite) { this.crystite.set(crysTite); }
-    public IntegerProperty getCrystiteProperty() {
-        return crystite;
-    }
+    public IntegerProperty getCrystiteProperty() { return crystite; }
 
+<<<<<<< Updated upstream
     public int getFoodMule() {
         return foodMule;
     }
@@ -193,7 +182,19 @@ public class Player implements Comparable {
     public void setSmithoreMule(int smithoreMule) {
         this.smithoreMule = smithoreMule;
     }
+=======
+    public int getFoodMule() { return foodMule; }
+    public void setFoodMule(int foodMule) { this.foodMule = foodMule; }
 
+    public int getEnergyMule() { return energyMule; }
+    public void setEnergyMule(int energyMule) { this.energyMule = energyMule; }
+
+    public int getCrystiteMule() { return crystiteMule; }
+    public void setCrystiteMule(int crystiteMule) { this.crystiteMule = crystiteMule; }
+>>>>>>> Stashed changes
+
+    public int getSmithoreMule() { return smithoreMule; }
+    public void setSmithoreMule(int smithoreMule) { this.smithoreMule = smithoreMule; }
 
 
     public List<Tile> getTiles() {
