@@ -1,6 +1,7 @@
 package mule.model;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import javafx.beans.property.IntegerProperty;
@@ -205,6 +206,16 @@ public class Player implements Comparable {
     }
     public void addtile (Tile tile) {
         tiles.add(tile);
+    }
+
+    public int getTotalNumberOfMules() {
+        int totalNumMules = 0;
+        List<Tile> tiles = this.getTiles();
+        Iterator<Tile> tileIterator = tiles.iterator();
+        while(tileIterator.hasNext()) {
+            totalNumMules += tileIterator.next().getMule().size();
+        }
+        return  totalNumMules;
     }
 
 
