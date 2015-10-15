@@ -50,7 +50,6 @@ private Player player;
 		Iterator<Mule> muleIterator = mules.iterator();
 		while(muleIterator.hasNext()) {
 			Mule currentMule = muleIterator.next();
-			Player currentPlayer = RoundManager.getCurrentPlayer();
 				if(currentMule instanceof FoodMule) {
 					PlayerManager.addPlayerFood(this.getOwner(), 2);
 				}
