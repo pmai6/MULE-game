@@ -8,6 +8,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Class to manage player objects
  */
@@ -147,6 +150,24 @@ public class PlayerManager {
     public static void addPlayerSmithore(Player player, int amount) {
         int currentSmithoreQty = player.getSmithore();
         int newSmithoreQty = currentSmithoreQty + amount;
+        player.setSmithore(newSmithoreQty);
+    }
+
+    public static void subPlayerFood(Player player, int amount) {
+        int currentFoodQty = player.getFood();
+        int newFoodQty = currentFoodQty - amount;
+        player.setFood(newFoodQty);
+    }
+
+    public static void subPlayerEnergy(Player player, int amount) {
+        int currentEnergyQty = player.getEnergy();
+        int newEnergyQty = currentEnergyQty - amount;
+        player.setEnergy(newEnergyQty);
+    }
+
+    public static void subPlayerSmithore(Player player, int amount) {
+        int currentSmithoreQty = player.getSmithore();
+        int newSmithoreQty = currentSmithoreQty - amount;
         player.setSmithore(newSmithoreQty);
     }
 

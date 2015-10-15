@@ -123,10 +123,18 @@ public class RoundManager {
     }
 
     private void calculatePlayerProduction() {
-        List<Tile> tiles = RoundManager.getCurrentPlayer().getTiles();
+        Player currentPlayer = RoundManager.getCurrentPlayer();
+        List<Tile> tiles = currentPlayer.getTiles();
         Iterator<Tile> tileIterator = tiles.iterator();
-        while(tileIterator.hasNext()) {
-            tileIterator.next().calculateProduction();
+        System.out.println(currentPlayer.getTotalNumberOfMules());
+        System.out.println(currentPlayer.getEnergy());
+        if(currentPlayer.getEnergy() >= currentPlayer.getTotalNumberOfMules()) {
+            while (tileIterator.hasNext()) {
+                tileIterator.next().calculateProduction();
+            }
+        }
+        else {
+            System.out.println("insufficient amount of energy");
         }
     }
 
