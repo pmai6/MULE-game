@@ -60,19 +60,19 @@ public class Store {
     }
 
     public static int getFoodMuleQty() { return foodMule; }
-    public static int getFoodMulePrice() { return 100; }
+    public static int getFoodMulePrice() { return 125; }
     public static void setFoodMuleQty(int foodMuleQty) { foodMule = foodMuleQty; }
 
     public static int getEnergyMuleQty() { return energyMule; }
-    public static int getEnergyMulePrice() { return 100; }
+    public static int getEnergyMulePrice() { return 150; }
     public static void setEnergyMuleQty(int energyMuleQty) { energyMule = energyMuleQty; }
 
     public static int getCrystiteMuleQty() { return crystiteMule; }
-    public static int getCrystiteMulePrice() { return 100; }
+    public static int getCrystiteMulePrice() { return 200; }
     public static void setCrystiteMuleQty(int crystiteMuleQty) { crystiteMule = crystiteMuleQty; }
 
     public static int getSmithoreMuleQty() { return oreMule; }
-    public static int getSmithoreMulePrice() { return 100; }
+    public static int getSmithoreMulePrice() { return 175; }
     public static void setSmithoreMuleQty(int oreMuleQty) { oreMule = oreMuleQty; }
 
 }
