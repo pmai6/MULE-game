@@ -33,7 +33,6 @@ public class Player implements Comparable {
     private int energyMule;
     private int crystiteMule;
     private int oreMule;
-
     private List<Tile> tiles;
     private Mule unplacedMule;
 
@@ -52,7 +51,7 @@ public class Player implements Comparable {
     private void setStartFoodOreEnergy() {
 
         this.food = new SimpleIntegerProperty(8);
-        this.energy = new SimpleIntegerProperty(0);
+        this.energy = new SimpleIntegerProperty(4);
         this.smithore = new SimpleIntegerProperty(0);
         this.crystite = new SimpleIntegerProperty(0);
     }

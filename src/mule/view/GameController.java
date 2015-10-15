@@ -628,35 +628,7 @@ public class GameController {
 
 
 
-        //get score listeners
 
-        gameManager.getMulegame().getPlayerArray().get(0).getScoreProperty()
-            .addListener
-                (new
-                     ChangeListener() {
-                         @Override
-                         public void changed(ObservableValue o, Object oldVal,
-                                             Object newVal) {
-                             playerOneScore.setText(String.valueOf
-                                 (gameManager
-                                     .getMulegame().getPlayerArray().get
-                                         (0).getScore()));
-                         }
-                     });
-
-        gameManager.getMulegame().getPlayerArray().get(1).getScoreProperty()
-            .addListener
-                (new
-                     ChangeListener() {
-                         @Override
-                         public void changed(ObservableValue o, Object oldVal,
-                                             Object newVal) {
-                             playerTwoScore.setText(String.valueOf
-                                 (gameManager
-                                     .getMulegame().getPlayerArray().get
-                                         (1).getScore()));
-                         }
-                     });
 
 
         //get Ore listeners
@@ -721,9 +693,9 @@ public class GameController {
                          }
                      });
 
-        //get Food listeners
+        //get Energy listeners
 
-        gameManager.getMulegame().getPlayerArray().get(0).getFoodProperty()
+        gameManager.getMulegame().getPlayerArray().get(0).getEnergyProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -737,7 +709,7 @@ public class GameController {
                          }
                      });
 
-        gameManager.getMulegame().getPlayerArray().get(1).getFoodProperty()
+        gameManager.getMulegame().getPlayerArray().get(1).getEnergyProperty()
             .addListener
                 (new
                      ChangeListener() {
@@ -908,7 +880,7 @@ public class GameController {
 
 
 
-            gameManager.getMulegame().getPlayerArray().get(2).getFoodProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getEnergyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -922,7 +894,7 @@ public class GameController {
                              }
                          });
 
-            gameManager.getMulegame().getPlayerArray().get(3).getFoodProperty()
+            gameManager.getMulegame().getPlayerArray().get(3).getEnergyProperty()
                 .addListener
                     (new
                          ChangeListener() {
@@ -1034,7 +1006,7 @@ public class GameController {
                              }
                          });
 
-            gameManager.getMulegame().getPlayerArray().get(2).getSmithoreProperty()
+            gameManager.getMulegame().getPlayerArray().get(2).getEnergyProperty()
                 .addListener
                     (new
                          ChangeListener() {

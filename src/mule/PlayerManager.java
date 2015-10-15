@@ -133,6 +133,7 @@ public class PlayerManager {
         int currentEnergyQty = player.getEnergy();
         int newEnergyQty = currentEnergyQty + amount;
         player.setEnergy(newEnergyQty);
+        System.out.println("adding energy for " + player.getPlayerName() + " energy is " + player.getEnergy());
     }
 
     public static void addPlayerSmithore(Player player, int amount) {
