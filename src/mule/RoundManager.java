@@ -129,6 +129,7 @@ public class RoundManager {
         System.out.println(currentPlayer.getTotalNumberOfMules());
         System.out.println(currentPlayer.getEnergy());
         if(currentPlayer.getEnergy() >= currentPlayer.getTotalNumberOfMules()) {
+            PlayerManager.subPlayerEnergy(currentPlayer, currentPlayer.getTotalNumberOfMules());
             while (tileIterator.hasNext()) {
                 tileIterator.next().calculateProduction();
             }
