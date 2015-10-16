@@ -418,7 +418,7 @@
             <Glow />
          </effect>
       </HBox>
-      <AnchorPane fx:id="town" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
+      <AnchorPane fx:id="town" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
          <children>
             <ImageView fitHeight="342.0" fitWidth="590.0">
                <image>

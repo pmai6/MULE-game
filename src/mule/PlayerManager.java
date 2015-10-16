@@ -80,8 +80,6 @@ public class PlayerManager {
         } else {
             gameManager.notEnoughMoney();
         }
-
-
     }
     /**
      * void method - add money to the account of the player
