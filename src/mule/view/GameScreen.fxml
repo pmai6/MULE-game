@@ -60,9 +60,10 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label fx:id="playerFourName" lineSpacing="2.0" prefHeight="16.0" prefWidth="198.0" text="Player Four" GridPane.columnSpan="2147483647">
+                  <Label fx:id="playerFourName" lineSpacing="2.0" prefHeight="283.0" prefWidth="198.0" text="Player Four" GridPane.columnSpan="2147483647">
                      <font>
                         <Font name="Courier" size="24.0" />
                      </font>
@@ -122,6 +123,16 @@
                         <Font name="Courier Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Label lineSpacing="2.0" text="Crystite" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerFourEnergy1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -134,6 +145,7 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -203,6 +215,16 @@
                         <Font name="Courier Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Label lineSpacing="2.0" text="Crystite" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerThreeEnergy1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -221,6 +243,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
@@ -284,6 +307,16 @@
                         <Font name="Courier Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Label lineSpacing="2.0" text="Crystite" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerOneEnergy1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -296,6 +329,7 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -365,6 +399,16 @@
                         <Font name="Courier Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Label lineSpacing="2.0" text="Crystite" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerTwoEnergy1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Courier Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -374,31 +418,36 @@
             <Glow />
          </effect>
       </HBox>
-      <AnchorPane fx:id="town" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
+      <AnchorPane fx:id="town" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="584.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Button fx:id="assayOffice" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAssayOfficeAction" prefHeight="151.0" prefWidth="160.0" style="-fx-background-color: RED;" text="Assay Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <ImageView fitHeight="342.0" fitWidth="590.0">
+               <image>
+                  <Image url="@town1.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="assayOffice" layoutX="455.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleAssayOfficeAction" prefHeight="16.0" prefWidth="78.0" style="-fx-background-color: RED;" text="Assay Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Agency FB" size="24.0" />
+                  <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="goToPub" layoutX="261.0" layoutY="211.0" mnemonicParsing="false" onAction="#goToPubButton" prefHeight="121.0" prefWidth="138.0" style="-fx-background-color: PURPLE;" text="Pub" textFill="WHITE" wrapText="true">
+            <Button fx:id="goToPub" layoutX="59.0" layoutY="136.0" mnemonicParsing="false" onAction="#goToPubButton" prefHeight="22.0" prefWidth="60.0" style="-fx-background-color: PURPLE;" text="Pub" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Agency FB" size="24.0" />
+                  <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="exit" layoutX="435.0" layoutY="101.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="110.0" prefWidth="149.0" text="Exit Town">
+            <Button fx:id="exit" layoutX="480.0" layoutY="37.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="16.0" prefWidth="79.0" text="Exit Town">
                <font>
-                  <Font name="Agency FB" size="24.0" />
+                  <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="landOffice" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleLandOfficeAction" prefHeight="100.0" prefWidth="131.0" style="-fx-background-color: ORANGE;" text="Land Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="landOffice" alignment="CENTER" layoutX="107.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleLandOfficeAction" prefHeight="16.0" prefWidth="107.0" style="-fx-background-color: ORANGE;" text="Land Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Agency FB" size="24.0" />
+                  <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="store" alignment="CENTER" layoutX="4.0" layoutY="208.0" mnemonicParsing="false" onAction="#goToStorebButton" prefHeight="127.0" prefWidth="143.0" style="-fx-background-color: GREEN;" text="Store" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="store" alignment="CENTER" layoutX="236.0" layoutY="136.0" mnemonicParsing="false" onAction="#goToStorebButton" prefHeight="16.0" prefWidth="71.0" style="-fx-background-color: GREEN;" text="Store" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Agency FB" size="24.0" />
+                  <Font size="12.0" />
                </font>
             </Button>
          </children>
