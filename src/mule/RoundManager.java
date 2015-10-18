@@ -53,7 +53,7 @@ public class RoundManager {
         if(passed) {
             roundManager.incrementNumPasses();
         }
-        roundManager.calculatePlayerProduction();
+        PlayerManager.calculatePlayerProduction();
         if (gameManager.isLandSelectionPhase()) {
             isLandSelectionOver();
         }
@@ -119,23 +119,6 @@ public class RoundManager {
     private  void setPlayerScores() {
         for(int playerInd = 0; playerInd < gameManager.getNumberOfPlayers(); playerInd++) {
             gameManager.getMulegame().getPlayerArray().get(playerInd).calculateScore();
-        }
-    }
-
-    private void calculatePlayerProduction() {
-        Player currentPlayer = RoundManager.getCurrentPlayer();
-        List<Tile> tiles = currentPlayer.getTiles();
-        Iterator<Tile> tileIterator = tiles.iterator();
-        System.out.println(currentPlayer.getTotalNumberOfMules());
-        System.out.println(currentPlayer.getEnergy());
-        if(currentPlayer.getEnergy() >= currentPlayer.getTotalNumberOfMules()) {
-            PlayerManager.subPlayerEnergy(currentPlayer, currentPlayer.getTotalNumberOfMules());
-            while (tileIterator.hasNext()) {
-                tileIterator.next().calculateProduction();
-            }
-        }
-        else {
-            System.out.println("insufficient amount of energy");
         }
     }
 

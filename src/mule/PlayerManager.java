@@ -132,6 +132,23 @@ public class PlayerManager {
 
     }
 
+    public static void calculatePlayerProduction() {
+        Player currentPlayer = RoundManager.getCurrentPlayer();
+        List<Tile> tiles = currentPlayer.getTiles();
+        Iterator<Tile> tileIterator = tiles.iterator();
+        System.out.println(currentPlayer.getTotalNumberOfMules());
+        System.out.println(currentPlayer.getEnergy());
+        if(currentPlayer.getEnergy() >= currentPlayer.getTotalNumberOfMules()) {
+            PlayerManager.subPlayerEnergy(currentPlayer, currentPlayer.getTotalNumberOfMules());
+            while (tileIterator.hasNext()) {
+                tileIterator.next().calculateProduction();
+            }
+        }
+        else {
+            System.out.println("insufficient amount of energy");
+        }
+    }
+
     public static void addPlayerFood(Player player, int amount) {
         int currentFoodQty = player.getFood();
         int newFoodQty = currentFoodQty + amount;
