@@ -149,6 +149,30 @@ public class PlayerManager {
         }
     }
 
+    public static void calculatePlayerRandomEvent() {
+        final String[] allRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
+                            "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS"};
+        final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT"};
+        int allRandomEventsIndex = (int)(Math.random() * allRandomEvents.length);
+        System.out.println(allRandomEventsIndex);
+        int goodRandomEventsIndex = (int)(Math.random() * goodRandomEvents.length);
+        System.out.println(goodRandomEventsIndex);
+        String lowestScorePlayerName = gameManager.getSortedPlayerArray().get(0).getPlayerName();
+        String currentPlayerName = RoundManager.getCurrentPlayer().getPlayerName();
+        String event;
+        if(Math.random() < .27) {
+            //if current player isnt the player with the lowest score
+            if(lowestScorePlayerName.compareToIgnoreCase(currentPlayerName) == 0)
+                event = allRandomEvents[allRandomEventsIndex];
+            else
+                event = goodRandomEvents[goodRandomEventsIndex];
+            RandomEvent.callRandomEvent(event);
+
+        }
+        else
+            System.out.println("no random event will occur");
+    }
+
     public static void addPlayerFood(Player player, int amount) {
         int currentFoodQty = player.getFood();
         int newFoodQty = currentFoodQty + amount;
@@ -166,6 +190,12 @@ public class PlayerManager {
         int currentSmithoreQty = player.getSmithore();
         int newSmithoreQty = currentSmithoreQty + amount;
         player.setSmithore(newSmithoreQty);
+    }
+
+    public static void addPlayerMoney(Player player, int amount) {
+        int currentMoneyQty = player.getMoney();
+        int newMoneyQty = currentMoneyQty + amount;
+        player.setMoney(newMoneyQty);
     }
 
     public static void subPlayerFood(Player player, int amount) {
@@ -186,4 +216,9 @@ public class PlayerManager {
         player.setSmithore(newSmithoreQty);
     }
 
+    public static void subPlayerMoney(Player player, int amount) {
+        int currentMoneyQty = player.getMoney();
+        int newMoneyQty = currentMoneyQty - amount;
+        player.setMoney(newMoneyQty);
+    }
 }

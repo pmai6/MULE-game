@@ -31,9 +31,6 @@ public class RoundManager {
      * @return you know the player
      */
     public static Player getCurrentPlayer() {
-        // This needs to be an actual player
-        // This is called by the MapManager handleMapButton method
-
         if(gameManager.isLandSelectionPhase())
             return gameManager.getMulegame().getPlayerArray().get(Round
                     .getTurnNum());
@@ -53,6 +50,8 @@ public class RoundManager {
         if(passed) {
             roundManager.incrementNumPasses();
         }
+
+        PlayerManager.calculatePlayerRandomEvent();
         PlayerManager.calculatePlayerProduction();
         if (gameManager.isLandSelectionPhase()) {
             isLandSelectionOver();
@@ -121,5 +120,7 @@ public class RoundManager {
             gameManager.getMulegame().getPlayerArray().get(playerInd).calculateScore();
         }
     }
+
+
 
 }
