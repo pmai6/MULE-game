@@ -121,7 +121,10 @@ public class Player implements Comparable {
         return money;
     }
     public void setMoney(int money) {
-        this.money.set(money);
+        if(money > 0)
+            this.money.set(money);
+        else
+            this.money.set(0);
     }
 
     public int getEnergy() {
@@ -131,14 +134,20 @@ public class Player implements Comparable {
         return energy;
     }
     public void setEnergy(int energy) {
-        this.energy.set(energy);
+        if(energy > 0)
+            this.energy.set(energy);
+        else
+            this.energy.set(0);
     }
 
     public int getFood() {
         return food.get();
     }
     public void setFood(int food) {
-        this.food.set(food);
+        if(food > 0)
+            this.food.set(food);
+        else
+            this.food.set(0);
     }
     public IntegerProperty getFoodProperty() {
         return food;
@@ -147,7 +156,12 @@ public class Player implements Comparable {
     public int getSmithore() {
         return smithore.get();
     }
-    public void setSmithore(int ore) { this.smithore.set(ore); }
+    public void setSmithore(int ore) {
+        if(ore > 0)
+            this.smithore.set(ore);
+        else
+            this.smithore.set(0);
+    }
     public IntegerProperty getSmithoreProperty() {
         return smithore;
     }
@@ -155,7 +169,12 @@ public class Player implements Comparable {
 
 
     public int getCrystite() { return crystite.get(); }
-    public void setCrystite(int crysTite) { this.crystite.set(crysTite); }
+    public void setCrystite(int crysTite) {
+        if(crysTite > 0)
+            this.crystite.set(crysTite);
+        else
+            this.crystite.set(0);
+    }
     public IntegerProperty getCrystiteProperty() {
         return crystite;
     }
