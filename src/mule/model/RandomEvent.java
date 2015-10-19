@@ -16,7 +16,7 @@ public class RandomEvent {
 ///        5.ATE_ROOF (bad event) - ($4*m)
 ///        6.STOLE_HALF_FOOD (bad event) - (.5 * food)
 ///        7.GYPSY_INLAWS_MESS (bad event) - ($6*m)
-    public static void callRandomEvent(String event) {
+    public static void callTurnRandomEvent(String event) {
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int m = getM(Round.getRoundNum());
         switch(event) {

@@ -162,7 +162,7 @@ public class PlayerManager {
                 event = RandomEvent.getAllRandomEventsEvent();
             else
                 event = RandomEvent.getGoodRandomEventsEvent();
-            RandomEvent.callRandomEvent(event);
+            RandomEvent.callTurnRandomEvent(event);
 
         }
         else
