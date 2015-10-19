@@ -61,4 +61,16 @@ public class RandomEvent {
             return 100;
     }
 
+    public static String getAllRandomEventsEvent() {
+        final String[] allRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
+                "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS"};
+        int allRandomEventsIndex = (int)(Math.random() * allRandomEvents.length);
+        return allRandomEvents[allRandomEventsIndex];
+    }
+
+    public static String getGoodRandomEventsEvent() {
+        final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT"};
+        int goodRandomEventsIndex = (int)(Math.random() * goodRandomEvents.length);
+        return goodRandomEvents[goodRandomEventsIndex];
+    }
 }

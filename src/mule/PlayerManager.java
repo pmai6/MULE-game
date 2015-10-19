@@ -150,22 +150,18 @@ public class PlayerManager {
     }
 
     public static void calculatePlayerRandomEvent() {
-        final String[] allRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
-                            "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS"};
-        final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT"};
-        int allRandomEventsIndex = (int)(Math.random() * allRandomEvents.length);
-        System.out.println(allRandomEventsIndex);
-        int goodRandomEventsIndex = (int)(Math.random() * goodRandomEvents.length);
-        System.out.println(goodRandomEventsIndex);
+
+        //System.out.println(allRandomEventsIndex);
+        //System.out.println(goodRandomEventsIndex);
         String lowestScorePlayerName = gameManager.getSortedPlayerArray().get(0).getPlayerName();
         String currentPlayerName = RoundManager.getCurrentPlayer().getPlayerName();
         String event;
         if(Math.random() < .27) {
             //if current player isnt the player with the lowest score
             if(lowestScorePlayerName.compareToIgnoreCase(currentPlayerName) == 0)
-                event = allRandomEvents[allRandomEventsIndex];
+                event = RandomEvent.getAllRandomEventsEvent();
             else
-                event = goodRandomEvents[goodRandomEventsIndex];
+                event = RandomEvent.getGoodRandomEventsEvent();
             RandomEvent.callRandomEvent(event);
 
         }
