@@ -3,6 +3,7 @@ package mule.model;
 import mule.GameManager;
 import mule.PlayerManager;
 import mule.RoundManager;
+import java.util.*;
 
 /**
  * Created by ryyanj on 10/17/15.
@@ -115,7 +116,7 @@ public class RandomEvent {
             return 100;
     }
 
-    public static String getAllRandomEventsEvent() {
+    public static String getAllTurnRandomEventsEvent() {
         final String[] allRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
                 "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS", "KATRINA_SWEPT_ALL", "GA_HOT_BOWL",
                 "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING", "TEST_WEEK_MESS"};
@@ -123,10 +124,29 @@ public class RandomEvent {
         return allRandomEvents[allRandomEventsIndex];
     }
 
-    public static String getGoodRandomEventsEvent() {
+
+    public static String getGoodTurnRandomEventsEvent() {
         final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
                 "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING"};
         int goodRandomEventsIndex = (int)(Math.random() * goodRandomEvents.length);
         return goodRandomEvents[goodRandomEventsIndex];
+    }
+
+    public static void callRoundRandomEvent(String event) {
+        switch(event) {
+            case "UNICORN_BLESSING":
+                PlayerManager.addFoodToAllPlayers(3);
+                PlayerManager.addEnergyToAllPlayers(2);
+                GameManager.notifyRandomEvent("UNICORN_BLESSING");
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid random event " + event);
+        }
+    }
+
+    public static String getRoundRandomEventsEvent() {
+        final String[] roundRandomEvents = {"UNICORN_BLESSING"};
+        int roundRandomEventsIndex = (int)(Math.random() * roundRandomEvents.length);
+        return roundRandomEvents[roundRandomEventsIndex];
     }
 }
