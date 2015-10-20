@@ -54,6 +54,10 @@ public class River implements Tile {
             }
             else if(currentMule instanceof EnergyMule) {
                 PlayerManager.addPlayerEnergy(this.getOwner(), 2);
+            } else if (currentMule instanceof UnicornMule) {
+                PlayerManager.addPlayerSmithore(this.getOwner(), 4);
+                PlayerManager.addPlayerFood(this.getOwner(), 3);
+                PlayerManager.addPlayerEnergy(this.getOwner(), 4);
             }
         }
 

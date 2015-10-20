@@ -10,11 +10,12 @@ import javafx.beans.property.StringProperty;
 
 import java.util.Iterator;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Class to manage player objects
  */
-public class PlayerManager {
+public class PlayerManager implements Serializable{
     private static GameManager gameManager = GameManager.getGameManager();
 
     private int startTime;
@@ -143,8 +144,7 @@ public class PlayerManager {
             while (tileIterator.hasNext()) {
                 tileIterator.next().calculateProduction();
             }
-        }
-        else {
+        } else {
             System.out.println("insufficient amount of energy");
         }
     }
@@ -160,10 +160,9 @@ public class PlayerManager {
             else
                 event = RandomEvent.getGoodTurnRandomEventsEvent();
             RandomEvent.callTurnRandomEvent(event);
-
-        }
-        else
-            System.out.println("no random event will occur");
+        } else {
+                System.out.println("no random event will occur");
+            }
     }
 
     public static void calculatePlayerRoundRandomEvent() {
@@ -196,10 +195,64 @@ public class PlayerManager {
         player.setSmithore(newSmithoreQty);
     }
 
+    public static void addPlayerCrystite(Player player, int amount) {
+        int currentCrystiteQty = player.getCrystite();
+        int newCrystiteQty = currentCrystiteQty + amount;
+        player.setSmithore(newCrystiteQty);
+    }
+
     public static void addPlayerMoney(Player player, int amount) {
         int currentMoneyQty = player.getMoney();
         int newMoneyQty = currentMoneyQty + amount;
         player.setMoney(newMoneyQty);
+    }
+
+//    public static void addPlayerEnergyMule(Player player, int amount) throws Exception{
+//        int currentEnergyMuleQty = player.getenergyMule();
+//        int newEnergyMuleQty = currentEnergyMuleQty + amount;
+//        player.setEnergyMule(newEnergyMuleQty);
+//        for (int m = 0; m < amount; m++) {
+//            Mule mule = new EnergyMule();
+//            player.setUnplacedMule(mule);
+//            gameManager.placeMule();
+//        }
+//    }
+//
+//    public static void addPlayerUnicornMule(Player player, int amount) throws Exception{
+//        int currentUnicornMuleQty = player.getUnicornMule();
+//        int newUnicornMuleQty = currentUnicornMuleQty + amount;
+//        player.setUnicornMule(newUnicornMuleQty);
+//        for (int m = 0; m < amount; m++) {
+//            Mule mule = new UnicornMule();
+//            player.setUnplacedMule(mule);
+//            gameManager.placeMule();
+//        }
+//    }
+
+    public static void addPlayerMule (Player player, String muleName, int amount) throws Exception{
+        for (int i = 0; i < amount; i++) {
+            if (muleName.equals("Energy Mule")){
+                Mule mule = new EnergyMule();
+                player.setUnplacedMule(mule);
+                gameManager.placeMule();
+            } else if (muleName.equals("Unicorn Mule")){
+                Mule mule = new UnicornMule();
+                player.setUnplacedMule(mule);
+                gameManager.placeMule();
+            } else if (muleName.equals("Ore Mule")) {
+                Mule mule = new SmithoreMule();
+                player.setUnplacedMule(mule);
+                gameManager.placeMule();
+            } else if (muleName.equals("Crystite Mule")) {
+                Mule mule = new CrystiteMule();
+                player.setUnplacedMule(mule);
+                gameManager.placeMule();
+            } else {
+                Mule mule = new FoodMule();
+                player.setUnplacedMule(mule);
+                gameManager.placeMule();
+            }
+        }
     }
 
     public static void subPlayerFood(Player player, int amount) {
@@ -218,6 +271,12 @@ public class PlayerManager {
         int currentSmithoreQty = player.getSmithore();
         int newSmithoreQty = currentSmithoreQty - amount;
         player.setSmithore(newSmithoreQty);
+    }
+
+    public static void subPlayerCrystite(Player player, int amount) {
+        int currentCrystiteQty = player.getCrystite();
+        int newCrystiteQty = currentCrystiteQty - amount;
+        player.setSmithore(newCrystiteQty);
     }
 
     public static void subPlayerMoney(Player player, int amount) {
@@ -271,5 +330,31 @@ public class PlayerManager {
     public static List<Player> getPlayerList() {
         List<Player> allPlayers = gameManager.getSortedPlayerArray();
         return allPlayers;
+    }
+
+    public static void subPlayerMule (Player player, String muleName, int amount) throws Exception{
+        for (int i = 0; i < amount; i++) {
+            if (muleName.equals("Energy Mule")){
+                int currentEnergyMuleQty = player.getenergyMule();
+                int newEnergyMuleQty = currentEnergyMuleQty - amount;
+                player.setEnergyMule(newEnergyMuleQty);
+            } else if (muleName.equals("Unicorn Mule")){
+                int currentUnicornMuleQty = player.getUnicornMule();
+                int newUnicornMuleQty = currentUnicornMuleQty - amount;
+                player.setOreMule(newUnicornMuleQty);
+            } else if (muleName.equals("Ore Mule")) {
+                int currentSmithoreMuleQty = player.getOreMule();
+                int newEnergyMuleQty = currentSmithoreMuleQty - amount;
+                player.setOreMule(newEnergyMuleQty);
+            } else if (muleName.equals("Crystite Mule")) {
+                int currentCrystiteMuleQty = player.getCrystiteMule();
+                int newCrystiteMuleQty = currentCrystiteMuleQty - amount;
+                player.setCrystiteMule(newCrystiteMuleQty);
+            } else {
+                int currentFoodMuleQty = player.getFoodMule();
+                int newFoodMuleQty = currentFoodMuleQty - amount;
+                player.setFoodMule(newFoodMuleQty);
+            }
+        }
     }
 }
