@@ -134,7 +134,7 @@ controller.placingMule();
         int smithoreMule = Store.getSmithoreMuleQty();
 
         controller.updateStoreData(food, energy, smithore, crystite, foodMule,
-                energyMule,crystiteMule, smithoreMule);
+            energyMule, crystiteMule, smithoreMule);
     }
 
     public  void initializePlayerGuiStats() {
@@ -160,7 +160,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(0).getFood();
         int energy = mulegame.getPlayerArray().get(0).getEnergy();
         controller.changePlayerOneGuiStats(name, race, score, money, ore,
-                food, color, energy);
+            food, color, energy);
     }
     private   void updatePlayerTwo() {
         String name = mulegame.getPlayerArray().get(1)
@@ -176,7 +176,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(1).getFood();
         int energy = mulegame.getPlayerArray().get(1).getEnergy();
         controller.changePlayerTwoGuiStats(name, race, score, money, ore,
-                food, color, energy);
+            food, color, energy);
     }
     private static void updatePlayerThree() {
         String name = mulegame.getPlayerArray().get(2)
@@ -191,7 +191,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(2).getFood();
         int energy = mulegame.getPlayerArray().get(2).getEnergy();
         controller.changePlayerThreeGuiStats(name, race, score, money, ore,
-                food, color, energy);
+            food, color, energy);
     }
 
     private  void updatePlayerFour() {
@@ -207,7 +207,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(3).getFood();
         int energy = mulegame.getPlayerArray().get(2).getEnergy();
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
-                food, color, energy);
+            food, color, energy);
     }
     public  void setTimer() {
         controller.setTimer();
@@ -221,6 +221,10 @@ controller.placingMule();
         controller.youGotNoMoney();
     }
 
+
+    public  static void notifyRandomEvent(String random) {
+        controller.randomEventDialog(random);
+    }
     public  void notEnoughItem() {
         controller.youGotNoResources();
     }

@@ -1,5 +1,6 @@
 package mule.model;
 
+import mule.GameManager;
 import mule.PlayerManager;
 import mule.RoundManager;
 
@@ -22,25 +23,32 @@ public class RandomEvent {
         switch(event) {
             case "RCVD_GT_PACK":
                 PlayerManager.addPlayerFood(currentPlayer, 3);
-                PlayerManager.addPlayerEnergy(currentPlayer,2);
+                PlayerManager.addPlayerEnergy(currentPlayer, 2);
+                GameManager.notifyRandomEvent("RCVD_GT_PACK");
                 break;
             case "REPAID_HOSPITALITY":
                 PlayerManager.addPlayerSmithore(currentPlayer,2);
+                GameManager.notifyRandomEvent("REPAID_HOSPITALITY");
                 break;
             case "BOUGHT_ANTIQUE_CPU":
                 PlayerManager.addPlayerMoney(currentPlayer,8*m);
+                GameManager.notifyRandomEvent("BOUGHT_ANTIQUE_CPU");
                 break;
             case "SOLD_RAT":
                 PlayerManager.addPlayerMoney(currentPlayer,2*m);
+                GameManager.notifyRandomEvent("SOLD_RAT");
                 break;
             case "ATE_ROOF":
                 PlayerManager.subPlayerMoney(currentPlayer,4*m);
+                GameManager.notifyRandomEvent("ATE_ROOF");
                 break;
             case "STOLE_HALF_FOOD":
                 PlayerManager.subPlayerFood(currentPlayer, (int) .5 * currentPlayer.getFood());
+                GameManager.notifyRandomEvent("STOLE_HALF_FOOD");
                 break;
             case "GYPSY_INLAWS_MESS":
                 PlayerManager.subPlayerMoney(currentPlayer,6*m);
+                GameManager.notifyRandomEvent("GYPSY_INLAWS_MESS");
                 break;
             default:
                 throw new IllegalArgumentException("Invalid random event " + event);

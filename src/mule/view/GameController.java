@@ -1296,6 +1296,15 @@ public class GameController {
         alert.showAndWait();
     }
 
+
+    public void randomEventDialog(String random) {
+        map.setCursor(Cursor.DEFAULT);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText(random);
+        alert.showAndWait();
+    }
 public void addMuleToButton (Button button, Tile tile) {
     Image imageplain;
            if (tile instanceof Plain) {
