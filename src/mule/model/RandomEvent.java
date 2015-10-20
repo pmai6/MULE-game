@@ -48,7 +48,7 @@ public class RandomEvent {
                 break;
             case "GYPSY_INLAWS_MESS":
                 PlayerManager.subPlayerMoney(currentPlayer,6*m);
-                GameManager.notifyRandomEvent("GYPSY_INLAWS_MESS");
+                GameManager.notifyRandomEvent("YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $6*m TO CLEAN IT UP.");
                 break;
             default:
                 throw new IllegalArgumentException("Invalid random event " + event);
