@@ -27,7 +27,6 @@ private  boolean isMuleBought = false;
         sortedPlayerArray = new ArrayList<>(anumPlayers);
         n = number;
         map = amap;
-
     }
 
 

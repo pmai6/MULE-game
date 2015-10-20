@@ -288,7 +288,7 @@ public class GameController {
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     } else {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("town.png"));
+                                .getResourceAsStream("town.gif"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     }
