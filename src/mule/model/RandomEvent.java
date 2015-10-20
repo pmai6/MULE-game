@@ -37,15 +37,15 @@ public class RandomEvent {
                 break;
             case "BOUGHT_ANTIQUE_CPU":
                 PlayerManager.addPlayerMoney(currentPlayer,8*m);
-                GameManager.notifyRandomEvent("THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $ 8*m");
+                GameManager.notifyRandomEvent("THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $" + 8*m);
                 break;
             case "SOLD_RAT":
                 PlayerManager.addPlayerMoney(currentPlayer,2*m);
-                GameManager.notifyRandomEvent("YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $2*m");
+                GameManager.notifyRandomEvent("YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $" + 2*m);
                 break;
             case "ATE_ROOF":
                 PlayerManager.subPlayerMoney(currentPlayer,4*m);
-                GameManager.notifyRandomEvent("FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $4*m");
+                GameManager.notifyRandomEvent("FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $" + 4*m);
                 break;
             case "STOLE_HALF_FOOD":
                 PlayerManager.subPlayerFood(currentPlayer, (int) .5 * currentPlayer.getFood());
@@ -53,7 +53,7 @@ public class RandomEvent {
                 break;
             case "GYPSY_INLAWS_MESS":
                 PlayerManager.subPlayerMoney(currentPlayer,6*m);
-                GameManager.notifyRandomEvent("YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $6*m TO CLEAN IT UP.");
+                GameManager.notifyRandomEvent("YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $" + 6*m + "TO CLEAN IT UP.");
                 break;
             case "KATRINA_SWEPT_ALL":
                 PlayerManager.subPlayerMoney(currentPlayer,3*m);
@@ -62,6 +62,8 @@ public class RandomEvent {
                 } catch (Exception n) {
                     System.out.println("Mule does not exists");
                 }
+                GameManager.notifyRandomEvent("ANGRY FAIRY REMEBERS HER CLEAN UP DAY. SHE CHARGES $" + 3*m + "AND RUNS " +
+                        "OFF WITH 1 ENERGY MULE");
                 break;
             case "GA_HOT_BOWL":
                 PlayerManager.subPlayerFood(currentPlayer, 5);
@@ -70,6 +72,7 @@ public class RandomEvent {
                 } catch (Exception n) {
                     System.out.println("Mule does not exists");
                 }
+                GameManager.notifyRandomEvent("WOW!! TOO HOT!!! 2 ORE MULES DIE AND 5 FOOD UNITS ROT");
                 break;
             case "GENIE_GRANT_GIFT":
                 PlayerManager.addPlayerMoney(currentPlayer,3*m);
@@ -79,6 +82,8 @@ public class RandomEvent {
                 } catch (Exception n) {
                     System.out.println("Mule does not exists");
                 }
+                GameManager.notifyRandomEvent("HUPPIE!! I'M OUT OF THE TEAPOT. HERE ARE $" + 3*m + ", 10 FOOD, 2 " +
+                        "ENERGY MULES FOR YOU.");
                 break;
             case "UNICORN_WANDER_LOST":
                 PlayerManager.addPlayerMoney(currentPlayer, 6*m);
@@ -91,10 +96,18 @@ public class RandomEvent {
                 } catch (Exception n) {
                     System.out.println("Mule does not exists");
                 }
+                GameManager.notifyRandomEvent("UNICORN LIKES YOU, COME GET $" + 6*m + ", 10 FOOD, 2 ENERGY, 3 SMITHORES, 3 CRYSTITES, AND" +
+                        "TAKE 1 UNICORN MULE HOME");
                 break;
             case "GT_HOMECOMING":
                 PlayerManager.addPlayerCrystite(currentPlayer, 4);
                 PlayerManager.addPlayerEnergy(currentPlayer,1);
+                GameManager.notifyRandomEvent("IT'S GT HOMECOMING MONTH. LET'S CELEBRATE WITH 4 CRYSTITES, AND 1 ENERGY");
+                break;
+            case "TEST_WEEK_MESS":
+                PlayerManager.subPlayerMoney(currentPlayer, 2*m);
+                PlayerManager.subPlayerEnergy(currentPlayer, 3);
+                GameManager.notifyRandomEvent("EXAMS DRAIN YOUR ENERGY AND MONEY $" + 2*m);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid random event " + event);
@@ -125,7 +138,7 @@ public class RandomEvent {
 
     public static String getGoodRandomEventsEvent() {
         final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
-                "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING"};
+                "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING", "TEST_WEEK_MESS"};
         int goodRandomEventsIndex = (int)(Math.random() * goodRandomEvents.length);
         return goodRandomEvents[goodRandomEventsIndex];
     }
