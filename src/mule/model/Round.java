@@ -7,7 +7,7 @@ package mule.model;
         import mule.GameManager;
 
         import java.lang.reflect.Array;
-        import java.util.ArrayList;;
+        import java.util.ArrayList;
 
 public class Round {
 

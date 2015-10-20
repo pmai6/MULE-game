@@ -16,7 +16,12 @@ public class RandomEvent {
 ///        4.SOLD_RAT + ($2*m)
 ///        5.ATE_ROOF (bad event) - ($4*m)
 ///        6.STOLE_HALF_FOOD (bad event) - (.5 * food)
-///        7.GYPSY_INLAWS_MESS (bad event) - ($6*m)
+///        7.KATRINA_SWEPT_ALL (bad event) - ($3*m, 1 energyMules)
+///        8.GA_HOT_BOWL (bad event) - (5 food, 2 SmithoreMules)
+///        9.GENIE_GRANT_GIFT (good event) + ($3*m, 10 food, 2 mules)
+///        10.UNICORN_WANDER_LOST (good event) + ($6*m, 1 special unicornMule, 2 energy, 2 food, 3 smithore, 3 crystite)
+///        11.GT_HOMECOMING (good event) + (1 energy, 4 crystite)
+///        12.TEST_WEEK_MESS (bad event) - ($2*m, 3 energy)
     public static void callTurnRandomEvent(String event) {
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int m = getM(Round.getRoundNum());
@@ -50,6 +55,47 @@ public class RandomEvent {
                 PlayerManager.subPlayerMoney(currentPlayer,6*m);
                 GameManager.notifyRandomEvent("YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $6*m TO CLEAN IT UP.");
                 break;
+            case "KATRINA_SWEPT_ALL":
+                PlayerManager.subPlayerMoney(currentPlayer,3*m);
+                try {
+                    PlayerManager.subPlayerMule(currentPlayer, "Energy Mule", 1);
+                } catch (Exception n) {
+                    System.out.println("Mule does not exists");
+                }
+                break;
+            case "GA_HOT_BOWL":
+                PlayerManager.subPlayerFood(currentPlayer, 5);
+                try {
+                    PlayerManager.subPlayerMule(currentPlayer, "Smithore Mule", 2);
+                } catch (Exception n) {
+                    System.out.println("Mule does not exists");
+                }
+                break;
+            case "GENIE_GRANT_GIFT":
+                PlayerManager.addPlayerMoney(currentPlayer,3*m);
+                PlayerManager.addPlayerFood(currentPlayer, 10);
+                try {
+                    PlayerManager.addPlayerMule(currentPlayer, "Energy Mule", 2);
+                } catch (Exception n) {
+                    System.out.println("Mule does not exists");
+                }
+                break;
+            case "UNICORN_WANDER_LOST":
+                PlayerManager.addPlayerMoney(currentPlayer, 6*m);
+                PlayerManager.addPlayerFood(currentPlayer, 10);
+                PlayerManager.addPlayerEnergy(currentPlayer, 2);
+                PlayerManager.addPlayerSmithore(currentPlayer, 3);
+                PlayerManager.addPlayerCrystite(currentPlayer, 3);
+                try {
+                    PlayerManager.addPlayerMule(currentPlayer, "Unicorn Mule", 1);
+                } catch (Exception n) {
+                    System.out.println("Mule does not exists");
+                }
+                break;
+            case "GT_HOMECOMING":
+                PlayerManager.addPlayerCrystite(currentPlayer, 4);
+                PlayerManager.addPlayerEnergy(currentPlayer,1);
+                break;
             default:
                 throw new IllegalArgumentException("Invalid random event " + event);
         }
@@ -71,13 +117,15 @@ public class RandomEvent {
 
     public static String getAllRandomEventsEvent() {
         final String[] allRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
-                "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS"};
+                "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS", "KATRINA_SWEPT_ALL", "GA_HOT_BOWL",
+                "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING", "TEST_WEEK_MESS"};
         int allRandomEventsIndex = (int)(Math.random() * allRandomEvents.length);
         return allRandomEvents[allRandomEventsIndex];
     }
 
     public static String getGoodRandomEventsEvent() {
-        final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT"};
+        final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
+                "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING"};
         int goodRandomEventsIndex = (int)(Math.random() * goodRandomEvents.length);
         return goodRandomEvents[goodRandomEventsIndex];
     }

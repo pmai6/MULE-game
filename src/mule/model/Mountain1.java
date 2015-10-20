@@ -56,6 +56,10 @@ public class Mountain1 implements Tile {
                     PlayerManager.addPlayerEnergy(this.getOwner(), 1);
                 } else if (currentMule instanceof SmithoreMule) {
                     PlayerManager.addPlayerSmithore(this.getOwner(), 2);
+                } else if (currentMule instanceof UnicornMule) {
+                    PlayerManager.addPlayerSmithore(this.getOwner(), 2);
+                    PlayerManager.addPlayerFood(this.getOwner(), 3);
+                    PlayerManager.addPlayerEnergy(this.getOwner(), 2);
                 }
         }
 
