@@ -51,12 +51,12 @@ public class RoundManager {
             roundManager.incrementNumPasses();
         }
 
-        PlayerManager.calculatePlayerRandomEvent();
         PlayerManager.calculatePlayerProduction();
         if (gameManager.isLandSelectionPhase()) {
             isLandSelectionOver();
         }
         if (!gameManager.isLandSelectionPhase()) {
+            PlayerManager.calculatePlayerRandomEvent();
             gameManager.setTimer();
             gameManager.setIsMuleBought(false);
             gameManager.setCursorDefault();
