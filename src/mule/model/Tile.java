@@ -21,11 +21,9 @@ public interface Tile {
     void setIsOwned(boolean isOwned);
 
 
-    public List<Mule> getMule();
-
-    public void addMule (Mule mule);
-
-    public void calculateProduction();
+    List<Mule> getMule();
+    void addMule (Mule mule);
+    void calculateProduction();
 
     }
 
