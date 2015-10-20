@@ -24,23 +24,23 @@ public class RandomEvent {
             case "RCVD_GT_PACK":
                 PlayerManager.addPlayerFood(currentPlayer, 3);
                 PlayerManager.addPlayerEnergy(currentPlayer, 2);
-                GameManager.notifyRandomEvent("RCVD_GT_PACK");
+                GameManager.notifyRandomEvent("YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.");
                 break;
             case "REPAID_HOSPITALITY":
                 PlayerManager.addPlayerSmithore(currentPlayer,2);
-                GameManager.notifyRandomEvent("REPAID_HOSPITALITY");
+                GameManager.notifyRandomEvent("WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING TWO BARS OF ORE.");
                 break;
             case "BOUGHT_ANTIQUE_CPU":
                 PlayerManager.addPlayerMoney(currentPlayer,8*m);
-                GameManager.notifyRandomEvent("BOUGHT_ANTIQUE_CPU");
+                GameManager.notifyRandomEvent("THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $ 8*m");
                 break;
             case "SOLD_RAT":
                 PlayerManager.addPlayerMoney(currentPlayer,2*m);
-                GameManager.notifyRandomEvent("SOLD_RAT");
+                GameManager.notifyRandomEvent("YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $2*m");
                 break;
             case "ATE_ROOF":
                 PlayerManager.subPlayerMoney(currentPlayer,4*m);
-                GameManager.notifyRandomEvent("ATE_ROOF");
+                GameManager.notifyRandomEvent("FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $4*m");
                 break;
             case "STOLE_HALF_FOOD":
                 PlayerManager.subPlayerFood(currentPlayer, (int) .5 * currentPlayer.getFood());
