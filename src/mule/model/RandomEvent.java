@@ -44,7 +44,7 @@ public class RandomEvent {
                 break;
             case "STOLE_HALF_FOOD":
                 PlayerManager.subPlayerFood(currentPlayer, (int) .5 * currentPlayer.getFood());
-                GameManager.notifyRandomEvent("STOLE_HALF_FOOD");
+                GameManager.notifyRandomEvent("MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.");
                 break;
             case "GYPSY_INLAWS_MESS":
                 PlayerManager.subPlayerMoney(currentPlayer,6*m);
