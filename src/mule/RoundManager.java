@@ -56,7 +56,7 @@ public class RoundManager {
             isLandSelectionOver();
         }
         if (!gameManager.isLandSelectionPhase()) {
-            PlayerManager.calculatePlayerRandomEvent();
+            PlayerManager.calculatePlayerTurnRandomEvent();
             gameManager.setTimer();
             gameManager.setIsMuleBought(false);
             gameManager.setCursorDefault();
@@ -68,6 +68,7 @@ public class RoundManager {
         }
 
         if(Round.getTurnNum() == gameManager.getNumberOfPlayers()) { //incrmeent round if all players have gone
+            PlayerManager.calculatePlayerRoundRandomEvent();
             roundManager.setPlayerScores();
             roundManager.incrementRoundNumber();
 

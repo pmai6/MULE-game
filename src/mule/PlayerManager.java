@@ -149,24 +149,31 @@ public class PlayerManager implements Serializable{
         }
     }
 
-    public static void calculatePlayerRandomEvent() {
-
-        //System.out.println(allRandomEventsIndex);
-        //System.out.println(goodRandomEventsIndex);
+    public static void calculatePlayerTurnRandomEvent() {
         String lowestScorePlayerName = gameManager.getSortedPlayerArray().get(0).getPlayerName();
         String currentPlayerName = RoundManager.getCurrentPlayer().getPlayerName();
         String event;
         if(Math.random() < .27) {
             //if current player isnt the player with the lowest score
-            if(lowestScorePlayerName.compareToIgnoreCase(currentPlayerName) == 0) {
-                event = RandomEvent.getAllRandomEventsEvent();
-            } else {
-                event = RandomEvent.getGoodRandomEventsEvent();
-            }
+            if(lowestScorePlayerName.compareToIgnoreCase(currentPlayerName) == 0)
+                event = RandomEvent.getAllTurnRandomEventsEvent();
+            else
+                event = RandomEvent.getGoodTurnRandomEventsEvent();
             RandomEvent.callTurnRandomEvent(event);
         } else {
                 System.out.println("no random event will occur");
             }
+    }
+
+    public static void calculatePlayerRoundRandomEvent() {
+        String event;
+        if(Math.random() < .2) {
+            event = RandomEvent.getRoundRandomEventsEvent();
+            RandomEvent.callRoundRandomEvent(event);
+
+        }
+        else
+            System.out.println("no random event will occur");
     }
 
     public static void addPlayerFood(Player player, int amount) {
@@ -277,6 +284,53 @@ public class PlayerManager implements Serializable{
         player.setMoney(newMoneyQty);
     }
 
+    public static void addFoodToAllPlayers(int food) {
+        Iterator<Player> playerIterator = getPlayerList().iterator();
+            while (playerIterator.hasNext()) {
+                addPlayerFood(playerIterator.next(),food);
+            }
+    }
+
+    public static void addEnergyToAllPlayers(int energy) {
+        Iterator<Player> playerIterator = getPlayerList().iterator();
+        while (playerIterator.hasNext()) {
+            addPlayerEnergy(playerIterator.next(), energy);
+        }
+    }
+
+    public static void addSmithoreToAllPlayers(int smithore) {
+        Iterator<Player> playerIterator = getPlayerList().iterator();
+        while (playerIterator.hasNext()) {
+            addPlayerSmithore(playerIterator.next(), smithore);
+        }
+    }
+    public static void subFoodToAllPlayers(int food) {
+        Iterator<Player> playerIterator = getPlayerList().iterator();
+        while (playerIterator.hasNext()) {
+            subPlayerFood(playerIterator.next(), food);
+        }
+    }
+
+    public static void subEnergyToAllPlayers(int energy) {
+        Iterator<Player> playerIterator = getPlayerList().iterator();
+        while (playerIterator.hasNext()) {
+            subPlayerEnergy(playerIterator.next(), energy);
+        }
+    }
+
+    public static void subSmithoreToAllPlayers(int smithore) {
+        Iterator<Player> playerIterator = getPlayerList().iterator();
+        while (playerIterator.hasNext()) {
+            subPlayerSmithore(playerIterator.next(), smithore);
+        }
+    }
+
+
+    public static List<Player> getPlayerList() {
+        List<Player> allPlayers = gameManager.getSortedPlayerArray();
+        return allPlayers;
+    }
+
     public static void subPlayerMule (Player player, String muleName, int amount) throws Exception{
         for (int i = 0; i < amount; i++) {
             if (muleName.equals("Energy Mule")){
@@ -302,5 +356,4 @@ public class PlayerManager implements Serializable{
             }
         }
     }
-
 }
