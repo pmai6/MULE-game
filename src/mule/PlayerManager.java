@@ -168,7 +168,7 @@ public class PlayerManager {
 
     public static void calculatePlayerRoundRandomEvent() {
         String event;
-        if(Math.random() < .5) {
+        if(Math.random() < .2) {
             event = RandomEvent.getRoundRandomEventsEvent();
             RandomEvent.callRoundRandomEvent(event);
 
