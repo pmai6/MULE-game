@@ -6,8 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import mule.model.*;
-import mule.model.GameMap;
-import mule.view.*;
 
 /**
  * Created by travisclement on 9/18/15.

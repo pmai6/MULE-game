@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 import mule.GameManager;
 import mule.Main;
 import mule.PlayerManager;
-import mule.model.Game;
-import mule.model.Player;
 
 
 public class StartUpController {

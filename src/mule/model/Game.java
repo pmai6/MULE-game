@@ -1,5 +1,4 @@
 package mule.model;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Arrays;

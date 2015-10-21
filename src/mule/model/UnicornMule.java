@@ -17,7 +17,8 @@ public class UnicornMule implements Mule{
         }
         public Tile getLocation(Tile tile) { return tile; }
 
-        public void setLocation(Tile tile) {this.tile = tile; }
+        public void setLocation(Tile tile) {
+            UnicornMule.tile = tile; }
 
         public Player getOwner() {
             return player;

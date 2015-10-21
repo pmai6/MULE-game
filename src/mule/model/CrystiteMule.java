@@ -18,7 +18,8 @@ public class CrystiteMule implements Mule {
     }
     public Tile getLocation(Tile tile) { return tile; }
 
-    public void setLocation(Tile tile) {this.tile = tile; }
+    public void setLocation(Tile tile) {
+        CrystiteMule.tile = tile; }
 
     public Player getOwner() {
         return player;

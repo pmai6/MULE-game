@@ -1,8 +1,5 @@
 package mule.model;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-
 /**
  * Created by redcream12 on 9/18/15.
  */
@@ -23,9 +20,6 @@ public class Store {
         this.smithore = smithore;
         this.crystite = crystite;
         this.mule = mule;
-    }
-    public void showItems() {  // Display Store's menu
-
     }
 /*    private void setStartStoreQuantity() {
         food = 16;

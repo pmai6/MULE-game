@@ -15,9 +15,10 @@ public class FoodMule implements Mule {
     public void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile tile) { return this.tile; }
+    public Tile getLocation(Tile tile) { return FoodMule.tile; }
 
-    public void setLocation(Tile tile) {this.tile = tile; }
+    public void setLocation(Tile tile) {
+        FoodMule.tile = tile; }
 
     public Player getOwner() {
         return player;

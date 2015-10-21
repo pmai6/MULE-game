@@ -6,8 +6,6 @@ import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import mule.RoundManager;
 

@@ -1,14 +1,7 @@
 package mule;
 
-import mule.model.Game;
 import mule.model.Player;
 import mule.model.Round;
-
-import java.util.*;
-
-import mule.model.Tile;
-import mule.view.GameController;
-import mule.view.timer;
 
 
 /**

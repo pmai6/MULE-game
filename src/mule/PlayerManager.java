@@ -2,11 +2,7 @@ package mule;
 
 import mule.model.*;
 import mule.RoundManager;
-import mule.StoreManager;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 import java.util.Iterator;
 import java.util.List;
@@ -32,8 +28,8 @@ public class PlayerManager implements Serializable{
 
     /**
      * Method to deduct the an amount of money a player spent on land
-     * @param player
-     * @param property
+     * @param player current player
+     * @param property land to buy
      */
     public static void buyProperty (Player player, Tile property) {
         player.setMoney(player.getMoney() - MapManager.costOfTile());
@@ -43,9 +39,9 @@ public class PlayerManager implements Serializable{
 
     /** Stub method
      * Method to deduct the an amount of money a player spent
-     * @param player
-     * @param item
-     * @param quantity
+     * @param player current player
+     * @param item item to buy
+     * @param quantity amount to buy
      */
     public static void buyResources (Player player, String item, int quantity) {
         if (item.equalsIgnoreCase("food")) {

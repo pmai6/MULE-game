@@ -3,9 +3,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import mule.model.*;
 import mule.view.GameController;
@@ -75,7 +72,7 @@ controller.placingMule();
     }
     /**Disables the player areas in the main GUI screen so there
      * score and info do not show up
-     * @param numPlayers
+     * @param numPlayers number of players not playing
      */
     public void disablePlayers(int numPlayers) {
         if (numPlayers == 2) {
@@ -88,7 +85,7 @@ controller.placingMule();
 
     /** start the game controller - the main window of the game
      *
-     * @param astage
+     * @param astage stage which game is happening
      * @throws Exception
      */
     public void startGameController(Stage astage) throws Exception {

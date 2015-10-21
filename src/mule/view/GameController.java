@@ -25,18 +25,7 @@ import mule.model.Store;
 public class GameController {
     private GameManager gameManager;
     private Main mainapp;
-    @FXML
-    private Button goToTown;
-    @FXML
-    private Button goToPub;
-    @FXML
-    private Button goToStore;
-    @FXML
-    private Button passTurn;
-    @FXML
-    private Button startTurn;
-    @FXML
-    private Button submitPurchase;
+
     @FXML
     private AnchorPane town;
     @FXML
@@ -47,35 +36,7 @@ public class GameController {
     private Button gambleButton;
     @FXML
     private HBox map;
-    @FXML
-    private Button store;
 
-    @FXML
-    private ChoiceBox<String> purchaseFood;
-    @FXML
-    private ChoiceBox<String> purchaseCrystite;
-    @FXML
-    private ChoiceBox<String> purchaseEnergy;
-    @FXML
-    private ChoiceBox<String> purchaseSmithore;
-    @FXML
-    private Button food;
-    @FXML
-    private Button ore;
-    @FXML
-    private Button smithore;
-    @FXML
-    private Button mule;
-    @FXML
-    private Button energys;
-    @FXML
-    private Button landOffice;
-    @FXML
-    private Button assayOffice;
-    @FXML
-    private Button pub;
-    @FXML
-    private Button exit;
     @FXML
     private Label gamestate;
 
@@ -133,8 +94,6 @@ public class GameController {
     private Label playerOneEnergy;
     @FXML
     private Label playerOneCrystite;
-    @FXML
-    private Label playerOneMule;
 
     @FXML
     private Label playerTwoName;
