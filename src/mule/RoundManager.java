@@ -61,7 +61,7 @@ public class RoundManager {
         }
 
         if(Round.getTurnNum() == gameManager.getNumberOfPlayers()) { //incrmeent round if all players have gone
-            PlayerManager.calculatePlayerRoundRandomEvent();
+
             roundManager.setPlayerScores();
             roundManager.incrementRoundNumber();
 
@@ -72,6 +72,8 @@ public class RoundManager {
             if (gameManager.isLandSelectionPhase()) {
                 isLandSelectionOver();
             }
+            else
+                PlayerManager.calculatePlayerRoundRandomEvent();
         }
 
     }
