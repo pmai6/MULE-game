@@ -92,9 +92,7 @@ public class GameController {
     private Label playerOneFood;
     @FXML
     private Label playerOneEnergy;
-    @FXML
-    private Label playerOneCrystite;
-
+    
     @FXML
     private Label playerTwoName;
 

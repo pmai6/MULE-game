@@ -97,7 +97,7 @@ public class RandomEvent {
                     System.out.println("Mule does not exists");
                 }
                 GameManager.notifyRandomEvent("UNICORN LIKES YOU, COME GET $" + 6*m + ", 10 FOOD, 2 ENERGY, 3 SMITHORES, 3 CRYSTITES, AND" +
-                        "TAKE 1 UNICORN MULE HOME");
+                        " TAKE 1 UNICORN MULE HOME");
                 break;
             case "GT_HOMECOMING":
                 PlayerManager.addPlayerCrystite(currentPlayer, 4);
@@ -139,17 +139,21 @@ public class RandomEvent {
 
     public static String getGoodTurnRandomEventsEvent() {
         final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
-                "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING", "TEST_WEEK_MESS"};
+                "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING"};
         int goodRandomEventsIndex = (int)(Math.random() * goodRandomEvents.length);
         return goodRandomEvents[goodRandomEventsIndex];
     }
 
+
+// Round random event which affects all the players
+// good event: + 3 food units, 2 energy units
     public static void callRoundRandomEvent(String event) {
         switch(event) {
             case "UNICORN_BLESSING":
                 PlayerManager.addFoodToAllPlayers(3);
                 PlayerManager.addEnergyToAllPlayers(2);
-                GameManager.notifyRandomEvent("UNICORN_BLESSING");
+                GameManager.notifyRandomEvent("UNICORN_BLESSING: \n WHOOHOOOOOOO!!!! LET'S FILL YOU UP WITH 3 FOOD," +
+                        " 2 ENERGY");
                 break;
             default:
                 throw new IllegalArgumentException("Invalid random event " + event);
