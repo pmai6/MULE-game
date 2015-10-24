@@ -26,16 +26,6 @@ public class PlayerManager implements Serializable{
     }
 
 
-    /**
-     * Method to deduct the an amount of money a player spent on land
-     * @param player current player
-     * @param property land to buy
-     */
-    public static void buyProperty (Player player, Tile property) {
-        player.setMoney(player.getMoney() - MapManager.costOfTile());
-        player.addtile(property);
-
-    }
 
     /** Stub method
      * Method to deduct the an amount of money a player spent

@@ -57,7 +57,7 @@ public class MapManager {
             tile.setIsOwned(true);
             tile.setOwner(player);
 
-            PlayerManager.buyProperty(player, tile);
+            player.playerBuyProperty(player, tile);
             changeButtonColor(player, button);
 
 
@@ -77,7 +77,7 @@ public class MapManager {
      */
 private static boolean canTileBeBought (Player player, Tile tile) {
 
-    if (!(tile.isOwned()) && (player.getMoney() - MapManager.costOfTile() >=
+    if (!(tile.isOwned()) && (player.getMoney() - tile.getCost() >=
             0)) {
         return true;
     }
@@ -129,20 +129,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
     }
 
 
-    /** method to compute the current cost of tile
-     * set to 300 for now will need to update after land selection phase
-     * @return int cost of tile
-     */
-    public static int costOfTile() {
-        //TODO need to deal with later rounds in land selection phase
-        // and need to deal with when the real game starts.
-        if (gameManager.getMulegame().isLandSelectionPhase() && Round
-                .getRoundNum() <= 2) {
 
-            return 0;
-        }
-        return 300;
-    }
 
 
 

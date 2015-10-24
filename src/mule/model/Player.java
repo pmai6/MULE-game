@@ -279,4 +279,17 @@ public class Player implements Comparable {
     public void setUnplacedMule(Mule unplacedMule) {
         this.unplacedMule = unplacedMule;
     }
+
+
+
+    /**
+     * Method to deduct the an amount of money a player spent on land
+     * @param player current player
+     * @param property land to buy
+     */
+    public static void playerBuyProperty (Player player, Tile property) {
+        player.setMoney(player.getMoney() - property.getCost());
+        player.addtile(property);
+
+    }
 }
