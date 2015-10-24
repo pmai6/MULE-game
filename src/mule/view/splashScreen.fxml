@@ -12,9 +12,9 @@
    <children>
       <SplitPane dividerPositions="0.5" layoutX="212.0" layoutY="97.0" orientation="VERTICAL" prefHeight="265.0" prefWidth="330.0">
         <items>
-          <AnchorPane fx:id="startGameAnchor" minHeight="0.0" minWidth="0.0" onMouseClicked="#startNewGameAnchor" prefHeight="134.0" prefWidth="328.0" style="-fx-background-color: black;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="134.0" prefWidth="328.0" style="-fx-background-color: black;">
                <children>
-                  <Label fx:id="startGameLabel" alignment="CENTER" layoutX="-3.0" layoutY="3.0" prefHeight="127.0" prefWidth="330.0" text="Start New Game" textFill="#faf800">
+                  <Label fx:id="startGameLabel" alignment="CENTER" layoutX="-3.0" layoutY="3.0" onMouseClicked="#startNewGame" prefHeight="127.0" prefWidth="330.0" text="Start New Game" textFill="#faf800">
                      <font>
                         <Font size="22.0" />
                      </font>

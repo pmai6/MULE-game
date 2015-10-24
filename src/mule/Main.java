@@ -4,18 +4,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import mule.view.StartUpController;
-import mule.view.PlayerConfigController;
+import mule.view.*;
 
 public class Main extends Application {
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+                "view/splashScreen.fxml"));
+        Parent root = fxmlLoader.load();
+        primaryStage.setTitle("U.N.I.C.O.R.N Splash Screen");
+        primaryStage.setScene(new Scene(root));
+        SplashController controller = fxmlLoader.getController();
+        controller.setMainApp(this);
+        primaryStage.show();
+    }
+
+    public void startUpConfig(Stage primaryStage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "view/StartUp.fxml"));
         Parent root = fxmlLoader.load();
-        primaryStage.setTitle("U.N.I.C.O.R.N PMain Screen");
+        primaryStage.setTitle("U.N.I.C.O.R.N Main Screen");
         primaryStage.setScene(new Scene(root));
         StartUpController controller = fxmlLoader.getController();
         controller.setMainApp(this);
