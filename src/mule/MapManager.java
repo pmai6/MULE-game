@@ -157,7 +157,7 @@ public class MapManager {
         Button[][] buttons = controller.getButtonArray();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                Tile tile = gameManager.getMulegame().getTiles()[i][j];
+                Tile tile = mulegame.getTiles()[i][j];
                 Button button =  buttons[i][j];
                 if (tile.getOwner() != null) {
                     String color = tile.getOwner().getPlayerColor();
