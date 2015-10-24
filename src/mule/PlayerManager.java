@@ -15,7 +15,7 @@ public class PlayerManager implements Serializable{
     private static GameManager gameManager = GameManager.getGameManager();
 
     private int startTime;
-    private mule.view.timer time = new mule.view.timer(startTime);
+    private mule.view.Timer time = new mule.view.Timer(startTime);
     private IntegerProperty timeLeft = time.getTimeLeft();
 
     public static void createNewGamePlayer(String playerName2,

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="754.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mule.view.SplashController">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="212.0" layoutY="97.0" orientation="VERTICAL" prefHeight="265.0" prefWidth="330.0">
+        <items>
+          <AnchorPane fx:id="startGameAnchor" minHeight="0.0" minWidth="0.0" onMouseClicked="#startNewGameAnchor" prefHeight="134.0" prefWidth="328.0" style="-fx-background-color: black;">
+               <children>
+                  <Label fx:id="startGameLabel" alignment="CENTER" layoutX="-3.0" layoutY="3.0" prefHeight="127.0" prefWidth="330.0" text="Start New Game" textFill="#faf800">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <effect>
+                        <Reflection />
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: black;">
+               <children>
+                  <Label alignment="CENTER" layoutX="4.0" layoutY="1.0" prefHeight="128.0" prefWidth="330.0" text="Load Old Decrepit Game" textFill="#faf800">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <effect>
+                        <Reflection />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Label fx:id="unicornSkip" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#skipScreens" prefHeight="87.0" prefWidth="734.0" text="U.N.I.C.O.R.N" textAlignment="CENTER" textFill="#2026d7" textOverrun="CLIP">
+         <font>
+            <Font name="Courier Bold" size="80.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="125.0">
+         <image>
+            <Image url="@baby_splash1.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="580.0" layoutY="125.0">
+         <image>
+            <Image url="@baby_splash2.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

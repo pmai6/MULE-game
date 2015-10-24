@@ -9,13 +9,13 @@ import javafx.fxml.FXML;
 import javafx.util.Duration;
 import mule.RoundManager;
 
-public class timer {
+public class Timer {
 
     @FXML
     private Timeline timeline;
     private IntegerProperty timeSeconds;
     private int startTime;
-    public timer(int startTime) {
+    public Timer(int startTime) {
         this.startTime = startTime;
         this.timeSeconds = new SimpleIntegerProperty(startTime);
     }

@@ -92,7 +92,7 @@ public class GameController {
     private Label playerOneFood;
     @FXML
     private Label playerOneEnergy;
-    
+
     @FXML
     private Label playerTwoName;
 
@@ -145,7 +145,7 @@ public class GameController {
     private Label roundNumber;
     @FXML
     private Label timerLabel;
-    private timer Timer = new timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
+    private Timer Timer = new Timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
 
     private String selectedBuyTransaction;
     private String selectedSellTransaction;
@@ -994,7 +994,7 @@ public class GameController {
         Timer.startTimer();
     }
     @FXML
-    public void setTimerLabel(timer Timer, Label timerLabel) {
+    public void setTimerLabel(Timer Timer, Label timerLabel) {
         timerLabel.textProperty().bind(Timer.getTimeSeconds().asString());
         timerLabel.setTextFill(Color.RED);
     }
