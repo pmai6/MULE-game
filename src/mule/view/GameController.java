@@ -161,6 +161,10 @@ public class GameController {
     public GameController() {
 
 }
+
+    public Button[][] getButtonArray() {
+        return mapButtonArray;
+    }
     /**
      * Is called by the main application to give a reference back to itself.
      *

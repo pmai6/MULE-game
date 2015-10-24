@@ -9,6 +9,7 @@ import java.util.List;
 public class Plain implements Tile {
 private Player player;
 	private boolean isOwned;
+	private boolean hasMule;
 	private List<Mule> mules = new ArrayList<>();
 
 
@@ -64,4 +65,11 @@ private Player player;
 	}
 
 
+	public boolean hasMule() {
+		return hasMule;
+	}
+
+	public void setHasMule(boolean hasMule) {
+		this.hasMule = hasMule;
+	}
 }

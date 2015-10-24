@@ -10,6 +10,7 @@ public class River implements Tile {
 
     private Player player;
     private boolean isOwned;
+    private boolean hasMule;
     private List<Mule> mules = new ArrayList<>();
 
     public River() {
@@ -61,6 +62,14 @@ public class River implements Tile {
             }
         }
 
+    }
+
+    public boolean hasMule() {
+        return hasMule;
+    }
+
+    public void setHasMule(boolean hasMule) {
+        this.hasMule = hasMule;
     }
 }
 

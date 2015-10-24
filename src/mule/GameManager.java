@@ -47,7 +47,7 @@ public class GameManager {
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
         gameManager.initializePlayerGuiStats();
-
+        MapManager.setupMapFromSave(mulegame, controller);
     }
     public void startTheGame(Stage stage) throws Exception {
 

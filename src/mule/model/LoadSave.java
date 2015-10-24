@@ -20,7 +20,7 @@ public class LoadSave {
             out.writeObject(saveGame);
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved in /tmp/employee.ser");
+            System.out.printf("Serialized data is saved in gamedata.ser");
         } catch (IOException i) {
             i.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class LoadSave {
             i.printStackTrace();
             return;
         } catch (ClassNotFoundException c) {
-            System.out.println("Employee class not found");
+            System.out.println("Game class not found");
             c.printStackTrace();
             return;
         }

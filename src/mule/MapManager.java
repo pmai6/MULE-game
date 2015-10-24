@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import mule.model.*;
+import mule.view.*;
 
 /**
  * Created by travisclement on 9/18/15.
@@ -15,8 +16,10 @@ public class MapManager {
 
     private static Button button;
 
-    /** this will be the major method to handle what happens when a button is
+    /**
+     * this will be the major method to handle what happens when a button is
      * pushed
+     *
      * @param button
      */
     public static void handleMapButton(Button button) {
@@ -31,12 +34,13 @@ public class MapManager {
             buyTile(player, tile, button);
 
         } else if (gameManager.getMulegame().isMuleBought()) {
-            placeMule(player,tile, button);
+            placeMule(player, tile, button);
         }
 
     }
 
-    /** Method to buy a tile
+    /**
+     * Method to buy a tile
      * takes in player and tile
      * then marks the tile as owned buy the player in the tile
      * array.
@@ -44,12 +48,13 @@ public class MapManager {
      * deducts the money from the players money -
      * Button param will only be used to pass through tto the
      * changeButtonColor() method
+     *
      * @param player
      * @param tile
      * @return true if tile was purchased
      */
-    private static void buyTile (Player player, Tile tile, Button button) {
-        if (canTileBeBought(player,tile)) {
+    private static void buyTile(Player player, Tile tile, Button button) {
+        if (canTileBeBought(player, tile)) {
 
             tile.setIsOwned(true);
             tile.setOwner(player);
@@ -59,39 +64,42 @@ public class MapManager {
 
             RoundManager.playerFinishedTurn(false);
         }
-         // maybe have window show up later
+        // maybe have window show up later
     }
 
 
-    /** Method to check if tile can be bought
+    /**
+     * Method to check if tile can be bought
      * should check if tile is currently owned
      * if the player has enough money to buy the tile
      * sanity check to make sure it is not the town
+     *
      * @param player
-     * @param tile
-     * return boolean return true if it can be
+     * @param tile   return boolean return true if it can be
      */
-private static boolean canTileBeBought (Player player, Tile tile) {
+    private static boolean canTileBeBought(Player player, Tile tile) {
 
-    if (!(tile.isOwned()) && (player.getMoney() - MapManager.costOfTile() >=
-            0)) {
-        return true;
+        if (!(tile.isOwned()) && (
+                player.getMoney() - MapManager.costOfTile() >=
+                        0)) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
 
-    /** method to placeMule on Tile in the main map
+    /**
+     * method to placeMule on Tile in the main map
      *
      * @param player current player
-     * @param tile  Tile that was clicked on
+     * @param tile   Tile that was clicked on
      * @param button - button, so image can be changed
      */
-    private static void placeMule (Player player, Tile tile, Button button) {
+    private static void placeMule(Player player, Tile tile, Button button) {
         Mule mule = player.getUnplacedMule();
         if (tile.getOwner() != null && tile.getOwner().equals(player)) {
             tile.addMule(mule);
-
+            tile.setHasMule(true);
             player.setUnplacedMule(null);
             gameManager.getMulegame().setIsMuleBought(false);
             gameManager.setGameStateLabel();
@@ -100,7 +108,7 @@ private static boolean canTileBeBought (Player player, Tile tile) {
                 for (Mule mules : tiles.getMule()) {
                     System.out.println(mules);
                 }
-        }
+            }
         } else {
             player.setUnplacedMule(null);
             gameManager.getMulegame().setIsMuleBought(false);
@@ -112,21 +120,25 @@ private static boolean canTileBeBought (Player player, Tile tile) {
     }
 
 
-    /** Method to change the color of the button that was pushed on the map
+    /**
+     * Method to change the color of the button that was pushed on the map
      * takes in player and Button to determine which color and which button to
      * change
+     *
      * @param player
      * @param button
      */
-    private static void changeButtonColor (Player player, Button button) {
+    private static void changeButtonColor(Player player, Button button) {
         String thecolor = player.getPlayerColor();
         //how to change color
         button.setStyle(" -fx-base: " + thecolor + ";");
     }
 
 
-    /** method to compute the current cost of tile
+    /**
+     * method to compute the current cost of tile
      * set to 300 for now will need to update after land selection phase
+     *
      * @return int cost of tile
      */
     public static int costOfTile() {
@@ -140,6 +152,24 @@ private static boolean canTileBeBought (Player player, Tile tile) {
         return 300;
     }
 
+    public static void setupMapFromSave(Game mulegame, GameController controller) {
 
+        Button[][] buttons = controller.getButtonArray();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                Tile tile = gameManager.getMulegame().getTiles()[i][j];
+                Button button =  buttons[i][j];
+                if (tile.getOwner() != null) {
+                    String color = tile.getOwner().getPlayerColor();
+                    button.setStyle(" -fx-base: " + color + ";");
+                   if (tile.hasMule()) {
+                       controller.addMuleToButton(button, tile);
+                    }
+                }
+            }
 
+        }
+    }
 }
+
+

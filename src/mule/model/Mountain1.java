@@ -10,6 +10,7 @@ public class Mountain1 implements Tile {
 
     private Player player;
     private boolean isOwned;
+    private boolean hasMule;
     private static  Tile[][] tiles;
     private List<Mule> mules = new ArrayList<>();
 
@@ -65,4 +66,11 @@ public class Mountain1 implements Tile {
 
     }
 
+    public boolean hasMule() {
+        return hasMule;
+    }
+
+    public void setHasMule(boolean hasMule) {
+        this.hasMule = hasMule;
+    }
 }
