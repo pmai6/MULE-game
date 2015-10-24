@@ -21,6 +21,7 @@ public class LoadSave {
             out.close();
             fileOut.close();
             System.out.printf("Serialized data is saved in gamedata.ser");
+            System.exit(0);
         } catch (IOException i) {
             i.printStackTrace();
         }
