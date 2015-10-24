@@ -17,7 +17,10 @@ public class Game {
             ("Purple","Green","Red","Blue","Orange","Yellow" ));
 
     private  boolean isLandSelectionPhase;
-private  boolean isMuleBought = false;
+    private  boolean isMuleBought = false;
+
+    private Tile[][] tiles;
+
 
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
@@ -28,7 +31,9 @@ private  boolean isMuleBought = false;
         map = amap;
     }
 
-
+    public void setUpMap() {
+        tiles = GameMap.setUpMap();
+    }
     public  int getPlayerCounter() {
         return playerCounter;
     }
@@ -106,5 +111,13 @@ private  boolean isMuleBought = false;
 
     public  void setIsLandSelectionPhase(boolean isLandSelect) {
         isLandSelectionPhase = isLandSelect;
+    }
+
+    public Tile[][] getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(Tile[][] tiles) {
+        this.tiles = tiles;
     }
 }

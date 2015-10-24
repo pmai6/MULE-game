@@ -10,9 +10,8 @@ import mule.model.Tile;
 public class GameMap {
     private static GameManager gameManager = GameManager.getGameManager();
 
-    private static  Tile[][] tiles = new Tile[5][9];
 
-   private static String[][] defaultMapLayout = new String[][]{
+    private static String[][] defaultMapLayout = new String[][]{
             {"P", "P", "M1", "P", "R", "P", "M3", "P", "P"},
             {"P", "M1", "P", "P", "R", "P", "P", "P", "M3"},
             {"M3", "P", "P", "P", "Town", "P", "P", "P", "M1"},
@@ -30,7 +29,6 @@ public class GameMap {
     }
 
 
-    //TODO currently just a plan array - need logic to fill the array
     public static String[][] getRandomMapLayout() {
 
         String[] defaultTiles = new String[]{"P", "M2","M1","M3","R"} ;
@@ -59,11 +57,51 @@ public class GameMap {
         GameMap.defaultMapLayout = defaultMapLayout;
     }
 
-    public static Tile[][] getTiles() {
-        return tiles;
-    }
 
-    public static void setTiles(Tile[][] tiles) {
-        GameMap.tiles = tiles;
+    /** sets up the main map that will be in uses during the game
+     * This is here basically just so random maps could be implemented at a
+     * latter date as opposed to hard coding the tiles to the Tile array
+     *
+     */
+    public static Tile[][] setUpMap() {
+
+        Tile[][] tiles =  new Tile[5][9];
+        String[][] defaultMapLayout = GameMap.getMapLayout();
+
+        for (int i = 0; i < 5; i++) {
+
+            for (int j = 0; j < 9; j++) {
+
+                String tileType = defaultMapLayout[i][j];
+
+                if (tileType.equals("P")) {
+                    Tile newTileName = new Plain();
+                    tiles[i][j] = newTileName;
+
+                } else if (tileType.equals("R")) {
+                    Tile newTileName = new River();
+                    tiles[i][j] = newTileName;
+
+                } else if (tileType.equals("M1"))  {
+                    Tile newTileName = new Mountain1();
+                    tiles[i][j] = newTileName;
+
+                } else if (tileType.equals("M2")) {
+                    Tile newTileName = new Mountain2();
+                    tiles[i][j] = newTileName;
+
+                } else if (tileType.equals("M3")) {
+                    Tile newTileName = new Mountain3();
+                    tiles[i][j] = newTileName;
+
+                } else {
+                    Tile newTileName = new Plain();
+                    tiles[i][j] = newTileName;
+                    newTileName.setOwner(null);
+                }
+
+            }
+        }
+        return tiles;
     }
 }

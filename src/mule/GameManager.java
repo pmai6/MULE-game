@@ -24,19 +24,19 @@ public class GameManager {
     private static Game mulegame;
     private static GameController controller;
 
-public static GameManager getGameManager() {
-    return gameManager;
-}
+    public static GameManager getGameManager() {
+        return gameManager;
+    }
     public void createGame(String difficulty,
-                                  int numberOfPlayers,
-                                  String map, int n) {
+                           int numberOfPlayers,
+                           String map, int n) {
         mulegame = new Game(difficulty, numberOfPlayers, map, n);
     }
 
     public void startTheGame(Stage stage) throws Exception {
 
         mulegame.setIsLandSelectionPhase(true);
-        MapManager.setUpMap();
+        mulegame.setUpMap();
         RoundManager.startRounds(gameManager);
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();
@@ -61,10 +61,10 @@ public static GameManager getGameManager() {
     }
 
 
-public void placeMule() throws Exception {
+    public void placeMule() throws Exception {
 
-controller.placingMule();
-}
+        controller.placingMule();
+    }
 
 
     public void goToMap() throws Exception {
@@ -121,7 +121,7 @@ controller.placingMule();
 
 
     public void updateStoreData () {
-       int food = Store.getFoodQty();
+        int food = Store.getFoodQty();
         int energy = Store.getEnergyQty();
         int smithore = Store.getSmithoreQty();
         int crystite = Store.getCrystiteQty();
@@ -131,7 +131,7 @@ controller.placingMule();
         int smithoreMule = Store.getSmithoreMuleQty();
 
         controller.updateStoreData(food, energy, smithore, crystite, foodMule,
-            energyMule, crystiteMule, smithoreMule);
+                energyMule, crystiteMule, smithoreMule);
     }
 
     public  void initializePlayerGuiStats() {
@@ -157,7 +157,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(0).getFood();
         int energy = mulegame.getPlayerArray().get(0).getEnergy();
         controller.changePlayerOneGuiStats(name, race, score, money, ore,
-            food, color, energy);
+                food, color, energy);
     }
     private   void updatePlayerTwo() {
         String name = mulegame.getPlayerArray().get(1)
@@ -173,7 +173,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(1).getFood();
         int energy = mulegame.getPlayerArray().get(1).getEnergy();
         controller.changePlayerTwoGuiStats(name, race, score, money, ore,
-            food, color, energy);
+                food, color, energy);
     }
     private static void updatePlayerThree() {
         String name = mulegame.getPlayerArray().get(2)
@@ -188,7 +188,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(2).getFood();
         int energy = mulegame.getPlayerArray().get(2).getEnergy();
         controller.changePlayerThreeGuiStats(name, race, score, money, ore,
-            food, color, energy);
+                food, color, energy);
     }
 
     private  void updatePlayerFour() {
@@ -204,7 +204,7 @@ controller.placingMule();
         int food = mulegame.getPlayerArray().get(3).getFood();
         int energy = mulegame.getPlayerArray().get(2).getEnergy();
         controller.changePlayerFourGuiStats(name, race, score, money, ore,
-            food, color, energy);
+                food, color, energy);
     }
     public  void setTimer() {
         controller.setTimer();
@@ -241,7 +241,7 @@ controller.placingMule();
 
     public  Game getMulegame() {
         return mulegame;
-}
+    }
 
     public  boolean isMuleBought() {
         return mulegame.isLandSelectionPhase();

@@ -22,7 +22,8 @@ public class MapManager {
     public static void handleMapButton(Button button) {
         MapManager.button = button;
         Player player = RoundManager.getCurrentPlayer();
-        Tile tile = GameMap.getTiles()[GridPane.getRowIndex(button)
+        Tile tile = gameManager.getMulegame().getTiles()[GridPane.getRowIndex
+                (button)
                 ][GridPane.getColumnIndex(button)];
 
         if (gameManager.getMulegame().isLandSelectionPhase()) {
@@ -144,49 +145,5 @@ private static boolean canTileBeBought (Player player, Tile tile) {
     }
 
 
-    /** sets up the main map that will be in uses during the game
-     * This is here basically just so random maps could be implemented at a
-     * latter date as opposed to hard coding the tiles to the Tile array
-     *
-     */
-    public static void setUpMap() {
 
-        Tile[][] tiles = GameMap.getTiles();
-        String[][] defaultMapLayout = GameMap.getMapLayout();
-
-        for (int i = 0; i < 5; i++) {
-
-            for (int j = 0; j < 9; j++) {
-
-                String tileType = defaultMapLayout[i][j];
-
-                if (tileType.equals("P")) {
-                    Tile newTileName = new Plain();
-                    tiles[i][j] = newTileName;
-
-                } else if (tileType.equals("R")) {
-                    Tile newTileName = new River();
-                    tiles[i][j] = newTileName;
-
-                } else if (tileType.equals("M1"))  {
-                    Tile newTileName = new Mountain1();
-                    tiles[i][j] = newTileName;
-
-                } else if (tileType.equals("M2")) {
-                    Tile newTileName = new Mountain2();
-                    tiles[i][j] = newTileName;
-
-                } else if (tileType.equals("M3")) {
-                    Tile newTileName = new Mountain3();
-                    tiles[i][j] = newTileName;
-
-                } else {
-                    Tile newTileName = new Plain();
-                    tiles[i][j] = newTileName;
-                    newTileName.setOwner(null);
-                }
-
-            }
-        }
-    }
 }
