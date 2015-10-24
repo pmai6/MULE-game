@@ -103,6 +103,13 @@ public class SplashController {
         //how to change color
         loadGameAnchor.setStyle(" -fx-background-color: Black");
     }
+
+    @FXML
+    private void loadGame() throws Exception {
+        Stage stage;
+        stage = (Stage) startGameLabel.getScene().getWindow();
+        GameManager.loadGame(stage);
+    }
 }
 
 

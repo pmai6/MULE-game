@@ -1,10 +1,11 @@
 package mule.model;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 //represents a single tile object
-public interface Tile {
+public interface Tile extends Serializable {
     List<Mule> mules = new ArrayList<>();
     void setOwner(Player player);
 

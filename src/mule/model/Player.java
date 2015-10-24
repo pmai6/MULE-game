@@ -1,4 +1,5 @@
 package mule.model;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,24 +8,25 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import mule.*;
 
 /**
  * Created by travisclement on 9/8/15.
  */
 
-public class Player implements Comparable {
+public class Player implements Comparable, Serializable {
 
-    private StringProperty playerName;
+    private String playerName;
 
-    private StringProperty playerRace;
+    private String playerRace;
 
-    private StringProperty playerColor;
-    private IntegerProperty score;
-    private IntegerProperty money;
-    private IntegerProperty food;
-    private IntegerProperty smithore;
-    private IntegerProperty crystite;
-    private IntegerProperty energy;
+    private String playerColor;
+    private int score;
+    private int money;
+    private int food;
+    private int smithore;
+    private int crystite;
+    private int energy;
 
     private int mule;
 
@@ -39,21 +41,21 @@ public class Player implements Comparable {
 
     public Player () {}
     public Player(String aplayerName, String aplayerRace, String aplayerColor) {
-        this.playerName = new SimpleStringProperty(aplayerName);
-        this.playerRace = new SimpleStringProperty(aplayerRace);
-        this.playerColor = new SimpleStringProperty(aplayerColor);
-        this.money = new SimpleIntegerProperty(getStartMoney(aplayerRace));
-        this.score = new SimpleIntegerProperty(0);
+        this.playerName = aplayerName;
+        this.playerRace = aplayerRace;
+        this.playerColor = aplayerColor;
+        this.money = getStartMoney(aplayerRace);
+        this.score = 0;
         setStartFoodOreEnergy();
         tiles = new ArrayList<Tile>();
     }
 
     private void setStartFoodOreEnergy() {
 
-        this.food = new SimpleIntegerProperty(8);
-        this.energy = new SimpleIntegerProperty(4);
-        this.smithore = new SimpleIntegerProperty(0);
-        this.crystite = new SimpleIntegerProperty(0);
+        this.food = 8;
+        this.energy = 4;
+        this.smithore = 0;
+        this.crystite = 0;
     }
 
     private int getStartMoney(String race) {
@@ -70,40 +72,38 @@ public class Player implements Comparable {
 
     // Getters and setters
     public String getPlayerName() {
-        return playerName.get();
+        return playerName;
     }
     public void setPlayerName(String playerName) {
-        this.playerName.set(playerName);
+        this.playerName = playerName;
     }
 
     public String getPlayerRace() {
-        return playerRace.get();
+        return playerRace;
     }
     public void setPlayerRace(String playerRace) {
-        this.playerRace.setValue(playerRace);
+        this.playerRace = playerRace;
     }
 
     public String getPlayerColor() {
-        return playerColor.get();
+        return playerColor;
     }
     public void setPlayerColor(String playerColor) {
-        this.playerColor.set(playerColor);
+        this.playerColor = playerColor;
     }
-
 
 
     public int getScore() {
-        return score.getValue();
-    }
-    public IntegerProperty getScoreProperty() {
         return score;
     }
 
 
+
     public void calculateScore() {
         int landAmount = this.getTiles().size() * 500;
-        int score = this.getMoney() + landAmount + this.getDollarValueOfGoods() ;
-        this.score.set(score);
+        int newscore = this.getMoney() + landAmount + this
+                .getDollarValueOfGoods() ;
+        this.score = newscore;
     }
 
     private int getDollarValueOfGoods() {
@@ -114,69 +114,58 @@ public class Player implements Comparable {
     }
 
     public int getMoney() {
-        return money.get();
-    }
-    public IntegerProperty getMoneyProperty() {
         return money;
     }
+
     public void setMoney(int money) {
         if(money > 0)
-            this.money.set(money);
+            this.money = money;
         else
-            this.money.set(0);
+            this.money = 0;
     }
 
     public int getEnergy() {
-        return energy.get();
-    }
-    public IntegerProperty getEnergyProperty() {
         return energy;
     }
+
     public void setEnergy(int energy) {
         if(energy > 0)
-            this.energy.set(energy);
+            this.energy = energy;
         else
-            this.energy.set(0);
+            this.energy = 0;
     }
 
     public int getFood() {
-        return food.get();
+        return food;
     }
     public void setFood(int food) {
         if(food > 0)
-            this.food.set(food);
+            this.food = food;
         else
-            this.food.set(0);
-    }
-    public IntegerProperty getFoodProperty() {
-        return food;
+            this.food = 0;
     }
 
+
     public int getSmithore() {
-        return smithore.get();
+        return smithore;
     }
     public void setSmithore(int ore) {
         if(ore > 0)
-            this.smithore.set(ore);
+            this.smithore = ore;
         else
-            this.smithore.set(0);
-    }
-    public IntegerProperty getSmithoreProperty() {
-        return smithore;
+            this.smithore = 0;
     }
 
 
 
-    public int getCrystite() { return crystite.get(); }
+    public int getCrystite() { return crystite; }
     public void setCrystite(int crysTite) {
         if(crysTite > 0)
-            this.crystite.set(crysTite);
+            this.crystite = crysTite;
         else
-            this.crystite.set(0);
+            this.crystite = 0;
     }
-    public IntegerProperty getCrystiteProperty() {
-        return crystite;
-    }
+
 
     public int getMule() {
         this.mule = getFoodMule()+getCrystiteMule()+getenergyMule()+getOreMule();
@@ -288,7 +277,7 @@ public class Player implements Comparable {
      * @param property land to buy
      */
     public static void playerBuyProperty (Player player, Tile property) {
-        player.setMoney(player.getMoney() - property.getCost());
+        player.setMoney(player.getMoney() -  MapManager.costOfTile());
         player.addtile(property);
 
     }

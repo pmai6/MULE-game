@@ -33,6 +33,22 @@ public class GameManager {
         mulegame = new Game(difficulty, numberOfPlayers, map, n);
     }
 
+
+    public void setGameFromSave(Game mulegame, Stage stage) throws Exception {
+        this.mulegame = mulegame;
+        for (Player p: mulegame.getPlayerArray()) {
+            System.out.println(p.getPlayerName());
+        }
+        for (Player p: mulegame.getPlayerArray()) {
+            System.out.println(p.getMoney());
+        }
+        RoundManager.startRounds(gameManager);
+        gameManager.startGameController(stage);
+        gameManager.setGameStateLabel();
+        gameManager.disablePlayers(mulegame.getNumberOfPlayers());
+        gameManager.initializePlayerGuiStats();
+
+    }
     public void startTheGame(Stage stage) throws Exception {
 
         mulegame.setIsLandSelectionPhase(true);
@@ -40,7 +56,6 @@ public class GameManager {
         RoundManager.startRounds(gameManager);
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();
-        gameManager.disablePlayers(mulegame.getNumberOfPlayers());
 
         gameManager.initializePlayerGuiStats();
 
@@ -291,5 +306,15 @@ public class GameManager {
 
     public void setCursorDefault() {
         controller.setCursorDefault();
+    }
+
+
+
+    public static void saveGame() {
+        LoadSave.saveGame();
+    }
+
+    public static void loadGame(Stage stage) throws Exception {
+        LoadSave.loadGame(stage);
     }
 }

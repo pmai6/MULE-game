@@ -434,7 +434,7 @@
                   <InnerShadow />
                </effect>
             </Button>
-            <Button layoutX="448.0" layoutY="116.0" minWidth="40.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Save" textFill="WHITE">
+            <Button fx:id="saveGameButton" layoutX="448.0" layoutY="116.0" minWidth="40.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="26.0" style="-fx-background-color: Brown; -fx-background-radius: 0;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Courier Bold" size="13.0" />
                </font>

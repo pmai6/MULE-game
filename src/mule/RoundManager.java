@@ -54,6 +54,7 @@ public class RoundManager {
             gameManager.setIsMuleBought(false);
             gameManager.setCursorDefault();
         }
+        gameManager.initializePlayerGuiStats();
         roundManager.incrementTurnNumber();
 
         if (Round.getTurnNum() < gameManager.getNumberOfPlayers()){

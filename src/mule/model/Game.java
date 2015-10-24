@@ -1,10 +1,11 @@
 package mule.model;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-public class Game {
+public class Game implements Serializable {
 
     private  int numberOfPlayers;
     private List<Player> playerArray;
@@ -21,6 +22,7 @@ public class Game {
 
     private Tile[][] tiles;
 
+public Game() {} // default constructor
 
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;

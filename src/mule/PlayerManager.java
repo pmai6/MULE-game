@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * Class to manage player objects
  */
-public class PlayerManager implements Serializable{
+public class PlayerManager implements Serializable {
     private static GameManager gameManager = GameManager.getGameManager();
 
     private int startTime;

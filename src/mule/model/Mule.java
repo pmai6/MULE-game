@@ -1,9 +1,11 @@
 package mule.model;
 
+import java.io.*;
+
 /**
  * Created by ryyanj on 10/1/15.
  */
-public interface Mule {
+public interface Mule extends Serializable {
 
     void setOwner(Player player);
 
