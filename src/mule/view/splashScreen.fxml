@@ -48,9 +48,6 @@
          <font>
             <Font name="Courier Bold" size="80.0" />
          </font>
-         <effect>
-            <Reflection />
-         </effect>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="125.0">
          <image>
