@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import mule.view.StartUpController;
-import mule.view.playerConfigController;
+import mule.view.PlayerConfigController;
 
 public class Main extends Application {
 
@@ -33,7 +33,7 @@ public class Main extends Application {
         Parent root = fxmlLoader.load();
         astage.setScene(new Scene(root));
         astage.setTitle("U.N.I.C.O.R.N Player Config Screen");
-        playerConfigController controller = fxmlLoader.getController();
+        PlayerConfigController controller = fxmlLoader.getController();
         controller.setMainApp(this);
         astage.show();
     }

@@ -17,7 +17,7 @@ import mule.model.Player;
 import java.util.List;
 
 
-public class playerConfigController {
+public class PlayerConfigController {
 private GameManager gameManager;
     public javafx.scene.control.Label raceInfo;
     public javafx.scene.control.Label colorLabel;
@@ -49,7 +49,7 @@ private GameManager gameManager;
     private String raceInfoValue;
 
 
-    public  playerConfigController() {
+    public  PlayerConfigController() {
     }
 
     /**
