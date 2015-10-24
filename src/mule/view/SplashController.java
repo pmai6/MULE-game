@@ -3,6 +3,7 @@ package mule.view;
 import javafx.collections.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.*;
 import mule.*;
 
@@ -21,7 +22,10 @@ public class SplashController {
 
     @FXML
     private Label unicornSkip;
-
+    @FXML
+    private AnchorPane newGameAnchor;
+    @FXML
+    private AnchorPane loadGameAnchor;
 
     /**
      * Is called by the main application to give a reference back to itself.
@@ -71,6 +75,33 @@ public class SplashController {
                 "Bonzoid", "Blue");
 
         gameManager.startTheGame(stage);
+    }
+
+    @FXML
+    private void makeGreyNew () throws Exception {
+
+        //how to change color
+        newGameAnchor.setStyle(" -fx-background-color: DarkSlateGray");
+    }
+
+    @FXML
+    private void makeGreyLoad () throws Exception {
+
+        //how to change color
+        loadGameAnchor.setStyle(" -fx-background-color: DarkSlateGray");
+    }
+    @FXML
+    private void makeBlackNew () throws Exception {
+
+        //how to change color
+        newGameAnchor.setStyle(" -fx-background-color: Black");
+    }
+
+    @FXML
+    private void makeBlackLoad () throws Exception {
+
+        //how to change color
+        loadGameAnchor.setStyle(" -fx-background-color: Black");
     }
 }
 

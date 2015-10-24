@@ -41,10 +41,7 @@ public class MapManager {
      * then marks the tile as owned buy the player in the tile
      * array.
      * then adds the tile to the array the player keeps of the tiles it owns
-     * deducts the money from the players money - use PlayerManager method
-     * boughtsomething  to handle the deduction from the players account
-     * the PlayerManager can talk to Gamemanager to update the GUI screen
-     * Update the button to reflect the players color
+     * deducts the money from the players money -
      * Button param will only be used to pass through tto the
      * changeButtonColor() method
      * @param player
@@ -59,7 +56,6 @@ public class MapManager {
 
             player.playerBuyProperty(player, tile);
             changeButtonColor(player, button);
-
 
             RoundManager.playerFinishedTurn(false);
         }
