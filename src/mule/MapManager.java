@@ -152,13 +152,14 @@ public class MapManager {
         return 300;
     }
 
-    public static void setupMapFromSave(Game mulegame, GameController controller) {
+    public static void setupMap(Game mulegame, GameController controller) {
 
         Button[][] buttons = controller.getButtonArray();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 Tile tile = mulegame.getTiles()[i][j];
                 Button button =  buttons[i][j];
+                controller.addImageToButton(button, tile);
                 if (tile.getOwner() != null) {
                     String color = tile.getOwner().getPlayerColor();
                     button.setStyle(" -fx-base: " + color + ";");
@@ -167,7 +168,6 @@ public class MapManager {
                     }
                 }
             }
-
         }
     }
 }

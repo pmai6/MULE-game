@@ -211,53 +211,16 @@ public class GameController {
         transactionSellCombo.setItems(transactionSellComboData);
 
         mapButtonArray = new Button[5][9];
-        String[][] defaultMapLayout = GameMap.getMapLayout();
+       String[][] defaultMapLayout = GameMap.getMapLayout();
         for(int i=0; i<5; i++) {
                 for (int j = 0; j<9 ; j++) {
                     mapButtonArray[i][j] = new Button();
                 mapGrid.add(mapButtonArray[i][j], j, i);
-                    String tileType = defaultMapLayout[i][j];
 
                     mapButtonArray[i][j].minWidth(45.0);
                     mapButtonArray[i][j].minWidth(45.0);
                     mapButtonArray[i][j].prefHeight(60.0);
                     mapButtonArray[i][j].prefWidth(60.0);
-
-                    if (tileType.equals("P")) {
-                        Image imageplain = new Image(getClass()
-                                .getResourceAsStream("../resources/brown"
-                                        + ".png"));
-
-                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
-
-                    } else if (tileType.equals("R")) {
-                        Image imageplain = new Image(getClass()
-                                .getResourceAsStream("../resources/river.gif"));
-
-                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
-
-                    } else if (tileType.equals("M1"))  {
-                        Image imageplain = new Image(getClass()
-                                .getResourceAsStream("../resources/mountain1.png"));
-
-                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
-                    } else if (tileType.equals("M2")) {
-                        Image imageplain = new Image(getClass()
-                                .getResourceAsStream("../resources/mountain2.png"));
-
-                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
-                    } else if (tileType.equals("M3")) {
-                        Image imageplain = new Image(getClass()
-                                .getResourceAsStream("../resources/mountain3.png"));
-
-                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
-                    } else {
-                        Image imageplain = new Image(getClass()
-                                .getResourceAsStream("../resources/town.gif"));
-
-                        mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
-                    }
-
             }
         }
         mapButtonArray[0][0].setOnAction(new EventHandler<ActionEvent>() {
@@ -837,6 +800,30 @@ public void addMuleToButton (Button button, Tile tile) {
     button.setGraphic(new ImageView(imageplain));
     setCursorDefault();
 }
+
+    public void addImageToButton (Button button, Tile tile) {
+        Image imageplain;
+        if (button == mapButtonArray[2][4]) { //town button
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/town.gif"));
+        } else if (tile instanceof Mountain1) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/mountain1.png"));
+        } else if (tile instanceof Mountain2) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/mountain2.png"));
+        } else if (tile instanceof Mountain3) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/mountain3.png"));
+        } else if (tile instanceof River) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/river.gif"));
+        } else {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/brown.png"));
+        }
+        button.setGraphic(new ImageView(imageplain));
+    }
 
     public void setCursorDefault (){
     map.setCursor(Cursor.DEFAULT);

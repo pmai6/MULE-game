@@ -47,7 +47,7 @@ public class GameManager {
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
         gameManager.initializePlayerGuiStats();
-        MapManager.setupMapFromSave(mulegame, controller);
+        MapManager.setupMap(mulegame, controller);
     }
     public void startTheGame(Stage stage) throws Exception {
 
@@ -55,14 +55,11 @@ public class GameManager {
         mulegame.setUpMap();
         RoundManager.startRounds(gameManager);
         gameManager.startGameController(stage);
+        MapManager.setupMap(mulegame, controller);
         gameManager.setGameStateLabel();
+        gameManager.disablePlayers(mulegame.getNumberOfPlayers());
 
         gameManager.initializePlayerGuiStats();
-
-        //used for testing purposes only TOREMOVE
-        for (Player element : mulegame.getPlayerArray()) {
-            System.out.println(element.getPlayerName());
-        }
         updateGamePlayerRound();
 
 
@@ -77,7 +74,6 @@ public class GameManager {
 
 
     public void placeMule() throws Exception {
-
         controller.placingMule();
     }
 
@@ -150,77 +146,43 @@ public class GameManager {
     }
 
     public  void initializePlayerGuiStats() {
-        updatePlayerOne();
-        updatePlayerTwo();
-        if (mulegame.getNumberOfPlayers() == 4) {
-            updatePlayerThree();
-            updatePlayerFour();
-        } else if (mulegame.getNumberOfPlayers() > 2) {
-            updatePlayerThree();
+        int numberOfPlayers = mulegame.getNumberOfPlayers();
+
+        for (int i = 0; i < numberOfPlayers; i++) {
+            String name = mulegame.getPlayerArray().get(i).getPlayerName();
+            String race = mulegame.getPlayerArray().get(i)
+                    .getPlayerRace();
+            String color = mulegame.getPlayerArray().get(i)
+                    .getPlayerColor();
+            int score = mulegame.getPlayerArray().get(i).getScore();
+            int money = mulegame.getPlayerArray().get(i).getMoney();
+            int ore = mulegame.getPlayerArray().get(i).getSmithore();
+            int food = mulegame.getPlayerArray().get(i).getFood();
+            int energy = mulegame.getPlayerArray().get(i).getEnergy();
+
+            switch (i) {
+                case 0:
+                    controller.changePlayerOneGuiStats(name, race, score,
+                            money, ore, food, color, energy);
+                    break;
+                case 1:
+                    controller.changePlayerTwoGuiStats(name, race, score,
+                            money, ore, food, color, energy);
+                    break;
+                case 2:
+                    controller.changePlayerThreeGuiStats(name, race, score,
+                            money, ore, food, color, energy);
+                    break;
+                case 3:
+                    controller.changePlayerFourGuiStats(name, race, score,
+                            money, ore, food, color, energy);
+                    break;
+                default:
+                    break;
+            }
         }
-
-    }
-    private  void updatePlayerOne() {
-        String name = mulegame.getPlayerArray().get(0).getPlayerName();
-        String race = mulegame.getPlayerArray().get(0)
-                .getPlayerRace();
-        String color = mulegame.getPlayerArray().get(0)
-                .getPlayerColor();
-        int score = mulegame.getPlayerArray().get(0).getScore();
-        int money = mulegame.getPlayerArray().get(0).getMoney();
-        int ore = mulegame.getPlayerArray().get(0).getSmithore();
-        int food = mulegame.getPlayerArray().get(0).getFood();
-        int energy = mulegame.getPlayerArray().get(0).getEnergy();
-        controller.changePlayerOneGuiStats(name, race, score, money, ore,
-                food, color, energy);
-    }
-    private   void updatePlayerTwo() {
-        String name = mulegame.getPlayerArray().get(1)
-                .getPlayerName();
-        String race = mulegame.getPlayerArray().get(1)
-                .getPlayerRace();
-
-        String color = mulegame.getPlayerArray().get(1)
-                .getPlayerColor();
-        int score = mulegame.getPlayerArray().get(1).getScore();
-        int money = mulegame.getPlayerArray().get(1).getMoney();
-        int ore = mulegame.getPlayerArray().get(1).getSmithore();
-        int food = mulegame.getPlayerArray().get(1).getFood();
-        int energy = mulegame.getPlayerArray().get(1).getEnergy();
-        controller.changePlayerTwoGuiStats(name, race, score, money, ore,
-                food, color, energy);
-    }
-    private static void updatePlayerThree() {
-        String name = mulegame.getPlayerArray().get(2)
-                .getPlayerName();
-        String race = mulegame.getPlayerArray().get(2)
-                .getPlayerRace();
-        String color = mulegame.getPlayerArray().get(2)
-                .getPlayerColor();
-        int score = mulegame.getPlayerArray().get(2).getScore();
-        int money = mulegame.getPlayerArray().get(2).getMoney();
-        int ore = mulegame.getPlayerArray().get(2).getSmithore();
-        int food = mulegame.getPlayerArray().get(2).getFood();
-        int energy = mulegame.getPlayerArray().get(2).getEnergy();
-        controller.changePlayerThreeGuiStats(name, race, score, money, ore,
-                food, color, energy);
     }
 
-    private  void updatePlayerFour() {
-        String name = mulegame.getPlayerArray().get(3)
-                .getPlayerName();
-        String race = mulegame.getPlayerArray().get(3)
-                .getPlayerRace();
-        String color = mulegame.getPlayerArray().get(3)
-                .getPlayerColor();
-        int score = mulegame.getPlayerArray().get(3).getScore();
-        int money = mulegame.getPlayerArray().get(3).getMoney();
-        int ore = mulegame.getPlayerArray().get(3).getSmithore();
-        int food = mulegame.getPlayerArray().get(3).getFood();
-        int energy = mulegame.getPlayerArray().get(2).getEnergy();
-        controller.changePlayerFourGuiStats(name, race, score, money, ore,
-                food, color, energy);
-    }
     public  void setTimer() {
         controller.setTimer();
     }
@@ -232,7 +194,6 @@ public class GameManager {
     public  void notEnoughMoney() {
         controller.youGotNoMoney();
     }
-
 
     public  static void notifyRandomEvent(String random) {
         controller.randomEventDialog(random);
@@ -253,7 +214,6 @@ public class GameManager {
         mulegame.setIsLandSelectionPhase(isLandSelect);
     }
 
-
     public  Game getMulegame() {
         return mulegame;
     }
@@ -265,8 +225,6 @@ public class GameManager {
     public  void setIsMuleBought(boolean isMuleBought) {
         mulegame.setIsMuleBought(isMuleBought);
     }
-
-
 
     public void createSortedPlayerArray() {
         mulegame.createSortedPlayerArray();
@@ -301,14 +259,11 @@ public class GameManager {
         }
 
         MapManager.handleMapButton(button);
-
     }
 
     public void setCursorDefault() {
         controller.setCursorDefault();
     }
-
-
 
     public static void saveGame() {
         LoadSave.saveGame();
