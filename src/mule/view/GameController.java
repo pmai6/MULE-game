@@ -218,34 +218,35 @@ public class GameController {
 
                     if (tileType.equals("P")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("brown.png"));
+                                .getResourceAsStream("../resources/brown"
+                                        + ".png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
 
                     } else if (tileType.equals("R")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("river.gif"));
+                                .getResourceAsStream("../resources/river.gif"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
 
                     } else if (tileType.equals("M1"))  {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("mountain1.png"));
+                                .getResourceAsStream("../resources/mountain1.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     } else if (tileType.equals("M2")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("mountain2.png"));
+                                .getResourceAsStream("../resources/mountain2.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     } else if (tileType.equals("M3")) {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("mountain3.png"));
+                                .getResourceAsStream("../resources/mountain3.png"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     } else {
                         Image imageplain = new Image(getClass()
-                                .getResourceAsStream("town.gif"));
+                                .getResourceAsStream("../resources/town.gif"));
 
                         mapButtonArray[i][j].setGraphic(new ImageView(imageplain));
                     }
@@ -1225,7 +1226,7 @@ public class GameController {
 
     public void placingMule() throws Exception{
         Image   imageplain = new Image(getClass()
-                .getResourceAsStream("baby.png"));
+                .getResourceAsStream("../resources/baby.png"));
 
         map.setCursor(new ImageCursor(imageplain));
         exitButtonAction();
@@ -1266,19 +1267,19 @@ public void addMuleToButton (Button button, Tile tile) {
     Image imageplain;
            if (tile instanceof Plain) {
                imageplain = new Image(getClass()
-                       .getResourceAsStream("brownMule.png"));
+                       .getResourceAsStream("../resources/brownMule.png"));
             } else if (tile instanceof Mountain1) {
                imageplain = new Image(getClass()
-                       .getResourceAsStream("mountain1Mule.png"));
+                       .getResourceAsStream("../resources/mountain1Mule.png"));
             } else if (tile instanceof Mountain2) {
                imageplain = new Image(getClass()
-                       .getResourceAsStream("mountain2Mule.png"));
+                       .getResourceAsStream("../resources/mountain2Mule.png"));
             } else if (tile instanceof Mountain3) {
                imageplain = new Image(getClass()
-                       .getResourceAsStream("mountain3Mule.png"));
+                       .getResourceAsStream("../resources/mountain3Mule.png"));
             } else {
                imageplain = new Image(getClass()
-                       .getResourceAsStream("riverMule.gif"));
+                       .getResourceAsStream("../resources/riverMule.gif"));
             }
 
     button.setGraphic(new ImageView(imageplain));

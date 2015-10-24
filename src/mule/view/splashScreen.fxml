@@ -54,12 +54,12 @@
       </Label>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="125.0">
          <image>
-            <Image url="@baby_splash1.gif" />
+            <Image url="@../resources/baby_splash1.gif" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="580.0" layoutY="125.0">
          <image>
-            <Image url="@baby_splash2.gif" />
+            <Image url="@../resources/baby_splash2.gif" />
          </image>
       </ImageView>
    </children>

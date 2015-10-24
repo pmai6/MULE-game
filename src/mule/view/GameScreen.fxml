@@ -381,7 +381,7 @@
          <children>
             <ImageView fitHeight="342.0" fitWidth="590.0">
                <image>
-                  <Image url="@town1.png" />
+                  <Image url="@../resources/town1.png" />
                </image>
             </ImageView>
             <Button fx:id="assayOffice" layoutX="455.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleAssayOfficeAction" prefHeight="16.0" prefWidth="78.0" style="-fx-background-color: RED;" text="Assay Office" textAlignment="CENTER" textFill="WHITE" wrapText="true">
@@ -486,7 +486,7 @@
                <children>
                   <ImageView fitHeight="400.0" fitWidth="326.0" layoutX="-63.0" layoutY="-101.0">
                      <image>
-                        <Image url="@pub%202.jpg" />
+                        <Image url="@../resources/pub%202.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -497,14 +497,14 @@
       </AnchorPane>
       <ImageView fitHeight="127.0" fitWidth="131.0" layoutX="157.0" layoutY="418.0">
          <image>
-            <Image url="@baby%20unicorn.gif" />
+            <Image url="@../resources/baby%20unicorn.gif" />
          </image>
       </ImageView>
       <AnchorPane fx:id="Store" layoutX="215.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" visible="false">
          <children>
             <ImageView fitHeight="400.0" fitWidth="600.0">
                <image>
-                  <Image url="@store.png" />
+                  <Image url="@../resources/store.png" />
                </image>
             </ImageView>
             <Button layoutX="468.0" layoutY="40.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: chocolate;" text="Back to Map" textFill="#f5f4f4" />
