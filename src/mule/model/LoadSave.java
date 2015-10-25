@@ -15,8 +15,10 @@ public class LoadSave {
     public static void saveGame() {
         GameManager gamemanager = GameManager.getGameManager();
         Game saveGame = GameManager.getGameManager().getMulegame();
-        saveGame.setTimeLeftInTurn(gamemanager.getTimeLeft());
-        gamemanager.stopTimer();
+        if (!saveGame.isLandSelectionPhase()) {
+            saveGame.setTimeLeftInTurn(gamemanager.getTimeLeft());
+            gamemanager.stopTimer();
+        }
         try {
             FileOutputStream fileOut =
                     new FileOutputStream("gamedata.ser");

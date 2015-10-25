@@ -48,7 +48,9 @@ public class GameManager {
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
         gameManager.initializePlayerGuiStats();
         MapManager.setupMap(mulegame, controller);
-        gameManager.setTimer(mulegame.getTimeLeftInTurn());
+        if (!this.mulegame.isLandSelectionPhase()) {
+            gameManager.setTimer(mulegame.getTimeLeftInTurn());
+        }
         gameManager.updateGamePlayerRound();
     }
     public void startTheGame(Stage stage) throws Exception {
