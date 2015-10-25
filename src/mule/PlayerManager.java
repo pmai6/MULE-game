@@ -36,7 +36,8 @@ public class PlayerManager implements Serializable {
     public static void buyResources (Player player, String item, int quantity) {
         if (item.equalsIgnoreCase("food")) {
             player.setFood(player.getFood() + quantity);
-            player.setMoney(player.getMoney() - (Store.getFoodPrice() * quantity));
+            player.setMoney(player.getMoney() - (Store.getFoodPrice() *
+                    quantity));
         } else if (item.equalsIgnoreCase("energy")) {
             player.setEnergy(player.getEnergy() + quantity);
             player.setMoney(player.getMoney() - (Store.getEnergyPrice() * quantity));
@@ -91,16 +92,16 @@ public class PlayerManager implements Serializable {
         }
     }
 
-    /**
+ /*   *//**
      * stub method - player starts his turn
      * @param player - player who has current turn
      * @param startTimer - time in player's turn which is determined by his score
-     */
+     *//*
     public void startTurn(Player player, int startTimer) {
-        mule.model.Round.getCurrentTurn().setPlayer(player);
+        mulegame.getCurrentTurn().setPlayer(player);
         startTime = startTimer;
         time.startTimer();
-    }
+    }*/
 
 
     public IntegerProperty getTimeLeftProperty() { return timeLeft; } // get time remaining in the
@@ -111,7 +112,9 @@ public class PlayerManager implements Serializable {
      * stub method - player's turn ends when gambling
      */
     public void gambleInPub () {
-        Pub.gamble(RoundManager.getCurrentPlayer(), timeLeft.get(), mule.model.Round.getRoundNum());
+        Pub.gamble(RoundManager.getCurrentPlayer(), timeLeft.get(),
+                GameManager.getGameManager().getMulegame().getRound()
+                .getRoundNum());
         //this method is all that needs to be called to finish a turn
         //the parameter tells you whether the turn is ending b/c a player
         //passed or because of something other than that

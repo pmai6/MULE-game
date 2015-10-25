@@ -31,9 +31,14 @@ public class Timer {
         timeline.playFromStart();
         timeline.setOnFinished(e-> RoundManager.playerFinishedTurn(false));
     }
+
     public IntegerProperty getTimeLeft() {
         return this.timeSeconds;
     }
+    public int getIntTimeLeft() {
+        return timeSeconds.get();
+    }
+
     public IntegerProperty getTimeSeconds() {
         return this.timeSeconds;
     }

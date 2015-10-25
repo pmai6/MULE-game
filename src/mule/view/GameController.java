@@ -145,7 +145,7 @@ public class GameController {
     private Label roundNumber;
     @FXML
     private Label timerLabel;
-    private Timer Timer = new Timer(Player.calcPlayerTime(RoundManager.getCurrentPlayer()));
+    private Timer timer;
 
     private String selectedBuyTransaction;
     private String selectedSellTransaction;
@@ -160,11 +160,12 @@ public class GameController {
 
     public GameController() {
 
-}
+    }
 
     public Button[][] getButtonArray() {
         return mapButtonArray;
     }
+
     /**
      * Is called by the main application to give a reference back to itself.
      *
@@ -211,16 +212,16 @@ public class GameController {
         transactionSellCombo.setItems(transactionSellComboData);
 
         mapButtonArray = new Button[5][9];
-       String[][] defaultMapLayout = GameMap.getMapLayout();
-        for(int i=0; i<5; i++) {
-                for (int j = 0; j<9 ; j++) {
-                    mapButtonArray[i][j] = new Button();
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                mapButtonArray[i][j] = new Button();
                 mapGrid.add(mapButtonArray[i][j], j, i);
 
-                    mapButtonArray[i][j].minWidth(45.0);
-                    mapButtonArray[i][j].minWidth(45.0);
-                    mapButtonArray[i][j].prefHeight(60.0);
-                    mapButtonArray[i][j].prefWidth(60.0);
+                mapButtonArray[i][j].minWidth(45.0);
+                mapButtonArray[i][j].minWidth(45.0);
+                mapButtonArray[i][j].prefHeight(60.0);
+                mapButtonArray[i][j].prefWidth(60.0);
             }
         }
         mapButtonArray[0][0].setOnAction(new EventHandler<ActionEvent>() {
@@ -499,29 +500,34 @@ public class GameController {
         });
 
 
-        }
+    }
 
     private javafx.collections.ObservableList<String> purchaseChoiceBoxData =
             javafx.collections.FXCollections.observableArrayList();
 
 
-    public void setTimer() {
-        setTimerLabel(Timer, timerLabel);
-        Timer.startTimer();
+    public void setTimer(int time) {
+        timer = new Timer(time);
+        setTimerLabel(timer, timerLabel);
+        timer.startTimer();
     }
+
     @FXML
-    public void setTimerLabel(Timer Timer, Label timerLabel) {
-        timerLabel.textProperty().bind(Timer.getTimeSeconds().asString());
+    public void setTimerLabel(Timer timer, Label timerLabel) {
+        timerLabel.textProperty().bind(timer.getTimeSeconds().asString());
         timerLabel.setTextFill(Color.RED);
     }
+
     @FXML
     private void handleStoreAction() {
         System.out.println("Store Opens");
     }
+
     @FXML
     private void handleLandOfficeAction() {
         System.out.println("Land Office Opens");
     }
+
     @FXML
     private void handleAssayOfficeAction() {
         System.out.println("Assay Office Opens");
@@ -541,6 +547,7 @@ public class GameController {
     private void handleTransactionAction() {
 
     }
+
     @FXML
     private void submitPurchaseAction() throws Exception {
         purchaseQty = purchaseQtyBox.getText();
@@ -621,8 +628,9 @@ public class GameController {
         town.setVisible(false);
         map.setVisible(true);
     }
+
     @FXML
-    private void goToTownButton()  {
+    private void goToTownButton() {
         //if (!Game.isLandSelectionPhase()) {
         map.setVisible(false);
         town.setVisible(true);
@@ -630,7 +638,7 @@ public class GameController {
     }
 
     @FXML
-    private void passTurnButton()  {
+    private void passTurnButton() {
         RoundManager.playerFinishedTurn(true);
 
 
@@ -638,7 +646,7 @@ public class GameController {
 
     @FXML
     private void saveGame() throws Exception {
-      GameManager.saveGame();
+        GameManager.saveGame();
     }
 
     public void disablePlayerThree() {
@@ -653,9 +661,10 @@ public class GameController {
         gamestate.setText(input);
     }
 
-    public void changePlayerOneGuiStats (String name, String race, int score,
-                                         int money, int ore, int food, String
-                                         color,int energy) {
+    public void changePlayerOneGuiStats(
+            String name, String race, int score,
+            int money, int ore, int food, String
+                    color, int energy) {
         playerOneName.setText(name);
         playerOneName.setStyle(" -fx-text-fill :" + color + ";");
         playerOneRace.setText(race);
@@ -667,9 +676,10 @@ public class GameController {
     }
 
 
-    public void changePlayerTwoGuiStats (String name, String race, int score,
-                                         int money, int ore, int food, String
-                                         color,int energy) {
+    public void changePlayerTwoGuiStats(
+            String name, String race, int score,
+            int money, int ore, int food, String
+                    color, int energy) {
         playerTwoName.setText(name);
         playerTwoName.setStyle(" -fx-text-fill :" + color + ";");
 
@@ -682,9 +692,10 @@ public class GameController {
 
     }
 
-    public void changePlayerThreeGuiStats (String name, String race, int score,
-                                           int money, int ore, int food,
-                                           String color, int energy) {
+    public void changePlayerThreeGuiStats(
+            String name, String race, int score,
+            int money, int ore, int food,
+            String color, int energy) {
         playerThreeName.setText(name);
         playerThreeName.setStyle(" -fx-text-fill :" + color + ";");
         playerThreeRace.setText(race);
@@ -695,9 +706,10 @@ public class GameController {
         playerThreeEnergy.setText(String.valueOf(energy));
     }
 
-    public void changePlayerFourGuiStats (String name, String race, int score,
-                                          int money, int ore, int food,
-                                          String color, int energy) {
+    public void changePlayerFourGuiStats(
+            String name, String race, int score,
+            int money, int ore, int food,
+            String color, int energy) {
         playerFourName.setText(name);
         playerFourName.setStyle(" -fx-text-fill :" + color + ";");
         playerFourRace.setText(race);
@@ -708,16 +720,17 @@ public class GameController {
         playerFourEnergy.setText(String.valueOf(energy));
     }
 
-    public void setCurrentPlayer (String player) {
+    public void setCurrentPlayer(String player) {
         currentPlayer.setText(player);
     }
 
-    public void setRoundNumber (int round) {
+    public void setRoundNumber(int round) {
         roundNumber.setText(String.valueOf(round));
     }
 
 
-    public void updateStoreData (int food, int energy, int smithore, int
+    public void updateStoreData(
+            int food, int energy, int smithore, int
             crystite, int foodMule, int energyMule, int crystiteMule, int oreMule) {
         foodLabel.setText(new Integer(food).toString());
         energyLabel.setText(new Integer(energy).toString());
@@ -739,15 +752,13 @@ public class GameController {
     }
 
 
-    public void placingMule() throws Exception{
-        Image   imageplain = new Image(getClass()
+    public void placingMule() throws Exception {
+        Image imageplain = new Image(getClass()
                 .getResourceAsStream("../resources/baby.png"));
 
         map.setCursor(new ImageCursor(imageplain));
         exitButtonAction();
     }
-
-
 
 
     public void badMulePlacement() {
@@ -778,30 +789,31 @@ public class GameController {
         alert.setContentText(random);
         alert.showAndWait();
     }
-public void addMuleToButton (Button button, Tile tile) {
-    Image imageplain;
-           if (tile instanceof Plain) {
-               imageplain = new Image(getClass()
-                       .getResourceAsStream("../resources/brownMule.png"));
-            } else if (tile instanceof Mountain1) {
-               imageplain = new Image(getClass()
-                       .getResourceAsStream("../resources/mountain1Mule.png"));
-            } else if (tile instanceof Mountain2) {
-               imageplain = new Image(getClass()
-                       .getResourceAsStream("../resources/mountain2Mule.png"));
-            } else if (tile instanceof Mountain3) {
-               imageplain = new Image(getClass()
-                       .getResourceAsStream("../resources/mountain3Mule.png"));
-            } else {
-               imageplain = new Image(getClass()
-                       .getResourceAsStream("../resources/riverMule.gif"));
-            }
 
-    button.setGraphic(new ImageView(imageplain));
-    setCursorDefault();
-}
+    public void addMuleToButton(Button button, Tile tile) {
+        Image imageplain;
+        if (tile instanceof Plain) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/brownMule.png"));
+        } else if (tile instanceof Mountain1) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/mountain1Mule.png"));
+        } else if (tile instanceof Mountain2) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/mountain2Mule.png"));
+        } else if (tile instanceof Mountain3) {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/mountain3Mule.png"));
+        } else {
+            imageplain = new Image(getClass()
+                    .getResourceAsStream("../resources/riverMule.gif"));
+        }
 
-    public void addImageToButton (Button button, Tile tile) {
+        button.setGraphic(new ImageView(imageplain));
+        setCursorDefault();
+    }
+
+    public void addImageToButton(Button button, Tile tile) {
         Image imageplain;
         if (button == mapButtonArray[2][4]) { //town button
             imageplain = new Image(getClass()
@@ -825,10 +837,20 @@ public void addMuleToButton (Button button, Tile tile) {
         button.setGraphic(new ImageView(imageplain));
     }
 
-    public void setCursorDefault (){
-    map.setCursor(Cursor.DEFAULT);
+    public void setCursorDefault() {
+        map.setCursor(Cursor.DEFAULT);
+    }
+
+
+    public int getTimeLeft() {
+        return timer.getIntTimeLeft();
+    }
+
+    public void stopTimer() {
+        timer.stopTimer();
+    }
 }
-}
+
 
 
 

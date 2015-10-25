@@ -144,8 +144,8 @@ public class MapManager {
     public static int costOfTile() {
         //TODO need to deal with later rounds in land selection phase
         // and need to deal with when the real game starts.
-        if (gameManager.getMulegame().isLandSelectionPhase() && Round
-                .getRoundNum() <= 2) {
+        if (gameManager.getMulegame().isLandSelectionPhase() && gameManager
+                .getMulegame().getRound().getRoundNum() <= 2) {
 
             return 0;
         }

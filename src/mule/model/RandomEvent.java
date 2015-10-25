@@ -24,7 +24,8 @@ public class RandomEvent {
 ///        12.TEST_WEEK_MESS (bad event) - ($2*m, 3 energy)
     public static void callTurnRandomEvent(String event) {
         Player currentPlayer = RoundManager.getCurrentPlayer();
-        int m = getM(Round.getRoundNum());
+        int m = getM(GameManager.getGameManager().getMulegame().getRound().getRoundNum
+                ());
         switch(event) {
             case "RCVD_GT_PACK":
                 PlayerManager.addPlayerFood(currentPlayer, 3);

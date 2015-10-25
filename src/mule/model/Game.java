@@ -19,8 +19,9 @@ public class Game implements Serializable {
 
     private  boolean isLandSelectionPhase;
     private  boolean isMuleBought = false;
-
     private Tile[][] tiles;
+    private int timeLeftInTurn;
+    private Round round;
 
 public Game() {} // default constructor
 
@@ -31,6 +32,8 @@ public Game() {} // default constructor
         sortedPlayerArray = new ArrayList<>(anumPlayers);
         n = number;
         map = amap;
+        timeLeftInTurn = 0;
+        round = new Round();
     }
 
     public void setUpMap() {
@@ -121,5 +124,21 @@ public Game() {} // default constructor
 
     public void setTiles(Tile[][] tiles) {
         this.tiles = tiles;
+    }
+
+    public int getTimeLeftInTurn() {
+        return timeLeftInTurn;
+    }
+
+    public void setTimeLeftInTurn(int timeLeftInTurn) {
+        this.timeLeftInTurn = timeLeftInTurn;
+    }
+
+    public Round getRound() {
+        return round;
+    }
+
+    public void setRound(Round round) {
+        this.round = round;
     }
 }

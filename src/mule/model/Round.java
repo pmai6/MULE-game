@@ -6,50 +6,51 @@ package mule.model;
 
         import mule.GameManager;
 
+        import java.io.*;
         import java.lang.reflect.Array;
         import java.util.ArrayList;
 
-public class Round {
+public class Round implements Serializable {
 
-    private static ArrayList<Turn> roundTurns;
-    private static int roundNum;
-    private static int turnNum;
-    private static int numPasses;
-    private static GameManager gameManager = GameManager.getGameManager();
+    private  ArrayList<Turn> roundTurns;
+    private  int roundNum;
+    private  int turnNum;
+    private  int numPasses;
 
-    public static int getNumPasses() {
+
+    public  int getNumPasses() {
         return numPasses;
     }
 
     //initialize proper number of turns based on number of players
-    public static void createTurns() {
-        roundTurns = new ArrayList<Turn>(gameManager.getMulegame().getNumberOfPlayers());
+    public  void createTurns(int numberOfPlayers) {
+        roundTurns = new ArrayList<Turn>(numberOfPlayers);
         roundNum = 1;
         turnNum = 0;
     }
 
     //returns the current turn number
-    public static int getTurnNum() {
+    public  int getTurnNum() {
         return turnNum;
     }
 
     //returns the current turn object
-    public static Turn getCurrentTurn() {
+    public  Turn getCurrentTurn() {
         return roundTurns.get(turnNum);
     }
 
-    public static int getRoundNum() {
+    public  int getRoundNum() {
         return roundNum;
     }
 
-    public static void setRoundNum(int num) { roundNum = num;
+    public  void setRoundNum(int num) { roundNum = num;
     }
 
-    public static void setTurnNum(int num) {
+    public  void setTurnNum(int num) {
         turnNum = num;
     }
 
-    public static void setNumPasses(int num) {
+    public  void setNumPasses(int num) {
         numPasses = num;
     }
 }

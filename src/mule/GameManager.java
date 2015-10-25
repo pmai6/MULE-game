@@ -42,12 +42,14 @@ public class GameManager {
         for (Player p: mulegame.getPlayerArray()) {
             System.out.println(p.getMoney());
         }
-        RoundManager.startRounds(gameManager);
+        RoundManager.startFromSave(gameManager);
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
         gameManager.initializePlayerGuiStats();
         MapManager.setupMap(mulegame, controller);
+        gameManager.setTimer(mulegame.getTimeLeftInTurn());
+        gameManager.updateGamePlayerRound();
     }
     public void startTheGame(Stage stage) throws Exception {
 
@@ -126,7 +128,7 @@ public class GameManager {
     public  void updateGamePlayerRound() {
         controller.setCurrentPlayer(RoundManager.getCurrentPlayer()
                 .getPlayerName());
-        controller.setRoundNumber(Round.getRoundNum());
+        controller.setRoundNumber(mulegame.getRound().getRoundNum());
         gameManager.setGameStateLabel();
     }
 
@@ -183,8 +185,8 @@ public class GameManager {
         }
     }
 
-    public  void setTimer() {
-        controller.setTimer();
+    public  void setTimer(int time) {
+        controller.setTimer(time);
     }
 
     public  void muleAlert() {
@@ -271,5 +273,13 @@ public class GameManager {
 
     public static void loadGame(Stage stage) throws Exception {
         LoadSave.loadGame(stage);
+    }
+
+    public int getTimeLeft() {
+        return controller.getTimeLeft();
+    }
+
+    public void stopTimer() {
+        controller.stopTimer();
     }
 }

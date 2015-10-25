@@ -2,6 +2,7 @@ package mule.model;
 
 import javafx.stage.*;
 import mule.*;
+import mule.view.*;
 
 import java.io.*;
 
@@ -12,7 +13,10 @@ public class LoadSave {
 
 
     public static void saveGame() {
+        GameManager gamemanager = GameManager.getGameManager();
         Game saveGame = GameManager.getGameManager().getMulegame();
+        saveGame.setTimeLeftInTurn(gamemanager.getTimeLeft());
+        gamemanager.stopTimer();
         try {
             FileOutputStream fileOut =
                     new FileOutputStream("gamedata.ser");

@@ -239,10 +239,9 @@ public class Player implements Comparable, Serializable {
         //ascending order
         return this.getScore() - compareScore;
     }
-    public static int calcPlayerTime(Player player) {
+    public int calcPlayerTime() {
         int time = 50;
-        int round = Round.getRoundNum();
-        int food = player.getFood();
+        int round = GameManager.getGameManager().getMulegame().getRound().getRoundNum();
         if (round >= 1 || round <= 4) {
             if (food >= 3) { time = 50; }
             if (food < 3 && food > 0) { time = 30; }
