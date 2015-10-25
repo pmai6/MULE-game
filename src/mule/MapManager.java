@@ -30,7 +30,6 @@ public class MapManager {
                 ][GridPane.getColumnIndex(button)];
 
         if (gameManager.getMulegame().isLandSelectionPhase()) {
-
             buyTile(player, tile, button);
 
         } else if (gameManager.getMulegame().isMuleBought()) {
@@ -59,7 +58,7 @@ public class MapManager {
             tile.setIsOwned(true);
             tile.setOwner(player);
 
-            player.playerBuyProperty(player, tile);
+            player.playerBuyProperty(tile);
             changeButtonColor(player, button);
 
             RoundManager.playerFinishedTurn(false);

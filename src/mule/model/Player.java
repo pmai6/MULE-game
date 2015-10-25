@@ -272,12 +272,11 @@ public class Player implements Comparable, Serializable {
 
     /**
      * Method to deduct the an amount of money a player spent on land
-     * @param player current player
      * @param property land to buy
      */
-    public static void playerBuyProperty (Player player, Tile property) {
-        player.setMoney(player.getMoney() -  MapManager.costOfTile());
-        player.addtile(property);
+    public void playerBuyProperty (Tile property) {
+       setMoney(getMoney() -  MapManager.costOfTile());
+        addtile(property);
 
     }
 }

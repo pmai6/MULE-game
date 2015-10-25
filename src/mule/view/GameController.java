@@ -640,8 +640,6 @@ public class GameController {
     @FXML
     private void passTurnButton() {
         RoundManager.playerFinishedTurn(true);
-
-
     }
 
     @FXML

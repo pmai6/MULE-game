@@ -47,20 +47,6 @@ public class Main extends Application {
         astage.show();
     }
 
-  /*  moved this method to the GameManager Class
-  public void startGameController(Stage astage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-                "/view/GameScreen.fxml"));
-        Parent root = fxmlLoader.load();
-        astage.setScene(new Scene(root));
-        astage.setTitle("M.U.L.E Game Screen");
-        GameController controller = fxmlLoader.getController();
-        controller.setMainApp(this);
-        astage.show();
-    }
-*/
-
-
     public static void main(String[] args) {
         launch(args);
     }
