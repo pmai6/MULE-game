@@ -36,17 +36,18 @@ public class PlayerManager implements Serializable {
     public static void buyResources (Player player, String item, int quantity) {
         if (item.equalsIgnoreCase("food")) {
             player.setFood(player.getFood() + quantity);
-            player.setMoney(player.getMoney() - (Store.getFoodPrice() *
+            player.setMoney(player.getMoney() - (gameManager.getGameStore().getFoodPrice
+                    () *
                     quantity));
         } else if (item.equalsIgnoreCase("energy")) {
             player.setEnergy(player.getEnergy() + quantity);
-            player.setMoney(player.getMoney() - (Store.getEnergyPrice() * quantity));
+            player.setMoney(player.getMoney() - (gameManager.getGameStore().getEnergyPrice() * quantity));
         } else if (item.equalsIgnoreCase("smithore")) {
             player.setSmithore(player.getSmithore() + quantity);
-            player.setMoney(player.getMoney() - (Store.getSmithorePrice() * quantity));
+            player.setMoney(player.getMoney() - (gameManager.getGameStore().getSmithorePrice() * quantity));
         } else if (item.equals("crystite")) {
             player.setCrystite(player.getCrystite() + quantity);
-            player.setMoney(player.getMoney() - (Store.getCrystitePrice() * quantity));
+            player.setMoney(player.getMoney() - (gameManager.getGameStore().getCrystitePrice() * quantity));
         }
     }
 
@@ -54,13 +55,17 @@ public class PlayerManager implements Serializable {
         if (player.getMoney() - mule.getCost() >= 0) {
             player.setMoney(player.getMoney() - mule.getCost());
             if (mule.getCost() == 125) {
-                Store.setFoodMuleQty(Store.getFoodMuleQty() - 1);
+                gameManager.getGameStore().setFoodMuleQty(gameManager.getGameStore()
+                        .getFoodMuleQty() - 1);
             } else if (mule.getCost() == 150) {
-                Store.setEnergyMuleQty(Store.getEnergyMuleQty() - 1);
+                gameManager.getGameStore().setEnergyMuleQty(gameManager.getGameStore()
+                        .getEnergyMuleQty() - 1);
             } else if (mule.getCost() == 175) {
-                Store.setSmithoreMuleQty(Store.getSmithoreMuleQty() - 1);
+                gameManager.getGameStore().setSmithoreMuleQty(gameManager.getGameStore()
+                        .getSmithoreMuleQty() - 1);
             } else {
-                Store.setCrystiteMuleQty(Store.getCrystiteMuleQty() - 1);
+                gameManager.getGameStore().setCrystiteMuleQty(gameManager.getGameStore()
+                        .getCrystiteMuleQty() - 1);
             }
             GameManager.getGameManager().updateStoreData();
             player.setUnplacedMule(mule);
@@ -79,16 +84,16 @@ public class PlayerManager implements Serializable {
         //
         if (item.equalsIgnoreCase("food")) {
             player.setFood(player.getFood() - quantity);
-            player.setMoney(player.getMoney() + (Store.getFoodPrice() * quantity));
+            player.setMoney(player.getMoney() + (gameManager.getGameStore().getFoodPrice() * quantity));
         } else if (item.equalsIgnoreCase("energy")) {
             player.setEnergy(player.getEnergy() - quantity);
-            player.setMoney(player.getMoney() + (Store.getEnergyPrice() * quantity));
+            player.setMoney(player.getMoney() + (gameManager.getGameStore().getEnergyPrice() * quantity));
         } else if (item.equalsIgnoreCase("smithore")) {
             player.setSmithore(player.getSmithore() - quantity);
-            player.setMoney(player.getMoney() + (Store.getSmithoreQty() * quantity));
+            player.setMoney(player.getMoney() + (gameManager.getGameStore().getSmithoreQty() * quantity));
         } else if (item.equals("crystite")) {
             player.setCrystite(player.getCrystite() - quantity);
-            player.setMoney(player.getMoney() + (Store.getCrystitePrice() * quantity));
+            player.setMoney(player.getMoney() + (gameManager.getGameStore().getCrystitePrice() * quantity));
         }
     }
 

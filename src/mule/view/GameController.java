@@ -1,7 +1,5 @@
 package mule.view;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,12 +18,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import mule.*;
-import mule.model.*;
+import mule.model.Mountain1;
+import mule.model.Mountain2;
+import mule.model.Mountain3;
+import mule.model.Plain;
+import mule.model.River;
 import mule.model.Store;
-public class GameController {
+import mule.model.Tile;
+
+public final class GameController {
     private GameManager gameManager;
     private Main mainapp;
-
     @FXML
     private AnchorPane town;
     @FXML
@@ -36,29 +39,21 @@ public class GameController {
     private Button gambleButton;
     @FXML
     private HBox map;
-
     @FXML
     private Label gamestate;
-
     @FXML
     private HBox playerthree;
     @FXML
     private HBox playerfour;
-
     @FXML
     private TextField purchaseQtyBox;
     @FXML
     private ComboBox<String> transactionBuyCombo;
     @FXML
     private ComboBox<String> transactionSellCombo;
-
-
     @FXML
     private GridPane mapGrid;
-
     private Button[][] mapButtonArray;
-
-
     @FXML
     private Label foodLabel;
     @FXML
@@ -75,11 +70,8 @@ public class GameController {
     private Label crystiteMuleLabel;
     @FXML
     private Label oreMuleLabel;
-
-
     @FXML
     private Label playerOneName;
-
     @FXML
     private Label playerOneRace;
     @FXML
@@ -92,10 +84,8 @@ public class GameController {
     private Label playerOneFood;
     @FXML
     private Label playerOneEnergy;
-
     @FXML
     private Label playerTwoName;
-
     @FXML
     private Label playerTwoRace;
     @FXML
@@ -108,7 +98,6 @@ public class GameController {
     private Label playerTwoFood;
     @FXML
     private Label playerTwoEnergy;
-
     @FXML
     private Label playerThreeName;
     @FXML
@@ -123,7 +112,6 @@ public class GameController {
     private Label playerThreeFood;
     @FXML
     private Label playerThreeEnergy;
-
     @FXML
     private Label playerFourName;
     @FXML
@@ -138,7 +126,6 @@ public class GameController {
     private Label playerFourFood;
     @FXML
     private Label playerFourEnergy;
-
     @FXML
     private Label currentPlayer;
     @FXML
@@ -146,17 +133,18 @@ public class GameController {
     @FXML
     private Label timerLabel;
     private Timer timer;
-
     private String selectedBuyTransaction;
     private String selectedSellTransaction;
     private String purchaseQty;
-
     // Arrays for Combo - pull down boxes
-    private ObservableList<String> transactionBuyComboData = FXCollections.observableArrayList();
-    private ObservableList<String> transactionSellComboData = FXCollections.observableArrayList();
-
+    private ObservableList<String> transactionBuyComboData = FXCollections
+            .observableArrayList();
+    private ObservableList<String> transactionSellComboData = FXCollections
+            .observableArrayList();
     @FXML
     private Button saveGameButton;
+    private javafx.collections.ObservableList<String> purchaseChoiceBoxData =
+            javafx.collections.FXCollections.observableArrayList();
 
     public GameController() {
 
@@ -502,11 +490,7 @@ public class GameController {
 
     }
 
-    private javafx.collections.ObservableList<String> purchaseChoiceBoxData =
-            javafx.collections.FXCollections.observableArrayList();
-
-
-    public void setTimer(int time) {
+    public final void setTimer(int time) {
         timer = new Timer(time);
         setTimerLabel(timer, timerLabel);
         timer.startTimer();
@@ -551,8 +535,10 @@ public class GameController {
     @FXML
     private void submitPurchaseAction() throws Exception {
         purchaseQty = purchaseQtyBox.getText();
-        selectedSellTransaction = transactionSellCombo.getSelectionModel().getSelectedItem();
-        selectedBuyTransaction = transactionBuyCombo.getSelectionModel().getSelectedItem();
+        selectedSellTransaction = transactionSellCombo.getSelectionModel()
+                .getSelectedItem();
+        selectedBuyTransaction = transactionBuyCombo.getSelectionModel()
+                .getSelectedItem();
         if (selectedBuyTransaction != null) {
             if (selectedBuyTransaction.equalsIgnoreCase("Food")) {
                 StoreManager.exportFood(Integer.parseInt(purchaseQty));
@@ -564,15 +550,18 @@ public class GameController {
                 StoreManager.exportCrystite(Integer.parseInt(purchaseQty));
             } else if (selectedBuyTransaction.equalsIgnoreCase("Food Mule")) {
                 StoreManager.buyMule(selectedBuyTransaction);
-            } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore Mule")) {
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Smithore "
+                    + "Mule")) {
                 StoreManager.buyMule(selectedBuyTransaction);
             } else if (selectedBuyTransaction.equalsIgnoreCase("Energy Mule")) {
                 StoreManager.buyMule(selectedBuyTransaction);
-            } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite Mule")) {
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite "
+                    + "Mule")) {
                 StoreManager.buyMule(selectedBuyTransaction);
             }
         }
-        //Null point exception, need to check what's going on with the sell method
+        //Null point exception, need to check what's going on with the sell
+        // method
 
         if (selectedSellTransaction != null) {
             if (selectedSellTransaction.equalsIgnoreCase("Food")) {
@@ -729,7 +718,8 @@ public class GameController {
 
     public void updateStoreData(
             int food, int energy, int smithore, int
-            crystite, int foodMule, int energyMule, int crystiteMule, int oreMule) {
+            crystite, int foodMule, int energyMule, int crystiteMule, int
+            oreMule) {
         foodLabel.setText(new Integer(food).toString());
         energyLabel.setText(new Integer(energy).toString());
         smithOreLabel.setText(new Integer(smithore).toString());

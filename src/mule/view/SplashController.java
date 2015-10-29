@@ -10,7 +10,7 @@ import mule.*;
 /**
  * Created by travisclement on 10/23/15.
  */
-public class SplashController {
+public final class SplashController {
 
 
     private GameManager gameManager;

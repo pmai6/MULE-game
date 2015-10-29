@@ -23,7 +23,7 @@ public class GameManager {
     private static GameManager gameManager = new GameManager();
     private static Game mulegame;
     private static GameController controller;
-
+    private static Store gamestore;
     public static GameManager getGameManager() {
         return gameManager;
     }
@@ -31,6 +31,7 @@ public class GameManager {
                            int numberOfPlayers,
                            String map, int n) {
         mulegame = new Game(difficulty, numberOfPlayers, map, n);
+        gamestore = mulegame.getGamestore();
     }
 
 
@@ -52,6 +53,7 @@ public class GameManager {
             gameManager.setTimer(mulegame.getTimeLeftInTurn());
         }
         gameManager.updateGamePlayerRound();
+        gamestore = mulegame.getGamestore();
     }
     public void startTheGame(Stage stage) throws Exception {
 
@@ -136,14 +138,14 @@ public class GameManager {
 
 
     public void updateStoreData () {
-        int food = Store.getFoodQty();
-        int energy = Store.getEnergyQty();
-        int smithore = Store.getSmithoreQty();
-        int crystite = Store.getCrystiteQty();
-        int foodMule = Store.getFoodMuleQty();
-        int energyMule = Store.getEnergyMuleQty();
-        int crystiteMule = Store.getCrystiteMuleQty();
-        int smithoreMule = Store.getSmithoreMuleQty();
+        int food = gamestore.getFoodQty();
+        int energy = gamestore.getEnergyQty();
+        int smithore = gamestore.getSmithoreQty();
+        int crystite = gamestore.getCrystiteQty();
+        int foodMule = gamestore.getFoodMuleQty();
+        int energyMule = gamestore.getEnergyMuleQty();
+        int crystiteMule = gamestore.getCrystiteMuleQty();
+        int smithoreMule = gamestore.getSmithoreMuleQty();
 
         controller.updateStoreData(food, energy, smithore, crystite, foodMule,
                 energyMule, crystiteMule, smithoreMule);
@@ -283,5 +285,9 @@ public class GameManager {
 
     public void stopTimer() {
         controller.stopTimer();
+    }
+
+    public Store getGameStore() {
+       return  mulegame.getGamestore();
     }
 }

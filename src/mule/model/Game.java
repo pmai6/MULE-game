@@ -22,7 +22,7 @@ public class Game implements Serializable {
     private Tile[][] tiles;
     private int timeLeftInTurn;
     private Round round;
-
+    private Store gamestore;
 public Game() {} // default constructor
 
     public Game (String adifficulty, int anumPlayers, String amap, int number) {
@@ -34,6 +34,7 @@ public Game() {} // default constructor
         map = amap;
         timeLeftInTurn = 0;
         round = new Round();
+        gamestore = new Store();
     }
 
     public void setUpMap() {
@@ -140,5 +141,13 @@ public Game() {} // default constructor
 
     public void setRound(Round round) {
         this.round = round;
+    }
+
+    public Store getGamestore() {
+        return gamestore;
+    }
+
+    public void setGamestore(Store gamestore) {
+        this.gamestore = gamestore;
     }
 }
