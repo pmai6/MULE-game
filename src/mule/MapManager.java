@@ -20,7 +20,7 @@ public class MapManager {
      * this will be the major method to handle what happens when a button is
      * pushed
      *
-     * @param button
+     * @param button button on map display player's property
      */
     public static void handleMapButton(Button button) {
         MapManager.button = button;
@@ -48,9 +48,8 @@ public class MapManager {
      * Button param will only be used to pass through tto the
      * changeButtonColor() method
      *
-     * @param player
-     * @param tile
-     * @return true if tile was purchased
+     * @param player player who buys tile
+     * @param tile tile to be bought
      */
     private static void buyTile(Player player, Tile tile, Button button) {
         if (canTileBeBought(player, tile)) {
@@ -73,8 +72,8 @@ public class MapManager {
      * if the player has enough money to buy the tile
      * sanity check to make sure it is not the town
      *
-     * @param player
-     * @param tile   return boolean return true if it can be
+     * @param player current player of the game
+     * @param tile   tile to be checked
      */
     private static boolean canTileBeBought(Player player, Tile tile) {
 
@@ -124,8 +123,8 @@ public class MapManager {
      * takes in player and Button to determine which color and which button to
      * change
      *
-     * @param player
-     * @param button
+     * @param player current player of the game
+     * @param button button on map to be changed color
      */
     private static void changeButtonColor(Player player, Button button) {
         String thecolor = player.getPlayerColor();

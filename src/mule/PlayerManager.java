@@ -97,18 +97,6 @@ public class PlayerManager implements Serializable {
         }
     }
 
- /*   *//**
-     * stub method - player starts his turn
-     * @param player - player who has current turn
-     * @param startTimer - time in player's turn which is determined by his score
-     *//*
-    public void startTurn(Player player, int startTimer) {
-        mulegame.getCurrentTurn().setPlayer(player);
-        startTime = startTimer;
-        time.startTimer();
-    }*/
-
-
     public IntegerProperty getTimeLeftProperty() { return timeLeft; } // get time remaining in the
                                                                       // player's turn
     public int getTimeLeft() { return timeLeft.get(); }

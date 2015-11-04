@@ -45,8 +45,6 @@ private GameManager gameManager;
 
     private String selectedRace;
     private String selectedColor;
-    private String playerName;
-    private String raceInfoValue;
 
 
     public  PlayerConfigController() {
@@ -95,28 +93,28 @@ private GameManager gameManager;
     private void handleRaceComboAction() {
         selectedRace =
                 raceCombo.getSelectionModel().getSelectedItem();
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Ugaite") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Ugaite")) {
                     raceInfo.setText("From the Nekite Galaxy. Ugaite love land. To get it they are willing to stick their necks out!");
                 }
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Human") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Human")) {
                     raceInfo.setText("From the Earth Systems. Humanoids start with $600 because they are too smart! Expert Species");
                 }
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Bonzoid") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Bonzoid")) {
                     raceInfo.setText("From the Armpull Galaxy. Bonzoids love climbing and are often found hanging around in the mountains");
                 }
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Buzzite") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Buzzite")) {
                     raceInfo.setText("From the Jacket System. Love to fly high above the competition");
                 }
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Flapper") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Flapper")) {
                     raceInfo.setText("From the Boird-Drop Galaxy. All Flappers receive an extra $600 in their nest egg! Beginner Species");
                 }
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Foilers") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Foilers")) {
                     raceInfo.setText("(DLC content) Feel Free to Foil your enemies with this new character!");
                 }
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Trillers") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Trillers")) {
                     raceInfo.setText("(DLC content) Keepin it trill. Try and tolerate these terrifying terrors");
                 }
-                if (raceCombo.getSelectionModel().getSelectedItem() == "Yellers") {
+                if (raceCombo.getSelectionModel().getSelectedItem().equals("Yellers")) {
                     raceInfo.setText("(DLC content) They're yellow. Thats about it");
                 }
     }
@@ -125,25 +123,22 @@ private GameManager gameManager;
     private void handleColorComboAction() {
         selectedColor =
                 colorCombo.getSelectionModel().getSelectedItem();
-                if (colorCombo.getSelectionModel().getSelectedItem() == "Red") {
+                if (colorCombo.getSelectionModel().getSelectedItem().equals("Red")) {
                     colorLabel.setTextFill(javafx.scene.paint.Color.RED);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() ==
-                        "Blue") {
+                if (colorCombo.getSelectionModel().getSelectedItem().equals("Blue")) {
                     colorLabel.setTextFill(javafx.scene.paint.Color.BLUE);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() ==
-                        "Purple") {
+                if (colorCombo.getSelectionModel().getSelectedItem().equals("Purple")) {
                     colorLabel.setTextFill(javafx.scene.paint.Color.PURPLE);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() ==
-                        "Green") {
+                if (colorCombo.getSelectionModel().getSelectedItem().equals("Green")) {
                     colorLabel.setTextFill(javafx.scene.paint.Color.GREEN);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "Orange") {
+                if (colorCombo.getSelectionModel().getSelectedItem().equals("Orange")) {
                     colorLabel.setTextFill(javafx.scene.paint.Color.ORANGE);
                 }
-                if (colorCombo.getSelectionModel().getSelectedItem() == "Yellow") {
+                if (colorCombo.getSelectionModel().getSelectedItem().equals("Yellow")) {
                     colorLabel.setTextFill(javafx.scene.paint.Color.YELLOW);
                 }
 
@@ -156,7 +151,7 @@ private GameManager gameManager;
         stage = (Stage) nextButton.getScene().getWindow();
         gameManager.getMulegame().removeColor(selectedColor);
 
-        playerName =  playerNameBox.getText();
+        String playerName = playerNameBox.getText();
         PlayerManager.createNewGamePlayer(playerName,
                 selectedRace, selectedColor);
 
