@@ -9,6 +9,8 @@ import mule.RoundManager;
  */
 public class RandomEvent {
 
+    public RandomEvent(){}
+    public static final String NO_MULE = "Mules does not exists";
     //round event rules
 ///        1.RCVD_GT_PACKAGE + (3 food, 2 energy)
 ///        2.REPAID_HOSPITALITY + (2 Smithore)
@@ -61,7 +63,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.subPlayerMule(currentPlayer, "Energy Mule", 1);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("ANGRY FAIRY REMEBERS HER CLEAN UP DAY. SHE CHARGES $" + 3*m + "AND RUNS " +
                         "OFF WITH 1 ENERGY MULE");
@@ -71,7 +73,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.subPlayerMule(currentPlayer, "Smithore Mule", 2);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("WOW!! TOO HOT!!! 2 ORE MULES DIE AND 5 FOOD UNITS ROT");
                 break;
@@ -81,7 +83,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.addPlayerMule(currentPlayer, "Energy Mule", 2);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("HUPPIE!! I'M OUT OF THE TEAPOT. HERE ARE $" + 3*m + ", 10 FOOD, 2 " +
                         "ENERGY MULES FOR YOU.");
@@ -95,7 +97,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.addPlayerMule(currentPlayer, "Unicorn Mule", 1);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("UNICORN LIKES YOU, COME GET $" + 6*m + ", 10 FOOD, 2 ENERGY, 3 SMITHORES, 3 CRYSTITES, AND" +
                         " TAKE 1 UNICORN MULE HOME");
@@ -125,8 +127,9 @@ public class RandomEvent {
         else if (currRoundNum > 7 && currRoundNum < 12) {
             return 75;
         }
-        else
+        else {
             return 100;
+        }
     }
 
     public static String getAllTurnRandomEventsEvent() {

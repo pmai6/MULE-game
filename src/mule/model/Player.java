@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import mule.*;
 
 /**
@@ -118,10 +114,11 @@ public class Player implements Comparable, Serializable {
     }
 
     public void setMoney(int money) {
-        if(money > 0)
+        if(money > 0) {
             this.money = money;
-        else
+        }else {
             this.money = 0;
+        }
     }
 
     public int getEnergy() {
@@ -129,20 +126,22 @@ public class Player implements Comparable, Serializable {
     }
 
     public void setEnergy(int energy) {
-        if(energy > 0)
+        if(energy > 0) {
             this.energy = energy;
-        else
+        }else {
             this.energy = 0;
+        }
     }
 
     public int getFood() {
         return food;
     }
     public void setFood(int food) {
-        if(food > 0)
+        if(food > 0) {
             this.food = food;
-        else
+        }else {
             this.food = 0;
+        }
     }
 
 
@@ -150,20 +149,22 @@ public class Player implements Comparable, Serializable {
         return smithore;
     }
     public void setSmithore(int ore) {
-        if(ore > 0)
+        if(ore > 0) {
             this.smithore = ore;
-        else
+        }else {
             this.smithore = 0;
+        }
     }
 
 
 
     public int getCrystite() { return crystite; }
     public void setCrystite(int crysTite) {
-        if(crysTite > 0)
+        if(crysTite > 0) {
             this.crystite = crysTite;
-        else
+        }else {
             this.crystite = 0;
+        }
     }
 
 

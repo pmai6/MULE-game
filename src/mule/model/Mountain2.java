@@ -16,40 +16,40 @@ public class Mountain2 implements Tile {
 
     }
 
-    public void setOwner(Player player) {
+    public final void setOwner(Player player) {
         this.player = player;
     }
 
-    public Tile getLocation(Tile[][] tiles) {
+    public final Tile getLocation(Tile[][] tiles) {
         return tiles[2][4];
     }
 
-    public Player getOwner() {
+    public final Player getOwner() {
         return player;
     }
 
-    public int getCost() {
+    public final int getCost() {
         return 300;
     }
 
-    public boolean isOwned() {
+    public final boolean isOwned() {
         return isOwned;
     }
 
-    public void setIsOwned(boolean isOwned) {
+    public final void setIsOwned(boolean isOwned) {
         this.isOwned = isOwned;
     }
 
 
-    public List<Mule> getMule() {
+    public final List<Mule> getMule() {
         return mules;
     }
 
-    public void addMule(Mule mule) {
+    public final void addMule(Mule mule) {
         mules.add(mule);
     }
 
-    public void calculateProduction() {
+    public final void calculateProduction() {
         List<Mule> mules = this.getMule();
         Iterator<Mule> muleIterator = mules.iterator();
         while(muleIterator.hasNext()) {
@@ -69,11 +69,11 @@ public class Mountain2 implements Tile {
 
     }
 
-    public boolean hasMule() {
+    public final boolean hasMule() {
         return hasMule;
     }
 
-    public void setHasMule(boolean hasMule) {
+    public final void setHasMule(boolean hasMule) {
         this.hasMule = hasMule;
     }
 }

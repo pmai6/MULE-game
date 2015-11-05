@@ -133,7 +133,6 @@ public final class GameController {
     @FXML
     private Label timerLabel;
     private Timer timer;
-    private String purchaseQty;
     // Arrays for Combo - pull down boxes
     private ObservableList<String> transactionBuyComboData = FXCollections
             .observableArrayList();
@@ -167,15 +166,15 @@ public final class GameController {
      */
     @FXML
     private void initialize() {
-        transactionBuyComboData.add(" ");
-        transactionBuyComboData.add("Food");
-        transactionBuyComboData.add("Smithore");
-        transactionBuyComboData.add("Energy");
-        transactionBuyComboData.add("Crystite");
-        transactionBuyComboData.add("Food Mule");
-        transactionBuyComboData.add("Energy Mule");
-        transactionBuyComboData.add("Crystite Mule");
-        transactionBuyComboData.add("Smithore Mule");
+//        transactionBuyComboData.add(" ");
+//        transactionBuyComboData.add("Food");
+//        transactionBuyComboData.add("Smithore");
+//        transactionBuyComboData.add("Energy");
+//        transactionBuyComboData.add("Crystite");
+//        transactionBuyComboData.add("Food Mule");
+//        transactionBuyComboData.add("Energy Mule");
+//        transactionBuyComboData.add("Crystite Mule");
+//        transactionBuyComboData.add("Smithore Mule");
 
         gameManager = GameManager.getGameManager();
         transactionBuyComboData.add(" ");
@@ -532,7 +531,7 @@ public final class GameController {
 
     @FXML
     private void submitPurchaseAction() throws Exception {
-        purchaseQty = purchaseQtyBox.getText();
+        String purchaseQty = purchaseQtyBox.getText();
         String selectedSellTransaction = transactionSellCombo.getSelectionModel()
                 .getSelectedItem();
         String selectedBuyTransaction = transactionBuyCombo.getSelectionModel()

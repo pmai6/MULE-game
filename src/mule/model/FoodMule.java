@@ -10,29 +10,29 @@ public class FoodMule implements Mule {
     private static  Tile tile;
 
     public FoodMule() {
-
+        this.player = new Player ("Unicornese","fairy horse","rainbow");
     }
-    public void setOwner(Player player) {
+    public final void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile tile) { return FoodMule.tile; }
+    public final Tile getLocation(Tile tile) { return FoodMule.tile; }
 
-    public void setLocation(Tile tile) {
+    public final void setLocation(Tile tile) {
         FoodMule.tile = tile; }
 
-    public Player getOwner() {
+    public final Player getOwner() {
         return player;
     }
 
-    public int getCost() {
+    public final int getCost() {
         return 125;
     }
 
-    public boolean isOwned() {
+    public final boolean isOwned() {
         return isOwned;
     }
 
-    public void setIsOwned(boolean isOwned) {
+    public final void setIsOwned(boolean isOwned) {
         this.isOwned = isOwned;
     }
 }

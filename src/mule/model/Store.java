@@ -19,7 +19,7 @@ public class Store implements Serializable {
 
     public Store() {}
 
-    public Store(int food, int ore, int energy, int smithore, int crystite, int mule) {
+    public Store(int food, int energy, int smithore, int crystite, int mule) {
         this.food = food;
         this.energy = energy;
         this.smithore = smithore;
