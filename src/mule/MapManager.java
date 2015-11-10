@@ -8,7 +8,9 @@ import mule.view.*;
 /**
  * Created by travisclement on 9/18/15.
  */
-public class MapManager {
+public final class MapManager {
+
+    private MapManager(){}
     private static GameManager gameManager = GameManager.getGameManager();
 
     private static Button button;
@@ -19,18 +21,18 @@ public class MapManager {
      *
      * @param button button on map display player's property
      */
-    public static void handleMapButton(Button button) {
-        MapManager.button = button;
+    public static void handleMapButton(Button abutton) {
+        MapManager.button = abutton;
         Player player = RoundManager.getCurrentPlayer();
         Tile tile = gameManager.getMulegame().getTiles()[GridPane.getRowIndex
-                (button)
-                ][GridPane.getColumnIndex(button)];
+                (abutton)
+                ][GridPane.getColumnIndex(abutton)];
 
         if (gameManager.getMulegame().isLandSelectionPhase()) {
-            buyTile(player, tile, button);
+            buyTile(player, tile, abutton);
 
         } else if (gameManager.getMulegame().isMuleBought()) {
-            placeMule(player, tile, button);
+            placeMule(player, tile, abutton);
         }
 
     }
@@ -48,14 +50,14 @@ public class MapManager {
      * @param player player who buys tile
      * @param tile tile to be bought
      */
-    private static void buyTile(Player player, Tile tile, Button button) {
+    private static void buyTile(Player player, Tile tile, Button abutton) {
         if (canTileBeBought(player, tile)) {
 
             tile.setIsOwned(true);
             tile.setOwner(player);
 
             player.playerBuyProperty(tile);
-            changeButtonColor(player, button);
+            changeButtonColor(player, abutton);
 
             RoundManager.playerFinishedTurn(false);
         }
@@ -90,7 +92,7 @@ public class MapManager {
      * @param tile   Tile that was clicked on
      * @param button - button, so image can be changed
      */
-    private static void placeMule(Player player, Tile tile, Button button) {
+    private static void placeMule(Player player, Tile tile, Button abutton) {
         Mule mule = player.getUnplacedMule();
         if (tile.getOwner() != null && tile.getOwner().equals(player)) {
             tile.addMule(mule);
@@ -98,7 +100,7 @@ public class MapManager {
             player.setUnplacedMule(null);
             gameManager.getMulegame().setIsMuleBought(false);
             gameManager.setGameStateLabel();
-            gameManager.addMuleToButton(button, tile);
+            gameManager.addMuleToButton(abutton, tile);
             for (Tile tiles : player.getTiles()) {
                 for (Mule mules : tiles.getMule()) {
                     System.out.println(mules);
@@ -123,10 +125,10 @@ public class MapManager {
      * @param player current player of the game
      * @param button button on map to be changed color
      */
-    private static void changeButtonColor(Player player, Button button) {
+    private static void changeButtonColor(Player player, Button abutton) {
         String thecolor = player.getPlayerColor();
         //how to change color
-        button.setStyle(" -fx-base: " + thecolor + ";");
+        abutton.setStyle(" -fx-base: " + thecolor + ";");
     }
 
 
@@ -153,13 +155,13 @@ public class MapManager {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 Tile tile = mulegame.getTiles()[i][j];
-                Button button =  buttons[i][j];
-                controller.addImageToButton(button, tile);
+                Button abutton =  buttons[i][j];
+                controller.addImageToButton(abutton, tile);
                 if (tile.getOwner() != null) {
                     String color = tile.getOwner().getPlayerColor();
-                    button.setStyle(" -fx-base: " + color + ";");
+                    abutton.setStyle(" -fx-base: " + color + ";");
                    if (tile.hasMule()) {
-                       controller.addMuleToButton(button, tile);
+                       controller.addMuleToButton(abutton, tile);
                     }
                 }
             }

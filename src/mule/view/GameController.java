@@ -156,8 +156,8 @@ public final class GameController {
      *
      * @param mainapp takes Main object
      */
-    public void setMainApp(Main mainapp) {
-        this.mainapp = mainapp;
+    public void setMainApp(Main amainapp) {
+        this.mainapp = amainapp;
     }
 
     /**
@@ -494,8 +494,8 @@ public final class GameController {
     }
 
     @FXML
-    public void setTimerLabel(Timer timer, Label timerLabel) {
-        timerLabel.textProperty().bind(timer.getTimeSeconds().asString());
+    public void setTimerLabel(Timer atimer, Label atimerLabel) {
+        timerLabel.textProperty().bind(atimer.getTimeSeconds().asString());
         timerLabel.setTextFill(Color.RED);
     }
 

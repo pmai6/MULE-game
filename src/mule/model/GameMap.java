@@ -7,7 +7,10 @@ holds the array of all of the tiles on the map
 import mule.GameManager;
 import mule.model.Tile;
 
-public class GameMap {
+public final class GameMap {
+
+
+
     private static GameManager gameManager = GameManager.getGameManager();
 
 
@@ -20,7 +23,7 @@ public class GameMap {
     };
 
 
-    public GameMap() {
+    private GameMap() {
 
     }
 
@@ -53,8 +56,8 @@ public class GameMap {
         }
     }
 
-    public static void setDefaultMapLayout(String[][] defaultMapLayout) {
-        GameMap.defaultMapLayout = defaultMapLayout;
+    public static void setDefaultMapLayout(String[][] adefaultMapLayout) {
+        GameMap.defaultMapLayout = adefaultMapLayout;
     }
 
 
@@ -66,13 +69,13 @@ public class GameMap {
     public static Tile[][] setUpMap() {
 
         Tile[][] tiles =  new Tile[5][9];
-        String[][] defaultMapLayout = GameMap.getMapLayout();
+        String[][] bdefaultMapLayout = GameMap.getMapLayout();
 
         for (int i = 0; i < 5; i++) {
 
             for (int j = 0; j < 9; j++) {
 
-                String tileType = defaultMapLayout[i][j];
+                String tileType = bdefaultMapLayout[i][j];
 
                 if (tileType.equals("P")) {
                     Tile newTileName = new Plain();

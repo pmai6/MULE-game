@@ -9,7 +9,7 @@ import mule.RoundManager;
  */
 public class RandomEvent {
 
-    public RandomEvent(){}
+    private RandomEvent(){}
     public static final String NO_MULE = "Mules does not exists";
     //round event rules
 ///        1.RCVD_GT_PACKAGE + (3 food, 2 energy)

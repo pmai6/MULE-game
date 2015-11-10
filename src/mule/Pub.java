@@ -6,7 +6,9 @@ import mule.model.Player;
 
 import java.util.Random;
 
-public class Pub {
+public final class Pub {
+
+    private Pub() {}
 
     /**Player gambles in pub and receive appropriate money
      * @param player player who gambles

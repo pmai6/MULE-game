@@ -5,23 +5,23 @@ package mule.model;
  */
 public class FoodMule implements Mule {
 
-    private Player player;
-    private boolean isOwned;
-    private static  Tile tile;
+    private Player aplayer;
+    private boolean aisOwned;
+    private static  Tile atile;
 
     public FoodMule() {
         this.player = new Player ("Unicornese","fairy horse","rainbow");
     }
-    public final void setOwner(Player player) {
-        this.player = player;
+    public final void setOwner(Player aplayer) {
+        this.player = aplayer;
     }
-    public final Tile getLocation(Tile tile) { return FoodMule.tile; }
+    public final Tile getLocation(Tile atile) { return FoodMule.atile; }
 
-    public final void setLocation(Tile tile) {
-        FoodMule.tile = tile; }
+    public final void setLocation(Tile atile) {
+        FoodMule.tile = atile; }
 
     public final Player getOwner() {
-        return player;
+        return aplayer;
     }
 
     public final int getCost() {
@@ -29,10 +29,10 @@ public class FoodMule implements Mule {
     }
 
     public final boolean isOwned() {
-        return isOwned;
+        return aisOwned;
     }
 
-    public final void setIsOwned(boolean isOwned) {
-        this.isOwned = isOwned;
+    public final void setIsOwned(boolean aisOwned) {
+        this.isOwned = aisOwned;
     }
 }

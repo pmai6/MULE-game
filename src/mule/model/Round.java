@@ -6,10 +6,11 @@ package mule.model;
 
         import java.io.*;
         import java.util.ArrayList;
+        import java.util.List;
 
 public class Round implements Serializable {
 
-    private  ArrayList<Turn> roundTurns;
+    private  List <Turn> roundTurns;
     private  int roundNum;
     private  int turnNum;
     private  int numPasses;

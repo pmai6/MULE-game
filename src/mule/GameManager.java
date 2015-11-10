@@ -35,12 +35,12 @@ public class GameManager {
     }
 
 
-    public void setGameFromSave(Game mulegame, Stage stage) throws Exception {
-        this.mulegame = mulegame;
-        for (Player p: mulegame.getPlayerArray()) {
+    public void setGameFromSave(Game amulegame, Stage stage) throws Exception {
+        this.mulegame = amulegame;
+        for (Player p: amulegame.getPlayerArray()) {
             System.out.println(p.getPlayerName());
         }
-        for (Player p: mulegame.getPlayerArray()) {
+        for (Player p: amulegame.getPlayerArray()) {
             System.out.println(p.getMoney());
         }
         RoundManager.startFromSave(gameManager);
@@ -49,7 +49,7 @@ public class GameManager {
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
         gameManager.initializePlayerGuiStats();
         MapManager.setupMap(mulegame, controller);
-        if (!this.mulegame.isLandSelectionPhase()) {
+        if (!this.amulegame.isLandSelectionPhase()) {
             gameManager.setTimer(mulegame.getTimeLeftInTurn());
         }
         gameManager.updateGamePlayerRound();

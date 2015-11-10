@@ -13,13 +13,13 @@ public class EnergyMule implements Mule {
 
     }
 
-    public void setOwner(Player player) {
-        this.player = player;
+    public void setOwner(Player aplayer) {
+        this.player = aplayer;
     }
-    public Tile getLocation(Tile tile) { return tile; }
+    public Tile getLocation(Tile atile) { return atile; }
 
-    public void setLocation(Tile tile) {
-        EnergyMule.tile = tile; }
+    public void setLocation(Tile atile) {
+        EnergyMule.tile = atile; }
 
     public Player getOwner() {
         return player;
@@ -33,7 +33,7 @@ public class EnergyMule implements Mule {
         return isOwned;
     }
 
-    public void setIsOwned(boolean isOwned) {
-        this.isOwned = isOwned;
+    public void setIsOwned(boolean aisOwned) {
+        this.isOwned = aisOwned;
     }
 }
