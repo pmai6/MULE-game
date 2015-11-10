@@ -3,38 +3,97 @@ package mule.model;
 /**
  * Created by ryyanj on 10/1/15.
  */
-public class CrystiteMule implements Mule {
+/**
+ */
 
+/**
+ * The type Crystite mule.
+ */
+public class CrystiteMule implements Mule {
+    /**
+     * The Player.
+     */
     private Player player;
+    /**
+     * The Is owned.
+     */
     private boolean isOwned;
 
 
+    /**
+     * Instantiates a new Crystite mule.
+     */
     public CrystiteMule() {
 
     }
 
+
+    /**
+     * Sets owner.
+     *
+     * @param aplayer the aplayer
+     */
     public void setOwner(Player aplayer) {
         this.player = aplayer;
     }
-/*
-    public Tile getLocation(Tile atile) { return tile; }
 
+
+    /**
+     * Gets location.
+     *
+     * @param atile the atile
+     * @return the location
+     */
+    public Tile getLocation(Tile atile) {
+        return tile;
+    }
+
+
+    /**
+     * Sets location.
+     *
+     * @param atile the atile
+     */
     public void setLocation(Tile atile) {
-        CrystiteMule.tile = atile; }
-*/
+        CrystiteMule.tile = atile;
+    }
 
+
+    /**
+     * Gets owner.
+     *
+     * @return the owner
+     */
     public Player getOwner() {
         return player;
     }
 
+
+    /**
+     * Gets cost.
+     *
+     * @return the cost
+     */
     public int getCost() {
         return 200;
     }
 
+
+    /**
+     * Is owned boolean.
+     *
+     * @return the boolean
+     */
     public boolean isOwned() {
         return isOwned;
     }
 
+
+    /**
+     * Sets is owned.
+     *
+     * @param aisOwned the ais owned
+     */
     public void setIsOwned(boolean aisOwned) {
         this.isOwned = aisOwned;
     }

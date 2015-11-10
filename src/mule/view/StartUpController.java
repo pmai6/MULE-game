@@ -11,54 +11,95 @@ import mule.Main;
 import mule.PlayerManager;
 
 
+/**
+ * The type Start up controller.
+ */
 public class StartUpController {
+    /**
+     * The Game manager.
+     */
     private GameManager gameManager;
-    // variables to functionality to comboboxes and buttons
+    /**
+     * The Difficulty combo.
+     */
+// variables to functionality to comboboxes and buttons
     @FXML
     private ComboBox<String> difficultyCombo;
+    /**
+     * The Number players combo.
+     */
     @FXML
     private ComboBox<Integer> numberPlayersCombo;
+    /**
+     * The Map type combo.
+     */
     @FXML
     private ComboBox<String> mapTypeCombo;
+    /**
+     * The Next button.
+     */
     @FXML
     private Button nextButton;
 
 
-    //creating Main object so can talk to Main methods
+    /**
+     * The Mainapp.
+     */
+//creating Main object so can talk to Main methods
     private Main mainapp;
 
 
-    // Arrays for Combo - pull down boxes
+    /**
+     * The Difficulty combo data.
+     */
+// Arrays for Combo - pull down boxes
     private ObservableList<String> difficultyComboData =
             FXCollections.observableArrayList();
 
+    /**
+     * The Number players combo data.
+     */
     private ObservableList<Integer> numberPlayersComboData =
             FXCollections.observableArrayList();
 
+    /**
+     * The Map type combo data.
+     */
     private ObservableList<String> mapTypeComboData =
             FXCollections.observableArrayList();
 
 
+    /**
+     * The Selected difficulty.
+     */
     private String selectedDifficulty;
+    /**
+     * The Selected map.
+     */
     private String selectedMap;
+    /**
+     * The Selected number players.
+     */
     private int selectedNumberPlayers = 0;
 
 
+    /**
+     * Instantiates a new Start up controller.
+     */
     public  StartUpController() {
     }
 
     /**
-     * Is called by the main application to give a reference back to itself.
+     * Sets main app.
      *
-     * @param mainapp takes Main object
+     * @param mainapp the mainapp
      */
     public void setMainApp(Main mainapp) {
         this.mainapp = mainapp;
     }
 
     /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
+     * Initialize.
      */
     @FXML
     private void initialize() {
@@ -81,23 +122,37 @@ public class StartUpController {
         mapTypeCombo.setItems(mapTypeComboData);
     }
 
+    /**
+     * Handle difficulty combo action.
+     */
     @FXML
     private void handleDifficultyComboAction() {
         selectedDifficulty =
                 difficultyCombo.getSelectionModel().getSelectedItem();
     }
 
+    /**
+     * Handle number players combo action.
+     */
     @FXML
     private void handleNumberPlayersComboAction() {
         selectedNumberPlayers =
                 numberPlayersCombo.getSelectionModel().getSelectedItem();
     }
 
+    /**
+     * Handle map type combo action.
+     */
     @FXML
     private void handleMapTypeComboAction() {
         selectedMap = mapTypeCombo.getSelectionModel().getSelectedItem();
     }
 
+    /**
+     * Next button action.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void nextButtonAction() throws Exception {
         Stage stage;
@@ -113,6 +168,11 @@ public class StartUpController {
 
     }
 
+    /**
+     * Skip screens.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void skipScreens() throws Exception {
 

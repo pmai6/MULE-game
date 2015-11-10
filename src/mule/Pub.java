@@ -6,12 +6,17 @@ import mule.model.Player;
 
 import java.util.Random;
 
+/**
+ * The type Pub.
+ */
 public class Pub {
 
-    /**Player gambles in pub and receive appropriate money
-     * @param player player who gambles
-     * @param turnTimeLeft player's unused time in their turn
-     * @param roundNum current round number
+    /**
+     * Gamble.
+     *
+     * @param player       the player
+     * @param turnTimeLeft the turn time left
+     * @param roundNum     the round num
      */
     public static void gamble(Player player, int turnTimeLeft, int roundNum) {
         int [] roundBonus = new int []{50, 100, 150, 200};

@@ -17,51 +17,92 @@ import mule.model.Player;
 import java.util.List;
 
 
+/**
+ * The type Player config controller.
+ */
 public class PlayerConfigController {
-private GameManager gameManager;
+    /**
+     * The Game manager.
+     */
+    private GameManager gameManager;
+    /**
+     * The Race info.
+     */
     public javafx.scene.control.Label raceInfo;
+    /**
+     * The Color label.
+     */
     public javafx.scene.control.Label colorLabel;
-    // variables to functionality to comboboxes and buttons
+    /**
+     * The Race combo.
+     */
+// variables to functionality to comboboxes and buttons
     @FXML
     private ComboBox<String> raceCombo;
+    /**
+     * The Color combo.
+     */
     @FXML
     private ComboBox<String> colorCombo;
+    /**
+     * The Next button.
+     */
     @FXML
     private Button nextButton;
+    /**
+     * The Player name box.
+     */
     @FXML
     private TextField playerNameBox;
 
 
-    //creating Main object so can talk to Main methods
+    /**
+     * The Mainapp.
+     */
+//creating Main object so can talk to Main methods
     private Main mainapp;
 
 
-    // Arrays for Combo - pull down boxes
+    /**
+     * The Race combo data.
+     */
+// Arrays for Combo - pull down boxes
     private ObservableList<String> raceComboData =
             FXCollections.observableArrayList();
 
+    /**
+     * The Color combo data.
+     */
     private ObservableList<String> colorComboData =
             FXCollections.observableArrayList();
 
+    /**
+     * The Selected race.
+     */
     private String selectedRace;
+    /**
+     * The Selected color.
+     */
     private String selectedColor;
 
 
+    /**
+     * Instantiates a new Player config controller.
+     */
     public  PlayerConfigController() {
     }
 
     /**
-     * Is called by the main application to give a reference back to itself.
+     * Sets main app.
      *
-     * @param mainapp takes Main object
+     * @param mainapp the mainapp
      */
     public void setMainApp(Main mainapp) {
         this.mainapp = mainapp;
     }
 
     /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
+     * Initialize.
      */
     @FXML
     private void initialize() {
@@ -89,6 +130,9 @@ private GameManager gameManager;
         colorCombo.setItems(colorComboData);
     }
 
+    /**
+     * Handle race combo action.
+     */
     @FXML
     private void handleRaceComboAction() {
         selectedRace =
@@ -119,6 +163,9 @@ private GameManager gameManager;
                 }
     }
 
+    /**
+     * Handle color combo action.
+     */
     @FXML
     private void handleColorComboAction() {
         selectedColor =
@@ -145,6 +192,11 @@ private GameManager gameManager;
     }
 
 
+    /**
+     * Next button action.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void nextButtonAction() throws Exception {
         Stage stage;

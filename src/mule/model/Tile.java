@@ -8,68 +8,84 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * The interface Tile.
  */
 public interface Tile extends Serializable {
     /**
-     *
+     * The constant MULES.
      */
     List<Mule> MULES = new ArrayList<>();
     /**
-     *
+     * The constant HASMULE.
      */
     boolean HASMULE = false;
 
     /**
+     * Sets owner.
      *
-     * @param player the owner of the mule
+     * @param player the player
      */
     void setOwner(Player player);
 
 
     /**
+     * Gets owner.
      *
-     * @return the owner of the mule
+     * @return the owner
      */
     Player getOwner();
 
     /**
+     * Gets cost.
      *
-     * @return cost
+     * @return the cost
      */
     int getCost();
+
     /**
+     * Is owned boolean.
      *
-     * @return whether or not the mule is owned
+     * @return the boolean
      */
     boolean isOwned();
+
     /**
+     * Sets is owned.
      *
-     * @param isOwned whether or not the mule is owned
+     * @param isOwned the is owned
      */
     void setIsOwned(boolean isOwned);
+
     /**
+     * Has mule boolean.
      *
-     * @return whether or not the tile has a mule
+     * @return the boolean
      */
     boolean hasMule();
+
     /**
+     * Sets has mule.
      *
-     * @param isOwned whether or not the player has a mule
+     * @param isOwned the is owned
      */
     void setHasMule(boolean isOwned);
+
     /**
+     * Gets mule.
      *
-     * @return list of mules
+     * @return the mule
      */
     List<Mule> getMule();
+
     /**
+     * Add mule.
      *
-     * @param mule mule to be added
+     * @param mule the mule
      */
     void addMule(Mule mule);
+
     /**
-     *
+     * Calculate production.
      */
     void calculateProduction();
 

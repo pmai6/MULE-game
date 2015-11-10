@@ -5,13 +5,26 @@ import mule.PlayerManager;
 import mule.RoundManager;
 
 /**
- * Created by ryyanj on 10/17/15.
+ * The type Random event.
  */
 public class RandomEvent {
 
+    /**
+     * Instantiates a new Random event.
+     */
     public RandomEvent(){}
+
+    /**
+     * The constant NO_MULE.
+     */
     public static final String NO_MULE = "Mules does not exists";
-    //round event rules
+
+    /**
+     * Call turn random event.
+     *
+     * @param event the event
+     */
+//round event rules
 ///        1.RCVD_GT_PACKAGE + (3 food, 2 energy)
 ///        2.REPAID_HOSPITALITY + (2 Smithore)
 ///        3.BOUGHT_ANTIQUE_CPU + ($8*m)
@@ -117,6 +130,12 @@ public class RandomEvent {
         }
     }
 
+    /**
+     * Gets m.
+     *
+     * @param currRoundNum the curr round num
+     * @return the m
+     */
     private static int getM(int currRoundNum) {
         if(currRoundNum > 0 && currRoundNum < 4) {
             return 25;
@@ -132,6 +151,11 @@ public class RandomEvent {
         }
     }
 
+    /**
+     * Gets all turn random events event.
+     *
+     * @return the all turn random events event
+     */
     public static String getAllTurnRandomEventsEvent() {
         final String[] allRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
                 "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS", "KATRINA_SWEPT_ALL", "GA_HOT_BOWL",
@@ -141,6 +165,11 @@ public class RandomEvent {
     }
 
 
+    /**
+     * Gets good turn random events event.
+     *
+     * @return the good turn random events event
+     */
     public static String getGoodTurnRandomEventsEvent() {
         final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
                 "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING"};
@@ -149,6 +178,11 @@ public class RandomEvent {
     }
 
 
+    /**
+     * Call round random event.
+     *
+     * @param event the event
+     */
 // Round random event which affects all the players
 // good event: + 3 food units, 2 energy units
     public static void callRoundRandomEvent(String event) {
@@ -164,6 +198,11 @@ public class RandomEvent {
         }
     }
 
+    /**
+     * Gets round random events event.
+     *
+     * @return the round random events event
+     */
     public static String getRoundRandomEventsEvent() {
         final String[] roundRandomEvents = {"UNICORN_BLESSING"};
         int roundRandomEventsIndex = (int)(Math.random() * roundRandomEvents.length);

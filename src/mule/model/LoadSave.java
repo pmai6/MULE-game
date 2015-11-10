@@ -11,12 +11,18 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- * Created by travisclement on 10/24/15.
+ * The type Load save.
  */
 public final class LoadSave {
 
+    /**
+     * Instantiates a new Load save.
+     */
     private LoadSave() { }
 
+    /**
+     * Save game.
+     */
     public static void saveGame() {
         GameManager gamemanager = GameManager.getGameManager();
         Game saveGame = GameManager.getGameManager().getMulegame();
@@ -38,6 +44,12 @@ public final class LoadSave {
         }
     }
 
+    /**
+     * Load game.
+     *
+     * @param stage the stage
+     * @throws Exception the exception
+     */
     public static void loadGame(Stage stage) throws Exception {
 
         Game mulegame = new Game();

@@ -10,37 +10,54 @@ import mule.Main;
 import mule.PlayerManager;
 
 /**
- * Created by travisclement on 10/23/15.
+ * The type Splash controller.
  */
 public final class SplashController {
 
 
+    /**
+     * The Game manager.
+     */
     private GameManager gameManager;
-    //creating Main object so can talk to Main methods
+    /**
+     * The Mainapp.
+     */
+//creating Main object so can talk to Main methods
     private Main mainapp;
 
+    /**
+     * The Start game label.
+     */
     @FXML
     private Label startGameLabel;
 
+    /**
+     * The Unicorn skip.
+     */
     @FXML
     private Label unicornSkip;
+    /**
+     * The New game anchor.
+     */
     @FXML
     private AnchorPane newGameAnchor;
+    /**
+     * The Load game anchor.
+     */
     @FXML
     private AnchorPane loadGameAnchor;
 
     /**
-     * Is called by the main application to give a reference back to itself.
+     * Sets main app.
      *
-     * @param mainapp takes Main object
+     * @param amainapp the amainapp
      */
     public void setMainApp(Main amainapp) {
         this.mainapp = amainapp;
     }
 
     /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
+     * Initialize.
      */
     @FXML
     private void initialize() {
@@ -50,6 +67,11 @@ public final class SplashController {
     }
 
 
+    /**
+     * Start new game.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void startNewGame() throws Exception {
         Stage stage;
@@ -58,6 +80,11 @@ public final class SplashController {
         mainapp.startUpConfig(stage);
     }
 
+    /**
+     * Skip screens.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void skipScreens() throws Exception {
 
@@ -77,6 +104,11 @@ public final class SplashController {
         gameManager.startTheGame(stage);
     }
 
+    /**
+     * Make grey new.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void makeGreyNew() throws Exception {
 
@@ -84,12 +116,23 @@ public final class SplashController {
         newGameAnchor.setStyle(" -fx-background-color: DarkSlateGray");
     }
 
+    /**
+     * Make grey load.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void makeGreyLoad() throws Exception {
 
         //how to change color
         loadGameAnchor.setStyle(" -fx-background-color: DarkSlateGray");
     }
+
+    /**
+     * Make black new.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void makeBlackNew() throws Exception {
 
@@ -97,6 +140,11 @@ public final class SplashController {
         newGameAnchor.setStyle(" -fx-background-color: Black");
     }
 
+    /**
+     * Make black load.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void makeBlackLoad() throws Exception {
 
@@ -104,6 +152,11 @@ public final class SplashController {
         loadGameAnchor.setStyle(" -fx-background-color: Black");
     }
 
+    /**
+     * Load game.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     private void loadGame() throws Exception {
         Stage stage;
