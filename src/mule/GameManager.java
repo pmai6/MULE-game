@@ -4,57 +4,45 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import mule.model.*;
+import mule.model.Game;
+import mule.model.Store;
+import mule.model.Player;
+import mule.model.Tile;
+import mule.model.LoadSave;
 import mule.view.GameController;
+//import sun.audio.AudioPlayer;
+//import sun.audio.AudioStream;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
  * Created by travisclement on 9/18/15.
  */
-
-/**
- * The type Game manager.
- */
 public class GameManager {
-    /**
-     * The constant gameManager.
-     */
     private static GameManager gameManager = new GameManager();
-    /**
-     * The constant mulegame.
-     */
     private static Game mulegame;
-    /**
-     * The constant controller.
-     */
     private static GameController controller;
-    /**
-     * The constant gamestore.
-     */
     private static Store gamestore;
-    /**  */
-    /**
-     * The Game manager.
-     */
-    public GameManager() {}
-
-    /**
-     * Instantiates a new Get game manager.
-     */
     public static GameManager getGameManager() {
         return gameManager;
     }
 
+    public  static void notifyRandomEvent(String random) {
+        controller.randomEventDialog(random);
+    }
 
-    /**
-     * Instantiates a new Create game.
-     *
-     * @param difficulty      the difficulty
-     * @param numberOfPlayers the number of players
-     * @param map             the map
-     * @param n               the n
-     */
+    public static void saveGame() {
+        LoadSave.saveGame();
+    }
+
+    public static void loadGame(Stage stage) throws Exception {
+        LoadSave.loadGame(stage);
+    }
+
     public void createGame(String difficulty,
                            int numberOfPlayers,
                            String map, int n) {
@@ -62,18 +50,14 @@ public class GameManager {
         gamestore = mulegame.getGamestore();
     }
 
-
-    /**
-     * Sets game from save.
-     *
-     * @param mulegame the mulegame
-     * @param stage    the stage
-     * @return the game from save
-     * @throws Exception the exception
-     */
     public void setGameFromSave(Game mulegame, Stage stage) throws Exception {
         this.mulegame = mulegame;
-
+        for (Player p: mulegame.getPlayerArray()) {
+            System.out.println(p.getPlayerName());
+        }
+        for (Player p: mulegame.getPlayerArray()) {
+            System.out.println(p.getMoney());
+        }
         RoundManager.startFromSave(gameManager);
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();
@@ -87,12 +71,6 @@ public class GameManager {
         gamestore = mulegame.getGamestore();
     }
 
-    /**
-     * Start the game.
-     *
-     * @param stage the stage
-     * @throws Exception the exception
-     */
     public void startTheGame(Stage stage) throws Exception {
 
         mulegame.setIsLandSelectionPhase(true);
@@ -107,44 +85,27 @@ public class GameManager {
         updateGamePlayerRound();
 
 
-   /*     InputStream in = new FileInputStream
-                ("src/mule/8-bit-circus-music.wav");
+        InputStream in = new FileInputStream("src/mule/8-bit-circus-music.wav");
         // create an audiostream from the inputstream
-        AudioStream audioStream = new AudioStream(in);
+        /***checkstyle not liking deprecated library**/
+        //AudioStream audioStream = new AudioStream(in);
 
         // play the audio clip with the audioplayer class
-        AudioPlayer.player.start(audioStream);*/
+        /***checkstyle not liking deprecated library***/
+        //AudioPlayer.player.start(audioStream);
     }
 
-
-    /**
- */
-    /**
-     * Place mule.
-     *
-     * @throws Exception the exception
-     */
     public void placeMule() throws Exception {
         controller.placingMule();
     }
 
-
-    /**
-     * Go to map.
-     *
-     * @throws Exception the exception
-     */
     public void goToMap() throws Exception {
         controller.exitButtonAction();
     }
+
     /**Disables the player areas in the main GUI screen so there
      * score and info do not show up
      * @param numPlayers number of players not playing
-     */
-    /**
-     * Disable players.
-     *
-     * @param numPlayers the num players
      */
     public void disablePlayers(int numPlayers) {
         if (numPlayers == 2) {
@@ -160,12 +121,6 @@ public class GameManager {
      * @param astage stage which game is happening
      * @throws Exception
      */
-    /**
-     * Start game controller.
-     *
-     * @param astage the astage
-     * @throws Exception the exception
-     */
     public void startGameController(Stage astage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "view/GameScreen.fxml"));
@@ -180,9 +135,6 @@ public class GameManager {
      * state
      *
      */
-    /**
-     * Sets game state label.
-     */
     public   void setGameStateLabel() {
         if (gameManager.getMulegame().isLandSelectionPhase()) {
             controller.setGameStateLabel("LAND SELECTION PHASE");
@@ -193,9 +145,6 @@ public class GameManager {
         }
     }
 
-    /**
-     * Update game player round.
-     */
     public  void updateGamePlayerRound() {
         controller.setCurrentPlayer(RoundManager.getCurrentPlayer()
                 .getPlayerName());
@@ -203,11 +152,7 @@ public class GameManager {
         gameManager.setGameStateLabel();
     }
 
-
-    /**
-     * Update store data.
-     */
-    public void updateStoreData () {
+    public void updateStoreData() {
         int food = gamestore.getFoodQty();
         int energy = gamestore.getEnergyQty();
         int smithore = gamestore.getSmithoreQty();
@@ -221,9 +166,6 @@ public class GameManager {
                 energyMule, crystiteMule, smithoreMule);
     }
 
-    /**
-     * Initialize player gui stats.
-     */
     public  void initializePlayerGuiStats() {
         int numberOfPlayers = mulegame.getNumberOfPlayers();
 
@@ -240,226 +182,115 @@ public class GameManager {
             int energy = mulegame.getPlayerArray().get(i).getEnergy();
 
             switch (i) {
-                case 0:
-                    controller.changePlayerOneGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                case 1:
-                    controller.changePlayerTwoGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                case 2:
-                    controller.changePlayerThreeGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                case 3:
-                    controller.changePlayerFourGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                default:
-                    break;
+            case 0:
+                controller.changePlayerOneGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            case 1:
+                controller.changePlayerTwoGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            case 2:controller.changePlayerThreeGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            case 3:
+                controller.changePlayerFourGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            default:
+                break;
             }
         }
     }
 
-    /**
-     * Sets timer.
-     *
-     * @param time the time
-     */
     public  void setTimer(int time) {
         controller.setTimer(time);
     }
 
-    /**
-     * Mule alert.
-     */
     public  void muleAlert() {
         controller.badMulePlacement();
     }
 
-    /**
-     * Not enough money.
-     */
     public  void notEnoughMoney() {
         controller.youGotNoMoney();
     }
 
-    /**
-     * Notify random event.
-     *
-     * @param random the random
-     */
-    public  static void notifyRandomEvent(String random) {
-        controller.randomEventDialog(random);
-    }
-
-    /**
-     * Not enough item.
-     */
     public  void notEnoughItem() {
         controller.youGotNoResources();
     }
 
-    /**
-     * Add mule to button.
-     *
-     * @param button the button
-     * @param tile   the tile
-     */
-    public  void addMuleToButton(Button button,Tile tile) {
+    public  void addMuleToButton(Button button, Tile tile) {
         controller.addMuleToButton(button, tile);
     }
 
-    /**
-     * Is land selection phase boolean.
-     *
-     * @return the boolean
-     */
     public  boolean isLandSelectionPhase() {
         return mulegame.isLandSelectionPhase();
     }
 
-    /**
-     * Sets is land selection phase.
-     *
-     * @param isLandSelect the is land select
-     */
     public  void setIsLandSelectionPhase(boolean isLandSelect) {
         mulegame.setIsLandSelectionPhase(isLandSelect);
     }
 
-    /**
-     * Gets mulegame.
-     *
-     * @return the mulegame
-     */
     public  Game getMulegame() {
         return mulegame;
     }
 
-    /**
-     * Is mule bought boolean.
-     *
-     * @return the boolean
-     */
     public  boolean isMuleBought() {
         return mulegame.isLandSelectionPhase();
     }
 
-    /**
-     * Sets is mule bought.
-     *
-     * @param isMuleBought the is mule bought
-     */
     public  void setIsMuleBought(boolean isMuleBought) {
         mulegame.setIsMuleBought(isMuleBought);
     }
 
-    /**
-     * Create sorted player array.
-     */
     public void createSortedPlayerArray() {
         mulegame.createSortedPlayerArray();
     }
 
-    /**
-     * Gets sorted player array.
-     *
-     * @return the sorted player array
-     */
     public List<Player> getSortedPlayerArray() {
         return mulegame.getSortedPlayerArray();
     }
 
-    /**
-     * Gets number of players.
-     *
-     * @return the number of players
-     */
     public  int getNumberOfPlayers() {
         return mulegame.getNumberOfPlayers();
     }
 
-    /**
-     * Sets number of players.
-     *
-     * @param numberOfPlayers the number of players
-     */
     public void setNumberOfPlayers(int numberOfPlayers) {
         mulegame.setNumberOfPlayers(numberOfPlayers);
     }
 
-    /**
-     * Handle map button.
-     *
-     * @param button the button
-     */
     public void handleMapButton(Button button) {
-    /*    try {
-            InputStream in = new FileInputStream
-                    ("src/mule/button-select.wav");
+        try {
+            InputStream in = new FileInputStream("src/mule/button-select.wav");
             // create an audiostream from the inputstream
-            AudioStream audioStream = new AudioStream(in);
+            /***checkstyle not liking deprecated library**/
+            //AudioStream audioStream = new AudioStream(in);
 
             // play the audio clip with the audioplayer class
-            AudioPlayer.player.start(audioStream);
-        }
-        catch (FileNotFoundException e) {
+            /***checkstyle not liking deprecated library**/
+            //AudioPlayer.player.start(audioStream);
+        } catch (FileNotFoundException e) {
             System.out.println("no such file");
         } catch (IOException e) {
             System.err.println("Caught IOException: " + e.getMessage());
         }
-*/
+
         MapManager.handleMapButton(button);
     }
 
-    /**
-     * Sets cursor default.
-     */
     public void setCursorDefault() {
         controller.setCursorDefault();
     }
 
-    /**
-     * Save game.
-     */
-    public static void saveGame() {
-        LoadSave.saveGame();
-    }
-
-    /**
-     * Load game.
-     *
-     * @param stage the stage
-     * @throws Exception the exception
-     */
-    public static void loadGame(Stage stage) throws Exception {
-        LoadSave.loadGame(stage);
-    }
-
-    /**
-     * Gets time left.
-     *
-     * @return the time left
-     */
     public int getTimeLeft() {
         return controller.getTimeLeft();
     }
 
-    /**
-     * Stop timer.
-     */
     public void stopTimer() {
         controller.stopTimer();
     }
 
-    /**
-     * Gets game store.
-     *
-     * @return the game store
-     */
     public Store getGameStore() {
-       return  mulegame.getGamestore();
+        return  mulegame.getGamestore();
     }
 }
