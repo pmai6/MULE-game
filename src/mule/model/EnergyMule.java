@@ -16,10 +16,13 @@ public class EnergyMule implements Mule {
     public void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile tile) { return tile; }
+    public Tile getLocation(Tile tile) {
+        return tile;
+    }
 
     public void setLocation(Tile tile) {
-        EnergyMule.tile = tile; }
+        EnergyMule.tile = tile;
+    }
 
     public Player getOwner() {
         return player;

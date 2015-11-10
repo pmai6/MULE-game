@@ -7,23 +7,27 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import mule.*;
+import mule.GameManager;
+import mule.Main;
+import mule.PlayerManager;
+import mule.RoundManager;
+import mule.StoreManager;
 import mule.model.Mountain1;
 import mule.model.Mountain2;
 import mule.model.Mountain3;
 import mule.model.Plain;
 import mule.model.River;
-import mule.model.Store;
 import mule.model.Tile;
 
 public final class GameController {
@@ -32,14 +36,17 @@ public final class GameController {
     @FXML
     private AnchorPane town;
     @FXML
-    private AnchorPane Pub;
+    private AnchorPane pub;
     @FXML
-    private AnchorPane Store;
+    private AnchorPane store;
     @FXML
     private Button gambleButton;
     @FXML
     private HBox map;
     @FXML
+
+
+
     private Label gamestate;
     @FXML
     private HBox playerthree;
@@ -157,8 +164,8 @@ public final class GameController {
      *
      * @param mainapp takes Main object
      */
-    public void setMainApp(Main mainapp) {
-        this.mainapp = mainapp;
+    public void setMainApp(Main aMainapp) {
+        this.mainapp = aMainapp;
     }
 
     /**
@@ -178,15 +185,6 @@ public final class GameController {
         transactionBuyComboData.add("Smithore Mule");
 
         gameManager = GameManager.getGameManager();
-        transactionBuyComboData.add(" ");
-        transactionBuyComboData.add("Food");
-        transactionBuyComboData.add("Smithore");
-        transactionBuyComboData.add("Energy");
-        transactionBuyComboData.add("Crystite");
-        transactionBuyComboData.add("Food Mule");
-        transactionBuyComboData.add("Energy Mule");
-        transactionBuyComboData.add("Crystite Mule");
-        transactionBuyComboData.add("Smithore Mule");
 
         transactionSellComboData.add(" ");
         transactionSellComboData.add("Food");
@@ -210,6 +208,12 @@ public final class GameController {
                 mapButtonArray[i][j].prefWidth(60.0);
             }
         }
+        setupButtons1();
+        setupButtons2();
+
+
+    }
+    public void setupButtons1() {
         mapButtonArray[0][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -356,6 +360,9 @@ public final class GameController {
                 gameManager.handleMapButton(mapButtonArray[2][5]);
             }
         });
+    }
+
+    public void setupButtons2() {
         mapButtonArray[2][6].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -374,7 +381,6 @@ public final class GameController {
                 gameManager.handleMapButton(mapButtonArray[2][8]);
             }
         });
-
         mapButtonArray[3][0].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -484,35 +490,32 @@ public final class GameController {
                 gameManager.handleMapButton(mapButtonArray[4][8]);
             }
         });
-
-
     }
-
-    public final void setTimer(int time) {
+    public void setTimer(int time) {
         timer = new Timer(time);
         setTimerLabel(timer, timerLabel);
         timer.startTimer();
     }
 
     @FXML
-    public void setTimerLabel(Timer timer, Label timerLabel) {
-        timerLabel.textProperty().bind(timer.getTimeSeconds().asString());
-        timerLabel.setTextFill(Color.RED);
+    public void setTimerLabel(Timer aTimer, Label aTimerLabel) {
+        aTimerLabel.textProperty().bind(aTimer.getTimeSeconds().asString());
+        aTimerLabel.setTextFill(Color.RED);
     }
 
     @FXML
     private void handleStoreAction() {
-        System.out.println("Store Opens");
+       // System.out.println("Store Opens");
     }
 
     @FXML
     private void handleLandOfficeAction() {
-        System.out.println("Land Office Opens");
+       // System.out.println("Land Office Opens");
     }
 
     @FXML
     private void handleAssayOfficeAction() {
-        System.out.println("Assay Office Opens");
+       // System.out.println("Assay Office Opens");
     }
 
 
@@ -521,7 +524,7 @@ public final class GameController {
         gameManager.updateStoreData();
         town.setVisible(false);
         map.setVisible(false);
-        Store.setVisible(true);
+        store.setVisible(true);
     }
 
     //Empty method but necessary for combo box to work - DO NOT ERASE
@@ -533,8 +536,6 @@ public final class GameController {
     @FXML
     private void submitPurchaseAction() throws Exception {
         purchaseQty = purchaseQtyBox.getText();
-        String selectedSellTransaction = transactionSellCombo.getSelectionModel()
-                .getSelectedItem();
         String selectedBuyTransaction = transactionBuyCombo.getSelectionModel()
                 .getSelectedItem();
         if (selectedBuyTransaction != null) {
@@ -558,9 +559,15 @@ public final class GameController {
                 StoreManager.buyMule(selectedBuyTransaction);
             }
         }
-        //Null point exception, need to check what's going on with the sell
-        // method
 
+        transactionSellCombo.valueProperty().set(null);
+        transactionBuyCombo.valueProperty().set(null);
+    }
+    @FXML
+    private void submitBuyAction() throws Exception {
+        purchaseQty = purchaseQtyBox.getText();
+        String selectedSellTransaction = transactionSellCombo.getSelectionModel(
+        ).getSelectedItem();
         if (selectedSellTransaction != null) {
             if (selectedSellTransaction.equalsIgnoreCase("Food")) {
                 StoreManager.importFood(Integer.parseInt(purchaseQty));
@@ -579,10 +586,9 @@ public final class GameController {
         transactionBuyCombo.valueProperty().set(null);
     }
 
-
     @FXML
     private void exitStoreButtonAction() throws Exception {
-        Store.setVisible(false);
+        store.setVisible(false);
         town.setVisible(true);
         map.setVisible(false);
     }
@@ -591,12 +597,12 @@ public final class GameController {
     private void goToPubButton() {
         town.setVisible(false);
         map.setVisible(false);
-        Pub.setVisible(true);
+        pub.setVisible(true);
     }
 
     @FXML
     private void exitPubButtonAction() throws Exception {
-        Pub.setVisible(false);
+        pub.setVisible(false);
         town.setVisible(true);
         map.setVisible(false);
     }
@@ -610,8 +616,8 @@ public final class GameController {
 
     @FXML
     public void exitButtonAction() throws Exception {
-        Pub.setVisible(false);
-        Store.setVisible(false);
+        pub.setVisible(false);
+        store.setVisible(false);
         town.setVisible(false);
         map.setVisible(true);
     }
@@ -717,15 +723,15 @@ public final class GameController {
     public void updateStoreData(
             int food, int energy, int smithore, int
             crystite, int foodMule, int energyMule, int crystiteMule, int
-            oreMule) {
-        foodLabel.setText(new Integer(food).toString());
-        energyLabel.setText(new Integer(energy).toString());
-        smithOreLabel.setText(new Integer(smithore).toString());
-        crystiteLabel.setText(new Integer(crystite).toString());
-        foodMuleLabel.setText(new Integer(foodMule).toString());
-        energyMuleLabel.setText(new Integer(energyMule).toString());
-        crystiteMuleLabel.setText(new Integer(crystiteMule).toString());
-        oreMuleLabel.setText(new Integer(oreMule).toString());
+                    oreMule) {
+        foodLabel.setText(Integer.toString(food));
+        energyLabel.setText(Integer.toString(energy));
+        smithOreLabel.setText(Integer.toString(smithore));
+        crystiteLabel.setText(Integer.toString(crystite));
+        foodMuleLabel.setText(Integer.toString(foodMule));
+        energyMuleLabel.setText(Integer.toString(energyMule));
+        crystiteMuleLabel.setText(Integer.toString(crystiteMule));
+        oreMuleLabel.setText(Integer.toString(oreMule));
     }
 
     public void youGotNoResources() {

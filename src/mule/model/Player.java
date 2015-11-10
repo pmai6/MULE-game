@@ -1,20 +1,19 @@
 package mule.model;
-import java.io.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import mule.*;
+
+import mule.GameManager;
+import mule.MapManager;
 
 /**
  * Created by travisclement on 9/8/15.
  */
 
-public class Player implements Comparable, Serializable {
+public final class Player implements Comparable, Serializable {
 
     private String playerName;
 
@@ -39,7 +38,9 @@ public class Player implements Comparable, Serializable {
     private Mule unplacedMule;
 
 
-    public Player () {}
+    public Player() {
+    }
+
     public Player(String aplayerName, String aplayerRace, String aplayerColor) {
         this.playerName = aplayerName;
         this.playerRace = aplayerRace;
@@ -74,22 +75,25 @@ public class Player implements Comparable, Serializable {
     public String getPlayerName() {
         return playerName;
     }
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+
+    public void setPlayerName(String aPlayerName) {
+        this.playerName = aPlayerName;
     }
 
     public String getPlayerRace() {
         return playerRace;
     }
-    public void setPlayerRace(String playerRace) {
-        this.playerRace = playerRace;
+
+    public void setPlayerRace(String aplayerRace) {
+        this.playerRace = aplayerRace;
     }
 
     public String getPlayerColor() {
         return playerColor;
     }
-    public void setPlayerColor(String playerColor) {
-        this.playerColor = playerColor;
+
+    public void setPlayerColor(String aplayerColor) {
+        this.playerColor = aplayerColor;
     }
 
 
@@ -98,11 +102,10 @@ public class Player implements Comparable, Serializable {
     }
 
 
-
     public void calculateScore() {
         int landAmount = this.getTiles().size() * 500;
         int newscore = this.getMoney() + landAmount + this
-                .getDollarValueOfGoods() ;
+                .getDollarValueOfGoods();
         this.score = newscore;
     }
 
@@ -117,67 +120,79 @@ public class Player implements Comparable, Serializable {
         return money;
     }
 
-    public void setMoney(int money) {
-        if(money > 0)
-            this.money = money;
-        else
+    public void setMoney(int amoney) {
+        if (amoney > 0) {
+            this.money = amoney;
+        } else {
             this.money = 0;
+        }
     }
 
     public int getEnergy() {
         return energy;
     }
 
-    public void setEnergy(int energy) {
-        if(energy > 0)
-            this.energy = energy;
-        else
+    public void setEnergy(int aenergy) {
+        if (aenergy > 0) {
+            this.energy = aenergy;
+        } else {
             this.energy = 0;
+        }
     }
 
     public int getFood() {
         return food;
     }
-    public void setFood(int food) {
-        if(food > 0)
-            this.food = food;
-        else
-            this.food = 0;
+
+    public void setFood(int afood) {
+        if (afood > 0) {
+            this.food = afood;
+        } else {
+            this.afood = 0;
+        }
     }
 
 
     public int getSmithore() {
         return smithore;
     }
-    public void setSmithore(int ore) {
-        if(ore > 0)
-            this.smithore = ore;
-        else
+
+    public void setSmithore(int aore) {
+        if (aore > 0) {
+            this.smithore = aore;
+        } else {
             this.smithore = 0;
+        }
     }
 
 
+    public int getCrystite() {
+        return crystite;
+    }
 
-    public int getCrystite() { return crystite; }
     public void setCrystite(int crysTite) {
-        if(crysTite > 0)
+        if (crysTite > 0) {
             this.crystite = crysTite;
-        else
+        } else {
             this.crystite = 0;
+        }
     }
 
 
     public int getMule() {
-        this.mule = getFoodMule()+getCrystiteMule()+getenergyMule()+getOreMule();
+        this.mule = getFoodMule() + getCrystiteMule() + getenergyMule()
+                + getOreMule();
         return mule;
     }
-    public void setMule(int mule) {
-        this.mule = mule;
+
+    public void setMule(int amule) {
+        this.mule = amule;
     }
 
     public int getFoodMule() {
         return foodMule;
     }
+
     public void setFoodMule(int foodMuleQty) {
         foodMule = foodMuleQty;
     }
@@ -185,6 +200,7 @@ public class Player implements Comparable, Serializable {
     public int getenergyMule() {
         return energyMule;
     }
+
     public void setEnergyMule(int energyMuleQty) {
         energyMule = energyMuleQty;
     }
@@ -192,6 +208,7 @@ public class Player implements Comparable, Serializable {
     public int getCrystiteMule() {
         return crystiteMule;
     }
+
     public void setCrystiteMule(int crystiteMuleQty) {
         crystiteMule = crystiteMuleQty;
     }
@@ -199,6 +216,7 @@ public class Player implements Comparable, Serializable {
     public int getOreMule() {
         return oreMule;
     }
+
     public void setOreMule(int oreMuleQty) {
         oreMule = oreMuleQty;
     }
@@ -206,32 +224,33 @@ public class Player implements Comparable, Serializable {
     public int getUnicornMule() {
         return unicornMule;
     }
+
     public void setUnicornMule(int unicornMuleQty) {
         unicornMule = unicornMuleQty;
     }
 
 
-
     public List<Tile> getTiles() {
         return tiles;
     }
-    public void setTiles(List<Tile> tiles) {
-        this.tiles = tiles;
+
+    public void setTiles(List<Tile> atiles) {
+        this.tiles = atiles;
     }
-    public void addtile (Tile tile) {
+
+    public void addtile(Tile tile) {
         tiles.add(tile);
     }
 
     public int getTotalNumberOfMules() {
         int totalNumMules = 0;
-        List<Tile> tiles = this.getTiles();
-        Iterator<Tile> tileIterator = tiles.iterator();
-        while(tileIterator.hasNext()) {
+        List<Tile> atiles = this.getTiles();
+        Iterator<Tile> tileIterator = atiles.iterator();
+        while (tileIterator.hasNext()) {
             totalNumMules += tileIterator.next().getMule().size();
         }
-        return  totalNumMules;
+        return totalNumMules;
     }
-
 
 
     public int compareTo(Object comparePlayer) {
@@ -239,23 +258,43 @@ public class Player implements Comparable, Serializable {
         //ascending order
         return this.getScore() - compareScore;
     }
+
     public int calcPlayerTime() {
         int time = 50;
-        int round = GameManager.getGameManager().getMulegame().getRound().getRoundNum();
+        int round = GameManager.getGameManager().getMulegame().getRound()
+                .getRoundNum();
         if (round >= 1 || round <= 4) {
-            if (food >= 3) { time = 50; }
-            if (food < 3 && food > 0) { time = 30; }
-            if (food == 0) { time = 5; }
+            if (food >= 3) {
+                time = 50;
+            }
+            if (food < 3 && food > 0) {
+                time = 30;
+            }
+            if (food == 0) {
+                time = 5;
+            }
         }
         if (round > 4 || round <= 8) {
-            if (food >= 4) { time = 50; }
-            if (food < 4 && food > 0) { time = 30; }
-            if (food == 0) { time = 5; }
+            if (food >= 4) {
+                time = 50;
+            }
+            if (food < 4 && food > 0) {
+                time = 30;
+            }
+            if (food == 0) {
+                time = 5;
+            }
         }
         if (round > 8 || round <= 12) {
-            if (food >= 5) { time = 50; }
-            if (food < 5 && food > 0) { time = 30; }
-            if (food == 0) { time = 5; }
+            if (food >= 5) {
+                time = 50;
+            }
+            if (food < 5 && food > 0) {
+                time = 30;
+            }
+            if (food == 0) {
+                time = 5;
+            }
         }
         return time;
     }
@@ -264,18 +303,18 @@ public class Player implements Comparable, Serializable {
         return unplacedMule;
     }
 
-    public void setUnplacedMule(Mule unplacedMule) {
-        this.unplacedMule = unplacedMule;
+    public void setUnplacedMule(Mule aunplacedMule) {
+        this.unplacedMule = aunplacedMule;
     }
 
 
-
-    /**
+    /**   hash.
      * Method to deduct the an amount of money a player spent on land
+     *
      * @param property land to buy
      */
-    public void playerBuyProperty (Tile property) {
-       setMoney(getMoney() -  MapManager.costOfTile());
+    public void playerBuyProperty(Tile property) {
+        setMoney(getMoney() - MapManager.costOfTile());
         addtile(property);
 
     }

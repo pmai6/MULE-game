@@ -7,19 +7,21 @@ public class CrystiteMule implements Mule {
 
     private Player player;
     private boolean isOwned;
-    private static  Tile tile;
+    private Tile tile;
 
     public CrystiteMule() {
 
     }
 
-    public void setOwner(Player player) {
-        this.player = player;
+    public void setOwner(Player aplayer) {
+        this.player = aplayer;
     }
-    public Tile getLocation(Tile tile) { return tile; }
+/*
+    public Tile getLocation(Tile atile) { return tile; }
 
-    public void setLocation(Tile tile) {
-        CrystiteMule.tile = tile; }
+    public void setLocation(Tile atile) {
+        CrystiteMule.tile = atile; }
+*/
 
     public Player getOwner() {
         return player;
@@ -33,8 +35,8 @@ public class CrystiteMule implements Mule {
         return isOwned;
     }
 
-    public void setIsOwned(boolean isOwned) {
-        this.isOwned = isOwned;
+    public void setIsOwned(boolean aisOwned) {
+        this.isOwned = aisOwned;
     }
 
 }

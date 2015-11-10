@@ -6,14 +6,13 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import mule.model.*;
 import mule.view.GameController;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
+
 import java.util.List;
 
 /**
@@ -69,13 +68,13 @@ public class GameManager {
         updateGamePlayerRound();
 
 
-        InputStream in = new FileInputStream
+   /*     InputStream in = new FileInputStream
                 ("src/mule/8-bit-circus-music.wav");
         // create an audiostream from the inputstream
         AudioStream audioStream = new AudioStream(in);
 
         // play the audio clip with the audioplayer class
-        AudioPlayer.player.start(audioStream);
+        AudioPlayer.player.start(audioStream);*/
     }
 
 
@@ -249,7 +248,7 @@ public class GameManager {
     }
 
     public void handleMapButton(Button button) {
-        try {
+    /*    try {
             InputStream in = new FileInputStream
                     ("src/mule/button-select.wav");
             // create an audiostream from the inputstream
@@ -263,7 +262,7 @@ public class GameManager {
         } catch (IOException e) {
             System.err.println("Caught IOException: " + e.getMessage());
         }
-
+*/
         MapManager.handleMapButton(button);
     }
 

@@ -403,7 +403,8 @@
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="store" alignment="CENTER" layoutX="236.0" layoutY="136.0" mnemonicParsing="false" onAction="#goToStorebButton" prefHeight="16.0" prefWidth="71.0" style="-fx-background-color: GREEN;" text="Store" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="Store" alignment="CENTER" layoutX="236.0"
+                    layoutY="136.0" mnemonicParsing="false" onAction="#goToStorebButton" prefHeight="16.0" prefWidth="71.0" style="-fx-background-color: GREEN;" text="Store" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="12.0" />
                </font>
@@ -479,7 +480,8 @@
                </children></AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Pub" layoutX="200.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="600.0" visible="false">
+      <AnchorPane fx:id="pub" layoutX="200.0" layoutY="10.0"
+                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="600.0" visible="false">
          <children>
             <AnchorPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
                <children>
@@ -499,7 +501,8 @@
             <Image url="@../resources/baby%20unicorn.gif" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="Store" layoutX="215.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" visible="false">
+      <AnchorPane fx:id="store" layoutX="215.0" layoutY="3.0"
+                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" visible="false">
          <children>
             <ImageView fitHeight="400.0" fitWidth="600.0">
                <image>
