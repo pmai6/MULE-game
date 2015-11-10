@@ -13,10 +13,10 @@ import mule.view.GameController;
 //import sun.audio.AudioPlayer;
 //import sun.audio.AudioStream;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+//import java.io.FileInputStream;
+//import java.io.FileNotFoundException;
+//import java.io.IOException;
+//import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -50,25 +50,25 @@ public class GameManager {
         gamestore = mulegame.getGamestore();
     }
 
-    public void setGameFromSave(Game mulegame, Stage stage) throws Exception {
-        this.mulegame = mulegame;
-        for (Player p: mulegame.getPlayerArray()) {
-            System.out.println(p.getPlayerName());
-        }
-        for (Player p: mulegame.getPlayerArray()) {
-            System.out.println(p.getMoney());
-        }
+    public void setGameFromSave(Game amulegame, Stage stage) throws Exception {
+        this.mulegame = amulegame;
+//        for (Player p: amulegame.getPlayerArray()) {
+//            //System.out.println(p.getPlayerName());
+//        }
+//        for (Player p: amulegame.getPlayerArray()) {
+//            //System.out.println(p.getMoney());
+//        }
         RoundManager.startFromSave(gameManager);
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();
         gameManager.disablePlayers(mulegame.getNumberOfPlayers());
         gameManager.initializePlayerGuiStats();
-        MapManager.setupMap(mulegame, controller);
+        MapManager.setupMap(amulegame, controller);
         if (!this.mulegame.isLandSelectionPhase()) {
-            gameManager.setTimer(mulegame.getTimeLeftInTurn());
+            gameManager.setTimer(amulegame.getTimeLeftInTurn());
         }
         gameManager.updateGamePlayerRound();
-        gamestore = mulegame.getGamestore();
+        gamestore = amulegame.getGamestore();
     }
 
     public void startTheGame(Stage stage) throws Exception {
@@ -85,7 +85,7 @@ public class GameManager {
         updateGamePlayerRound();
 
 
-        InputStream in = new FileInputStream("src/mule/8-bit-circus-music.wav");
+        //InputStream in = new FileInputStream("src/mule/8-bit-circus-music.wav");
         // create an audiostream from the inputstream
         /***checkstyle not liking deprecated library**/
         //AudioStream audioStream = new AudioStream(in);
@@ -260,20 +260,20 @@ public class GameManager {
     }
 
     public void handleMapButton(Button button) {
-        try {
-            InputStream in = new FileInputStream("src/mule/button-select.wav");
-            // create an audiostream from the inputstream
-            /***checkstyle not liking deprecated library**/
-            //AudioStream audioStream = new AudioStream(in);
-
-            // play the audio clip with the audioplayer class
-            /***checkstyle not liking deprecated library**/
-            //AudioPlayer.player.start(audioStream);
-        } catch (FileNotFoundException e) {
-            System.out.println("no such file");
-        } catch (IOException e) {
-            System.err.println("Caught IOException: " + e.getMessage());
-        }
+//        try {
+//            //InputStream in = new FileInputStream("src/mule/button-select.wav");
+//            // create an audiostream from the inputstream
+//            /***checkstyle not liking deprecated library**/
+//            //AudioStream audioStream = new AudioStream(in);
+//
+//            // play the audio clip with the audioplayer class
+//            /***checkstyle not liking deprecated library**/
+//            //AudioPlayer.player.start(audioStream);
+//        } catch (FileNotFoundException e) {
+//            System.out.println("no such file");
+//        } catch (IOException e) {
+//            System.err.println("Caught IOException: " + e.getMessage());
+//        }
 
         MapManager.handleMapButton(button);
     }

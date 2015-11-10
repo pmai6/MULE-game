@@ -7,23 +7,23 @@ public class SmithoreMule implements Mule {
 
     private Player player;
     private boolean isOwned;
-    private static Tile tile;
+    //private static Tile tile;
 
     public SmithoreMule() {
 
     }
 
-    public void setOwner(Player player) {
-        this.player = player;
+    public void setOwner(Player aplayer) {
+        this.player = aplayer;
     }
 
-    public Tile getLocation(Tile tile) {
-        return tile;
+    public Tile getLocation(Tile atile) {
+        return atile;
     }
 
-    public void setLocation(Tile tile) {
-        SmithoreMule.tile = tile;
-    }
+//    public void setLocation(Tile atile) {
+//        SmithoreMule.tile = atile;
+//    }
 
     public Player getOwner() {
         return player;
@@ -37,7 +37,7 @@ public class SmithoreMule implements Mule {
         return isOwned;
     }
 
-    public void setIsOwned(boolean isOwned) {
-        this.isOwned = isOwned;
+    public void setIsOwned(boolean aisOwned) {
+        this.isOwned = aisOwned;
     }
 }

@@ -52,8 +52,8 @@ public class Game implements Serializable {
         return isMuleBought;
     }
 
-    public  void setIsMuleBought(boolean isMuleBought) {
-        this.isMuleBought = isMuleBought;
+    public  void setIsMuleBought(boolean aisMuleBought) {
+        this.isMuleBought = aisMuleBought;
     }
 
     public void addPlayerToArray(Player player) {
@@ -80,24 +80,24 @@ public class Game implements Serializable {
         return numberOfPlayers;
     }
 
-    public void setNumberOfPlayers(int numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
+    public void setNumberOfPlayers(int anumberOfPlayers) {
+        this.numberOfPlayers = anumberOfPlayers;
     }
 
     public String getMap() {
         return map;
     }
 
-    public void setMap(String map) {
-        this.map = map;
+    public void setMap(String amap) {
+        this.map = amap;
     }
 
     public List<Player> getPlayerArray() {
         return playerArray;
     }
 
-    public void setPlayerArray(List<Player> playerArray) {
-        this.playerArray = playerArray;
+    public void setPlayerArray(List<Player> aplayerArray) {
+        this.playerArray = aplayerArray;
     }
 
     public void createSortedPlayerArray() {
@@ -112,8 +112,8 @@ public class Game implements Serializable {
         return difficulty;
     }
 
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+    public void setDifficulty(String adifficulty) {
+        this.difficulty = adifficulty;
     }
 
     public  boolean isLandSelectionPhase() {
@@ -128,31 +128,31 @@ public class Game implements Serializable {
         return tiles;
     }
 
-    public void setTiles(Tile[][] tiles) {
-        this.tiles = tiles;
-    }
+//    public void setTiles(Tile[][] tiles) {
+//        this.tiles = tiles;
+//    }
 
     public int getTimeLeftInTurn() {
         return timeLeftInTurn;
     }
 
-    public void setTimeLeftInTurn(int timeLeftInTurn) {
-        this.timeLeftInTurn = timeLeftInTurn;
+    public void setTimeLeftInTurn(int atimeLeftInTurn) {
+        this.timeLeftInTurn = atimeLeftInTurn;
     }
 
     public Round getRound() {
         return round;
     }
 
-    public void setRound(Round round) {
-        this.round = round;
+    public void setRound(Round around) {
+        this.round = around;
     }
 
     public Store getGamestore() {
         return gamestore;
     }
 
-    public void setGamestore(Store gamestore) {
-        this.gamestore = gamestore;
+    public void setGamestore(Store agamestore) {
+        this.gamestore = agamestore;
     }
 }

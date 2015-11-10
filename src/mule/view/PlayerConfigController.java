@@ -53,8 +53,8 @@ public class PlayerConfigController {
      *
      * @param mainapp takes Main object
      */
-    public void setMainApp(Main mainapp) {
-        this.mainapp = mainapp;
+    public void setMainApp(Main amainapp) {
+        this.mainapp = amainapp;
     }
 
     /**
@@ -168,7 +168,7 @@ public class PlayerConfigController {
                     gameManager.getMulegame().getN() - 1);
             mainapp.startPlayerConfig(stage);
         } else {
-            System.out.println("This is where the game opens");
+            //System.out.println("This is where the game opens");
             gameManager.startTheGame(stage);
             //GameManager.startGameController(stage);
         }

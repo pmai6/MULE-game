@@ -12,8 +12,8 @@ public class Turn {
 
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayer(Player aplayer) {
+        this.player = aplayer;
     }
 
     public Player getPlayer() {

@@ -11,14 +11,14 @@ public class Mountain1 implements Tile {
     private Player player;
     private boolean isOwned;
     private boolean hasMule;
-    private static  Tile[][] tiles;
+    //private static  Tile[][] tiles;
     private List<Mule> mules = new ArrayList<>();
 
     public Mountain1() {
 
     }
-    public void setOwner(Player player) {
-        this.player = player;
+    public void setOwner(Player aplayer) {
+        this.player = aplayer;
     }
     public Tile getLocation(Tile[][] tiles) {
         return tiles[2][4];
@@ -36,8 +36,8 @@ public class Mountain1 implements Tile {
         return isOwned;
     }
 
-    public void setIsOwned(boolean isOwned) {
-        this.isOwned = isOwned;
+    public void setIsOwned(boolean aisOwned) {
+        this.isOwned = aisOwned;
     }
 
     public List<Mule> getMule() {
@@ -49,8 +49,8 @@ public class Mountain1 implements Tile {
     }
 
     public void calculateProduction() {
-        List<Mule> mules = this.getMule();
-        Iterator<Mule> muleIterator = mules.iterator();
+        List<Mule> amules = this.getMule();
+        Iterator<Mule> muleIterator = amules.iterator();
         while (muleIterator.hasNext()) {
             Mule currentMule = muleIterator.next();
             if (currentMule instanceof FoodMule) {
@@ -72,7 +72,7 @@ public class Mountain1 implements Tile {
         return hasMule;
     }
 
-    public void setHasMule(boolean hasMule) {
-        this.hasMule = hasMule;
+    public void setHasMule(boolean ahasMule) {
+        this.hasMule = ahasMule;
     }
 }
