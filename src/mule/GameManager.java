@@ -7,12 +7,6 @@ import javafx.stage.Stage;
 import mule.model.*;
 import mule.view.GameController;
 
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-
 import java.util.List;
 
 /**
@@ -79,12 +73,7 @@ public class GameManager {
      */
     public void setGameFromSave(Game mulegame, Stage stage) throws Exception {
         this.mulegame = mulegame;
-        for (Player p: mulegame.getPlayerArray()) {
-            System.out.println(p.getPlayerName());
-        }
-        for (Player p: mulegame.getPlayerArray()) {
-            System.out.println(p.getMoney());
-        }
+
         RoundManager.startFromSave(gameManager);
         gameManager.startGameController(stage);
         gameManager.setGameStateLabel();

@@ -161,15 +161,14 @@ public class PlayerManager implements Serializable {
         Player currentPlayer = RoundManager.getCurrentPlayer();
         List<Tile> tiles = currentPlayer.getTiles();
         Iterator<Tile> tileIterator = tiles.iterator();
-        System.out.println(currentPlayer.getTotalNumberOfMules());
-        System.out.println(currentPlayer.getEnergy());
+
         if(currentPlayer.getEnergy() >= currentPlayer.getTotalNumberOfMules()) {
             PlayerManager.subPlayerEnergy(currentPlayer, currentPlayer.getTotalNumberOfMules());
             while (tileIterator.hasNext()) {
                 tileIterator.next().calculateProduction();
             }
         } else {
-            System.out.println("insufficient amount of energy");
+            //System.out.println("insufficient amount of energy");
         }
     }
 
@@ -188,7 +187,7 @@ public class PlayerManager implements Serializable {
                 event = RandomEvent.getGoodTurnRandomEventsEvent();
             RandomEvent.callTurnRandomEvent(event);
         } else {
-                System.out.println("no random event will occur");
+              //  System.out.println("no random event will occur");
             }
     }
 
@@ -461,8 +460,8 @@ public class PlayerManager implements Serializable {
      * @return the player list
      */
     public static List<Player> getPlayerList() {
-        List<Player> allPlayers = gameManager.getSortedPlayerArray();
-        return allPlayers;
+        return gameManager.getSortedPlayerArray();
+
     }
 
     /**

@@ -6,6 +6,7 @@ package mule.model;
 
         import java.io.*;
         import java.util.ArrayList;
+        import java.util.List;
 
 /**
  * The type Round.
@@ -15,7 +16,7 @@ public class Round implements Serializable {
     /**
      * The Round turns.
      */
-    private  ArrayList<Turn> roundTurns;
+    private List<Turn> roundTurns;
     /**
      * The Round num.
      */

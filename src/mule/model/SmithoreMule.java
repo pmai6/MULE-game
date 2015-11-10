@@ -13,10 +13,7 @@ public class SmithoreMule implements Mule {
      * The Is owned.
      */
     private boolean isOwned;
-    /**
-     * The constant tile.
-     */
-    private static  Tile tile;
+
 
     /**
      * Instantiates a new Smithore mule.
@@ -34,21 +31,7 @@ public class SmithoreMule implements Mule {
         this.player = player;
     }
 
-    /**
-     * Gets location.
-     *
-     * @param tile the tile
-     * @return the location
-     */
-    public Tile getLocation(Tile tile) { return tile; }
 
-    /**
-     * Sets location.
-     *
-     * @param tile the tile
-     */
-    public void setLocation(Tile tile) {
-        SmithoreMule.tile = tile; }
 
     /**
      * Gets owner.

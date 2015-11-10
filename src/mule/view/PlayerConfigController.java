@@ -5,15 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.paint.*;
+
 import javafx.stage.Stage;
 
 import javafx.scene.control.TextField;
 import mule.GameManager;
 import mule.Main;
 import mule.PlayerManager;
-import mule.model.Game;
-import mule.model.Player;
 
 import java.util.List;
 
@@ -29,11 +27,11 @@ public class PlayerConfigController {
     /**
      * The Race info.
      */
-    public javafx.scene.control.Label raceInfo;
+    private javafx.scene.control.Label raceInfo;
     /**
      * The Color label.
      */
-    public javafx.scene.control.Label colorLabel;
+    private javafx.scene.control.Label colorLabel;
     /**
      * The Race combo.
      */
@@ -223,7 +221,6 @@ public class PlayerConfigController {
                     1);
             mainapp.startPlayerConfig(stage);
         } else {
-            System.out.println("This is where the game opens");
             gameManager.startTheGame(stage);
             //GameManager.startGameController(stage);
         }

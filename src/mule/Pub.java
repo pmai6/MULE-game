@@ -42,7 +42,8 @@ public class Pub {
         if (moneyBonus <= 250) { player.setMoney(player.getMoney() + moneyBonus); } // player cannot earn more than 250 a gambling
         else {
             player.setMoney(player.getMoney() + (moneyBonus - 250));
-            System.out.println("You earn more than the amount allowed. Sorry, no clover!!");
+           //System.out.println("You earn more than the amount allowed. Sorry,"
+               //     + " no clover!!");
         }
 
     }

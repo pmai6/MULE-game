@@ -96,11 +96,7 @@ public class MapManager {
             gameManager.getMulegame().setIsMuleBought(false);
             gameManager.setGameStateLabel();
             gameManager.addMuleToButton(button, tile);
-            for (Tile tiles : player.getTiles()) {
-                for (Mule mules : tiles.getMule()) {
-                    System.out.println(mules);
-                }
-            }
+
         } else {
             player.setUnplacedMule(null);
             gameManager.getMulegame().setIsMuleBought(false);
