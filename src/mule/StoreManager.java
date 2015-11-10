@@ -3,16 +3,22 @@ package mule;
 import mule.model.*;
 
 /**
- * Created by travisclement on 9/30/15.
+ * The type Store manager.
  */
 public class StoreManager {
-    private static GameManager gameManager = GameManager.getGameManager();
-    private static Store gamestore = gameManager.getGameStore();
     /**
-     * Stub method
-     * Method to deduct store's inventory
+     * The constant gameManager.
+     */
+    private static GameManager gameManager = GameManager.getGameManager();
+    /**
+     * The constant gamestore.
+     */
+    private static Store gamestore = gameManager.getGameStore();
+
+    /**
+     * Export food.
      *
-     * @param quantityFood - deduct amount
+     * @param quantityFood the quantity food
      */
     public static void exportFood(int quantityFood) {
         int foodPrice = gamestore.getFoodPrice();
@@ -30,10 +36,9 @@ public class StoreManager {
     }
 
     /**
-     * Stub method
-     * Method to add store's inventory
+     * Import food.
      *
-     * @param quantityFood - deduct amount
+     * @param quantityFood the quantity food
      */
     public static void importFood(int quantityFood) {
         Player currentPlayer = RoundManager.getCurrentPlayer();
@@ -48,6 +53,11 @@ public class StoreManager {
         }
     }
 
+    /**
+     * Export energy.
+     *
+     * @param quantityEnergy the quantity energy
+     */
     public static void exportEnergy(int quantityEnergy) {
         int energyPrice = gamestore.getEnergyPrice();
         Player currentPlayer = RoundManager.getCurrentPlayer();
@@ -64,6 +74,11 @@ public class StoreManager {
         }
     }
 
+    /**
+     * Import energy.
+     *
+     * @param quantityEnergy the quantity energy
+     */
     public static void importEnergy(int quantityEnergy) {
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerEnergyAmount = currentPlayer.getEnergy();
@@ -77,6 +92,11 @@ public class StoreManager {
         }
     }
 
+    /**
+     * Export smithore.
+     *
+     * @param quantitySmithore the quantity smithore
+     */
     public static void exportSmithore(int quantitySmithore) {
         int smithorePrice = gamestore.getSmithorePrice();
         Player currentPlayer = RoundManager.getCurrentPlayer();
@@ -93,6 +113,11 @@ public class StoreManager {
         }
     }
 
+    /**
+     * Import smithore.
+     *
+     * @param quantitySmithore the quantity smithore
+     */
     public static void importSmithore(int quantitySmithore) {
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerSmithoreAmount = currentPlayer.getSmithore();
@@ -106,6 +131,11 @@ public class StoreManager {
         }
     }
 
+    /**
+     * Export crystite.
+     *
+     * @param quantityCrystite the quantity crystite
+     */
     public static void exportCrystite(int quantityCrystite) {
         int crystitePrice = gameManager.getGameStore().getCrystitePrice();
         Player currentPlayer = RoundManager.getCurrentPlayer();
@@ -122,6 +152,11 @@ public class StoreManager {
         }
     }
 
+    /**
+     * Import crystite.
+     *
+     * @param quantityCrystite the quantity crystite
+     */
     public static void importCrystite(int quantityCrystite) {
         Player currentPlayer = RoundManager.getCurrentPlayer();
         int playerCrystiteAmount = currentPlayer.getCrystite();
@@ -136,6 +171,12 @@ public class StoreManager {
         }
     }
 
+    /**
+     * Buy mule.
+     *
+     * @param muleName the mule name
+     * @throws Exception the exception
+     */
     public static void buyMule(String muleName) throws Exception{
         Player player = RoundManager.getCurrentPlayer();
         if (gamestore.getMuleQty() >= 1 && player.getUnplacedMule() == null) {

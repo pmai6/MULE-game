@@ -9,15 +9,34 @@ import java.util.List;
 import java.io.Serializable;
 
 /**
- * Class to manage player objects
+ * The type Player manager.
  */
 public class PlayerManager implements Serializable {
+    /**
+     * The constant gameManager.
+     */
     private static GameManager gameManager = GameManager.getGameManager();
 
+    /**
+     * The Start time.
+     */
     private int startTime;
+    /**
+     * The Time.
+     */
     private mule.view.Timer time = new mule.view.Timer(startTime);
+    /**
+     * The Time left.
+     */
     private IntegerProperty timeLeft = time.getTimeLeft();
 
+    /**
+     * Create new game player.
+     *
+     * @param playerName2    the player name 2
+     * @param selectedRace2  the selected race 2
+     * @param selectedColor2 the selected color 2
+     */
     public static void createNewGamePlayer(String playerName2,
                                             String selectedRace2,
                                             String selectedColor2) {
@@ -26,12 +45,12 @@ public class PlayerManager implements Serializable {
     }
 
 
-
-    /** Stub method
-     * Method to deduct the an amount of money a player spent
-     * @param player current player
-     * @param item item to buy
-     * @param quantity amount to buy
+    /**
+     * Buy resources.
+     *
+     * @param player   the player
+     * @param item     the item
+     * @param quantity the quantity
      */
     public static void buyResources (Player player, String item, int quantity) {
         if (item.equalsIgnoreCase("food")) {
@@ -51,6 +70,13 @@ public class PlayerManager implements Serializable {
         }
     }
 
+    /**
+     * Buy mule.
+     *
+     * @param player the player
+     * @param mule   the mule
+     * @throws Exception the exception
+     */
     public static void buyMule (Player player, Mule mule) throws Exception{
         if (player.getMoney() - mule.getCost() >= 0) {
             player.setMoney(player.getMoney() - mule.getCost());
@@ -74,11 +100,13 @@ public class PlayerManager implements Serializable {
             gameManager.notEnoughMoney();
         }
     }
+
     /**
-     * void method - add money to the account of the player
-     * @param player - current player
-     * @param item - item sold
-     * @param quantity - amount sold
+     * Sell resources.
+     *
+     * @param player   the player
+     * @param item     the item
+     * @param quantity the quantity
      */
     public static void sellResources (Player player, String item ,int quantity) {
         //
@@ -97,12 +125,23 @@ public class PlayerManager implements Serializable {
         }
     }
 
+    /**
+     * Gets time left property.
+     *
+     * @return the time left property
+     */
     public IntegerProperty getTimeLeftProperty() { return timeLeft; } // get time remaining in the
-                                                                      // player's turn
+
+    /**
+     * Gets time left.
+     *
+     * @return the time left
+     */
+// player's turn
     public int getTimeLeft() { return timeLeft.get(); }
 
     /**
-     * stub method - player's turn ends when gambling
+     * Gamble in pub.
      */
     public void gambleInPub () {
         Pub.gamble(RoundManager.getCurrentPlayer(), timeLeft.get(),
@@ -115,22 +154,27 @@ public class PlayerManager implements Serializable {
 
     }
 
+    /**
+     * Calculate player production.
+     */
     public static void calculatePlayerProduction() {
         Player currentPlayer = RoundManager.getCurrentPlayer();
         List<Tile> tiles = currentPlayer.getTiles();
         Iterator<Tile> tileIterator = tiles.iterator();
-        System.out.println(currentPlayer.getTotalNumberOfMules());
-        System.out.println(currentPlayer.getEnergy());
+
         if(currentPlayer.getEnergy() >= currentPlayer.getTotalNumberOfMules()) {
             PlayerManager.subPlayerEnergy(currentPlayer, currentPlayer.getTotalNumberOfMules());
             while (tileIterator.hasNext()) {
                 tileIterator.next().calculateProduction();
             }
         } else {
-            System.out.println("insufficient amount of energy");
+            //System.out.println("insufficient amount of energy");
         }
     }
 
+    /**
+     * Calculate player turn random event.
+     */
     public static void calculatePlayerTurnRandomEvent() {
         String lowestScorePlayerName = gameManager.getSortedPlayerArray().get(0).getPlayerName();
         String currentPlayerName = RoundManager.getCurrentPlayer().getPlayerName();
@@ -143,10 +187,13 @@ public class PlayerManager implements Serializable {
                 event = RandomEvent.getGoodTurnRandomEventsEvent();
             RandomEvent.callTurnRandomEvent(event);
         } else {
-                System.out.println("no random event will occur");
+              //  System.out.println("no random event will occur");
             }
     }
 
+    /**
+     * Calculate player round random event.
+     */
     public static void calculatePlayerRoundRandomEvent() {
         String event;
         if(Math.random() < .2) {
@@ -158,30 +205,60 @@ public class PlayerManager implements Serializable {
             System.out.println("no random event will occur");
     }
 
+    /**
+     * Add player food.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void addPlayerFood(Player player, int amount) {
         int currentFoodQty = player.getFood();
         int newFoodQty = currentFoodQty + amount;
         player.setFood(newFoodQty);
     }
 
+    /**
+     * Add player energy.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void addPlayerEnergy(Player player, int amount) {
         int currentEnergyQty = player.getEnergy();
         int newEnergyQty = currentEnergyQty + amount;
         player.setEnergy(newEnergyQty);
     }
 
+    /**
+     * Add player smithore.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void addPlayerSmithore(Player player, int amount) {
         int currentSmithoreQty = player.getSmithore();
         int newSmithoreQty = currentSmithoreQty + amount;
         player.setSmithore(newSmithoreQty);
     }
 
+    /**
+     * Add player crystite.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void addPlayerCrystite(Player player, int amount) {
         int currentCrystiteQty = player.getCrystite();
         int newCrystiteQty = currentCrystiteQty + amount;
         player.setSmithore(newCrystiteQty);
     }
 
+    /**
+     * Add player money.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void addPlayerMoney(Player player, int amount) {
         int currentMoneyQty = player.getMoney();
         int newMoneyQty = currentMoneyQty + amount;
@@ -210,6 +287,14 @@ public class PlayerManager implements Serializable {
 //        }
 //    }
 
+    /**
+     * Add player mule.
+     *
+     * @param player   the player
+     * @param muleName the mule name
+     * @param amount   the amount
+     * @throws Exception the exception
+     */
     public static void addPlayerMule (Player player, String muleName, int amount) throws Exception{
         for (int i = 0; i < amount; i++) {
             if (muleName.equals("Energy Mule")){
@@ -236,36 +321,71 @@ public class PlayerManager implements Serializable {
         }
     }
 
+    /**
+     * Sub player food.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void subPlayerFood(Player player, int amount) {
         int currentFoodQty = player.getFood();
         int newFoodQty = currentFoodQty - amount;
         player.setFood(newFoodQty);
     }
 
+    /**
+     * Sub player energy.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void subPlayerEnergy(Player player, int amount) {
         int currentEnergyQty = player.getEnergy();
         int newEnergyQty = currentEnergyQty - amount;
         player.setEnergy(newEnergyQty);
     }
 
+    /**
+     * Sub player smithore.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void subPlayerSmithore(Player player, int amount) {
         int currentSmithoreQty = player.getSmithore();
         int newSmithoreQty = currentSmithoreQty - amount;
         player.setSmithore(newSmithoreQty);
     }
 
+    /**
+     * Sub player crystite.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void subPlayerCrystite(Player player, int amount) {
         int currentCrystiteQty = player.getCrystite();
         int newCrystiteQty = currentCrystiteQty - amount;
         player.setSmithore(newCrystiteQty);
     }
 
+    /**
+     * Sub player money.
+     *
+     * @param player the player
+     * @param amount the amount
+     */
     public static void subPlayerMoney(Player player, int amount) {
         int currentMoneyQty = player.getMoney();
         int newMoneyQty = currentMoneyQty - amount;
         player.setMoney(newMoneyQty);
     }
 
+    /**
+     * Add food to all players.
+     *
+     * @param food the food
+     */
     public static void addFoodToAllPlayers(int food) {
         Iterator<Player> playerIterator = getPlayerList().iterator();
             while (playerIterator.hasNext()) {
@@ -273,6 +393,11 @@ public class PlayerManager implements Serializable {
             }
     }
 
+    /**
+     * Add energy to all players.
+     *
+     * @param energy the energy
+     */
     public static void addEnergyToAllPlayers(int energy) {
         Iterator<Player> playerIterator = getPlayerList().iterator();
         while (playerIterator.hasNext()) {
@@ -280,12 +405,23 @@ public class PlayerManager implements Serializable {
         }
     }
 
+    /**
+     * Add smithore to all players.
+     *
+     * @param smithore the smithore
+     */
     public static void addSmithoreToAllPlayers(int smithore) {
         Iterator<Player> playerIterator = getPlayerList().iterator();
         while (playerIterator.hasNext()) {
             addPlayerSmithore(playerIterator.next(), smithore);
         }
     }
+
+    /**
+     * Sub food to all players.
+     *
+     * @param food the food
+     */
     public static void subFoodToAllPlayers(int food) {
         Iterator<Player> playerIterator = getPlayerList().iterator();
         while (playerIterator.hasNext()) {
@@ -293,6 +429,11 @@ public class PlayerManager implements Serializable {
         }
     }
 
+    /**
+     * Sub energy to all players.
+     *
+     * @param energy the energy
+     */
     public static void subEnergyToAllPlayers(int energy) {
         Iterator<Player> playerIterator = getPlayerList().iterator();
         while (playerIterator.hasNext()) {
@@ -300,6 +441,11 @@ public class PlayerManager implements Serializable {
         }
     }
 
+    /**
+     * Sub smithore to all players.
+     *
+     * @param smithore the smithore
+     */
     public static void subSmithoreToAllPlayers(int smithore) {
         Iterator<Player> playerIterator = getPlayerList().iterator();
         while (playerIterator.hasNext()) {
@@ -308,11 +454,24 @@ public class PlayerManager implements Serializable {
     }
 
 
+    /**
+     * Gets player list.
+     *
+     * @return the player list
+     */
     public static List<Player> getPlayerList() {
-        List<Player> allPlayers = gameManager.getSortedPlayerArray();
-        return allPlayers;
+        return gameManager.getSortedPlayerArray();
+
     }
 
+    /**
+     * Sub player mule.
+     *
+     * @param player   the player
+     * @param muleName the mule name
+     * @param amount   the amount
+     * @throws Exception the exception
+     */
     public static void subPlayerMule (Player player, String muleName, int amount) throws Exception{
         for (int i = 0; i < amount; i++) {
             if (muleName.equals("Energy Mule")){

@@ -6,13 +6,17 @@ import mule.model.Player;
 
 import java.util.Random;
 
+/**
+ * The type Pub.
+ */
 public class Pub {
-    private int gamblingMoney = 0;
 
-    /**Player gambles in pub and receive appropriate money
-     * @param player player who gambles
-     * @param turnTimeLeft player's unused time in their turn
-     * @param roundNum current round number
+    /**
+     * Gamble.
+     *
+     * @param player       the player
+     * @param turnTimeLeft the turn time left
+     * @param roundNum     the round num
      */
     public static void gamble(Player player, int turnTimeLeft, int roundNum) {
         int [] roundBonus = new int []{50, 100, 150, 200};
@@ -38,7 +42,8 @@ public class Pub {
         if (moneyBonus <= 250) { player.setMoney(player.getMoney() + moneyBonus); } // player cannot earn more than 250 a gambling
         else {
             player.setMoney(player.getMoney() + (moneyBonus - 250));
-            System.out.println("You earn more than the amount allowed. Sorry, no clover!!");
+           //System.out.println("You earn more than the amount allowed. Sorry,"
+               //     + " no clover!!");
         }
 
     }

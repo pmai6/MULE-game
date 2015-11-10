@@ -4,10 +4,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import mule.view.*;
+import mule.view.PlayerConfigController;
+import mule.view.SplashController;
+import mule.view.StartUpController;
 
+/**
+ * The type Main.
+ */
 public class Main extends Application {
 
+    /**
+     * Start.
+     *
+     * @param primaryStage the primary stage
+     * @throws Exception the exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
@@ -20,6 +31,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Start up config.
+     *
+     * @param primaryStage the primary stage
+     * @throws Exception the exception
+     */
     public void startUpConfig(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "view/StartUp.fxml"));
@@ -31,10 +48,11 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    /** starts the player config window
+    /**
+     * Start player config.
      *
-     * @param astage receives stage from previous window for reuse
-     * @throws Exception
+     * @param astage the astage
+     * @throws Exception the exception
      */
     public void startPlayerConfig(Stage astage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
@@ -47,6 +65,11 @@ public class Main extends Application {
         astage.show();
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

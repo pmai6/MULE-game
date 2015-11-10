@@ -1,26 +1,28 @@
 package mule;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import mule.model.*;
 import mule.view.*;
 
 /**
- * Created by travisclement on 9/18/15.
+ * The type Map manager.
  */
 public class MapManager {
+    /**
+     * The constant gameManager.
+     */
     private static GameManager gameManager = GameManager.getGameManager();
 
+    /**
+     * The constant button.
+     */
     private static Button button;
 
     /**
-     * this will be the major method to handle what happens when a button is
-     * pushed
+     * Handle map button.
      *
-     * @param button button on map display player's property
+     * @param button the button
      */
     public static void handleMapButton(Button button) {
         MapManager.button = button;
@@ -39,17 +41,11 @@ public class MapManager {
     }
 
     /**
-     * Method to buy a tile
-     * takes in player and tile
-     * then marks the tile as owned buy the player in the tile
-     * array.
-     * then adds the tile to the array the player keeps of the tiles it owns
-     * deducts the money from the players money -
-     * Button param will only be used to pass through tto the
-     * changeButtonColor() method
+     * Buy tile.
      *
-     * @param player player who buys tile
-     * @param tile tile to be bought
+     * @param player the player
+     * @param tile   the tile
+     * @param button the button
      */
     private static void buyTile(Player player, Tile tile, Button button) {
         if (canTileBeBought(player, tile)) {
@@ -67,13 +63,11 @@ public class MapManager {
 
 
     /**
-     * Method to check if tile can be bought
-     * should check if tile is currently owned
-     * if the player has enough money to buy the tile
-     * sanity check to make sure it is not the town
+     * Can tile be bought boolean.
      *
-     * @param player current player of the game
-     * @param tile   tile to be checked
+     * @param player the player
+     * @param tile   the tile
+     * @return the boolean
      */
     private static boolean canTileBeBought(Player player, Tile tile) {
 
@@ -87,11 +81,11 @@ public class MapManager {
 
 
     /**
-     * method to placeMule on Tile in the main map
+     * Place mule.
      *
-     * @param player current player
-     * @param tile   Tile that was clicked on
-     * @param button - button, so image can be changed
+     * @param player the player
+     * @param tile   the tile
+     * @param button the button
      */
     private static void placeMule(Player player, Tile tile, Button button) {
         Mule mule = player.getUnplacedMule();
@@ -102,11 +96,7 @@ public class MapManager {
             gameManager.getMulegame().setIsMuleBought(false);
             gameManager.setGameStateLabel();
             gameManager.addMuleToButton(button, tile);
-            for (Tile tiles : player.getTiles()) {
-                for (Mule mules : tiles.getMule()) {
-                    System.out.println(mules);
-                }
-            }
+
         } else {
             player.setUnplacedMule(null);
             gameManager.getMulegame().setIsMuleBought(false);
@@ -119,12 +109,10 @@ public class MapManager {
 
 
     /**
-     * Method to change the color of the button that was pushed on the map
-     * takes in player and Button to determine which color and which button to
-     * change
+     * Change button color.
      *
-     * @param player current player of the game
-     * @param button button on map to be changed color
+     * @param player the player
+     * @param button the button
      */
     private static void changeButtonColor(Player player, Button button) {
         String thecolor = player.getPlayerColor();
@@ -134,10 +122,9 @@ public class MapManager {
 
 
     /**
-     * method to compute the current cost of tile
-     * set to 300 for now will need to update after land selection phase
+     * Cost of tile int.
      *
-     * @return int cost of tile
+     * @return the int
      */
     public static int costOfTile() {
         //TODO need to deal with later rounds in land selection phase
@@ -150,6 +137,12 @@ public class MapManager {
         return 300;
     }
 
+    /**
+     * Sets map.
+     *
+     * @param mulegame   the mulegame
+     * @param controller the controller
+     */
     public static void setupMap(Game mulegame, GameController controller) {
 
         Button[][] buttons = controller.getButtonArray();

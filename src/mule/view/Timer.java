@@ -9,16 +9,38 @@ import javafx.fxml.FXML;
 import javafx.util.Duration;
 import mule.RoundManager;
 
+/**
+ * The type Timer.
+ */
 public class Timer {
 
+    /**
+     * The Timeline.
+     */
     @FXML
     private Timeline timeline;
+    /**
+     * The Time seconds.
+     */
     private IntegerProperty timeSeconds;
+    /**
+     * The Start time.
+     */
     private int startTime;
+
+    /**
+     * Instantiates a new Timer.
+     *
+     * @param startTime the start time
+     */
     public Timer(int startTime) {
         this.startTime = startTime;
         this.timeSeconds = new SimpleIntegerProperty(startTime);
     }
+
+    /**
+     * Start timer.
+     */
     public void startTimer() {
         if (timeline != null) {
             timeline.stop();
@@ -32,22 +54,39 @@ public class Timer {
         timeline.setOnFinished(e-> RoundManager.playerFinishedTurn(false));
     }
 
+    /**
+     * Gets time left.
+     *
+     * @return the time left
+     */
     public IntegerProperty getTimeLeft() {
         return this.timeSeconds;
     }
+
+    /**
+     * Gets int time left.
+     *
+     * @return the int time left
+     */
     public int getIntTimeLeft() {
         return timeSeconds.get();
     }
 
+    /**
+     * Gets time seconds.
+     *
+     * @return the time seconds
+     */
     public IntegerProperty getTimeSeconds() {
         return this.timeSeconds;
     }
+
+    /**
+     * Stop timer.
+     */
     public void stopTimer() {
         if (this.timeline != null) {
             timeline.stop();
         }
     }
-    //for label
-    //timerLabel.textProperty().bind(timeSeconds.asString());
-    //timerLabel.setTextFill(Color.RED);
 }

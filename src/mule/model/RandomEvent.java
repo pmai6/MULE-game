@@ -5,11 +5,26 @@ import mule.PlayerManager;
 import mule.RoundManager;
 
 /**
- * Created by ryyanj on 10/17/15.
+ * The type Random event.
  */
 public class RandomEvent {
 
-    //round event rules
+    /**
+     * Instantiates a new Random event.
+     */
+    public RandomEvent(){}
+
+    /**
+     * The constant NO_MULE.
+     */
+    public static final String NO_MULE = "Mules does not exists";
+
+    /**
+     * Call turn random event.
+     *
+     * @param event the event
+     */
+//round event rules
 ///        1.RCVD_GT_PACKAGE + (3 food, 2 energy)
 ///        2.REPAID_HOSPITALITY + (2 Smithore)
 ///        3.BOUGHT_ANTIQUE_CPU + ($8*m)
@@ -61,7 +76,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.subPlayerMule(currentPlayer, "Energy Mule", 1);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("ANGRY FAIRY REMEBERS HER CLEAN UP DAY. SHE CHARGES $" + 3*m + "AND RUNS " +
                         "OFF WITH 1 ENERGY MULE");
@@ -71,7 +86,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.subPlayerMule(currentPlayer, "Smithore Mule", 2);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("WOW!! TOO HOT!!! 2 ORE MULES DIE AND 5 FOOD UNITS ROT");
                 break;
@@ -81,7 +96,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.addPlayerMule(currentPlayer, "Energy Mule", 2);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("HUPPIE!! I'M OUT OF THE TEAPOT. HERE ARE $" + 3*m + ", 10 FOOD, 2 " +
                         "ENERGY MULES FOR YOU.");
@@ -95,7 +110,7 @@ public class RandomEvent {
                 try {
                     PlayerManager.addPlayerMule(currentPlayer, "Unicorn Mule", 1);
                 } catch (Exception n) {
-                    System.out.println("Mule does not exists");
+                    System.out.println(NO_MULE);
                 }
                 GameManager.notifyRandomEvent("UNICORN LIKES YOU, COME GET $" + 6*m + ", 10 FOOD, 2 ENERGY, 3 SMITHORES, 3 CRYSTITES, AND" +
                         " TAKE 1 UNICORN MULE HOME");
@@ -115,6 +130,12 @@ public class RandomEvent {
         }
     }
 
+    /**
+     * Gets m.
+     *
+     * @param currRoundNum the curr round num
+     * @return the m
+     */
     private static int getM(int currRoundNum) {
         if(currRoundNum > 0 && currRoundNum < 4) {
             return 25;
@@ -125,10 +146,16 @@ public class RandomEvent {
         else if (currRoundNum > 7 && currRoundNum < 12) {
             return 75;
         }
-        else
+        else {
             return 100;
+        }
     }
 
+    /**
+     * Gets all turn random events event.
+     *
+     * @return the all turn random events event
+     */
     public static String getAllTurnRandomEventsEvent() {
         final String[] allRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
                 "ATE_ROOF", "STOLE_HALF_FOOD", "GYPSY_INLAWS_MESS", "KATRINA_SWEPT_ALL", "GA_HOT_BOWL",
@@ -138,6 +165,11 @@ public class RandomEvent {
     }
 
 
+    /**
+     * Gets good turn random events event.
+     *
+     * @return the good turn random events event
+     */
     public static String getGoodTurnRandomEventsEvent() {
         final String[] goodRandomEvents = {"RCVD_GT_PACK","REPAID_HOSPITALITY","BOUGHT_ANTIQUE_CPU","SOLD_RAT",
                 "GENIE_GRANT_GIFT", "UNICORN_WANDER_LOST","GT_HOMECOMING"};
@@ -146,6 +178,11 @@ public class RandomEvent {
     }
 
 
+    /**
+     * Call round random event.
+     *
+     * @param event the event
+     */
 // Round random event which affects all the players
 // good event: + 3 food units, 2 energy units
     public static void callRoundRandomEvent(String event) {
@@ -161,6 +198,11 @@ public class RandomEvent {
         }
     }
 
+    /**
+     * Gets round random events event.
+     *
+     * @return the round random events event
+     */
     public static String getRoundRandomEventsEvent() {
         final String[] roundRandomEvents = {"UNICORN_BLESSING"};
         int roundRandomEventsIndex = (int)(Math.random() * roundRandomEvents.length);

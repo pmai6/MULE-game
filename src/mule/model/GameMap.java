@@ -7,10 +7,24 @@ holds the array of all of the tiles on the map
 import mule.GameManager;
 import mule.model.Tile;
 
-public class GameMap {
+/**
+ * The type Game map.
+ */
+public final class GameMap {
+    /**
+     * Instantiates a new Game map.
+     */
+    private  GameMap() { }
+
+    /**
+     * The constant gameManager.
+     */
     private static GameManager gameManager = GameManager.getGameManager();
 
 
+    /**
+     * The constant defaultMapLayout.
+     */
     private static String[][] defaultMapLayout = new String[][]{
             {"P", "P", "M1", "P", "R", "P", "M3", "P", "P"},
             {"P", "M1", "P", "P", "R", "P", "P", "P", "M3"},
@@ -20,15 +34,21 @@ public class GameMap {
     };
 
 
-    public GameMap() {
-
-    }
-
+    /**
+     * Get default map layout string [ ] [ ].
+     *
+     * @return the string [ ] [ ]
+     */
     public static String[][] getDefaultMapLayout() {
         return defaultMapLayout;
     }
 
 
+    /**
+     * Get random map layout string [ ] [ ].
+     *
+     * @return the string [ ] [ ]
+     */
     public static String[][] getRandomMapLayout() {
 
         String[] defaultTiles = new String[]{"P", "M2","M1","M3","R"} ;
@@ -45,6 +65,11 @@ public class GameMap {
         return randomMapLayout;
     }
 
+    /**
+     * Get map layout string [ ] [ ].
+     *
+     * @return the string [ ] [ ]
+     */
     public static String[][] getMapLayout() {
         if (gameManager.getMulegame().getMap().equals("Standard")) {
             return getDefaultMapLayout();
@@ -53,15 +78,20 @@ public class GameMap {
         }
     }
 
+    /**
+     * Sets default map layout.
+     *
+     * @param defaultMapLayout the default map layout
+     */
     public static void setDefaultMapLayout(String[][] defaultMapLayout) {
         GameMap.defaultMapLayout = defaultMapLayout;
     }
 
 
-    /** sets up the main map that will be in uses during the game
-     * This is here basically just so random maps could be implemented at a
-     * latter date as opposed to hard coding the tiles to the Tile array
+    /**
+     * Set up map tile [ ] [ ].
      *
+     * @return the tile [ ] [ ]
      */
     public static Tile[][] setUpMap() {
 

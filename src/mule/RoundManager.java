@@ -1,16 +1,31 @@
 package mule;
 
-import mule.model.*;
+import mule.model.Game;
+import mule.model.Player;
 
 
 /**
- * This class need to keep track of rounds and notify the Game class or
- * manager that Land selection has finished
+ * The type Round manager.
  */
 public class RoundManager {
+    /**
+     * The constant roundManager.
+     */
     private static RoundManager roundManager = new RoundManager();
+    /**
+     * The constant gameManager.
+     */
     private static GameManager gameManager;
+    /**
+     * The constant mulegame.
+     */
     private static Game mulegame;
+
+    /**
+     * Start rounds.
+     *
+     * @param agameManager the agame manager
+     */
     public static void startRounds(GameManager agameManager) {
 // no idea what this does
         //should probably create turn objects here
@@ -21,32 +36,40 @@ public class RoundManager {
     }
 
 
+    /**
+     * Start from save.
+     *
+     * @param agameManager the agame manager
+     */
     public static void startFromSave(GameManager agameManager) {
         gameManager = agameManager;
         mulegame = gameManager.getMulegame();
 
     }
+
     /**
-     * return whoever is the currentPlayer
+     * Gets current player.
      *
-     * @return you know the player
+     * @return the current player
      */
     public static Player getCurrentPlayer() {
-        if(gameManager.isLandSelectionPhase())
-            return mulegame.getPlayerArray().get(mulegame.getRound().getTurnNum());
-        else {
-            return mulegame.getSortedPlayerArray().get(mulegame.getRound().getTurnNum());
+        if (gameManager.isLandSelectionPhase()) {
+            return mulegame.getPlayerArray().get(mulegame.getRound()
+                    .getTurnNum());
+        } else {
+            return mulegame.getSortedPlayerArray().get(mulegame.getRound()
+                    .getTurnNum());
         }
     }
 
 
-
-    /** other classes will call this to let the RoundManager manager know that a
-     * player has finished their turn.
-     *  coming from MapManager.
+    /**
+     * Player finished turn.
+     *
+     * @param passed the passed
      */
     public static void playerFinishedTurn(boolean passed) {
-        if(passed) {
+        if (passed) {
             roundManager.incrementNumPasses();
         }
 
@@ -63,34 +86,36 @@ public class RoundManager {
         gameManager.initializePlayerGuiStats();
         roundManager.incrementTurnNumber();
 
-        if (mulegame.getRound().getTurnNum() < gameManager.getNumberOfPlayers()){
+        if (mulegame.getRound().getTurnNum() < gameManager.getNumberOfPlayers(
+        )) {
             gameManager.updateGamePlayerRound();
         }
 
-        if(mulegame.getRound().getTurnNum() == gameManager.getNumberOfPlayers()) {
-        //incrmeent round if all players have gone
+        if (mulegame.getRound().getTurnNum() == gameManager
+                .getNumberOfPlayers()) {
+            //incrmeent round if all players have gone
 
             roundManager.setPlayerScores();
             roundManager.incrementRoundNumber();
 
             gameManager.getMulegame().createSortedPlayerArray();
             mulegame.getRound().setTurnNum(0); //reset turn counter
-            mulegame.getRound().setNumPasses(0);//reset number of passes
+            mulegame.getRound().setNumPasses(0); //reset number of passes
             gameManager.updateGamePlayerRound();
             if (gameManager.isLandSelectionPhase()) {
                 isLandSelectionOver();
-            }
-            else
+            } else {
                 PlayerManager.calculatePlayerRoundRandomEvent();
+            }
         }
-
     }
 
-    /** somehow keep track of all the playerPassed Turn and set land slection
-     * over if all players have passed.
+    /**
+     * Is land selection over.
      */
-    private static void isLandSelectionOver () {
-        if (mulegame.getRound().getNumPasses() == gameManager.getNumberOfPlayers()) {
+    private static void isLandSelectionOver() {
+        if (mulegame.getRound().getNumPasses() == gameManager
+                .getNumberOfPlayers()) {
             gameManager.setIsLandSelectionPhase(false);
             mulegame.getRound().setRoundNum(0);
             roundManager.setPlayerScores();
@@ -100,31 +125,43 @@ public class RoundManager {
     }
 
 
-    private  void incrementTurnNumber() {
+    /**
+     * Increment turn number.
+     */
+    private void incrementTurnNumber() {
         int turnNum = mulegame.getRound().getTurnNum();
         turnNum++;
         mulegame.getRound().setTurnNum(turnNum);
     }
 
-    private  void incrementRoundNumber() {
+    /**
+     * Increment round number.
+     */
+    private void incrementRoundNumber() {
         int roundNum = mulegame.getRound().getRoundNum();
         roundNum++;
         mulegame.getRound().setRoundNum(roundNum);
     }
 
 
-    private  void incrementNumPasses() {
+    /**
+     * Increment num passes.
+     */
+    private void incrementNumPasses() {
         int numPasses = mulegame.getRound().getNumPasses();
         numPasses++;
         mulegame.getRound().setNumPasses(numPasses);
     }
 
-    private  void setPlayerScores() {
-        for(int playerInd = 0; playerInd < gameManager.getNumberOfPlayers(); playerInd++) {
+    /**
+     * Sets player scores.
+     */
+    private void setPlayerScores() {
+        for (int playerInd = 0; playerInd < gameManager.getNumberOfPlayers();
+             playerInd++) {
             mulegame.getPlayerArray().get(playerInd).calculateScore();
         }
     }
-
 
 
 }

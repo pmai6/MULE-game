@@ -1,40 +1,78 @@
 package mule.model;
 
 /**
- * Created by redcream12 on 10/20/15.
+ * The type Unicorn mule.
  */
-public class UnicornMule implements Mule{
-        private Player player;
-        private boolean isOwned;
-        private static  Tile tile;
+public class UnicornMule implements Mule {
+    /**
+     * The Player.
+     */
+    private Player player;
+    /**
+     * The Is owned.
+     */
+    private boolean isOwned;
 
-        public UnicornMule() {
 
-        }
-
-        public void setOwner(Player player) {
-            this.player = player;
-        }
-        public Tile getLocation(Tile tile) { return tile; }
-
-        public void setLocation(Tile tile) {
-            UnicornMule.tile = tile; }
-
-        public Player getOwner() {
-            return player;
-        }
-
-        public int getCost() {
-            return 700;
-        }
-
-        public boolean isOwned() {
-            return isOwned;
-        }
-
-        public void setIsOwned(boolean isOwned) {
-            this.isOwned = isOwned;
-        }
+    /**
+     * Instantiates a new Unicorn mule.
+     */
+    public UnicornMule() {
 
     }
+
+    /**
+     * Sets owner.
+     *
+     * @param aplayer the aplayer
+     */
+    public void setOwner(Player aplayer) {
+        this.player = aplayer;
+    }
+
+/*    public Tile getLocation(Tile atile) {
+        return atile;
+    }
+
+    public void setLocation(Tile atile) {
+        UnicornMule.tile = atile;
+    }*/
+
+    /**
+     * Gets owner.
+     *
+     * @return the owner
+     */
+    public Player getOwner() {
+        return player;
+    }
+
+    /**
+     * Gets cost.
+     *
+     * @return the cost
+     */
+    public int getCost() {
+        return 700;
+    }
+
+    /**
+     * Is owned boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isOwned() {
+        return isOwned;
+    }
+
+    /**
+     * Sets is owned.
+     *
+     * @param aisOwned the ais owned
+     */
+    public void setIsOwned(boolean aisOwned) {
+        this.isOwned = aisOwned;
+    }
+
+}
 

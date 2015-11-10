@@ -4,53 +4,106 @@ package mule.model;
  * Created by ryyanj on 9/20/15.
  */
 
-        import mule.GameManager;
-
         import java.io.*;
-        import java.lang.reflect.Array;
         import java.util.ArrayList;
+        import java.util.List;
 
+/**
+ * The type Round.
+ */
 public class Round implements Serializable {
 
-    private  ArrayList<Turn> roundTurns;
+    /**
+     * The Round turns.
+     */
+    private List<Turn> roundTurns;
+    /**
+     * The Round num.
+     */
     private  int roundNum;
+    /**
+     * The Turn num.
+     */
     private  int turnNum;
+    /**
+     * The Num passes.
+     */
     private  int numPasses;
 
 
-    public  int getNumPasses() {
+    /**
+     * Gets num passes.
+     *
+     * @return the num passes
+     */
+    public final int getNumPasses() {
         return numPasses;
     }
 
-    //initialize proper number of turns based on number of players
-    public  void createTurns(int numberOfPlayers) {
+    /**
+     * Create turns.
+     *
+     * @param numberOfPlayers the number of players
+     */
+//initialize proper number of turns based on number of players
+    public final void createTurns(int numberOfPlayers) {
         roundTurns = new ArrayList<Turn>(numberOfPlayers);
         roundNum = 1;
         turnNum = 0;
     }
 
-    //returns the current turn number
-    public  int getTurnNum() {
+    /**
+     * Gets turn num.
+     *
+     * @return the turn num
+     */
+//returns the current turn number
+    public final int getTurnNum() {
         return turnNum;
     }
 
-    //returns the current turn object
-    public  Turn getCurrentTurn() {
+    /**
+     * Gets current turn.
+     *
+     * @return the current turn
+     */
+//returns the current turn object
+    public final Turn getCurrentTurn() {
         return roundTurns.get(turnNum);
     }
 
-    public  int getRoundNum() {
+    /**
+     * Gets round num.
+     *
+     * @return the round num
+     */
+    public final int getRoundNum() {
         return roundNum;
     }
 
-    public  void setRoundNum(int num) { roundNum = num;
+    /**
+     * Sets round num.
+     *
+     * @param num the num
+     */
+    public final void setRoundNum(int num) { roundNum = num;
     }
 
-    public  void setTurnNum(int num) {
+    /**
+     * Sets turn num.
+     *
+     * @param num the num
+     */
+    public final void setTurnNum(int num) {
         turnNum = num;
     }
 
-    public  void setNumPasses(int num) {
+    /**
+     * Sets num passes.
+     *
+     * @param num the num
+     */
+    public final void setNumPasses(int num) {
         numPasses = num;
     }
 }
