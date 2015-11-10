@@ -9,18 +9,14 @@ import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 
 
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import mule.GameManager;
-import mule.Main;
+import mule.*;
 import mule.model.Mountain1;
 import mule.model.Mountain2;
 import mule.model.Mountain3;

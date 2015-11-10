@@ -38,26 +38,6 @@ public final class CrystiteMule implements Mule {
     }
 
 
-    /**
-     * Gets location.
-     *
-     * @param atile the atile
-     * @return the location
-     */
-    public Tile getLocation(Tile atile) {
-        return tile;
-    }
-
-
-    /**
-     * Sets location.
-     *
-     * @param atile the atile
-     */
-    public void setLocation(Tile atile) {
-        CrystiteMule.tile = atile;
-    }
-
 
     /**
      * Gets owner.

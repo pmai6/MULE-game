@@ -39,23 +39,19 @@ public class GameManager {
      * The constant gamestore.
      */
     private static Store gamestore;
-    /**  */ \
+    /**  */
     /**
      * The Game manager.
      */
-    npublstatic GameManager
+    public GameManager() {}
 
     /**
      * Instantiates a new Get game manager.
      */
-    getGameManager() {
+    public static GameManager getGameManager() {
         return gameManager;
     }
-    /**  */ \
-    /**
-     * The Publicvoid.
-     */
-    n publicvoid
+
 
     /**
      * Instantiates a new Create game.
@@ -65,7 +61,7 @@ public class GameManager {
      * @param map             the map
      * @param n               the n
      */
-    createGame(String difficulty,
+    public void createGame(String difficulty,
                            int numberOfPlayers,
                            String map, int n) {
         mulegame = new Game(difficulty, numberOfPlayers, map, n);
@@ -81,7 +77,7 @@ public class GameManager {
      * @return the game from save
      * @throws Exception the exception
      */
-    publicvoid setGameFromSave(Game mulegame, Stage stage) throws Exception {
+    public void setGameFromSave(Game mulegame, Stage stage) throws Exception {
         this.mulegame = mulegame;
         for (Player p: mulegame.getPlayerArray()) {
             System.out.println(p.getPlayerName());
