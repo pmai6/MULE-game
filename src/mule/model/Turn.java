@@ -1,11 +1,12 @@
 package mule.model;
+
 /**
  * Created by ryyanj on 9/20/15.
  */
 
 public class Turn {
 
-    Player player; //which player's turn
+    private Player player; //which player's turn
 
     public Turn() {
 

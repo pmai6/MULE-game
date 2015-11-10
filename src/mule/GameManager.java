@@ -4,16 +4,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import mule.model.*;
+import mule.model.Game;
+import mule.model.Store;
+import mule.model.Player;
+import mule.model.Tile;
+import mule.model.LoadSave;
 import mule.view.GameController;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+//import sun.audio.AudioPlayer;
+//import sun.audio.AudioStream;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -27,13 +30,25 @@ public class GameManager {
     public static GameManager getGameManager() {
         return gameManager;
     }
+
+    public  static void notifyRandomEvent(String random) {
+        controller.randomEventDialog(random);
+    }
+
+    public static void saveGame() {
+        LoadSave.saveGame();
+    }
+
+    public static void loadGame(Stage stage) throws Exception {
+        LoadSave.loadGame(stage);
+    }
+
     public void createGame(String difficulty,
                            int numberOfPlayers,
                            String map, int n) {
         mulegame = new Game(difficulty, numberOfPlayers, map, n);
         gamestore = mulegame.getGamestore();
     }
-
 
     public void setGameFromSave(Game mulegame, Stage stage) throws Exception {
         this.mulegame = mulegame;
@@ -55,6 +70,7 @@ public class GameManager {
         gameManager.updateGamePlayerRound();
         gamestore = mulegame.getGamestore();
     }
+
     public void startTheGame(Stage stage) throws Exception {
 
         mulegame.setIsLandSelectionPhase(true);
@@ -69,24 +85,24 @@ public class GameManager {
         updateGamePlayerRound();
 
 
-        InputStream in = new FileInputStream
-                ("src/mule/8-bit-circus-music.wav");
+        InputStream in = new FileInputStream("src/mule/8-bit-circus-music.wav");
         // create an audiostream from the inputstream
-        AudioStream audioStream = new AudioStream(in);
+        /***checkstyle not liking deprecated library**/
+        //AudioStream audioStream = new AudioStream(in);
 
         // play the audio clip with the audioplayer class
-        AudioPlayer.player.start(audioStream);
+        /***checkstyle not liking deprecated library***/
+        //AudioPlayer.player.start(audioStream);
     }
-
 
     public void placeMule() throws Exception {
         controller.placingMule();
     }
 
-
     public void goToMap() throws Exception {
         controller.exitButtonAction();
     }
+
     /**Disables the player areas in the main GUI screen so there
      * score and info do not show up
      * @param numPlayers number of players not playing
@@ -136,8 +152,7 @@ public class GameManager {
         gameManager.setGameStateLabel();
     }
 
-
-    public void updateStoreData () {
+    public void updateStoreData() {
         int food = gamestore.getFoodQty();
         int energy = gamestore.getEnergyQty();
         int smithore = gamestore.getSmithoreQty();
@@ -167,24 +182,23 @@ public class GameManager {
             int energy = mulegame.getPlayerArray().get(i).getEnergy();
 
             switch (i) {
-                case 0:
-                    controller.changePlayerOneGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                case 1:
-                    controller.changePlayerTwoGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                case 2:
-                    controller.changePlayerThreeGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                case 3:
-                    controller.changePlayerFourGuiStats(name, race, score,
-                            money, ore, food, color, energy);
-                    break;
-                default:
-                    break;
+            case 0:
+                controller.changePlayerOneGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            case 1:
+                controller.changePlayerTwoGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            case 2:controller.changePlayerThreeGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            case 3:
+                controller.changePlayerFourGuiStats(name, race, score,
+                        money, ore, food, color, energy);
+                break;
+            default:
+                break;
             }
         }
     }
@@ -201,14 +215,11 @@ public class GameManager {
         controller.youGotNoMoney();
     }
 
-    public  static void notifyRandomEvent(String random) {
-        controller.randomEventDialog(random);
-    }
     public  void notEnoughItem() {
         controller.youGotNoResources();
     }
 
-    public  void addMuleToButton(Button button,Tile tile) {
+    public  void addMuleToButton(Button button, Tile tile) {
         controller.addMuleToButton(button, tile);
     }
 
@@ -250,15 +261,15 @@ public class GameManager {
 
     public void handleMapButton(Button button) {
         try {
-            InputStream in = new FileInputStream
-                    ("src/mule/button-select.wav");
+            InputStream in = new FileInputStream("src/mule/button-select.wav");
             // create an audiostream from the inputstream
-            AudioStream audioStream = new AudioStream(in);
+            /***checkstyle not liking deprecated library**/
+            //AudioStream audioStream = new AudioStream(in);
 
             // play the audio clip with the audioplayer class
-            AudioPlayer.player.start(audioStream);
-        }
-        catch (FileNotFoundException e) {
+            /***checkstyle not liking deprecated library**/
+            //AudioPlayer.player.start(audioStream);
+        } catch (FileNotFoundException e) {
             System.out.println("no such file");
         } catch (IOException e) {
             System.err.println("Caught IOException: " + e.getMessage());
@@ -271,14 +282,6 @@ public class GameManager {
         controller.setCursorDefault();
     }
 
-    public static void saveGame() {
-        LoadSave.saveGame();
-    }
-
-    public static void loadGame(Stage stage) throws Exception {
-        LoadSave.loadGame(stage);
-    }
-
     public int getTimeLeft() {
         return controller.getTimeLeft();
     }
@@ -288,6 +291,6 @@ public class GameManager {
     }
 
     public Store getGameStore() {
-       return  mulegame.getGamestore();
+        return  mulegame.getGamestore();
     }
 }

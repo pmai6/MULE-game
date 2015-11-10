@@ -20,7 +20,9 @@ public class Mountain1 implements Tile {
     public void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile[][] tiles) { return tiles[2][4]; }
+    public Tile getLocation(Tile[][] tiles) {
+        return tiles[2][4];
+    }
 
     public Player getOwner() {
         return player;
@@ -42,26 +44,26 @@ public class Mountain1 implements Tile {
         return mules;
     }
 
-    public void addMule (Mule mule) {
+    public void addMule(Mule mule) {
         mules.add(mule);
     }
 
     public void calculateProduction() {
         List<Mule> mules = this.getMule();
         Iterator<Mule> muleIterator = mules.iterator();
-        while(muleIterator.hasNext()) {
+        while (muleIterator.hasNext()) {
             Mule currentMule = muleIterator.next();
-                if (currentMule instanceof FoodMule) {
-                    PlayerManager.addPlayerFood(this.getOwner(), 1);
-                } else if (currentMule instanceof EnergyMule) {
-                    PlayerManager.addPlayerEnergy(this.getOwner(), 1);
-                } else if (currentMule instanceof SmithoreMule) {
-                    PlayerManager.addPlayerSmithore(this.getOwner(), 2);
-                } else if (currentMule instanceof UnicornMule) {
-                    PlayerManager.addPlayerSmithore(this.getOwner(), 2);
-                    PlayerManager.addPlayerFood(this.getOwner(), 3);
-                    PlayerManager.addPlayerEnergy(this.getOwner(), 2);
-                }
+            if (currentMule instanceof FoodMule) {
+                PlayerManager.addPlayerFood(this.getOwner(), 1);
+            } else if (currentMule instanceof EnergyMule) {
+                PlayerManager.addPlayerEnergy(this.getOwner(), 1);
+            } else if (currentMule instanceof SmithoreMule) {
+                PlayerManager.addPlayerSmithore(this.getOwner(), 2);
+            } else if (currentMule instanceof UnicornMule) {
+                PlayerManager.addPlayerSmithore(this.getOwner(), 2);
+                PlayerManager.addPlayerFood(this.getOwner(), 3);
+                PlayerManager.addPlayerEnergy(this.getOwner(), 2);
+            }
         }
 
     }

@@ -1,6 +1,6 @@
 package mule.model;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,8 +14,8 @@ public class Game implements Serializable {
     private String map;
     private int n;
     private  int  playerCounter = 0;
-    private List<String> colorList = new ArrayList<>(Arrays.asList
-            ("Purple","Green","Red","Blue","Orange","Yellow" ));
+    private List<String> colorList = new ArrayList<>(Arrays.asList(
+            "Purple", "Green", "Red", "Blue", "Orange", "Yellow"));
 
     private  boolean isLandSelectionPhase;
     private  boolean isMuleBought = false;
@@ -23,9 +23,9 @@ public class Game implements Serializable {
     private int timeLeftInTurn;
     private Round round;
     private Store gamestore;
-public Game() {} // default constructor
+    public Game() { } // default constructor
 
-    public Game (String adifficulty, int anumPlayers, String amap, int number) {
+    public Game(String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
         numberOfPlayers = anumPlayers;
         playerArray = new ArrayList<>(anumPlayers);
@@ -67,9 +67,14 @@ public Game() {} // default constructor
     public void removeColor(String color) {
         colorList.remove(color);
     }
-    public int getN() {return n;}
 
-    public void setN(int t) {this.n = t;}
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int t) {
+        this.n = t;
+    }
 
     public  int getNumberOfPlayers() {
         return numberOfPlayers;
