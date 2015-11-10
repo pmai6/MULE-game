@@ -7,7 +7,8 @@ holds the array of all of the tiles on the map
 import mule.GameManager;
 import mule.model.Tile;
 
-public class GameMap {
+public final class GameMap {
+    private final GameMap() { }
     private static GameManager gameManager = GameManager.getGameManager();
 
 
@@ -19,10 +20,6 @@ public class GameMap {
             {"P", "P", "M2", "P", "R", "P", "P", "P", "M2"}
     };
 
-
-    public GameMap() {
-
-    }
 
     public static String[][] getDefaultMapLayout() {
         return defaultMapLayout;

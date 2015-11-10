@@ -20,10 +20,6 @@ public class Mountain2 implements Tile {
         this.player = player;
     }
 
-    public Tile getLocation(Tile[][] tiles) {
-        return tiles[2][4];
-    }
-
     public Player getOwner() {
         return player;
     }

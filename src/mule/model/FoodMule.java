@@ -7,7 +7,7 @@ public class FoodMule implements Mule {
 
     private Player player;
     private boolean isOwned;
-    private static  Tile tile;
+
 
     public FoodMule() {
 
@@ -15,14 +15,14 @@ public class FoodMule implements Mule {
     public void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile tile) {
+ /*   public Tile getLocation(Tile tile) {
         return FoodMule.tile;
     }
 
     public void setLocation(Tile tile) {
         FoodMule.tile = tile;
     }
-
+*/
     public Player getOwner() {
         return player;
     }

@@ -34,7 +34,7 @@ public final class LoadSave {
             //System.out.printf("Serialized data is saved in gamedata.ser");
             System.exit(0);
         } catch (IOException i) {
-            log.error("Ops!", i);
+            //log.error("Ops!", i);
         }
     }
 
@@ -48,11 +48,11 @@ public final class LoadSave {
             in.close();
             fileIn.close();
         } catch (IOException i) {
-            log.error("Ops!", i);
+            //log.error("Ops!", i);
             return;
         } catch (ClassNotFoundException c) {
             //System.out.println("Game class not found");
-            log.error("Ops!", c);
+            //log.error("Ops!", c);
             return;
         }
         GameManager.getGameManager().setGameFromSave(mulegame, stage);

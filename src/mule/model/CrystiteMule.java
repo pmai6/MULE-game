@@ -7,7 +7,7 @@ public class CrystiteMule implements Mule {
 
     private Player player;
     private boolean isOwned;
-    private Tile tile;
+
 
     public CrystiteMule() {
 

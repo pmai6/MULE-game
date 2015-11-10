@@ -69,7 +69,7 @@ public class RoundManager {
         roundManager.incrementTurnNumber();
 
         if (mulegame.getRound().getTurnNum() < gameManager.getNumberOfPlayers(
-                )) {
+        )) {
             gameManager.updateGamePlayerRound();
         }
 
@@ -89,6 +89,7 @@ public class RoundManager {
             } else {
                 PlayerManager.calculatePlayerRoundRandomEvent();
             }
+        }
     }
 
     /**

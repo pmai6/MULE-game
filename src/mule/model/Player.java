@@ -148,7 +148,7 @@ public final class Player implements Comparable, Serializable {
         if (afood > 0) {
             this.food = afood;
         } else {
-            this.afood = 0;
+            this.food = 0;
         }
     }
 

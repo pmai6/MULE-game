@@ -11,7 +11,6 @@ public class Mountain1 implements Tile {
     private Player player;
     private boolean isOwned;
     private boolean hasMule;
-    private static  Tile[][] tiles;
     private List<Mule> mules = new ArrayList<>();
 
     public Mountain1() {
@@ -20,7 +19,6 @@ public class Mountain1 implements Tile {
     public void setOwner(Player player) {
         this.player = player;
     }
-    public Tile getLocation(Tile[][] tiles) { return tiles[2][4]; }
 
     public Player getOwner() {
         return player;

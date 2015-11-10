@@ -1,31 +1,34 @@
 package mule.model;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 public class Game implements Serializable {
 
-    private  int numberOfPlayers;
+    private int numberOfPlayers;
     private List<Player> playerArray;
     private List<Player> sortedPlayerArray;
     private String difficulty;
     private String map;
     private int n;
-    private  int  playerCounter = 0;
-    private List<String> colorList = new ArrayList<>(Arrays.asList
-            ("Purple","Green","Red","Blue","Orange","Yellow" ));
+    private int playerCounter = 0;
+    private List<String> colorList = new ArrayList<>(Arrays.asList(
+             "Purple", "Green", "Red", "Blue", "Orange", "Yellow"));
 
-    private  boolean isLandSelectionPhase;
-    private  boolean isMuleBought = false;
+    private boolean isLandSelectionPhase;
+    private boolean isMuleBought = false;
     private Tile[][] tiles;
     private int timeLeftInTurn;
     private Round round;
     private Store gamestore;
-public Game() {} // default constructor
 
-    public Game (String adifficulty, int anumPlayers, String amap, int number) {
+    public Game() {
+    } // default constructor
+
+    public Game(String adifficulty, int anumPlayers, String amap, int number) {
         difficulty = adifficulty;
         numberOfPlayers = anumPlayers;
         playerArray = new ArrayList<>(anumPlayers);
@@ -40,19 +43,20 @@ public Game() {} // default constructor
     public void setUpMap() {
         tiles = GameMap.setUpMap();
     }
-    public  int getPlayerCounter() {
+
+    public int getPlayerCounter() {
         return playerCounter;
     }
 
-    public  void incrementPlayerCounter() {
+    public void incrementPlayerCounter() {
         playerCounter++;
     }
 
-    public  boolean isMuleBought() {
+    public boolean isMuleBought() {
         return isMuleBought;
     }
 
-    public  void setIsMuleBought(boolean isMuleBought) {
+    public void setIsMuleBought(boolean isMuleBought) {
         this.isMuleBought = isMuleBought;
     }
 
@@ -60,18 +64,24 @@ public Game() {} // default constructor
         playerArray.add(player);
         sortedPlayerArray.add(player);
     }
-    public  List getColor() {
+
+    public List getColor() {
         return colorList;
     }
 
     public void removeColor(String color) {
         colorList.remove(color);
     }
-    public int getN() {return n;}
 
-    public void setN(int t) {this.n = t;}
+    public int getN() {
+        return n;
+    }
 
-    public  int getNumberOfPlayers() {
+    public void setN(int t) {
+        this.n = t;
+    }
+
+    public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
@@ -111,11 +121,11 @@ public Game() {} // default constructor
         this.difficulty = difficulty;
     }
 
-    public  boolean isLandSelectionPhase() {
+    public boolean isLandSelectionPhase() {
         return isLandSelectionPhase;
     }
 
-    public  void setIsLandSelectionPhase(boolean isLandSelect) {
+    public void setIsLandSelectionPhase(boolean isLandSelect) {
         isLandSelectionPhase = isLandSelect;
     }
 
@@ -123,9 +133,7 @@ public Game() {} // default constructor
         return tiles;
     }
 
-    public void setTiles(Tile[][] tiles) {
-        this.tiles = tiles;
-    }
+
 
     public int getTimeLeftInTurn() {
         return timeLeftInTurn;
