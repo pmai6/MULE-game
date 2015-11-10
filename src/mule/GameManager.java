@@ -85,7 +85,8 @@ public class GameManager {
         updateGamePlayerRound();
 
 
-        //InputStream in = new FileInputStream("src/mule/8-bit-circus-music.wav");
+        //InputStream in = new FileInputStream
+        // ("src/mule/8-bit-circus-music.wav");
         // create an audiostream from the inputstream
         /***checkstyle not liking deprecated library**/
         //AudioStream audioStream = new AudioStream(in);
@@ -261,7 +262,8 @@ public class GameManager {
 
     public void handleMapButton(Button button) {
 //        try {
-//            //InputStream in = new FileInputStream("src/mule/button-select.wav");
+//            //InputStream in = new FileInputStream
+//            //("src/mule/button-select.wav");
 //            // create an audiostream from the inputstream
 //            /***checkstyle not liking deprecated library**/
 //            //AudioStream audioStream = new AudioStream(in);
