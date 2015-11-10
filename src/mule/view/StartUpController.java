@@ -114,7 +114,7 @@ public class StartUpController {
     }
 
     @FXML
-    private void skipScreens () throws Exception {
+    private void skipScreens() throws Exception {
 
         Stage stage;
         stage = (Stage) nextButton.getScene().getWindow();

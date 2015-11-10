@@ -4,7 +4,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import mule.view.*;
+import mule.view.PlayerConfigController;
+import mule.view.SplashController;
+import mule.view.StartUpController;
 
 public class Main extends Application {
 

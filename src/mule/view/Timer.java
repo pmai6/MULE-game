@@ -47,7 +47,4 @@ public class Timer {
             timeline.stop();
         }
     }
-    //for label
-    //timerLabel.textProperty().bind(timeSeconds.asString());
-    //timerLabel.setTextFill(Color.RED);
 }
