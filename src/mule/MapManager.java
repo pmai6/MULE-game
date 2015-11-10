@@ -1,9 +1,6 @@
 package mule;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import mule.model.*;
 import mule.view.*;
