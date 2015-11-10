@@ -1,16 +1,21 @@
 package mule.model;
 
-import javafx.stage.*;
-import mule.*;
-import mule.view.*;
+import javafx.stage.Stage;
+import mule.GameManager;
 
-import java.io.*;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Created by travisclement on 10/24/15.
  */
-public class LoadSave {
+public final class LoadSave {
 
+    private LoadSave() { }
 
     public static void saveGame() {
         GameManager gamemanager = GameManager.getGameManager();
@@ -26,10 +31,10 @@ public class LoadSave {
             out.writeObject(saveGame);
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved in gamedata.ser");
+            //System.out.printf("Serialized data is saved in gamedata.ser");
             System.exit(0);
         } catch (IOException i) {
-            i.printStackTrace();
+            log.error("Ops!", i);
         }
     }
 
@@ -43,11 +48,11 @@ public class LoadSave {
             in.close();
             fileIn.close();
         } catch (IOException i) {
-            i.printStackTrace();
+            log.error("Ops!", i);
             return;
         } catch (ClassNotFoundException c) {
-            System.out.println("Game class not found");
-            c.printStackTrace();
+            //System.out.println("Game class not found");
+            log.error("Ops!", c);
             return;
         }
         GameManager.getGameManager().setGameFromSave(mulegame, stage);

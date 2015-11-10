@@ -16,10 +16,14 @@ public class Mountain3 implements Tile {
     public Mountain3() {
 
     }
-    public void setOwner(Player player) {
-        this.player = player;
+
+    public void setOwner(Player aplayer) {
+        this.player = aplayer;
     }
-    public Tile getLocation(Tile[][] tiles) { return tiles[2][4]; }
+
+    public Tile getLocation(Tile[][] tiles) {
+        return tiles[2][4];
+    }
 
     public Player getOwner() {
         return player;
@@ -33,8 +37,8 @@ public class Mountain3 implements Tile {
         return isOwned;
     }
 
-    public void setIsOwned(boolean isOwned) {
-        this.isOwned = isOwned;
+    public void setIsOwned(boolean aisOwned) {
+        this.isOwned = aisOwned;
     }
 
 
@@ -42,25 +46,25 @@ public class Mountain3 implements Tile {
         return mules;
     }
 
-    public void addMule (Mule mule) {
+    public void addMule(Mule mule) {
         mules.add(mule);
     }
 
     public void calculateProduction() {
-        List<Mule> mules = this.getMule();
-        Iterator<Mule> muleIterator = mules.iterator();
-        while(muleIterator.hasNext()) {
+        List<Mule> amules = this.getMule();
+        Iterator<Mule> muleIterator = amules.iterator();
+        while (muleIterator.hasNext()) {
             Mule currentMule = muleIterator.next();
-                if (currentMule instanceof FoodMule) {
-                    PlayerManager.addPlayerFood(this.getOwner(), 1);
-                } else if (currentMule instanceof EnergyMule) {
-                    PlayerManager.addPlayerEnergy(this.getOwner(), 1);
-                } else if (currentMule instanceof SmithoreMule) {
-                    PlayerManager.addPlayerSmithore(this.getOwner(), 4);
-                } else if (currentMule instanceof UnicornMule) {
-                    PlayerManager.addPlayerFood(this.getOwner(), 4);
-                    PlayerManager.addPlayerEnergy(this.getOwner(), 1);
-                }
+            if (currentMule instanceof FoodMule) {
+                PlayerManager.addPlayerFood(this.getOwner(), 1);
+            } else if (currentMule instanceof EnergyMule) {
+                PlayerManager.addPlayerEnergy(this.getOwner(), 1);
+            } else if (currentMule instanceof SmithoreMule) {
+                PlayerManager.addPlayerSmithore(this.getOwner(), 4);
+            } else if (currentMule instanceof UnicornMule) {
+                PlayerManager.addPlayerFood(this.getOwner(), 4);
+                PlayerManager.addPlayerEnergy(this.getOwner(), 1);
+            }
         }
 
     }
@@ -69,7 +73,7 @@ public class Mountain3 implements Tile {
         return hasMule;
     }
 
-    public void setHasMule(boolean hasMule) {
-        this.hasMule = hasMule;
+    public void setHasMule(boolean ahasMule) {
+        this.hasMule = ahasMule;
     }
 }

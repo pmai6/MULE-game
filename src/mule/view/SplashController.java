@@ -1,11 +1,13 @@
 package mule.view;
 
-import javafx.collections.*;
-import javafx.fxml.*;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.*;
-import mule.*;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import mule.GameManager;
+import mule.Main;
+import mule.PlayerManager;
 
 /**
  * Created by travisclement on 10/23/15.
@@ -32,8 +34,8 @@ public final class SplashController {
      *
      * @param mainapp takes Main object
      */
-    public void setMainApp(Main mainapp) {
-        this.mainapp = mainapp;
+    public void setMainApp(Main amainapp) {
+        this.mainapp = amainapp;
     }
 
     /**
@@ -54,12 +56,10 @@ public final class SplashController {
         stage = (Stage) startGameLabel.getScene().getWindow();
 
         mainapp.startUpConfig(stage);
-
-
     }
 
     @FXML
-    private void skipScreens () throws Exception {
+    private void skipScreens() throws Exception {
 
         Stage stage;
         stage = (Stage) unicornSkip.getScene().getWindow();
@@ -78,27 +78,27 @@ public final class SplashController {
     }
 
     @FXML
-    private void makeGreyNew () throws Exception {
+    private void makeGreyNew() throws Exception {
 
         //how to change color
         newGameAnchor.setStyle(" -fx-background-color: DarkSlateGray");
     }
 
     @FXML
-    private void makeGreyLoad () throws Exception {
+    private void makeGreyLoad() throws Exception {
 
         //how to change color
         loadGameAnchor.setStyle(" -fx-background-color: DarkSlateGray");
     }
     @FXML
-    private void makeBlackNew () throws Exception {
+    private void makeBlackNew() throws Exception {
 
         //how to change color
         newGameAnchor.setStyle(" -fx-background-color: Black");
     }
 
     @FXML
-    private void makeBlackLoad () throws Exception {
+    private void makeBlackLoad() throws Exception {
 
         //how to change color
         loadGameAnchor.setStyle(" -fx-background-color: Black");
