@@ -8,7 +8,7 @@ import mule.GameManager;
 import mule.model.Tile;
 
 public final class GameMap {
-    private final GameMap() { }
+    private  GameMap() { }
     private static GameManager gameManager = GameManager.getGameManager();
 
 

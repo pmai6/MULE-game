@@ -25,12 +25,7 @@ public interface Tile extends Serializable {
      * @param player the owner of the mule
      */
     void setOwner(Player player);
-    /**
-     *
-     * @param tiles the location of all of the mules owned
-     * @return the location of the mule
-     */
-    Tile getLocation(Tile[][] tiles);
+
 
     /**
      *
