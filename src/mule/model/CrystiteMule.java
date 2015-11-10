@@ -9,7 +9,7 @@ package mule.model;
 /**
  * The type Crystite mule.
  */
-public class CrystiteMule implements Mule {
+public final class CrystiteMule implements Mule {
     /**
      * The Player.
      */
