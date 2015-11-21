@@ -12,7 +12,7 @@ import java.io.*;
 public class LoadSave {
 
 
-    public static void saveGame() {
+    public static void saveGame() throws Exception{
         GameManager gamemanager = GameManager.getGameManager();
         Game saveGame = GameManager.getGameManager().getMulegame();
         if (!saveGame.isLandSelectionPhase()) {
@@ -20,6 +20,8 @@ public class LoadSave {
             gamemanager.stopTimer();
         }
         try {
+            MySQLAccess dao = new MySQLAccess();
+            dao.saveDataBase(saveGame);
             FileOutputStream fileOut =
                     new FileOutputStream("gamedata.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -37,11 +39,15 @@ public class LoadSave {
 
         Game mulegame = new Game();
         try {
-            FileInputStream fileIn = new FileInputStream("gamedata.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            mulegame = (Game) in.readObject();
-            in.close();
-            fileIn.close();
+            MySQLAccess dao = new MySQLAccess();
+            mulegame = dao.readDataBase();
+
+            /*old saving to file method*/
+            //FileInputStream fileIn = new FileInputStream("gamedata.ser");
+            //ObjectInputStream in = new ObjectInputStream(fileIn);
+            //mulegame = (Game) in.readObject();
+            //in.close();
+            //fileIn.close();
         } catch (IOException i) {
             i.printStackTrace();
             return;
