@@ -271,7 +271,7 @@ public class GameManager {
         controller.setCursorDefault();
     }
 
-    public static void saveGame() {
+    public static void saveGame() throws Exception{
         LoadSave.saveGame();
     }
 
