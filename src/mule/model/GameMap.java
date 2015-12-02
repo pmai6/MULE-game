@@ -31,17 +31,21 @@ public class GameMap {
 
     public static String[][] getRandomMapLayout() {
 
-        String[] defaultTiles = new String[]{"P", "M2","M1","M3","R"} ;
+        String[] defaultTiles = new String[]{"P", "M2","M1","M3","P", "P", "P", "P"} ;
 
         String[][] randomMapLayout = new String[5][9];
         for (int i = 0; i < 5; i++) {
 
             for (int j = 0; j < 9; j++) {
                 randomMapLayout[i][j] = defaultTiles[(int) (Math.random() *
-                        (5))];
+                        (8))];
             }
         }
         randomMapLayout[2][4]= "Town";
+        randomMapLayout[0][4] = "R";
+        randomMapLayout[1][4] = "R";
+        randomMapLayout[3][4] = "R";
+        randomMapLayout[4][4] = "R";
         return randomMapLayout;
     }
 
