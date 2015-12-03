@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mule.model.ChatClient;
 import mule.view.*;
 
 public class Main extends Application {
@@ -18,6 +19,7 @@ public class Main extends Application {
         SplashController controller = fxmlLoader.getController();
         controller.setMainApp(this);
         primaryStage.show();
+        ChatClient.initConnection();
     }
 
     public void startUpConfig(Stage primaryStage) throws Exception {

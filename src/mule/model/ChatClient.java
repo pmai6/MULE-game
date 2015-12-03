@@ -14,8 +14,10 @@ public class ChatClient implements Runnable
     private DataInputStream  console   = null;
     private DataOutputStream streamOut = null;
     private ChatClientThread client    = null;
+    private static ChatClient clientOne = null;
 
     public ChatClient(String serverName, int serverPort)
+
     {  System.out.println("Establishing connection. Please wait ...");
         try
         {  socket = new Socket(serverName, serverPort);
@@ -48,7 +50,9 @@ public class ChatClient implements Runnable
         System.out.println(msg);
     }
     public void start() throws IOException
-    {  console   = new DataInputStream(System.in);
+    {
+        System.setIn(System.in);
+        console   = new DataInputStream(System.in);
         streamOut = new DataOutputStream(socket.getOutputStream());
         if (thread == null)
         {  client = new ChatClientThread(this, socket);
@@ -72,11 +76,11 @@ public class ChatClient implements Runnable
         client.stop();
     }
 
-    public static void main(String args[])
-    {  ChatClient client = null;
-        if (args.length != 2)
-            System.out.println("Usage: java ChatClient host port");
-        else
-            client = new ChatClient(args[0], Integer.parseInt(args[1]));
+    public static void initConnection() {
+        clientOne = new ChatClient("ryyanj.com", 8089);
+    }
+
+    public static ChatClient getChatClient() {
+        return clientOne;
     }
 }

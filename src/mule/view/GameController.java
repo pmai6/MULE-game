@@ -18,13 +18,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import mule.*;
-import mule.model.Mountain1;
-import mule.model.Mountain2;
-import mule.model.Mountain3;
-import mule.model.Plain;
-import mule.model.River;
-import mule.model.Store;
-import mule.model.Tile;
+import mule.model.*;
+
+import java.io.IOException;
 
 public final class GameController {
     private GameManager gameManager;
@@ -635,8 +631,16 @@ public final class GameController {
 
     @FXML
     private void chatButtonAction() {
-        String stuff = enterChat.getText();
-        System.out.println(stuff);
+//        String playerChat = enterChat.getText();
+//        try {
+//            ChatClient.getChatClient().start(playerChat);
+//        }
+//        catch(IOException ioe)
+//        {
+//            System.out.println("Unexpected exception: " + ioe.getMessage());
+//        }
+
+       // System.out.println(playerChat);
 
     }
 
