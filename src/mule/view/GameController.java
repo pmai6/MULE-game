@@ -48,6 +48,8 @@ public final class GameController {
     @FXML
     private TextField purchaseQtyBox;
     @FXML
+    private TextField enterChat;
+    @FXML
     private ComboBox<String> transactionBuyCombo;
     @FXML
     private ComboBox<String> transactionSellCombo;
@@ -629,6 +631,13 @@ public final class GameController {
     @FXML
     private void passTurnButton() {
         RoundManager.playerFinishedTurn(true);
+    }
+
+    @FXML
+    private void chatButtonAction() {
+        String stuff = enterChat.getText();
+        System.out.println(stuff);
+
     }
 
     @FXML
