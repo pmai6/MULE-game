@@ -10,6 +10,7 @@ public class ChatClient implements Runnable
     private DataInputStream  console   = null;
     private static DataOutputStream streamOut = null;
     private static ChatClientThread client    = null;
+    private static String serverMsg = null;
 
     public static void connect(String serverName, int serverPort)
     {  System.out.println("Establishing connection. Please wait ...");
@@ -74,13 +75,22 @@ public class ChatClient implements Runnable
     }
     }
     public void handle(String msg)
-    {  if (msg.equals(".bye"))
-    {  System.out.println("Good bye. Press RETURN to exit ...");
-        stop();
+    {  if (msg.equals(".bye")) {
+            System.out.println("Good bye. Press RETURN to exit ...");
+            stop();
     }
-    else
+    else {
         System.out.println(msg);
+        serverMsg = msg;
+        }
+
     }
+
+    public static String returnServerMsg() {
+        return serverMsg;
+    }
+
+
     public void start() throws IOException
     {  console   = new DataInputStream(System.in);
         streamOut = new DataOutputStream(socket.getOutputStream());
@@ -108,6 +118,6 @@ public class ChatClient implements Runnable
 
     private static void println(String msg)
     {
-        GameController.chatField.appendText(msg + "\n");
+        //GameController.chatField.appendText(msg + "\n");
     }
 }

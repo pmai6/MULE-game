@@ -46,7 +46,7 @@ public final class GameController {
     @FXML
     private TextField enterChat;
     @FXML
-    public static TextArea chatField;
+    private  TextArea chatField;
     @FXML
     private ComboBox<String> transactionBuyCombo;
     @FXML
@@ -636,6 +636,14 @@ public final class GameController {
 
         String text =enterChat.getText();
             ChatClient.send(text);
+
+        String msg = ChatClient.returnServerMsg();
+        if(msg != null && !msg.isEmpty()) {
+            chatField.appendText(msg + '\n');
+        }
+        else
+            chatField.setText(msg + '\n');
+
     }
 
     @FXML
@@ -646,6 +654,7 @@ public final class GameController {
     public void disablePlayerThree() {
         playerthree.setVisible(false);
     }
+
 
     public void disablePlayerFour() {
         playerfour.setVisible(false);
