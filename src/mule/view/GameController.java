@@ -46,6 +46,8 @@ public final class GameController {
     @FXML
     private TextField enterChat;
     @FXML
+    public static TextArea chatField;
+    @FXML
     private ComboBox<String> transactionBuyCombo;
     @FXML
     private ComboBox<String> transactionSellCombo;
@@ -632,7 +634,8 @@ public final class GameController {
     @FXML
     private void chatButtonAction() {
 
-            ChatClient.send(enterChat.getText());
+        String text =enterChat.getText();
+            ChatClient.send(text);
     }
 
     @FXML

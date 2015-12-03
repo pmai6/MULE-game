@@ -1,10 +1,6 @@
 package mule.model;
-import java.net.*;
-import java.io.*;
+import mule.view.GameController;
 
-/**
- * Created by ryyanj on 12/2/15.
- */
 import java.net.*;
 import java.io.*;
 
@@ -15,21 +11,54 @@ public class ChatClient implements Runnable
     private static DataOutputStream streamOut = null;
     private static ChatClientThread client    = null;
 
-
     public static void connect(String serverName, int serverPort)
     {  System.out.println("Establishing connection. Please wait ...");
         try
         {  socket = new Socket(serverName, serverPort);
             System.out.println("Connected: " + socket);
-            ChatClient.open();
-        }
+            open(); }
         catch(UnknownHostException uhe)
+        {  System.out.println("Host unknown: " + uhe.getMessage()); }
+        catch(IOException ioe)
+        {  System.out.println("Unexpected exception: " + ioe.getMessage()); }
+    }
+    public static void send(String stuff)
+    {
+        try
         {
-            System.out.println("Host unknown: " + uhe.getMessage());
+            //streamOut.writeUTF(GameController.enterChat.getText());
+            //streamOut.flush(); GameController.enterChat.setText("");
+            streamOut.writeUTF(stuff);
+            streamOut.flush(); //GameController.enterChat.setText("");
         }
         catch(IOException ioe)
         {
-            System.out.println("Unexpected exception: " + ioe.getMessage());
+            println("Sending error: " + ioe.getMessage());
+            close();
+        }
+    }
+    public static void close()
+    {
+        try
+        {
+            if (streamOut != null)  streamOut.close();
+            if (socket    != null)  socket.close(); }
+        catch(IOException ioe)
+        {
+            println("Error closing ...");
+        }
+            client.close();
+            client.stop();
+    }
+    public static void open()
+    {
+        try
+        {
+            streamOut = new DataOutputStream(socket.getOutputStream());
+            client = new ChatClientThread(new ChatClient(), socket); }
+        catch(IOException ioe)
+        {
+            println("Error opening output stream: " + ioe);
         }
     }
     public void run()
@@ -53,61 +82,12 @@ public class ChatClient implements Runnable
         System.out.println(msg);
     }
     public void start() throws IOException
-    {
-        System.setIn(System.in);
-        console   = new DataInputStream(System.in);
+    {  console   = new DataInputStream(System.in);
         streamOut = new DataOutputStream(socket.getOutputStream());
         if (thread == null)
         {  client = new ChatClientThread(this, socket);
             thread = new Thread(this);
             thread.start();
-        }
-    }
-
-    public static void send(String chatMessage) {
-        try
-        {
-            String text = new String(chatMessage);
-            streamOut.writeUTF(text);
-            streamOut.flush();
-        }
-        catch(IOException ioe)
-        {
-            System.out.println("Sending error: " + ioe.getMessage());
-            close();
-        }
-    }
-
-    public static void close() {
-        try
-        {
-            if (streamOut != null)  streamOut.close();
-            if (socket    != null)  socket.close();
-        }
-        catch(IOException ioe)
-        {
-            System.out.println("Error closing ...");
-        }
-            client.close();  client.stop();
-    }
-
-    public static String convertStreamToString(java.io.InputStream is) {
-        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
-        return s.hasNext() ? s.next() : "";
-    }
-
-
-    public static void open() {
-        try
-        {
-            streamOut = new DataOutputStream(socket.getOutputStream());
-            client = new ChatClientThread(new ChatClient(), socket);
-           //String test = convertStreamToString(client.streamIn);
-            System.out.println("test");
-        }
-         catch(IOException ioe)
-        {
-            System.out.println("Error opening output stream: " + ioe);
         }
     }
     public void stop()
@@ -126,4 +106,8 @@ public class ChatClient implements Runnable
         client.stop();
     }
 
+    private static void println(String msg)
+    {
+        GameController.chatField.appendText(msg + "\n");
+    }
 }
