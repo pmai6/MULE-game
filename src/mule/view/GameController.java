@@ -631,17 +631,8 @@ public final class GameController {
 
     @FXML
     private void chatButtonAction() {
-//        String playerChat = enterChat.getText();
-//        try {
-//            ChatClient.getChatClient().start(playerChat);
-//        }
-//        catch(IOException ioe)
-//        {
-//            System.out.println("Unexpected exception: " + ioe.getMessage());
-//        }
 
-       // System.out.println(playerChat);
-
+            ChatClient.send(enterChat.getText());
     }
 
     @FXML
