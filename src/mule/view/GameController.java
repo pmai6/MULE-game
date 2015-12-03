@@ -18,13 +18,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import mule.*;
-import mule.model.Mountain1;
-import mule.model.Mountain2;
-import mule.model.Mountain3;
-import mule.model.Plain;
-import mule.model.River;
-import mule.model.Store;
-import mule.model.Tile;
+import mule.model.*;
+
+import java.io.IOException;
 
 public final class GameController {
     private GameManager gameManager;
@@ -47,6 +43,10 @@ public final class GameController {
     private HBox playerfour;
     @FXML
     private TextField purchaseQtyBox;
+    @FXML
+    private TextField enterChat;
+    @FXML
+    private  TextArea chatField;
     @FXML
     private ComboBox<String> transactionBuyCombo;
     @FXML
@@ -632,6 +632,21 @@ public final class GameController {
     }
 
     @FXML
+    private void chatButtonAction() {
+
+        String text =enterChat.getText();
+            ChatClient.send(text);
+
+        String msg = ChatClient.returnServerMsg();
+        if(msg != null && !msg.isEmpty()) {
+            chatField.appendText(msg + '\n');
+        }
+        else
+            chatField.setText(msg + '\n');
+
+    }
+
+    @FXML
     private void saveGame() throws Exception {
         GameManager.saveGame();
     }
@@ -639,6 +654,7 @@ public final class GameController {
     public void disablePlayerThree() {
         playerthree.setVisible(false);
     }
+
 
     public void disablePlayerFour() {
         playerfour.setVisible(false);
