@@ -19,7 +19,7 @@ public class Main extends Application {
         SplashController controller = fxmlLoader.getController();
         controller.setMainApp(this);
         primaryStage.show();
-        ChatClient.connect("ryyanj.com", 8089);
+        ChatClient.connect("ryyanj.com", 8090);
     }
 
     public void startUpConfig(Stage primaryStage) throws Exception {

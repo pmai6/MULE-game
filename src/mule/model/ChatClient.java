@@ -70,7 +70,6 @@ public class ChatClient implements Runnable
             String text = new String(chatMessage);
             streamOut.writeUTF(text);
             streamOut.flush();
-            //input.setText("");
         }
         catch(IOException ioe)
         {
@@ -92,11 +91,19 @@ public class ChatClient implements Runnable
             client.close();  client.stop();
     }
 
+    public static String convertStreamToString(java.io.InputStream is) {
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        return s.hasNext() ? s.next() : "";
+    }
+
+
     public static void open() {
         try
         {
             streamOut = new DataOutputStream(socket.getOutputStream());
             client = new ChatClientThread(new ChatClient(), socket);
+           //String test = convertStreamToString(client.streamIn);
+            System.out.println("test");
         }
          catch(IOException ioe)
         {

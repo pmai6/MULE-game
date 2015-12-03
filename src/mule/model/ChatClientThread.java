@@ -9,7 +9,7 @@ import java.io.*;
 public class ChatClientThread extends Thread
 {  private Socket           socket   = null;
     private ChatClient       client   = null;
-    private DataInputStream  streamIn = null;
+    public DataInputStream  streamIn = null;
 
     public ChatClientThread(ChatClient _client, Socket _socket)
     {  client   = _client;
