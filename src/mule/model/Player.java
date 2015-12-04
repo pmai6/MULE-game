@@ -58,7 +58,7 @@ public class Player implements Comparable, Serializable {
         this.crystite = 0;
     }
 
-    private int getStartMoney(String race) {
+    public int getStartMoney(String race) {
         if (race == null) {
             return 0;
         } else if (race.equals("Human")) {
@@ -97,7 +97,9 @@ public class Player implements Comparable, Serializable {
         return score;
     }
 
-
+    public int getNum() {
+        return 3;
+    }
 
     public void calculateScore() {
         int landAmount = this.getTiles().size() * 500;

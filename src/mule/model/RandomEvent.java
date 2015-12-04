@@ -115,7 +115,7 @@ public class RandomEvent {
         }
     }
 
-    private static int getM(int currRoundNum) {
+    public static int getM(int currRoundNum) {
         if(currRoundNum > 0 && currRoundNum < 4) {
             return 25;
         }
