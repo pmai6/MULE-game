@@ -59,7 +59,13 @@ private Player player;
 				else if(currentMule instanceof SmithoreMule) {
 					PlayerManager.addPlayerSmithore(this.getOwner(),1);
 				}
-
+				else if (currentMule instanceof WineMule) {
+					PlayerManager.addPlayerFood(this.getOwner(), 2);
+				}
+				else if (currentMule instanceof CombatMule) {
+					PlayerManager.addPlayerEnergy(this.getOwner(), 1);
+					PlayerManager.addPlayerSmithore(this.getOwner(), 2);
+				}
 		}
 
 	}

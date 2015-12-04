@@ -2,17 +2,13 @@ package mule.view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.paint.*;
-import javafx.stage.Stage;
-
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import mule.GameManager;
 import mule.Main;
 import mule.PlayerManager;
-import mule.model.Game;
-import mule.model.Player;
 
 import java.util.List;
 
@@ -78,6 +74,9 @@ private GameManager gameManager;
         raceComboData.add("Foilers");
         raceComboData.add("Trillers");
         raceComboData.add("Yellers");
+        raceComboData.add("Splashor");
+        raceComboData.add("Hipchic");
+        raceComboData.add("Ragann");
 
 
         List<String> colorList;
@@ -118,6 +117,15 @@ private GameManager gameManager;
                 }
                 if (raceCombo.getSelectionModel().getSelectedItem() == "Yellers") {
                     raceInfo.setText("(DLC content) They're yellow. Thats about it");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Splashor") {
+                    raceInfo.setText("(DLC content) Make a splash. Nothing can stop the fun");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Hipchic") {
+                    raceInfo.setText("(DLC content) Be free. Be the boss!!");
+                }
+                if (raceCombo.getSelectionModel().getSelectedItem() == "Ragann") {
+                raceInfo.setText("(DLC content) The ragoon of the century. Thats it");
                 }
     }
 

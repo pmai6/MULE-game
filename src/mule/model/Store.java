@@ -15,15 +15,21 @@ public class Store implements Serializable {
     private  int oreMule = 6;
     private  int energyMule = 6;
     private  int mule = 25;
+    private  int combatMule = 6;
+    private  int santaMule = 2;
+    private  int wineMule = 6;
 
 
     public Store() {}
 
-    public Store(int food, int ore, int energy, int smithore, int crystite, int mule) {
+    public Store(int food, int energy, int smithore, int crystite, int mule, int wineMule, int combatMule, int santaMule) {
         this.food = food;
         this.energy = energy;
         this.smithore = smithore;
         this.crystite = crystite;
+        this.wineMule = wineMule;
+        this.combatMule = combatMule;
+        this.santaMule = santaMule;
         this.mule = mule;
     }
 /*    private void setStartStoreQuantity() {
@@ -73,5 +79,18 @@ public class Store implements Serializable {
     public  int getSmithoreMuleQty() { return oreMule; }
     public  int getSmithoreMulePrice() { return 175; }
     public  void setSmithoreMuleQty(int oreMuleQty) { oreMule = oreMuleQty; }
+
+
+    public  int getSantaMuleQty() { return santaMule; }
+    public  int getSantaMulePrice() { return 350; }
+    public  void setSantaMuleQty(int santaMuleQty) { santaMule = santaMuleQty; }
+
+    public  int getWineMuleQty() { return wineMule; }
+    public  int getWineMulePrice() { return 110; }
+    public  void setWineMuleQty(int wineMuleQty) { wineMule = wineMuleQty; }
+
+    public  int getCombatMuleQty() { return combatMule; }
+    public  int getCombatMulePrice() { return 155; }
+    public  void setCombatMuleQty(int combatMuleQty) { combatMule = combatMuleQty; }
 
 }

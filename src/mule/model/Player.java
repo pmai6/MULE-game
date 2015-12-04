@@ -1,14 +1,11 @@
 package mule.model;
-import java.io.*;
+import mule.GameManager;
+import mule.MapManager;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import mule.*;
 
 /**
  * Created by travisclement on 9/8/15.
@@ -35,6 +32,10 @@ public class Player implements Comparable, Serializable {
     private int crystiteMule;
     private int oreMule;
     private int unicornMule;
+    private int combatMule;
+    private int wineMule;
+    private int santaMule;
+
     private List<Tile> tiles;
     private Mule unplacedMule;
 
@@ -65,6 +66,12 @@ public class Player implements Comparable, Serializable {
             return 600;
         } else if (race.equals("Flapper")) {
             return 1600;
+        } else if (race.equals("Splashor")) {
+            return 1100;
+        } else if (race.equals("Hipchic")) {
+            return 750;
+        } else if (race.equals("Ragann")) {
+            return 1425;
         } else {
             return 1000;
         }
@@ -208,6 +215,27 @@ public class Player implements Comparable, Serializable {
     }
     public void setUnicornMule(int unicornMuleQty) {
         unicornMule = unicornMuleQty;
+    }
+
+    public int getWineMule() {
+        return wineMule;
+    }
+    public void setWineMule(int wineMuleQty) {
+        wineMule = wineMuleQty;
+    }
+
+    public int getSantaMule() {
+        return santaMule;
+    }
+    public void setSantaMule(int santaMuleQty) {
+        santaMule = santaMuleQty;
+    }
+
+    public int getCombatMule() {
+        return combatMule;
+    }
+    public void setCombatMule(int combatMuleQty) {
+        combatMule = combatMuleQty;
     }
 
 

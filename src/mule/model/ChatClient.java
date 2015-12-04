@@ -1,15 +1,14 @@
 package mule.model;
-import mule.view.GameController;
 
 import java.net.*;
 import java.io.*;
 
 public class ChatClient implements Runnable
-{  private static Socket socket              = null;
-    private Thread thread              = null;
-    private DataInputStream  console   = null;
+{  private static Socket socket = null;
+    private Thread thread = null;
+    private DataInputStream  console = null;
     private static DataOutputStream streamOut = null;
-    private static ChatClientThread client    = null;
+    private static ChatClientThread client = null;
     private static String serverMsg = null;
 
     public static void connect(String serverName, int serverPort)

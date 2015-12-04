@@ -7,20 +7,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import mule.*;
 import mule.model.*;
-
-import java.io.IOException;
 
 public final class GameController {
     private GameManager gameManager;
@@ -179,6 +174,7 @@ public final class GameController {
         transactionBuyComboData.add("Crystite Mule");
         transactionBuyComboData.add("Smithore Mule");
 
+
         gameManager = GameManager.getGameManager();
         transactionBuyComboData.add(" ");
         transactionBuyComboData.add("Food");
@@ -189,6 +185,9 @@ public final class GameController {
         transactionBuyComboData.add("Energy Mule");
         transactionBuyComboData.add("Crystite Mule");
         transactionBuyComboData.add("Smithore Mule");
+        transactionBuyComboData.add("Combat Mule");
+        transactionBuyComboData.add("Santa Mule");
+        transactionBuyComboData.add("Wine Mule");
 
         transactionSellComboData.add(" ");
         transactionSellComboData.add("Food");
@@ -554,6 +553,12 @@ public final class GameController {
                     + "Mule")) {
                 StoreManager.buyMule(selectedBuyTransaction);
             } else if (selectedBuyTransaction.equalsIgnoreCase("Energy Mule")) {
+                StoreManager.buyMule(selectedBuyTransaction);
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Wine Mule")) {
+                StoreManager.buyMule(selectedBuyTransaction);
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Combat Mule")) {
+                StoreManager.buyMule(selectedBuyTransaction);
+            } else if (selectedBuyTransaction.equalsIgnoreCase("Santa Mule")) {
                 StoreManager.buyMule(selectedBuyTransaction);
             } else if (selectedBuyTransaction.equalsIgnoreCase("Crystite "
                     + "Mule")) {

@@ -13,7 +13,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -110,7 +109,7 @@ public class GameManager {
                 "view/GameScreen.fxml"));
         Parent root = fxmlLoader.load();
         astage.setScene(new Scene(root));
-        astage.setTitle("U.N.I.C.O.R.N Game Screen");
+        astage.setTitle("U.N.I.C.O.R.N. Game Screen");
         controller = fxmlLoader.getController();
         astage.show();
     }

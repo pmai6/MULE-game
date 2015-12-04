@@ -57,6 +57,15 @@ public class Mountain3 implements Tile {
                     PlayerManager.addPlayerEnergy(this.getOwner(), 1);
                 } else if (currentMule instanceof SmithoreMule) {
                     PlayerManager.addPlayerSmithore(this.getOwner(), 4);
+                } else if (currentMule instanceof WineMule) {
+                    PlayerManager.addPlayerFood(this.getOwner(), 2);
+                } else if (currentMule instanceof SantaMule) {
+                    PlayerManager.addPlayerFood(this.getOwner(), 2);
+                    PlayerManager.addPlayerEnergy(this.getOwner(), 1);
+                    PlayerManager.addPlayerCrystite(this.getOwner(), 3);
+                } else if (currentMule instanceof CombatMule) {
+                    PlayerManager.addPlayerEnergy(this.getOwner(), 2);
+                    PlayerManager.addPlayerSmithore(this.getOwner(), 2);
                 } else if (currentMule instanceof UnicornMule) {
                     PlayerManager.addPlayerFood(this.getOwner(), 4);
                     PlayerManager.addPlayerEnergy(this.getOwner(), 1);
