@@ -480,19 +480,19 @@
                </children></AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Pub" layoutX="200.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="600.0" visible="false">
+      <AnchorPane fx:id="Pub" layoutX="200.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="600.0">
          <children>
             <AnchorPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="400.0" fitWidth="326.0" layoutX="-63.0" layoutY="-101.0">
+                  <ImageView fitHeight="349.0" fitWidth="584.0" layoutX="-177.0" layoutY="-108.0">
                      <image>
                         <Image url="@../resources/pub%202.jpg" />
                      </image>
                   </ImageView>
+                  <Button layoutX="-52.0" layoutY="168.0" mnemonicParsing="false" onAction="#gambleButton" prefHeight="44.0" prefWidth="71.0" text="Gamble" />
+                  <Button layoutX="189.0" layoutY="161.0" mnemonicParsing="false" onAction="#exitPubButtonAction" prefHeight="39.0" prefWidth="60.0" text="Exit" />
                </children>
             </AnchorPane>
-            <Button layoutX="43.0" layoutY="144.0" mnemonicParsing="false" onAction="#gambleButton" prefHeight="64.0" prefWidth="71.0" text="Gamble" />
-            <Button layoutX="489.0" layoutY="144.0" mnemonicParsing="false" onAction="#exitPubButtonAction" prefHeight="64.0" prefWidth="78.0" text="Exit" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="127.0" fitWidth="131.0" layoutX="157.0" layoutY="418.0">
