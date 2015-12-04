@@ -21,7 +21,8 @@ public class PlayerManager implements Serializable {
     public static void createNewGamePlayer(String playerName2,
                                             String selectedRace2,
                                             String selectedColor2) {
-        Player newplayer = new Player(playerName2, selectedRace2, selectedColor2);
+        Player newplayer = new Player(playerName2, selectedRace2,
+            selectedColor2,gameManager.getMulegame().getDifficulty());
         gameManager.getMulegame().addPlayerToArray(newplayer);
     }
 
