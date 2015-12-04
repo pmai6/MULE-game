@@ -31,14 +31,15 @@ public class GameMap {
 
     public static String[][] getRandomMapLayout() {
 
-        String[] defaultTiles = new String[]{"P", "M2","M1","M3","P", "P", "P", "P"} ;
+        String[] defaultTiles = new String[]{"P", "M2","M1","M3","SM", "O",
+            "G", "V","P","P","P","P","P","P","P","P","P","P"} ;
 
         String[][] randomMapLayout = new String[5][9];
         for (int i = 0; i < 5; i++) {
 
             for (int j = 0; j < 9; j++) {
                 randomMapLayout[i][j] = defaultTiles[(int) (Math.random() *
-                        (8))];
+                        (15))];
             }
         }
         randomMapLayout[2][4]= "Town";
@@ -98,7 +99,23 @@ public class GameMap {
                     Tile newTileName = new Mountain3();
                     tiles[i][j] = newTileName;
 
-                } else {
+                } else if (tileType.equals("SM")) {
+                    Tile newTileName = new SwampMonster();
+                    tiles[i][j] = newTileName;
+
+                } else if (tileType.equals("O"))  {
+                    Tile newTileName = new Ocean();
+                    tiles[i][j] = newTileName;
+
+                } else if (tileType.equals("G")) {
+                    Tile newTileName = new Grass();
+                    tiles[i][j] = newTileName;
+
+                } else if (tileType.equals("V")) {
+                    Tile newTileName = new Volcano();
+                    tiles[i][j] = newTileName;
+
+                }else {
                     Tile newTileName = new Plain();
                     tiles[i][j] = newTileName;
                     newTileName.setOwner(null);

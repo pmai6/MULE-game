@@ -35,19 +35,22 @@ public class Player implements Comparable, Serializable {
     private int combatMule;
     private int wineMule;
     private int santaMule;
+    private String difficulty;
 
     private List<Tile> tiles;
     private Mule unplacedMule;
 
 
     public Player () {}
-    public Player(String aplayerName, String aplayerRace, String aplayerColor) {
+    public Player(String aplayerName, String aplayerRace, String
+        aplayerColor, String adifficulty) {
         this.playerName = aplayerName;
         this.playerRace = aplayerRace;
         this.playerColor = aplayerColor;
-        this.money = getStartMoney(aplayerRace);
+        this.money = getStartMoney(aplayerRace,adifficulty);
         this.score = 0;
         setStartFoodOreEnergy();
+        this.difficulty = adifficulty;
         tiles = new ArrayList<Tile>();
     }
 
@@ -59,22 +62,50 @@ public class Player implements Comparable, Serializable {
         this.crystite = 0;
     }
 
-    private int getStartMoney(String race) {
-        if (race == null) {
-            return 0;
-        } else if (race.equals("Human")) {
-            return 600;
-        } else if (race.equals("Flapper")) {
-            return 1600;
-        } else if (race.equals("Splashor")) {
-            return 1100;
-        } else if (race.equals("Hipchic")) {
-            return 750;
-        } else if (race.equals("Ragann")) {
-            return 1425;
-        } else {
-            return 1000;
+    private int getStartMoney(String race,String difficulty) {
+        if (difficulty.equals("Standard")) {
+            if (race == null) {
+                return 0;
+            } else if (race.equals("Human")) {
+                return 600;
+            } else if (race.equals("Flapper")) {
+                return 1600;
+            } else if (race.equals("Splashor")) {
+                return 1100;
+            } else if (race.equals("Hipchic")) {
+                return 750;
+            } else if (race.equals("Ragann")) {
+                return 1425;
+            }
+        } else if (difficulty.equals("Beginner")) {
+            if (race == null) {
+                return 0;
+            } else if (race.equals("Human")) {
+                return 2000;
+            } else if (race.equals("Flapper")) {
+                return 20000;
+            } else if (race.equals("Splashor")) {
+                return 2000;
+            } else if (race.equals("Hipchic")) {
+                return 6666;
+            } else {
+                return 55555;
+            }
+        } else if (difficulty.equals("Beginner")) {
+            if (race == null) {
+                return 0;
+            } else if (race.equals("Human")) {
+                return 200;
+            } else if (race.equals("Flapper")) {
+                return 300;
+            } else if (race.equals("Splashor")) {
+                return 100;
+            } else if (race.equals("Hipchic")) {
+                return 100;
+            }
         }
+
+    return 300;
     }
 
     // Getters and setters
