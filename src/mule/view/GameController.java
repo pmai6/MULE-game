@@ -839,7 +839,19 @@ public final class GameController {
         } else if (tile instanceof River) {
             imageplain = new Image(getClass()
                     .getResourceAsStream("../resources/river.gif"));
-        } else {
+        }  else if (tile instanceof Ocean) {
+            imageplain = new Image(getClass()
+                .getResourceAsStream("../resources/ocean.png"));
+        } else if (tile instanceof SwampMonster) {
+            imageplain = new Image(getClass()
+                .getResourceAsStream("../resources/swampMonster.png"));
+        } else if (tile instanceof Volcano) {
+            imageplain = new Image(getClass()
+                .getResourceAsStream("../resources/vol.png"));
+        } else if (tile instanceof Grass) {
+            imageplain = new Image(getClass()
+                .getResourceAsStream("../resources/grass.png"));
+        } else  {
             imageplain = new Image(getClass()
                     .getResourceAsStream("../resources/brown.png"));
         }
